@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Team5RhythmManager : MonoBehaviour
 {
-    public AK.Wwise.RTPC musicSpeedRTPC;
-    public float musicSpeed = 0f;
+    //public AK.Wwise.RTPC musicSpeedRTPC;
+    //public float musicSpeed = 0f;
 
     public delegate void OnMusicBeat();
 
@@ -21,7 +21,7 @@ public class Team5RhythmManager : MonoBehaviour
 
     private void Update()
     {
-        musicSpeedRTPC.SetGlobalValue(musicSpeed);
+       // musicSpeedRTPC.SetGlobalValue(musicSpeed);
 
         if (Input.GetKeyDown(KeyCode.Keypad1)) {
             eventMusic1.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);

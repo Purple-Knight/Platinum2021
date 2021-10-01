@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="PlayTutel" ID="{D1D17B45-D4FD-459F-9CE7-AE1B34C2052F}">
+					<ChildrenList>
+						<Action Name="" ID="{3E47D0EF-52E3-47EF-8F3B-FF0B858E28C6}" ShortID="720630273">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{2A1063D1-5ADA-4B03-B1E1-176176C595B0}" ShortID="948465150">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tutel" ID="{A526841F-2AA1-4C3D-A438-0702E3F8AAE7}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayCrypt" ID="{C13B9832-C58C-4AA6-BC6A-D48D2E1C686E}">
+					<ChildrenList>
+						<Action Name="" ID="{C350E479-19B5-4412-83C7-60D32AFF6332}" ShortID="405448933">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{24591DCE-8988-440B-88B5-ED530E35949E}" ShortID="235099111">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Crypt of the Necrodancer Danganronpa OST" ID="{6F62C79A-2CF3-4B72-BD6F-C90EA05F32E8}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
