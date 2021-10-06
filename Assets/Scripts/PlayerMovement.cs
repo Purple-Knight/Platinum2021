@@ -9,14 +9,18 @@ public class PlayerMovement : MonoBehaviour
     public int playerID = 0;
     private Player player;
     float mvtHorizontal;
-    int jump;
+    float jump;
     float inputTimer;
     float afterBeatTimer;
     [SerializeField] float bufferTime;
     bool buttonPressed;
     bool beatPassed;
     bool hasMoved;
+    [SerializeField]  bool hasJumped;
     public SpriteRenderer sprite;
+    [SerializeField] bool isOnFloor;
+    [SerializeField] bool wasInAir;
+    [SerializeField] float raycastDistance;
 
     private void Start()
     {
@@ -27,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         GetInput();
+        Gravity();
         if (buttonPressed)
         {
             inputTimer += Time.deltaTime;
@@ -45,8 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void GetInput()
     {
-
-        
+        //move horizontal
         if(player.GetAxis("Move Horizontal") !=0 && !beatPassed)
         {
             buttonPressed = true;
@@ -63,21 +67,64 @@ public class PlayerMovement : MonoBehaviour
         {
             mvtHorizontal = 0;
         }
-        //jump = Input.GetAxis("Vertical") > 0?  1 : 0;
-        
+
+        //jump
+        if(player.GetAxis("Jump") > 0 && !beatPassed)
+        {
+            buttonPressed = true;
+            jump = 1;
+
+        }
+        else if (player.GetAxis("Jump") > 0 && beatPassed && afterBeatTimer < bufferTime && !hasMoved)
+        {
+            jump = 1;
+            mvtHorizontal = 0;
+            Move();
+            afterBeatTimer = 0;
+        }
+        else if (player.GetAxis("Jump") < .1f)
+        {
+            jump = 0;
+        }
 
     }
 
     public void Move()
     {
-        if (inputTimer < bufferTime && mvtHorizontal !=0)
+        if (!isOnFloor && (mvtHorizontal == 0 || wasInAir || !hasJumped)) // if for gravity 
+        {
+            Debug.Log("gravity");
+            transform.DOMoveY(transform.position.y - 1, .2f);
+            hasMoved = true;
+            wasInAir = true;
+        }
+        else if (!isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !wasInAir) // move after jump
+        {
+            int i = mvtHorizontal > 0 ? 1 : -1;
+            transform.DOMoveX(transform.position.x + i, .2f);
+            buttonPressed = false;
+            hasMoved = true;
+            wasInAir = true;
+            HitResult();
+        }
+        else if (isOnFloor && inputTimer < bufferTime && mvtHorizontal !=0) //move horizontal on floor
         {
             int i = mvtHorizontal > 0 ? 1 : -1;
             transform.DOMoveX(transform.position.x + i, .2f);
             buttonPressed = false;
             hasMoved = true;
             HitResult();
-        }/*
+        }
+        else if (isOnFloor && inputTimer < bufferTime && jump > 0 )// jump
+        {
+            transform.DOMoveY(transform.position.y + jump, .2f);
+            jump = 0;
+            buttonPressed = false;
+            hasMoved = true;
+            hasJumped = true;
+            HitResult();
+        }
+        /*
         else if(!hasMoved)
         {
             beatPassed = true;
@@ -92,10 +139,29 @@ public class PlayerMovement : MonoBehaviour
         Squeeeesh();
     }
 
+    //raycast O.O *u* hello there :)))) watcha ray casting on?
+    public void Gravity()
+    {
+        RaycastHit2D rayray = Physics2D.Raycast(transform.position, Vector2.down, raycastDistance, LayerMask.GetMask("Ground"));
+
+        if( rayray.collider != null)
+        {
+            isOnFloor = true;
+            if(wasInAir)
+                hasJumped = false;
+            wasInAir = false;
+        }
+        else
+        {
+            isOnFloor = false;
+        }
+    }
+
+    #region feedback
     public void Squeeeesh()
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOScaleY(.8f, .1f)).Append(transform.DOScaleY(1, .1f));
+        seq.Append(transform.DOScaleY(.8f, .1f)).Append(transform.DOScaleY(1, 0.1f)) ;
         seq.Play();
     }
 
@@ -113,12 +179,19 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("<color=yellow> Okay </color>");
             seqColor.Append(sprite.DOColor(Color.yellow, .1f));
         }
-        else
+        else if (inputTimer < bufferTime  || afterBeatTimer < bufferTime )
         {
             Debug.Log("<color=orange> Early / Late</color>");
             seqColor.Append(sprite.DOColor(new Color(1, .5f ,0), .1f));
         }
         
         seqColor.Append(sprite.DOColor(Color.white, .1f));
+    }
+
+    #endregion
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y - raycastDistance));
     }
 }
