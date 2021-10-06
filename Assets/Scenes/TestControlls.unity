@@ -653,7 +653,7 @@ MonoBehaviour:
   sprite: {fileID: 1253434116}
   isOnFloor: 0
   wasInAir: 0
-  raycastDistance: -0.55
+  raycastDistance: 0.51
 --- !u!4 &1253434118
 Transform:
   m_ObjectHideFlags: 0
