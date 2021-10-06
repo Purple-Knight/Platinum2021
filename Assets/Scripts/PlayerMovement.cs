@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float bufferTime;
     bool buttonPressed;
     bool beatPassed;
+    bool hasMoved;
 
     private void Start()
     {
@@ -32,10 +33,12 @@ public class PlayerMovement : MonoBehaviour
         if(beatPassed)
         {
             afterBeatTimer += Time.deltaTime;
-        }if(afterBeatTimer > bufferTime)
+        }
+        if(afterBeatTimer > bufferTime)
         {
             beatPassed = false;
             afterBeatTimer = 0;
+            hasMoved = false;
         }
     }
 
@@ -49,11 +52,10 @@ public class PlayerMovement : MonoBehaviour
             mvtHorizontal = player.GetAxis("Move Horizontal");
 
         }
-        else if(player.GetAxis("Move Horizontal") != 0 && beatPassed && afterBeatTimer < bufferTime)
+        else if(player.GetAxis("Move Horizontal") != 0 && beatPassed && afterBeatTimer < bufferTime && !hasMoved)
         {
             mvtHorizontal = player.GetAxis("Move Horizontal");
             Move();
-            beatPassed = false;
             afterBeatTimer = 0;
         }
         else if(Input.GetAxis("Horizontal") > -.1f && Input.GetAxis("Horizontal") < .1f)
@@ -72,10 +74,13 @@ public class PlayerMovement : MonoBehaviour
             int i = mvtHorizontal > 0 ? 1 : -1;
             transform.DOMoveX(transform.position.x + i, .2f);
             buttonPressed = false;
-        }else
+            hasMoved = true;
+        }/*
+        else if(!hasMoved)
         {
             beatPassed = true;
-        }
+        }*/
+        beatPassed = true;
         inputTimer = 0;
     }
 
@@ -83,5 +88,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("beat received");
         Move();
+        Squeeeesh();
+    }
+
+    public void Squeeeesh()
+    {
+        Sequence seq = DOTween.Sequence();
+        seq.Append(transform.DOScaleY(.8f, .1f)).Append(transform.DOScaleY(1, .1f));
+        seq.Play();
     }
 }
