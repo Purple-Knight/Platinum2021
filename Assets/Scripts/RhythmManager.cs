@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Team5RhythmManager : MonoBehaviour
+public class RhythmManager : MonoBehaviour
 {
+    public static RhythmManager Instance { get { return _instance; } }
+    private static RhythmManager _instance;
     //public AK.Wwise.RTPC musicSpeedRTPC;
     //public float musicSpeed = 0f;
 
@@ -13,7 +15,18 @@ public class Team5RhythmManager : MonoBehaviour
     public AK.Wwise.Event eventMusic2;
     public AK.Wwise.Event eventMusic3;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        { 
+            _instance = this; 
+        }
+    }
+
     void Start()
     {
         eventMusic1.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);

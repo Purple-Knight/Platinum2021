@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class Team5BeatCharacter : MonoBehaviour
 {
-    public Team5RhythmManager rhythmManager;
+    public RhythmManager rhythmManager;
 
     public float xMin = -10f;
     public float xMax = 10f;

@@ -9,7 +9,7 @@ public class Team5BeatWall : MonoBehaviour
         Even
     }
 
-    public Team5RhythmManager rhythmManager;
+    public RhythmManager rhythmManager;
     private SpriteRenderer _spriteRenderer;
     public Color beatAnimColor;
     public float beatAnimDuration = 0.1f;
