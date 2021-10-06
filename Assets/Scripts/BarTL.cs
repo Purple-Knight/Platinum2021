@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BarTL : MonoBehaviour
 {
-    public Vector3 direction;
-    public float speed;
+    [HideInInspector] public Vector3 direction;
+    [HideInInspector] public float speed;
+    [HideInInspector] public float deleteTime;
 
     void Start()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, deleteTime);
     }
 
     void Update()

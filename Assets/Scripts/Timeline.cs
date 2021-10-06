@@ -8,7 +8,6 @@ public class Timeline : MonoBehaviour
     public GameObject bar;
 
     bool canBegin;
-   
     public float beatToReach;
 
     void Start()
@@ -25,10 +24,14 @@ public class Timeline : MonoBehaviour
             var direction = endTimeline.transform.position - transform.position;
             var distance = Vector2.Distance(transform.position, endTimeline.transform.position);
 
-            var speed = distance / (beatToReach * RhythmManager.Instance.beatDuration);
+            var time = beatToReach * RhythmManager.Instance.beatDuration;
+            
+            var speed = distance / time;
 
-            lastBar.GetComponent<BarTL>().direction = direction.normalized;
-            lastBar.GetComponent<BarTL>().speed = speed;
+            var barScript = lastBar.GetComponent<BarTL>();
+            barScript.direction = direction.normalized;
+            barScript.speed = speed;
+            barScript.deleteTime = time;
         }
         else
         {
