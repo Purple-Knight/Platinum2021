@@ -15,6 +15,8 @@ public class RhythmManager : MonoBehaviour
     public AK.Wwise.Event eventMusic2;
     public AK.Wwise.Event eventMusic3;
 
+    public float beatDuration;
+
     private void Awake()
     {
         if (_instance != null)
@@ -48,6 +50,9 @@ public class RhythmManager : MonoBehaviour
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
         onMusicBeatDelegate?.Invoke();
+
+        AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
+        beatDuration = info.segmentInfo_fBeatDuration;
     }
 
 }
