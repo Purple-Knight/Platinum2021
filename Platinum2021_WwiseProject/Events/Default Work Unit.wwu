@@ -37,6 +37,23 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PlayLady" ID="{B77D0730-1208-4726-BF0C-27656C56ADC6}">
+					<ChildrenList>
+						<Action Name="" ID="{D7D2802C-B19D-4A95-9EDD-522729F97E09}" ShortID="862062427">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{88528C8C-C1E0-414B-8A3C-06DB1ABEA326}" ShortID="389673640">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lady Hear Me Tonight" ID="{0B968A1E-4442-4786-A2D4-B5C5C58933F8}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

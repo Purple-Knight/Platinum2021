@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585685017731362264
+    m_lastTime: -8585680803856700616
     List:
     - name: PlayCrypt
       guid: 32983bc18cc5a64abc6ad48d2e1c686e
@@ -113,6 +113,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 124.13387
       minDuration: 124.13387
+    - name: PlayLady
+      guid: 30077db708122647bf0c27656c56adc6
+      id: 3554160111
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: PlayLady
+        ObjectType: 3
+        guid: 30077db708122647bf0c27656c56adc6
+      Path: Events\Default Work Unit\PlayLady
+      maxAttenuation: 0
+      maxDuration: 303.38034
+      minDuration: 303.38034
     - name: PlayTutel
       guid: 457bd1d1fdd49f459ce7ae1b34c2052f
       id: 1295635745
@@ -187,7 +204,7 @@ MonoBehaviour:
     m_lastTime: -8585685329598337378
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 010000001f00000020000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
