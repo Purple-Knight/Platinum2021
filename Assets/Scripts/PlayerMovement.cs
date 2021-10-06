@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     bool buttonPressed;
     bool beatPassed;
     bool hasMoved;
+    public SpriteRenderer sprite;
 
     private void Start()
     {
@@ -75,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
             transform.DOMoveX(transform.position.x + i, .2f);
             buttonPressed = false;
             hasMoved = true;
+            HitResult();
         }/*
         else if(!hasMoved)
         {
@@ -86,7 +88,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void BeatReceived()
     {
-        Debug.Log("beat received");
         Move();
         Squeeeesh();
     }
@@ -96,5 +97,28 @@ public class PlayerMovement : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOScaleY(.8f, .1f)).Append(transform.DOScaleY(1, .1f));
         seq.Play();
+    }
+
+    public void HitResult()
+    {
+        Sequence seqColor = DOTween.Sequence();
+
+        if (inputTimer < bufferTime / 3 || afterBeatTimer < bufferTime / 3)
+        {
+            Debug.Log("<color=green> Good </color>");
+            seqColor.Append(sprite.DOColor(Color.green, .1f));
+        }
+        else if (inputTimer < bufferTime / 3 * 2 || afterBeatTimer < bufferTime / 3 * 2)
+        {
+            Debug.Log("<color=yellow> Okay </color>");
+            seqColor.Append(sprite.DOColor(Color.yellow, .1f));
+        }
+        else
+        {
+            Debug.Log("<color=orange> Early / Late</color>");
+            seqColor.Append(sprite.DOColor(new Color(1, .5f ,0), .1f));
+        }
+        
+        seqColor.Append(sprite.DOColor(Color.white, .1f));
     }
 }

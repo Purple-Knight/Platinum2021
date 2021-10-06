@@ -429,6 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   bufferTime: 0.1
+  sprite: {fileID: 1253434116}
 --- !u!4 &1253434118
 Transform:
   m_ObjectHideFlags: 0
