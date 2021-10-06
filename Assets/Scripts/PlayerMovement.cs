@@ -9,21 +9,22 @@ public class PlayerMovement : MonoBehaviour
     public int playerID = 0;
     public SpriteRenderer sprite;
     private Player player;
+    [SerializeField] Color playerColor;
     [SerializeField] float deadZoneController;
     [SerializeField] float bufferTime;
-    [SerializeField] float raycastDistance;
-    [SerializeField] Color playerColor;
+    float raycastDistance = .5f;
     float mvtHorizontal;
     float jump;
     float inputTimer;
-    float afterBeatTimer;
-    bool buttonPressed;
-    bool beatPassed;
-    bool hasMoved;
-    bool hasJumped;
-    bool isOnFloor;
-    bool wasInAir;
-    bool buttonDown;
+    bool gotInput; //bool to start timer on input
+    bool beatPassed; // bool true is rhythm missed
+    bool hasMoved; // player moved, to block double movement
+    bool hasJumped; //player jumped
+    bool wasInAir; //player was in the air the last beat
+    bool buttonDown; //check if buttons stays down
+
+    //serounding checks
+    bool isOnFloor; // check if player is grounded
     bool canGoRight;
     bool canGoLeft;
     bool canjump;
@@ -37,21 +38,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
         Gravity();
         WallCollision();
-        if (buttonPressed)
+        GetInput();
+        if (gotInput || beatPassed)
         {
             inputTimer += Time.deltaTime;
         }
-        if(beatPassed)
-        {
-            afterBeatTimer += Time.deltaTime;
-        }
-        if(afterBeatTimer > bufferTime)
+        if(inputTimer > bufferTime && beatPassed)
         {
             beatPassed = false;
-            afterBeatTimer = 0;
+            inputTimer = 0;
             hasMoved = false;
         }
     }
@@ -59,43 +56,38 @@ public class PlayerMovement : MonoBehaviour
     public void GetInput()
     {
         //move horizontal 
-        bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || Input.GetAxis("Horizontal") > deadZoneController;
+        bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
 
-        if (inputHorizontal && !beatPassed && !buttonDown)
+        if (inputHorizontal && !buttonDown && !hasMoved)
         {
-            buttonPressed = true;
+            gotInput = true;
             buttonDown = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
+            if (beatPassed)
+            {
+                Move();
+            }
 
         }
-        else if (inputHorizontal && beatPassed && afterBeatTimer < bufferTime && !hasMoved && !buttonDown)
-        {
-            buttonDown = true;
-            mvtHorizontal = player.GetAxis("Move Horizontal");
-            Move();
-            afterBeatTimer = 0;
-        }
-        else if (buttonDown && player.GetAxis("Move Horizontal") > -deadZoneController && Input.GetAxis("Horizontal") < deadZoneController)
+        else if (buttonDown && player.GetAxis("Move Horizontal") > -deadZoneController && player.GetAxis("Move Horizontal") < deadZoneController)
         {
             mvtHorizontal = 0;
             buttonDown = false;
         }
 
         //jump
-        if (player.GetButtonDown("Jump") && !beatPassed)
+        if (player.GetButton("Jump")  && !hasMoved) //appuier sur saut
         {
-            buttonPressed = true;
+            gotInput = true;
+            mvtHorizontal = 0;
             jump = 1;
+            if (beatPassed) // apres le premier beat
+            {
+                Move();
+            }
 
         }
-        else if (player.GetButtonDown("Jump") && beatPassed && afterBeatTimer < bufferTime && !hasMoved)
-        {
-            jump = 1;
-            mvtHorizontal = 0;
-            Move();
-            afterBeatTimer = 0;
-        }
-        else
+        else //pas de input saut
         {
             jump = 0;
         }
@@ -105,41 +97,39 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
+        int x = 0;
+        int y = 0;
         if (!isOnFloor && (mvtHorizontal == 0 || wasInAir || !hasJumped)) // if for gravity 
         {
-            transform.DOMoveY(transform.position.y - 1, .2f);
+            y = -1;
             hasMoved = true;
             wasInAir = true;
         }
         else if (!isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !wasInAir) // move after jump
         {
-            int i = 0;
             if (mvtHorizontal > 0 && canGoRight)
             {
-                i = 1;
+                x = 1;
             }else if(mvtHorizontal < 0 && canGoLeft)
             {
-                i = -1;
+                x = -1;
             }
-            transform.DOMoveX(transform.position.x + i, .2f);
-            buttonPressed = false;
+            mvtHorizontal = 0;
             hasMoved = true;
             wasInAir = true;
             HitResult();
         }
         else if (isOnFloor && inputTimer < bufferTime && mvtHorizontal !=0) //move horizontal on floor
         {
-            int i = 0;
             if (mvtHorizontal > 0 && canGoRight)
             {
-                i = 1;
+                x = 1;
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
-                i = -1;
+                x = -1;
             }
-            transform.DOMoveX(transform.position.x + i, .2f);
-            buttonPressed = false;
+            mvtHorizontal = 0;
             hasMoved = true;
             HitResult();
         }
@@ -147,20 +137,16 @@ public class PlayerMovement : MonoBehaviour
         {
             if (canjump)
             {
-                transform.DOMoveY(transform.position.y + jump, .2f);
+                y = 1;
             }
             jump = 0;
-            buttonPressed = false;
             hasMoved = true;
             hasJumped = true;
             HitResult();
         }
-        /*
-        else if(!hasMoved)
-        {
-            beatPassed = true;
-        }*/
+        transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
         beatPassed = true;
+        gotInput = false;
         inputTimer = 0;
     }
 
@@ -170,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
         Squeeeesh();
     }
 
+    #region GravityAndCollisions
     //raycast O.O *u* hello there :)))) watcha ray casting on?
     public void Gravity()
     {
@@ -218,12 +205,13 @@ public class PlayerMovement : MonoBehaviour
             canjump = true;
         }
     }
+    #endregion
 
     #region feedback
     public void Squeeeesh()
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOScaleY(.8f, .1f)).Append(transform.DOScaleY(1, 0.1f)) ;
+        seq.Append(sprite.transform.DOScaleY(.8f, .1f)).Append(sprite.transform.DOScaleY(1, 0.1f)) ;
         seq.Play();
     }
 
@@ -231,17 +219,17 @@ public class PlayerMovement : MonoBehaviour
     {
         Sequence seqColor = DOTween.Sequence();
 
-        if (inputTimer < bufferTime / 3 || afterBeatTimer < bufferTime / 3)
+        if (inputTimer < bufferTime / 3 )
         {
             //Debug.Log("<color=green> Good </color>");
             seqColor.Append(sprite.DOColor(Color.green, .1f));
         }
-        else if (inputTimer < bufferTime / 3 * 2 || afterBeatTimer < bufferTime / 3 * 2)
+        else if (inputTimer < bufferTime / 3 * 2 )
         {
             //Debug.Log("<color=yellow> Okay </color>");
             seqColor.Append(sprite.DOColor(Color.yellow, .1f));
         }
-        else if (inputTimer < bufferTime  || afterBeatTimer < bufferTime )
+        else if (inputTimer < bufferTime   )
         {
             //Debug.Log("<color=orange> Early / Late</color>");
             seqColor.Append(sprite.DOColor(new Color(1, .5f ,0), .1f));
@@ -252,10 +240,4 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-    /*private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y - raycastDistance));
-        Gizmos.DrawLine(transform.position, new Vector2(transform.position.x +1, transform.position.y));
-        Gizmos.DrawLine(transform.position, new Vector2(transform.position.x -1, transform.position.y));
-    }*/
 }
