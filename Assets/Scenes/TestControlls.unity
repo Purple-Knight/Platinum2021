@@ -482,7 +482,7 @@ MonoBehaviour:
   eventMusic1:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d375603b287fa124d950ebad25b4ed9f, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
   eventMusic2:
     idInternal: 0
     valueGuidInternal: 
@@ -490,7 +490,7 @@ MonoBehaviour:
   eventMusic3:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: d375603b287fa124d950ebad25b4ed9f, type: 2}
   beatDuration: 0
 --- !u!4 &381930278
 Transform:
@@ -2259,6 +2259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player4
       objectReference: {fileID: 0}
+    - target: {fileID: 3883265989226838415, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6995882317632707775, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_Color.b
       value: 0.29411766
@@ -2811,6 +2815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 3883265989226838415, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6995882317632707775, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -2927,6 +2935,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player3
       objectReference: {fileID: 0}
+    - target: {fileID: 3883265989226838415, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6995882317632707775, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -2971,7 +2983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.z

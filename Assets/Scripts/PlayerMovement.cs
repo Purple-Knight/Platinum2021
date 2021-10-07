@@ -29,11 +29,17 @@ public class PlayerMovement : MonoBehaviour
     bool canGoLeft;
     bool canjump;
 
+    //lerp
+    Vector2 lastPos;
+    public Vector2 targetPos;
+
     private void Start()
     {
         player = ReInput.players.GetPlayer(playerID);
         RhythmManager.Instance.onMusicBeatDelegate += BeatReceived;
         sprite.color = playerColor;
+        lastPos = transform.position;
+        targetPos = transform.position;
     }
 
     private void Update()
@@ -50,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
             beatPassed = false;
             inputTimer = 0;
             hasMoved = false;
+            targetPos = transform.position;
+            lastPos = targetPos;
         }
     }
 
@@ -63,8 +71,9 @@ public class PlayerMovement : MonoBehaviour
             gotInput = true;
             buttonDown = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
-            if (beatPassed)
+            if (beatPassed )
             {
+                Debug.Log("first move");
                 Move();
             }
 
@@ -76,13 +85,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //jump
-        if (player.GetButton("Jump")  && !hasMoved) //appuier sur saut
+        if (player.GetButton("Jump") && !hasJumped ) //appuier sur saut
         {
             gotInput = true;
             mvtHorizontal = 0;
             jump = 1;
             if (beatPassed) // apres le premier beat
             {
+                Debug.Log("jump move");
                 Move();
             }
 
@@ -97,54 +107,69 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        int x = 0;
-        int y = 0;
-        if (!isOnFloor && (mvtHorizontal == 0 || wasInAir || !hasJumped)) // if for gravity 
+        if (!isOnFloor && (mvtHorizontal == 0 || wasInAir || !hasJumped) && !hasMoved) // if for gravity 
         {
-            y = -1;
+            targetPos.y =  transform.position.y -1;
             hasMoved = true;
             wasInAir = true;
+
         }
-        else if (!isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !wasInAir) // move after jump
+        else if (!isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !wasInAir && !hasMoved) // move after jump
         {
             if (mvtHorizontal > 0 && canGoRight)
             {
-                x = 1;
-            }else if(mvtHorizontal < 0 && canGoLeft)
-            {
-                x = -1;
-            }
-            mvtHorizontal = 0;
-            hasMoved = true;
-            wasInAir = true;
-            HitResult();
-        }
-        else if (isOnFloor && inputTimer < bufferTime && mvtHorizontal !=0) //move horizontal on floor
-        {
-            if (mvtHorizontal > 0 && canGoRight)
-            {
-                x = 1;
+                targetPos.x = transform.position.x + 1;
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
-                x = -1;
+                targetPos.x = transform.position.x -1;
+
+            }
+                hasMoved = true;
+                mvtHorizontal = 0;
+            wasInAir = true;
+            HitResult();
+        }
+        else if (isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal on floor
+        {
+            if (mvtHorizontal > 0 && canGoRight)
+            {
+               targetPos.x = transform.position.x + 1;
+            }
+            else if (mvtHorizontal < 0 && canGoLeft)
+            {
+                targetPos.x = transform.position.x -1;
             }
             mvtHorizontal = 0;
             hasMoved = true;
             HitResult();
         }
-        else if (isOnFloor && inputTimer < bufferTime && jump > 0 )// jump
+        else if (isOnFloor && inputTimer < bufferTime && jump > 0 && !hasJumped)// jump
         {
             if (canjump)
             {
-                y = 1;
+                targetPos.y = transform.position.y + 1;
             }
             jump = 0;
-            hasMoved = true;
+            //hasMoved = true;
             hasJumped = true;
             HitResult();
         }
-        transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
+
+
+        StartCoroutine(LerpMove());
+
+        //diagonale with tweening
+       /* if (DOTween.IsTweening(transform)) //check if currently tweening
+        {
+            DOTween.Complete(transform);
+            transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
+        }
+        else
+        {
+            transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
+
+        }*/
         beatPassed = true;
         gotInput = false;
         inputTimer = 0;
@@ -240,4 +265,20 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
+    IEnumerator LerpMove()
+    {
+        float t =0;
+        while (t <= 1)
+        {
+            yield return new WaitForEndOfFrame();
+            transform.position = Vector2.Lerp(lastPos, targetPos, t);
+            t += .2f * Time.deltaTime;
+            if( t > 1)
+            {
+                t = 1;
+            }
+        }
+        
+    }
 }
+
