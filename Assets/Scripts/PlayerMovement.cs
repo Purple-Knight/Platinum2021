@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
             beatPassed = false;
             inputTimer = 0;
             hasMoved = false;
+            hasJumped = false;
             targetPos = transform.position;
             lastPos = targetPos;
         }
@@ -272,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
             transform.position = Vector2.Lerp(lastPos, targetPos, t);
-            t += .2f * Time.deltaTime;
+            t += 1/.15f * Time.deltaTime;
             if( t > 1)
             {
                 t = 1;
