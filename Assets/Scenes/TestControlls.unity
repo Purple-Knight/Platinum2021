@@ -482,7 +482,7 @@ MonoBehaviour:
   eventMusic1:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d375603b287fa124d950ebad25b4ed9f, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
   eventMusic2:
     idInternal: 0
     valueGuidInternal: 
@@ -1741,6 +1741,7 @@ MonoBehaviour:
   endTimeline: {fileID: 1982972710}
   bar: {fileID: 5383227485702290579, guid: e8418c922056ca547adc72e870cef969, type: 3}
   beatToReach: 5
+  echo: {fileID: 8321464503538729669, guid: afbf10ceb51e12144b69497d656aec4d, type: 3}
 --- !u!212 &1578556532
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3049,5 +3050,9 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7043354195277512944, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: testWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 44d89fed40573a34889f9d4e649f3075, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
