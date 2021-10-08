@@ -49,8 +49,11 @@ MonoBehaviour:
   playerID: 0
   sprite: {fileID: 6995882317632707775}
   playerColor: {r: 1, g: 1, b: 1, a: 1}
-  deadZoneController: 0.1
-  bufferTime: 0.3
+  deadZoneController: 0.5
+  bufferTime: 0.15
+  jump: 0
+  hasJumped: 0
+  jumpButtonDown: 0
 --- !u!61 &3883265989226838404
 BoxCollider2D:
   m_ObjectHideFlags: 0

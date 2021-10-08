@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     bool canGoDiagonalRight;
     bool canGoDiagonalLeft;
     bool canjump;
+    bool canFall;
 
     //lerp
     Vector2 lastPos;
@@ -101,13 +102,13 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpButtonDown = true;
             gotInput = true;
-            jump = 1;
+            jump = player.GetAxis("Move Vertical");
         }
         else if (inputVertical && !jumpButtonDown && !hasJumped && beatPassed && beatPassedTimer < bufferTime) // apres le premier beat
         {
             jumpButtonDown = true;
             gotInput = true;
-            jump = 1;
+            jump = player.GetAxis("Move Vertical");
             Move();
         }
         else if (jumpButtonDown && player.GetAxis("Move Vertical") > -deadZoneController && player.GetAxis("Move Vertical") < deadZoneController)
@@ -116,17 +117,21 @@ public class PlayerMovement : MonoBehaviour
             jumpButtonDown = false;
         }
 
-
+        
     }
 
     public void Move()
     {
         if (!isOnFloor && (mvtHorizontal == 0 || wasInAir || !hasJumped) && !hasMoved) // if for gravity 
         {
-            targetPos.y =  transform.position.y -1;
+            targetPos.y = transform.position.y - 1;
             hasMoved = true;
             wasInAir = true;
 
+        } else if (isOnFloor && canFall && jump < -deadZoneController && !hasMoved)
+        {
+            targetPos.y = transform.position.y - 1;
+            hasMoved = true;
         }
         else if (!isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !wasInAir && !hasMoved) // move after jump
         {
@@ -144,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
             wasInAir = true;
             //HitResult();
         }
-        else if(isOnFloor && inputTimer <bufferTime && mvtHorizontal != 0 && jump!=0 && !hasJumped && !hasMoved) //diagonal
+        else if(isOnFloor && inputTimer <bufferTime && mvtHorizontal != 0 && jump > 0 && !hasJumped && !hasMoved) //diagonal
         {
             if (mvtHorizontal > 0 && canGoDiagonalRight  && canjump)
             {
@@ -229,12 +234,20 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnFloor = false;
         }
+
+        if (rayrayFall.collider != null && rayrayFall.collider.CompareTag("OneWayPlatform"))
+        {
+            canFall = true;
+        }else
+        {
+            canFall = false;
+        }
     }
 
     public void WallCollision()
     {
         RaycastHit2D rayray = Physics2D.Raycast(transform.position, Vector2.up, 1, LayerMask.GetMask("Ground"));
-        if (rayray.collider != null)
+        if(rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
         {
             canjump = false;
         }
@@ -242,17 +255,12 @@ public class PlayerMovement : MonoBehaviour
         {
             canjump = true;
         }
+
         rayray = Physics2D.Raycast(transform.position, Vector2.right, 1, LayerMask.GetMask("Ground"));
-        if (rayray.collider != null)
-        {
-            canGoRight = false;
-        }
-        else
-        {
-            canGoRight = true;
-        }
+        canGoRight = rayray.collider == null ;
+
         rayray = Physics2D.Raycast(transform.position, new Vector2(1, 1), 1, LayerMask.GetMask("Ground"));
-        if (rayray.collider != null)
+        if (rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
         {
             canGoDiagonalRight = false;
         }
@@ -260,26 +268,20 @@ public class PlayerMovement : MonoBehaviour
         {
             canGoDiagonalRight = true;
         }
+
         rayray = Physics2D.Raycast(transform.position, Vector2.left, 1, LayerMask.GetMask("Ground"));
-        if (rayray.collider != null)
-        {
-            canGoLeft = false;
-        }
-        else
-        {
-            canGoLeft = true;
-        }
+        canGoLeft = rayray.collider == null;
         
-         
         rayray = Physics2D.Raycast(transform.position, new Vector2(-1,1) , 1, LayerMask.GetMask("Ground"));
-        if(rayray.collider != null)
+        if (rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
         {
             canGoDiagonalLeft = false;
         }
         else
         {
-            canGoDiagonalLeft = true;
+           canGoDiagonalLeft= true;
         }
+
     }
     #endregion
 
