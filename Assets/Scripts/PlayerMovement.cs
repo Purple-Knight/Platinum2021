@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     bool isOnFloor; // check if player is grounded
     bool canGoRight;
     bool canGoLeft;
+    bool canGoDiagonalRight;
+    bool canGoDiagonalLeft;
     bool canjump;
 
     //lerp
@@ -142,9 +144,28 @@ public class PlayerMovement : MonoBehaviour
             wasInAir = true;
             //HitResult();
         }
+        else if(isOnFloor && inputTimer <bufferTime && mvtHorizontal != 0 && jump!=0 && !hasJumped && !hasMoved) //diagonal
+        {
+            if (mvtHorizontal > 0 && canGoDiagonalRight  && canjump)
+            {
+                targetPos.x = transform.position.x + 1;
+            }
+            else if (mvtHorizontal < 0 && canGoDiagonalLeft && canjump)
+            {
+                targetPos.x = transform.position.x - 1;
+            }
+            if (canjump)
+            {
+                targetPos.y = transform.position.y + 1;
+            }
+            jump = 0;
+            mvtHorizontal = 0;
+            hasMoved = true;
+            hasJumped = true;
+        }
         else if (isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal on floor
         {
-            if (mvtHorizontal > 0 && canGoRight)
+            if (mvtHorizontal > 0 && canGoRight )
             {
                targetPos.x = transform.position.x + 1;
             }
@@ -155,10 +176,7 @@ public class PlayerMovement : MonoBehaviour
             mvtHorizontal = 0;
             hasMoved = true;
            // HitResult();
-        }
-
-
-        if (isOnFloor && inputTimer < bufferTime && jump > 0 && !hasJumped)// jump
+        }else if (isOnFloor && inputTimer < bufferTime && jump > 0 && !hasJumped)// jump
         {
             if (canjump)
             {
@@ -198,7 +216,7 @@ public class PlayerMovement : MonoBehaviour
     //raycast O.O *u* hello there :)))) watcha ray casting on?
     public void Gravity()
     {
-        RaycastHit2D rayrayFall = Physics2D.Raycast(transform.position, Vector2.down, raycastDistance, LayerMask.GetMask("Ground"));
+        RaycastHit2D rayrayFall = Physics2D.Raycast(transform.position, Vector2.down,1, LayerMask.GetMask("Ground"));
 
         if( rayrayFall.collider != null)
         {
@@ -215,8 +233,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallCollision()
     {
-        RaycastHit2D rayrayRight = Physics2D.Raycast(transform.position, Vector2.right, 1, LayerMask.GetMask("Ground"));
-        if (rayrayRight.collider != null)
+        RaycastHit2D rayray = Physics2D.Raycast(transform.position, Vector2.up, 1, LayerMask.GetMask("Ground"));
+        if (rayray.collider != null)
+        {
+            canjump = false;
+        }
+        else
+        {
+            canjump = true;
+        }
+        rayray = Physics2D.Raycast(transform.position, Vector2.right, 1, LayerMask.GetMask("Ground"));
+        if (rayray.collider != null)
         {
             canGoRight = false;
         }
@@ -224,8 +251,17 @@ public class PlayerMovement : MonoBehaviour
         {
             canGoRight = true;
         }
-        RaycastHit2D rayrayLeft = Physics2D.Raycast(transform.position, Vector2.left, 1, LayerMask.GetMask("Ground"));
-        if (rayrayLeft.collider != null)
+        rayray = Physics2D.Raycast(transform.position, new Vector2(1, 1), 1, LayerMask.GetMask("Ground"));
+        if (rayray.collider != null)
+        {
+            canGoDiagonalRight = false;
+        }
+        else
+        {
+            canGoDiagonalRight = true;
+        }
+        rayray = Physics2D.Raycast(transform.position, Vector2.left, 1, LayerMask.GetMask("Ground"));
+        if (rayray.collider != null)
         {
             canGoLeft = false;
         }
@@ -233,14 +269,16 @@ public class PlayerMovement : MonoBehaviour
         {
             canGoLeft = true;
         }
-        RaycastHit2D rayrayJump = Physics2D.Raycast(transform.position, Vector2.up, 1, LayerMask.GetMask("Ground"));
-        if (rayrayJump.collider != null)
+        
+         
+        rayray = Physics2D.Raycast(transform.position, new Vector2(-1,1) , 1, LayerMask.GetMask("Ground"));
+        if(rayray.collider != null)
         {
-            canjump = false;
+            canGoDiagonalLeft = false;
         }
         else
         {
-            canjump = true;
+            canGoDiagonalLeft = true;
         }
     }
     #endregion
@@ -300,6 +338,22 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = canjump ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(transform.position, Vector2.up));
+        Gizmos.color = !isOnFloor ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(transform.position, Vector2.down));
+        Gizmos.color = canGoLeft ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(transform.position, Vector2.left));
+        Gizmos.color = canGoRight ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(transform.position, Vector2.right));
+        Gizmos.color = canGoDiagonalRight ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(transform.position, new Vector2(1, 1)));
+        Gizmos.color = canGoDiagonalLeft ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(transform.position, new Vector2(-1, 1)));
     }
 }
 

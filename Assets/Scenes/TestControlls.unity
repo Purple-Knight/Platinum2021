@@ -2933,6 +2933,10 @@ PrefabInstance:
       value: Player3
       objectReference: {fileID: 0}
     - target: {fileID: 6995882317632707775, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995882317632707775, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
