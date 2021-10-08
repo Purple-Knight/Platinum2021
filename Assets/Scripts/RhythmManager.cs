@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RhythmManager : MonoBehaviour
@@ -11,11 +13,21 @@ public class RhythmManager : MonoBehaviour
 
     public OnMusicBeat onMusicBeatDelegate;
 
+    [Header("Music Selection")]
     public AK.Wwise.Event eventMusic1;
     public AK.Wwise.Event eventMusic2;
     public AK.Wwise.Event eventMusic3;
 
+    public AK.Wwise.Event eventStop;
+
+    [Header("Beat")]
+    int position;
+
+    bool onceAtStart;
+
     public float beatDuration;
+    public List<Song> duration = new List<Song>();
+
 
     private void Awake()
     {
@@ -24,26 +36,42 @@ public class RhythmManager : MonoBehaviour
             Destroy(gameObject);
         }
         else
-        { 
-            _instance = this; 
+        {
+            _instance = this;
         }
     }
 
+
     void Start()
     {
-        eventMusic1.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        StartCoroutine(delayStart());
+    }
+
+    IEnumerator delayStart()
+    {
+        yield return new WaitForSeconds(1f);
+        eventMusic2.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        position = 1;
     }
 
     private void Update()
     {
-       // musicSpeedRTPC.SetGlobalValue(musicSpeed);
+        // musicSpeedRTPC.SetGlobalValue(musicSpeed);
 
-        if (Input.GetKeyDown(KeyCode.Keypad1)) {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
             eventMusic1.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-        } else if (Input.GetKeyDown(KeyCode.Keypad2)) {
+            position = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
             eventMusic2.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-        } else if (Input.GetKeyDown(KeyCode.Keypad3)) {
+            position = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
             eventMusic3.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            position = 2;
         }
     }
 
@@ -51,8 +79,46 @@ public class RhythmManager : MonoBehaviour
     {
         onMusicBeatDelegate?.Invoke();
 
-        AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
-        beatDuration = info.segmentInfo_fBeatDuration;
+        if (!onceAtStart)
+        {
+            onceAtStart = true;
+            AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
+            beatDuration = info.segmentInfo_fBeatDuration;
+            eventStop.Post(gameObject);
+            StartCoroutine(beforeStart());
+            Debug.Log("first");
+        }
+        else
+        {
+
+            Debug.Log("second");
+            AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
+            beatDuration = info.segmentInfo_fBeatDuration;
+
+            /*AkDurationCallbackInfo durInfo = (AkDurationCallbackInfo)in_info;
+            Debug.Log(durInfo.fDuration.ToString());*/
+
+        }
+
     }
 
+    IEnumerator beforeStart()
+    {
+        var beat = Timeline.Instance.beatToReach;
+
+        for (int i = 0; i < beat; i++)
+        {
+            Timeline.Instance.SendBar();
+            yield return new WaitForSeconds(beatDuration);
+        }
+        eventMusic2.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+    }
+}
+
+
+[System.Serializable]
+public class Song
+{
+    public string songName;
+    public float duration;
 }

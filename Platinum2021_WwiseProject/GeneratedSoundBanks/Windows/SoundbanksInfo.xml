@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>F:\IIM_2021_2022\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>F:\IIM_2021_2022\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>F:\IIM_2021_2022\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>F:\IIM_2021_2022\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,13 +16,14 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="2595545143">
+		<SoundBank Id="3017428748" Language="SFX" Hash="2451983007">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
 			<IncludedEvents>
 				<Event Id="859070589" Name="PlayCrypt" ObjectPath="\Events\Default Work Unit\PlayCrypt" DurationType="OneShot" DurationMin="124.133873" DurationMax="124.133873"/>
 				<Event Id="1295635745" Name="PlayTutel" ObjectPath="\Events\Default Work Unit\PlayTutel" DurationType="OneShot" DurationMin="196.031998" DurationMax="196.031998"/>
+				<Event Id="2907867019" Name="StopAllMusic" ObjectPath="\Events\Default Work Unit\StopAllMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="111855593" Language="SFX">

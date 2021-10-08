@@ -5,9 +5,9 @@ using DG.Tweening;
 
 public class BarTL : MonoBehaviour
 {
-    [HideInInspector] public Vector3 direction;
-    [HideInInspector] public float speed;
-    [HideInInspector] public float deleteTime;
+    public Vector3 direction;
+    public float speed;
+     public float deleteTime;
 
 
     
@@ -38,6 +38,8 @@ public class BarTL : MonoBehaviour
         mySprite.DOFade(0, time);
 
         yield return new WaitForSeconds(time);
+
+        DOTween.Kill(gameObject);
 
         Destroy(gameObject);
     }
