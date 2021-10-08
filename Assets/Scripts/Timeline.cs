@@ -59,6 +59,7 @@ public class Timeline : MonoBehaviour
         echoO.GetComponent<SpriteRenderer>().DOFade(1, RhythmManager.Instance.beatDuration);
         echoO.transform.DOScale(transform.localScale, RhythmManager.Instance.beatDuration);
 
+        echo.transform.DOKill();
         Destroy(echoO, RhythmManager.Instance.beatDuration);
     }
 }

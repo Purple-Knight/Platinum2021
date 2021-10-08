@@ -1725,7 +1725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1578556531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,6 +1741,7 @@ MonoBehaviour:
   endTimeline: {fileID: 1982972710}
   bar: {fileID: 5383227485702290579, guid: e8418c922056ca547adc72e870cef969, type: 3}
   beatToReach: 5
+  echo: {fileID: 8321464503538729669, guid: afbf10ceb51e12144b69497d656aec4d, type: 3}
 --- !u!212 &1578556532
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1823,7 +1824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1697417475
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2678,7 +2679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1982972711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2974,6 +2975,10 @@ PrefabInstance:
       value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: bufferTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: playerColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -2984,6 +2989,10 @@ PrefabInstance:
     - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: playerColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: deadZoneController
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_RootOrder

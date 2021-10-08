@@ -14,14 +14,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float bufferTime;
     float raycastDistance = .5f;
     float mvtHorizontal;
-    float jump;
+    [SerializeField] float jump;
     float inputTimer;
+    float beatPassedTimer;
     bool gotInput; //bool to start timer on input
     bool beatPassed; // bool true is rhythm missed
     bool hasMoved; // player moved, to block double movement
-    bool hasJumped; //player jumped
+    [SerializeField] bool hasJumped; //player jumped
     bool wasInAir; //player was in the air the last beat
     bool buttonDown; //check if buttons stays down
+    [SerializeField] bool jumpButtonDown; //check if buttons stays down
 
     //serounding checks
     bool isOnFloor; // check if player is grounded
@@ -31,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     //lerp
     Vector2 lastPos;
-    public Vector2 targetPos;
+    Vector2 targetPos;
 
     private void Start()
     {
@@ -47,37 +49,42 @@ public class PlayerMovement : MonoBehaviour
         Gravity();
         WallCollision();
         GetInput();
-        if (gotInput || beatPassed)
+        if (gotInput)
         {
             inputTimer += Time.deltaTime;
         }
-        if(inputTimer > bufferTime && beatPassed)
+        if ( beatPassed)
+        {
+            beatPassedTimer += Time.deltaTime;
+        }
+        if(beatPassedTimer > bufferTime && beatPassed)
         {
             beatPassed = false;
-            inputTimer = 0;
+            beatPassedTimer = 0;
             hasMoved = false;
             hasJumped = false;
-            targetPos = transform.position;
             lastPos = targetPos;
         }
     }
 
+
     public void GetInput()
     {
-        //move horizontal 
+        //move
         bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
 
-        if (inputHorizontal && !buttonDown && !hasMoved)
+        if (inputHorizontal && !buttonDown && !hasMoved && !beatPassed)
         {
             gotInput = true;
             buttonDown = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
-            if (beatPassed )
-            {
-                Debug.Log("first move");
-                Move();
-            }
-
+        }
+        else if (inputHorizontal && !buttonDown && !hasMoved && beatPassed && beatPassedTimer < bufferTime)
+        {
+            gotInput = true;
+            buttonDown = true;
+            mvtHorizontal = player.GetAxis("Move Horizontal");
+            Move();
         }
         else if (buttonDown && player.GetAxis("Move Horizontal") > -deadZoneController && player.GetAxis("Move Horizontal") < deadZoneController)
         {
@@ -86,21 +93,25 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //jump
-        if (player.GetButton("Jump") && !hasJumped ) //appuier sur saut
-        {
-            gotInput = true;
-            mvtHorizontal = 0;
-            jump = 1;
-            if (beatPassed) // apres le premier beat
-            {
-                Debug.Log("jump move");
-                Move();
-            }
+        bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
 
+        if (inputVertical && !jumpButtonDown && !hasJumped && !beatPassed) //appuier sur saut
+        {
+            jumpButtonDown = true;
+            gotInput = true;
+            jump = 1;
         }
-        else //pas de input saut
+        else if (inputVertical && !jumpButtonDown && !hasJumped && beatPassed && beatPassedTimer < bufferTime) // apres le premier beat
+        {
+            jumpButtonDown = true;
+            gotInput = true;
+            jump = 1;
+            Move();
+        }
+        else if (jumpButtonDown && player.GetAxis("Move Vertical") > -deadZoneController && player.GetAxis("Move Vertical") < deadZoneController)
         {
             jump = 0;
+            jumpButtonDown = false;
         }
 
 
@@ -126,10 +137,10 @@ public class PlayerMovement : MonoBehaviour
                 targetPos.x = transform.position.x -1;
 
             }
-                hasMoved = true;
-                mvtHorizontal = 0;
+            hasMoved = true;
+            mvtHorizontal = 0;
             wasInAir = true;
-            HitResult();
+            //HitResult();
         }
         else if (isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal on floor
         {
@@ -143,22 +154,21 @@ public class PlayerMovement : MonoBehaviour
             }
             mvtHorizontal = 0;
             hasMoved = true;
-            HitResult();
+           // HitResult();
         }
-        else if (isOnFloor && inputTimer < bufferTime && jump > 0 && !hasJumped)// jump
+
+
+        if (isOnFloor && inputTimer < bufferTime && jump > 0 && !hasJumped)// jump
         {
             if (canjump)
             {
                 targetPos.y = transform.position.y + 1;
             }
             jump = 0;
-            //hasMoved = true;
             hasJumped = true;
-            HitResult();
         }
 
-
-        StartCoroutine(LerpMove());
+        HitResult();
 
         //diagonale with tweening
        /* if (DOTween.IsTweening(transform)) //check if currently tweening
@@ -171,14 +181,16 @@ public class PlayerMovement : MonoBehaviour
             transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
 
         }*/
-        beatPassed = true;
+        
         gotInput = false;
-        inputTimer = 0;
     }
 
     public void BeatReceived()
     {
+        beatPassed = true;
         Move();
+        inputTimer = 0;
+        StartCoroutine(LerpMove());
         Squeeeesh();
     }
 
@@ -243,25 +255,33 @@ public class PlayerMovement : MonoBehaviour
 
     public void HitResult()
     {
-        Sequence seqColor = DOTween.Sequence();
+        if (inputTimer != 0)
+        {
+            Sequence seqColor = DOTween.Sequence();
 
-        if (inputTimer < bufferTime / 3 )
-        {
-            //Debug.Log("<color=green> Good </color>");
-            seqColor.Append(sprite.DOColor(Color.green, .1f));
+            if (inputTimer < bufferTime / 3)
+            {
+                //Debug.Log("<color=green> Good </color>");
+                seqColor.Append(sprite.DOColor(Color.green, .1f));
+            }
+            else if (inputTimer < bufferTime / 3 * 2)
+            {
+                //Debug.Log("<color=yellow> Okay </color>");
+                seqColor.Append(sprite.DOColor(Color.yellow, .1f));
+            }
+            else if (inputTimer < bufferTime)
+            {
+                //Debug.Log("<color=orange> Early / Late</color>");
+                seqColor.Append(sprite.DOColor(new Color(1, .5f, 0), .1f));
+            }
+            else if (inputTimer > bufferTime)
+            {
+                Debug.Log("<color=red> missed </color>");
+                seqColor.Append(sprite.DOColor(Color.red, .2f));
+            }
+
+            seqColor.Append(sprite.DOColor(playerColor, .1f));
         }
-        else if (inputTimer < bufferTime / 3 * 2 )
-        {
-            //Debug.Log("<color=yellow> Okay </color>");
-            seqColor.Append(sprite.DOColor(Color.yellow, .1f));
-        }
-        else if (inputTimer < bufferTime   )
-        {
-            //Debug.Log("<color=orange> Early / Late</color>");
-            seqColor.Append(sprite.DOColor(new Color(1, .5f ,0), .1f));
-        }
-        
-        seqColor.Append(sprite.DOColor(playerColor, .1f));
     }
 
     #endregion
@@ -273,7 +293,7 @@ public class PlayerMovement : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
             transform.position = Vector2.Lerp(lastPos, targetPos, t);
-            t += 1/.15f * Time.deltaTime;
+            t += 1/bufferTime * Time.deltaTime;
             if( t > 1)
             {
                 t = 1;
