@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d038ecf2d1335543bf943a8f453b7d5f
     GuidInternal: 
-    m_lastTime: -8585679124152265587
+    m_lastTime: -8585669471452880150
     List:
     - name: MusicBank
       guid: c950ed8ba691bb4196f94f83cbd3c44e
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585679124456122622
+    m_lastTime: -8585669471451862998
     List:
     - name: PlayCrypt
       guid: 32983bc18cc5a64abc6ad48d2e1c686e
@@ -113,6 +113,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 124.13387
       minDuration: 124.13387
+    - name: PlayMMX3
+      guid: 6a2b3e427f3c134383cc3021c1970649
+      id: 1695793358
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: PlayMMX3
+        ObjectType: 3
+        guid: 6a2b3e427f3c134383cc3021c1970649
+      Path: Events\Default Work Unit\PlayMMX3
+      maxAttenuation: 0
+      maxDuration: 17
+      minDuration: 17
     - name: PlayTutel
       guid: 457bd1d1fdd49f459ce7ae1b34c2052f
       id: 1295635745

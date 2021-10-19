@@ -16,13 +16,13 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="2932614276">
+		<SoundBank Id="3017428748" Language="SFX" Hash="2513911687">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
 			<IncludedEvents>
 				<Event Id="859070589" Name="PlayCrypt" ObjectPath="\Events\Default Work Unit\PlayCrypt" DurationType="OneShot" DurationMin="124.133873" DurationMax="124.133873"/>
-				<Event Id="1695793358" Name="PlayMMX3" ObjectPath="\Events\Default Work Unit\PlayMMX3" DurationType="OneShot" DurationMin="17.375000" DurationMax="17.375000">
+				<Event Id="1695793358" Name="PlayMMX3" ObjectPath="\Events\Default Work Unit\PlayMMX3" DurationType="OneShot" DurationMin="16.875000" DurationMax="16.875000">
 					<IncludedMemoryFiles>
 						<File Id="977490984" Language="SFX">
 							<ShortName>Megaman X3 OST - Weapon Get.wav</ShortName>

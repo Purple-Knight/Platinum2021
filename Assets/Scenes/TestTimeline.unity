@@ -265,16 +265,16 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 3800faacccbd3474d8aa8f22fedfb5db, type: 2}
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 3800faacccbd3474d8aa8f22fedfb5db, type: 2}
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 4b8cb09b388fa914593f7fc80689adec, type: 2}
-  idToLaunch: 1
+  idToLaunch: 2
   numberOfBeat: 0
-  timeBeforeStart: 2
+  timeBeforeStart: 1.5
   beatDuration: 0
   duration:
   - songName: Tutel
@@ -282,7 +282,7 @@ MonoBehaviour:
   - songName: Crypt
     duration: 124
   - songName: MMX3
-    duration: 17.4
+    duration: 16.9
 --- !u!4 &102144043
 Transform:
   m_ObjectHideFlags: 0

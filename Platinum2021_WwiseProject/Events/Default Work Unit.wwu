@@ -47,6 +47,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PlayMMX3" ID="{423E2B6A-3C7F-4313-83CC-3021C1970649}">
+					<ChildrenList>
+						<Action Name="" ID="{36A9AB6A-3B92-4620-81E2-C9D801FEB9F0}" ShortID="89480328">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Megaman X3 OST - Weapon Get" ID="{97B2B17A-6103-4A73-A161-01065A00AC38}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
