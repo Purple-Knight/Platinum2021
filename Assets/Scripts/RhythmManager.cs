@@ -10,18 +10,18 @@ public class RhythmManager : MonoBehaviour
     public delegate void OnMusicBeat();
     public OnMusicBeat onMusicBeatDelegate;
 
-
     [Header("Music Selection")]
     public List<AK.Wwise.Event> eventMusic = new List<AK.Wwise.Event>();
+    [SerializeField ]private int idToLaunch;
 
 
     [Header("Beat")]
-    int position;
     bool onceAtStart;
 
-    public float beatDuration;
-    [SerializeField] private float numberOfBeat;
+    public float numberOfBeat;
     [SerializeField] private float timeBeforeStart;
+
+    public float beatDuration;
     public List<Song> duration = new List<Song>();
 
 
@@ -38,6 +38,7 @@ public class RhythmManager : MonoBehaviour
     }
 
 
+
     void Start()
     {
         StartCoroutine(delayStart());
@@ -46,9 +47,10 @@ public class RhythmManager : MonoBehaviour
     IEnumerator delayStart()
     {
         yield return new WaitForSeconds(timeBeforeStart);
-        eventMusic[1].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-        position = 1;
+        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
+
+
 
     private void Update()
     {
@@ -68,10 +70,10 @@ public class RhythmManager : MonoBehaviour
         }
     }
 
+
+
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
-        onMusicBeatDelegate?.Invoke();
-
         if (!onceAtStart)
         {
             onceAtStart = true;
@@ -80,16 +82,17 @@ public class RhythmManager : MonoBehaviour
             eventMusic[3].Post(gameObject);
             StartCoroutine(beforeStart());
 
-            numberOfBeat = duration[position].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
+            numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
+            onMusicBeatDelegate?.Invoke();
         }
         else
         {
-            AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
-            beatDuration = info.segmentInfo_fBeatDuration;
+                onMusicBeatDelegate?.Invoke();
+                AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
+                beatDuration = info.segmentInfo_fBeatDuration;
 
-            /*AkDurationCallbackInfo durInfo = (AkDurationCallbackInfo)in_info;
-            Debug.Log(durInfo.fDuration.ToString());*/
-
+                /*AkDurationCallbackInfo durInfo = (AkDurationCallbackInfo)in_info;
+                Debug.Log(durInfo.fDuration.ToString());*/
         }
 
     }
@@ -103,6 +106,7 @@ public class RhythmManager : MonoBehaviour
             Timeline.Instance.SendBar();
             yield return new WaitForSeconds(beatDuration);
         }
-        eventMusic[1].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
+
 }
