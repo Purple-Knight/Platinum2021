@@ -26,6 +26,7 @@ public class RhythmManager : MonoBehaviour
     bool onceAtStart;
 
     public float beatDuration;
+    public float numberOfBeat;
     public List<Song> duration = new List<Song>();
 
 
@@ -61,17 +62,14 @@ public class RhythmManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             eventMusic1.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            position = 0;
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             eventMusic2.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            position = 1;
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             eventMusic3.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            position = 2;
         }
     }
 
@@ -86,12 +84,11 @@ public class RhythmManager : MonoBehaviour
             beatDuration = info.segmentInfo_fBeatDuration;
             eventStop.Post(gameObject);
             StartCoroutine(beforeStart());
-            Debug.Log("first");
+
+            numberOfBeat = duration[position].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
         }
         else
         {
-
-            Debug.Log("second");
             AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
             beatDuration = info.segmentInfo_fBeatDuration;
 
