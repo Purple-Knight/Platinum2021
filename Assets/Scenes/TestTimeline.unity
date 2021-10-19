@@ -252,20 +252,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef31c8fe98f363f46b3c33af0b01a87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventMusic1:
-    idInternal: 0
+  eventMusic:
+  - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
-  eventMusic2:
-    idInternal: 0
+  - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
-  eventMusic3:
-    idInternal: 0
+  - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
-  eventStop:
-    idInternal: 0
+  - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 4b8cb09b388fa914593f7fc80689adec, type: 2}
   beatDuration: 0
