@@ -5,7 +5,7 @@
 			<ChildrenList>
 				<MusicSegment Name="Crypt of the Necrodancer Danganronpa OST" ID="{6F62C79A-2CF3-4B72-BD6F-C90EA05F32E8}" ShortID="191731233">
 					<PropertyList>
-						<Property Name="EndPosition" Type="Real64" Value="124133.87755102"/>
+						<Property Name="EndPosition" Type="Real64" Value="135562.448979591"/>
 						<Property Name="Tempo" Type="Real64" Value="126"/>
 					</PropertyList>
 					<ReferenceList>

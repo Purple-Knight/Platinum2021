@@ -5,6 +5,10 @@ using DG.Tweening;
 
 public class Timeline : MonoBehaviour
 {
+    public static Timeline Instance { get { return _instance; } }
+    private static Timeline _instance;
+
+
     public GameObject endTimeline;
     public GameObject bar;
 
@@ -13,13 +17,24 @@ public class Timeline : MonoBehaviour
 
     public GameObject echo;
 
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
     void Start()
     {
         RhythmManager.Instance.onMusicBeatDelegate += SendBar;
     }
 
-    void SendBar()
+    public void SendBar()
     {
         if (canBegin)
         {
@@ -56,10 +71,6 @@ public class Timeline : MonoBehaviour
 
         echoO.transform.localScale = transform.localScale * 2;
 
-        echoO.GetComponent<SpriteRenderer>().DOFade(1, RhythmManager.Instance.beatDuration);
-        echoO.transform.DOScale(transform.localScale, RhythmManager.Instance.beatDuration);
-
-        echo.transform.DOKill();
-        Destroy(echoO, RhythmManager.Instance.beatDuration);
+        echoO.GetComponent<Echo>().scale = transform;
     }
 }

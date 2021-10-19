@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endTimeline: {fileID: 164719196}
   bar: {fileID: 5383227485702290579, guid: e8418c922056ca547adc72e870cef969, type: 3}
-  beatToReach: 5
+  beatToReach: 6
   echo: {fileID: 8321464503538729669, guid: afbf10ceb51e12144b69497d656aec4d, type: 3}
 --- !u!212 &58325273
 SpriteRenderer:
@@ -263,7 +263,16 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
+  eventStop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4b8cb09b388fa914593f7fc80689adec, type: 2}
   beatDuration: 0
+  duration:
+  - songName: Tutel
+    duration: 196
+  - songName: Crypt
+    duration: 124
 --- !u!4 &102144043
 Transform:
   m_ObjectHideFlags: 0
