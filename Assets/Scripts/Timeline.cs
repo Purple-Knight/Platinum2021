@@ -8,12 +8,14 @@ public class Timeline : MonoBehaviour
     public static Timeline Instance { get { return _instance; } }
     private static Timeline _instance;
 
-
+    [Header("Object")]
     public GameObject endTimeline;
     public GameObject bar;
 
+    [Header("Variables")]
     bool canBegin;
     public float beatToReach;
+    public float multiplicatorSpeed;
 
     public GameObject echo;
 
@@ -45,7 +47,7 @@ public class Timeline : MonoBehaviour
 
             var time = beatToReach * RhythmManager.Instance.beatDuration;
             
-            var speed = distance / time;
+            var speed = (distance / time) * multiplicatorSpeed;
 
             var barScript = lastBar.GetComponent<BarTL>();
             barScript.direction = direction.normalized;

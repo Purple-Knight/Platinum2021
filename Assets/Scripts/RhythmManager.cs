@@ -27,6 +27,7 @@ public class RhythmManager : MonoBehaviour
 
     public float beatDuration;
     public float numberOfBeat;
+    public float timeBeforeStart;
     public List<Song> duration = new List<Song>();
 
 
@@ -50,7 +51,7 @@ public class RhythmManager : MonoBehaviour
 
     IEnumerator delayStart()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(timeBeforeStart);
         eventMusic2.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         position = 1;
     }
