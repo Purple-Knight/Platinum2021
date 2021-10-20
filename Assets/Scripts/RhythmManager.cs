@@ -85,13 +85,13 @@ public class RhythmManager : MonoBehaviour
             AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
             beatDuration = info.segmentInfo_fBeatDuration;
             eventStop.Post(gameObject);
-            StartCoroutine(beforeStart());
-            Debug.Log("first");
+            //StartCoroutine(beforeStart());
+            //Debug.Log("first");
         }
         else
         {
 
-            Debug.Log("second");
+            //Debug.Log("second");
             AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
             beatDuration = info.segmentInfo_fBeatDuration;
 

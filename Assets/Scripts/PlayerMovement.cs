@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float bufferTime;
     float raycastDistance = .5f;
 
-    float mvtHorizontal;
-    float mvtVertical;
+    [SerializeField] float mvtHorizontal;
+    [SerializeField] float mvtVertical;
 
     //timer
     float inputTimer;
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             inputTimer += Time.deltaTime;
         }
-        if ( beatPassed)
+        if (beatPassed)
         {
             beatPassedTimer += Time.deltaTime;
         }
@@ -78,19 +78,63 @@ public class PlayerMovement : MonoBehaviour
         bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
 
-        if (inputHorizontal )
+
+        if (inputHorizontal && !hasMoved && !beatPassed) // before a beat
         {
-
+            gotInput = true;
+            mvtHorizontal = player.GetAxis("Move Horizontal");
         }
-
+        else if (inputHorizontal && !hasMoved && beatPassed && beatPassedTimer < bufferTime) // after a beat
+        {
+            gotInput = true;
+            mvtHorizontal = player.GetAxis("Move Horizontal");
+            Move();
+        }
         
+        if (inputVertical && !hasMoved && !beatPassed) //before a beat
+        {
+            gotInput = true;
+            mvtVertical = player.GetAxis("Move Vertical");
+        }
+        else if (inputVertical && !hasMoved && beatPassed && beatPassedTimer < bufferTime) //after a beat
+        {
+            gotInput = true;
+            mvtVertical = player.GetAxis("Move Vertical");
+            Move();
+        }
     }
 
     public void Move()
     {
-       
+        if (inputTimer < bufferTime && mvtVertical != 0 && !hasMoved) //move vertical
+        {
+            if (mvtVertical > 0 && canGoUp)
+            {
+                targetPos.y = transform.position.y + 1;
+            }
+            else if (mvtVertical < 0 && canGoDown)
+            {
+                targetPos.y = transform.position.y - 1;
+            }
+            mvtVertical = 0;
+            hasMoved = true;
+        }
 
-        HitResult();
+        if (inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal
+        {
+            if (mvtHorizontal > 0 && canGoRight)
+            {
+                targetPos.x = transform.position.x + 1;
+            }
+            else if (mvtHorizontal < 0 && canGoLeft)
+            {
+                targetPos.x = transform.position.x - 1;
+            }
+            mvtHorizontal = 0;
+            hasMoved = true;
+        }
+
+            HitResult();
 
         //diagonale with tweening
        /* if (DOTween.IsTweening(transform)) //check if currently tweening

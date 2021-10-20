@@ -482,11 +482,11 @@ MonoBehaviour:
   eventMusic1:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d375603b287fa124d950ebad25b4ed9f, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
   eventMusic2:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: d375603b287fa124d950ebad25b4ed9f, type: 2}
   eventMusic3:
     idInternal: 0
     valueGuidInternal: 
@@ -494,7 +494,7 @@ MonoBehaviour:
   eventStop:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
   beatDuration: 0
   duration: []
 --- !u!4 &381930278
@@ -726,7 +726,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671288740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.43, z: -10}
+  m_LocalPosition: {x: 0, y: 0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1397,7 +1397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1578556531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,7 +1894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1934,7 +1934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838415, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6995882317632707775, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_Color.b
@@ -2028,7 +2028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1982972711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2127,7 +2127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2167,7 +2167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838415, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6995882317632707775, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_Color.b
@@ -2225,6 +2225,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2109470088}
     m_Modifications:
+    - target: {fileID: 777095173294922423, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: playerID
       value: 2
@@ -2243,11 +2247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2287,7 +2291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838415, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6995882317632707775, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_FlipX
