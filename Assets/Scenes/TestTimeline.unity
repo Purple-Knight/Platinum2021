@@ -265,7 +265,7 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3800faacccbd3474d8aa8f22fedfb5db, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 36ab5370e29fb2f46b97f57b640bdbd4, type: 2}
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 3800faacccbd3474d8aa8f22fedfb5db, type: 2}

@@ -104,7 +104,7 @@ public class Timeline : MonoBehaviour
 
         if (beatBool)
         {
-            GUILayout.TextField("Beat\n" + "Actual Beat : " + actualBeat + "\nBeat in Total : " + ((int)numberOfBeat));
+            GUILayout.TextField("Beat\n" + "Actual Beat : " + actualBeat + "\nBeat in Total : " + numberOfBeat);
         }
 
         GUILayout.EndArea();
