@@ -9,6 +9,7 @@ public class PlayerWeapon : MonoBehaviour
     public Player player;
 
     float inputTimer = 0;
+    internal PlayerMovement pMov;
     // bools
     private bool gotInput = false;
     private bool beatPassed = false;
@@ -19,7 +20,9 @@ public class PlayerWeapon : MonoBehaviour
     private void Start()
     {
         RhythmManager.Instance.onMusicBeatDelegate += BeatReceived;
-        player = ReInput.players.GetPlayer(GetComponent<PlayerMovement>().playerID); // moche...
+
+        pMov = GetComponent<PlayerMovement>();
+        player = ReInput.players.GetPlayer(pMov.playerID);
 
         Pickup(testWeapon);
     }
@@ -43,12 +46,17 @@ public class PlayerWeapon : MonoBehaviour
 
     private void FireWeapon()
     {
-        if(gotInput)
+        if(gotInput && weapon != null)
         {
-            if (inputTimer <= .2f)
+            if (inputTimer <= pMov.bufferTime)
+            {
                 weapon.Use();
+            }
             else
+            {
                 weapon.MissedBeat();
+                Debug.Log(inputTimer + "; " + pMov.bufferTime);
+            }
         }
 
         inputTimer = 0;
@@ -57,7 +65,8 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Pickup(Weapon pick)
     {
-        weapon = new Weapon(pick);
+        weapon = Instantiate(pick); //Instance of ScriptableObject
+        weapon.pMov = pMov;
     }
 
     public void BeatReceived()

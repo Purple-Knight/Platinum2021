@@ -2,30 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Base Weapon", menuName = "Weapon")]
 [System.Serializable]
 public class Weapon : ScriptableObject
 {
     //WeaponType
-    public Bullet bullet;
+    public BulletInfo bulletInfo;
+
+    // Bullet
+    public GameObject bulletPrefab;
 
     // Charge
     public int chargeBeats = 1;
-    private protected int chargeLevel = 0;
+    [SerializeField] private protected int chargeLevel = 0;
 
     //Reload
     public int waitBeforeReload;
 
+    //Player Ref
+    [SerializeField] internal PlayerMovement pMov;
+
     #region Structs...
 
-    #endregion
-
-    #region Constructors
-    public Weapon(Weapon W)
-    {
-        bullet = W.bullet;
-        chargeBeats = W.chargeBeats;
-        waitBeforeReload = W.waitBeforeReload;
-    }
     #endregion
 
     public virtual void Use()
@@ -46,6 +44,11 @@ public class Weapon : ScriptableObject
     public virtual void Fire()
     {
         Debug.Log("FIRE!");
+
+        //Instantiate Bullet
+        Bullet blt = Instantiate(bulletPrefab, pMov.transform.position, Quaternion.identity).GetComponent<Bullet>();
+        blt.InitInfo(bulletInfo, Mathf.Sign(pMov.mvtHorizontal) * Vector2.right);
+
         ResetCharge();
     }
 
@@ -58,20 +61,20 @@ public class Weapon : ScriptableObject
 }
 
 [System.Serializable]
-public class Bullet
+public class BulletInfo
 {
     [System.Serializable]
     public enum BulletType { Laser, Projectile }
 
     public BulletType type;
 
-    private Vector2 direction = Vector2.right;
+    public Vector2 direction = Vector2.right;
     public int maxTileLength = 0; // 0 = Infini ??
 
     public bool ignoreWalls = false;
-    // public int power;
+    // public int power;    // pas pertinent si one shot...
 
-    public Bullet(BulletType _type, Vector2 _direction, bool _ignoresWalls)
+    public BulletInfo(BulletType _type, Vector2 _direction, bool _ignoresWalls) // direction pertinent à init ?? -> Dépend direction Tir (player)
     {
         type = _type;
         direction = _direction;

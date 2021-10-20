@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0cb240e1c43d6e4b8601fa6583f01d0, type: 3}
-  m_Name: Test HandGun
+  m_Script: {fileID: 11500000, guid: a3c2e7998cf137d4dba57fdc2840ae40, type: 3}
+  m_Name: Base Weapon
   m_EditorClassIdentifier: 
   bullet:
     type: 0
     maxTileLength: 0
     ignoreWalls: 0
   chargeBeats: 1
-  waitBeforeReload: 1
+  chargeLevel: 0
+  waitBeforeReload: 0

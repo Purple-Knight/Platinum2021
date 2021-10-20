@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Player player;
     [SerializeField] Color playerColor;
     [SerializeField] float deadZoneController;
-    [SerializeField] float bufferTime;
+    [SerializeField] internal float bufferTime;//---private -> internal---//
     float raycastDistance = .5f;
     float mvtHorizontal;
     float jump;
