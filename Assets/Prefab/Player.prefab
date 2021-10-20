@@ -51,10 +51,6 @@ MonoBehaviour:
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   deadZoneController: 0.5
   bufferTime: 0.15
-  beatHitEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   _guiDebug: 0
   _guiDebugArea:
     serializedVersion: 2

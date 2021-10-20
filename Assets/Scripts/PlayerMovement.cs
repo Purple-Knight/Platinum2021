@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float deadZoneController;
     [SerializeField] float bufferTime;
     RhythmManager rhythmManager;
-    float raycastDistance = .5f;
+    float raycastDistance = 1;
     float mvtHorizontal;
     float jump;
     float inputTimer;
@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lastPos;
     Vector2 targetPos;
 
-    bool doOnce = false;
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = true;
     private bool _timerDebug = false;
@@ -52,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rhythmManager = RhythmManager.Instance;
         rhythmManager.onMusicBeatDelegate += BeatReceived;
+        rhythmManager.InstantiateBeat.AddListener(InstantiateRhythm);
 
         player = ReInput.players.GetPlayer(playerID);
         sprite.color = playerColor;
@@ -216,14 +216,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void BeatReceived()
     {
-        if (!doOnce)
-        {
-            doOnce = true;
-            bufferTime = rhythmManager.beatDuration / 3;
-            halfBeatTime = rhythmManager.beatDuration / 2;
-            Debug.Log(bufferTime + "  --  " + halfBeatTime);
-        }
-
         beatPassed = true;
         Move();
         inputTimer = 0;
@@ -358,7 +350,12 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-
+    public void InstantiateRhythm()
+    {
+        bufferTime = rhythmManager.beatDuration / 3;
+        halfBeatTime = rhythmManager.beatDuration / 2;
+        Debug.Log(bufferTime + "  --  " + halfBeatTime);
+    }
 
     #region Debug
     private void OnGUI()
