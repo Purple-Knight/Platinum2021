@@ -128,8 +128,8 @@ MonoBehaviour:
         guid: 6a2b3e427f3c134383cc3021c1970649
       Path: Events\Default Work Unit\PlayMMX3
       maxAttenuation: 0
-      maxDuration: 17
-      minDuration: 17
+      maxDuration: 16.875
+      minDuration: 16.875
     - name: PlayTutel
       guid: 457bd1d1fdd49f459ce7ae1b34c2052f
       id: 1295635745
