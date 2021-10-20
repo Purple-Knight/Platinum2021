@@ -5,10 +5,10 @@
 			<ChildrenList>
 				<SoundBank Name="MusicBank" ID="{8BED50C9-91A6-41BB-96F9-4F83CBD3C44E}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Lady Hear Me Tonight" ID="{0B968A1E-4442-4786-A2D4-B5C5C58933F8}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayMMX3" ID="{423E2B6A-3C7F-4313-83CC-3021C1970649}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Crypt of the Necrodancer Danganronpa OST" ID="{6F62C79A-2CF3-4B72-BD6F-C90EA05F32E8}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Tutel" ID="{A526841F-2AA1-4C3D-A438-0702E3F8AAE7}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="StopAllMusic" ID="{17F18C7B-D8E8-4DCE-91FE-31951A22952E}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="StopAllMusic" ID="{9422914D-DE05-4E58-9F7B-BCEAEE3AD1F9}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

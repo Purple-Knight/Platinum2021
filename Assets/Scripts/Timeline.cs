@@ -8,14 +8,25 @@ public class Timeline : MonoBehaviour
     public static Timeline Instance { get { return _instance; } }
     private static Timeline _instance;
 
-
+    [Header("Object")]
     public GameObject endTimeline;
     public GameObject bar;
+    public GameObject echo;
 
+    [Header("Variables")]
     bool canBegin;
     public float beatToReach;
+    public float multiplicatorSpeed;
 
-    public GameObject echo;
+    int actualBeat;
+    float numberOfBeat;
+
+
+    [Header("Debug")]
+    public bool guiDebug;
+    [SerializeField] private Rect guiDebugArea = new Rect(0, 20, 150, 150);
+    bool beatBool;
+
 
     private void Awake()
     {
@@ -36,7 +47,7 @@ public class Timeline : MonoBehaviour
 
     public void SendBar()
     {
-        if (canBegin)
+        if (canBegin && actualBeat < (numberOfBeat - 1))
         {
             var lastBar = Instantiate(bar, transform.position, transform.rotation);
 
@@ -45,18 +56,21 @@ public class Timeline : MonoBehaviour
 
             var time = beatToReach * RhythmManager.Instance.beatDuration;
             
-            var speed = distance / time;
+            var speed = (distance / time) * multiplicatorSpeed;
 
             var barScript = lastBar.GetComponent<BarTL>();
             barScript.direction = direction.normalized;
             barScript.speed = speed;
             barScript.deleteTime = time;
 
+            actualBeat++;
+
             createEcho();
         }
         else
         {
             canBegin = true;
+            numberOfBeat = RhythmManager.Instance.numberOfBeat;
         }
     }
 
@@ -72,5 +86,27 @@ public class Timeline : MonoBehaviour
         echoO.transform.localScale = transform.localScale * 2;
 
         echoO.GetComponent<Echo>().scale = transform;
+    }
+
+
+
+
+    private void OnGUI()
+    {
+        if (!guiDebug) return;
+
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Beat"))
+        {
+            beatBool = !beatBool;
+        }
+        GUILayout.BeginArea(guiDebugArea);
+
+        if (beatBool)
+        {
+            GUILayout.TextField("Beat\n" + "Actual Beat : " + actualBeat + "\nBeat in Total : " + numberOfBeat);
+        }
+
+        GUILayout.EndArea();
     }
 }

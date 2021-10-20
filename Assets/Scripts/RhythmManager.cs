@@ -6,24 +6,20 @@ public class RhythmManager : MonoBehaviour
 {
     public static RhythmManager Instance { get { return _instance; } }
     private static RhythmManager _instance;
-    //public AK.Wwise.RTPC musicSpeedRTPC;
-    //public float musicSpeed = 0f;
 
     public delegate void OnMusicBeat();
-
     public OnMusicBeat onMusicBeatDelegate;
 
     [Header("Music Selection")]
-    public AK.Wwise.Event eventMusic1;
-    public AK.Wwise.Event eventMusic2;
-    public AK.Wwise.Event eventMusic3;
+    public List<AK.Wwise.Event> eventMusic = new List<AK.Wwise.Event>();
+    [SerializeField ]private int idToLaunch;
 
-    //public AK.Wwise.Event eventStop;
 
     [Header("Beat")]
-    int position;
-
     bool onceAtStart;
+
+    public float numberOfBeat;
+    [SerializeField] private float timeBeforeStart;
 
     public float beatDuration;
     public List<Song> duration = new List<Song>();
@@ -42,6 +38,7 @@ public class RhythmManager : MonoBehaviour
     }
 
 
+
     void Start()
     {
         StartCoroutine(delayStart());
@@ -49,10 +46,11 @@ public class RhythmManager : MonoBehaviour
 
     IEnumerator delayStart()
     {
-        yield return new WaitForSeconds(1f);
-        eventMusic1.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-        position = 1;
+        yield return new WaitForSeconds(timeBeforeStart);
+        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
+
+
 
     private void Update()
     {
@@ -60,42 +58,34 @@ public class RhythmManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            eventMusic1.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            position = 0;
+            eventMusic[0].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            eventMusic2.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            position = 1;
+            eventMusic[1].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            eventMusic3.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            position = 2;
+            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         }
     }
 
+
+
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
-        onMusicBeatDelegate?.Invoke();
+        AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
+        beatDuration = info.segmentInfo_fBeatDuration;
 
         if (!onceAtStart)
         {
             onceAtStart = true;
-            AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
-            beatDuration = info.segmentInfo_fBeatDuration;
-             //eventStop.Post(gameObject);
-            //StartCoroutine(beforeStart());
+            eventMusic[3].Post(gameObject);
+            StartCoroutine(beforeStart());
+            numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
         }
-        else
-        {
-            AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
-            beatDuration = info.segmentInfo_fBeatDuration;
-
-            /*AkDurationCallbackInfo durInfo = (AkDurationCallbackInfo)in_info;
-            Debug.Log(durInfo.fDuration.ToString());*/
-
-        }
+            
+        onMusicBeatDelegate?.Invoke();
 
     }
 
@@ -103,19 +93,13 @@ public class RhythmManager : MonoBehaviour
     {
         var beat = Timeline.Instance.beatToReach;
 
-        for (int i = 0; i < beat; i++)
+        for (int i = 0; i < beat + 1; i++)
         {
             Timeline.Instance.SendBar();
             yield return new WaitForSeconds(beatDuration);
         }
-        eventMusic2.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+
     }
-}
 
-
-[System.Serializable]
-public class Song
-{
-    public string songName;
-    public float duration;
 }

@@ -173,10 +173,9 @@
 						</ObjectList>
 					</ObjectLists>
 				</MusicSegment>
-				<MusicSegment Name="Lady Hear Me Tonight" ID="{0B968A1E-4442-4786-A2D4-B5C5C58933F8}" ShortID="311049348">
+				<MusicSegment Name="Megaman X3 OST - Weapon Get" ID="{97B2B17A-6103-4A73-A161-01065A00AC38}" ShortID="624939832">
 					<PropertyList>
-						<Property Name="EndPosition" Type="Real64" Value="303380.333333333"/>
-						<Property Name="Tempo" Type="Real64" Value="126"/>
+						<Property Name="EndPosition" Type="Real64" Value="18125"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -187,23 +186,23 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<MusicTrack Name="Lady Hear Me Tonight" ID="{E8D35B7D-DA5C-4EFB-AD91-F9760D316F64}" ShortID="739592558">
+						<MusicTrack Name="Megaman X3 OST - Weapon Get" ID="{85ECFB9A-2C17-42F6-A0DB-B10777EB2018}" ShortID="588564905">
 							<ReferenceList>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Lady Hear Me Tonight" ID="{B2E8875F-88B8-4907-9CC4-1FC9853D1120}">
+								<AudioFileSource Name="Megaman X3 OST - Weapon Get" ID="{E249994C-C7D6-434B-9C3F-CD63EC815D0B}">
 									<Language>SFX</Language>
-									<AudioFile>Lady Hear Me Tonight.wav</AudioFile>
+									<AudioFile>Megaman X3 OST - Weapon Get.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="491945090"/>
+										<MediaID ID="977490984"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<TransitionList>
-								<MusicTransition Name="Root" ID="{AE97800B-172A-4885-8065-FCA98D8B0312}">
+								<MusicTransition Name="Root" ID="{472B846C-C167-4585-91F2-7E6E8B1E2CFD}">
 									<PropertyList>
 										<Property Name="IsFolder" Type="bool" Value="True"/>
 									</PropertyList>
@@ -214,18 +213,76 @@
 								<ObjectList Name="Sequences">
 									<Reference>
 										<Local>
-											<MusicTrackSequence Name="" ID="{AA231CF7-E65B-47C4-B4C9-39D77074D45C}">
+											<MusicTrackSequence Name="" ID="{FD8A84C6-0799-42E9-8C31-F62888D3536A}">
 												<ObjectLists>
 													<ObjectList Name="Clips">
 														<Reference>
 															<Local>
-																<MusicClip Name="Lady Hear Me Tonight" ID="{D8F65F2A-F969-4849-8CD7-B79D60337D93}">
+																<MusicClip Name="Megaman X3 OST - Weapon Get" ID="{99BCA762-ACD3-438C-97C8-8DE27BAE4EE1}">
 																	<PropertyList>
-																		<Property Name="EndTrimOffset" Type="Real64" Value="303380.333333333"/>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="17000"/>
 																		<Property Name="FadeInMode" Type="int16" Value="0"/>
-																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																	</PropertyList>
-																	<AudioSourceRef Name="Lady Hear Me Tonight" ID="{B2E8875F-88B8-4907-9CC4-1FC9853D1120}"/>
+																	<AudioSourceRef Name="Megaman X3 OST - Weapon Get" ID="{E249994C-C7D6-434B-9C3F-CD63EC815D0B}"/>
+																	<PropertyCurveList>
+																		<PropertyCurve PropertyName="Highpass">
+																			<Curve Name="" ID="{79670FD7-8430-45A6-9F9A-DC8F69BAA7EA}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="1"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>0</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>17</XPos>
+																						<YPos>0</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</PropertyCurve>
+																		<PropertyCurve PropertyName="Lowpass">
+																			<Curve Name="" ID="{5355EEA8-2429-4C76-8C35-3C62320585EA}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="1"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>0</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>17</XPos>
+																						<YPos>0</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</PropertyCurve>
+																		<PropertyCurve PropertyName="Volume">
+																			<Curve Name="" ID="{0E32E8A6-1576-4480-B332-8628ACF82EFC}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="3"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>0</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>17</XPos>
+																						<YPos>0</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</PropertyCurve>
+																	</PropertyCurveList>
 																</MusicClip>
 															</Local>
 														</Reference>
@@ -242,15 +299,15 @@
 						<ObjectList Name="Cues">
 							<Reference>
 								<Local>
-									<MusicCue Name="Entry Cue" ID="{5857DC51-D24B-4D69-A047-55E00E2DFDE6}"/>
+									<MusicCue Name="Entry Cue" ID="{FFEC5C30-58B9-4F04-9FD1-9B38F0C94F61}"/>
 								</Local>
 							</Reference>
 							<Reference>
 								<Local>
-									<MusicCue Name="Exit Cue" ID="{51254BAA-8C20-4DE1-A110-4839250FE213}">
+									<MusicCue Name="Exit Cue" ID="{393FF0CD-FC8B-4C65-8FEA-F3B713A60F24}">
 										<PropertyList>
 											<Property Name="CueType" Type="int16" Value="1"/>
-											<Property Name="TimeMs" Type="Real64" Value="303380.333333333"/>
+											<Property Name="TimeMs" Type="Real64" Value="17000"/>
 										</PropertyList>
 									</MusicCue>
 								</Local>
