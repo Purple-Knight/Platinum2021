@@ -43,11 +43,12 @@ public class Timeline : MonoBehaviour
     void Start()
     {
         RhythmManager.Instance.onMusicBeatDelegate += SendBar;
+        RhythmManager.Instance.InstantiateBeat.AddListener(SendBar);
     }
 
     public void SendBar()
     {
-        if (canBegin && actualBeat < (numberOfBeat - 1))
+        if (canBegin && actualBeat < (numberOfBeat))
         {
             var lastBar = Instantiate(bar, transform.position, transform.rotation);
 

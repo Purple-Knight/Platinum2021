@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RhythmManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class RhythmManager : MonoBehaviour
 
     public float beatDuration;
     public List<Song> duration = new List<Song>();
+
+    public UnityEvent InstantiateBeat;
 
 
     private void Awake()
@@ -83,9 +86,12 @@ public class RhythmManager : MonoBehaviour
             eventMusic[3].Post(gameObject);
             StartCoroutine(beforeStart());
             numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
+            InstantiateBeat?.Invoke();
         }
-            
-        onMusicBeatDelegate?.Invoke();
+        else
+        {
+            onMusicBeatDelegate?.Invoke();   
+        }
 
     }
 
