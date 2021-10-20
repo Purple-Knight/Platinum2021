@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,7 +16,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="2451983007">
+		<SoundBank Id="3017428748" Language="SFX" Hash="206311990">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>

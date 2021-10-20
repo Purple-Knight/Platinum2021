@@ -6,37 +6,39 @@ using Rewired;
 
 public class PlayerMovement : MonoBehaviour
 {
+    #region Variables
+
     public int playerID = 0;
     public SpriteRenderer sprite;
-    private Player player;
+    private Player player; //Rewired player
+
     [SerializeField] Color playerColor;
     [SerializeField] float deadZoneController;
     [SerializeField] float bufferTime;
     float raycastDistance = .5f;
+
     float mvtHorizontal;
-    [SerializeField] float jump;
+    float mvtVertical;
+
+    //timer
     float inputTimer;
     float beatPassedTimer;
+
     bool gotInput; //bool to start timer on input
     bool beatPassed; // bool true is rhythm missed
     bool hasMoved; // player moved, to block double movement
-    [SerializeField] bool hasJumped; //player jumped
-    bool wasInAir; //player was in the air the last beat
-    bool buttonDown; //check if buttons stays down
-    [SerializeField] bool jumpButtonDown; //check if buttons stays down
+    PlayerDir playerDir = PlayerDir.NULL; //direction the player want
 
     //serounding checks
-    bool isOnFloor; // check if player is grounded
+    bool canGoUp;
+    bool canGoDown; 
     bool canGoRight;
     bool canGoLeft;
-    bool canGoDiagonalRight;
-    bool canGoDiagonalLeft;
-    bool canjump;
-    bool canFall;
 
     //lerp
     Vector2 lastPos;
     Vector2 targetPos;
+    #endregion
 
     private void Start()
     {
@@ -49,9 +51,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Gravity();
         WallCollision();
         GetInput();
+
         if (gotInput)
         {
             inputTimer += Time.deltaTime;
@@ -65,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
             beatPassed = false;
             beatPassedTimer = 0;
             hasMoved = false;
-            hasJumped = false;
             lastPos = targetPos;
         }
     }
@@ -75,46 +76,11 @@ public class PlayerMovement : MonoBehaviour
     {
         //move
         bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
-
-        if (inputHorizontal && !buttonDown && !hasMoved && !beatPassed)
-        {
-            gotInput = true;
-            buttonDown = true;
-            mvtHorizontal = player.GetAxis("Move Horizontal");
-        }
-        else if (inputHorizontal && !buttonDown && !hasMoved && beatPassed && beatPassedTimer < bufferTime)
-        {
-            gotInput = true;
-            buttonDown = true;
-            mvtHorizontal = player.GetAxis("Move Horizontal");
-            Move();
-        }
-        else if (buttonDown && player.GetAxis("Move Horizontal") > -deadZoneController && player.GetAxis("Move Horizontal") < deadZoneController)
-        {
-            mvtHorizontal = 0;
-            buttonDown = false;
-        }
-
-        //jump
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
 
-        if (inputVertical && !jumpButtonDown && !hasJumped && !beatPassed) //appuier sur saut
+        if (inputHorizontal )
         {
-            jumpButtonDown = true;
-            gotInput = true;
-            jump = player.GetAxis("Move Vertical");
-        }
-        else if (inputVertical && !jumpButtonDown && !hasJumped && beatPassed && beatPassedTimer < bufferTime) // apres le premier beat
-        {
-            jumpButtonDown = true;
-            gotInput = true;
-            jump = player.GetAxis("Move Vertical");
-            Move();
-        }
-        else if (jumpButtonDown && player.GetAxis("Move Vertical") > -deadZoneController && player.GetAxis("Move Vertical") < deadZoneController)
-        {
-            jump = 0;
-            jumpButtonDown = false;
+
         }
 
         
@@ -122,74 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        if (!isOnFloor && (mvtHorizontal == 0 || wasInAir || !hasJumped) && !hasMoved) // if for gravity 
-        {
-            targetPos.y = transform.position.y - 1;
-            hasMoved = true;
-            wasInAir = true;
-
-        } else if (isOnFloor && canFall && jump < -deadZoneController && !hasMoved)
-        {
-            targetPos.y = transform.position.y - 1;
-            hasMoved = true;
-        }
-        else if (!isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !wasInAir && !hasMoved) // move after jump
-        {
-            if (mvtHorizontal > 0 && canGoRight)
-            {
-                targetPos.x = transform.position.x + 1;
-            }
-            else if (mvtHorizontal < 0 && canGoLeft)
-            {
-                targetPos.x = transform.position.x -1;
-
-            }
-            hasMoved = true;
-            mvtHorizontal = 0;
-            wasInAir = true;
-            //HitResult();
-        }
-        else if(isOnFloor && inputTimer <bufferTime && mvtHorizontal != 0 && jump > 0 && !hasJumped && !hasMoved) //diagonal
-        {
-            if (mvtHorizontal > 0 && canGoDiagonalRight  && canjump)
-            {
-                targetPos.x = transform.position.x + 1;
-            }
-            else if (mvtHorizontal < 0 && canGoDiagonalLeft && canjump)
-            {
-                targetPos.x = transform.position.x - 1;
-            }
-            if (canjump)
-            {
-                targetPos.y = transform.position.y + 1;
-            }
-            jump = 0;
-            mvtHorizontal = 0;
-            hasMoved = true;
-            hasJumped = true;
-        }
-        else if (isOnFloor && inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal on floor
-        {
-            if (mvtHorizontal > 0 && canGoRight )
-            {
-               targetPos.x = transform.position.x + 1;
-            }
-            else if (mvtHorizontal < 0 && canGoLeft)
-            {
-                targetPos.x = transform.position.x -1;
-            }
-            mvtHorizontal = 0;
-            hasMoved = true;
-           // HitResult();
-        }else if (isOnFloor && inputTimer < bufferTime && jump > 0 && !hasJumped)// jump
-        {
-            if (canjump)
-            {
-                targetPos.y = transform.position.y + 1;
-            }
-            jump = 0;
-            hasJumped = true;
-        }
+       
 
         HitResult();
 
@@ -217,71 +116,22 @@ public class PlayerMovement : MonoBehaviour
         Squeeeesh();
     }
 
-    #region GravityAndCollisions
-    //raycast O.O *u* hello there :)))) watcha ray casting on?
-    public void Gravity()
-    {
-        RaycastHit2D rayrayFall = Physics2D.Raycast(transform.position, Vector2.down,1, LayerMask.GetMask("Ground"));
-
-        if( rayrayFall.collider != null)
-        {
-            isOnFloor = true;
-            if(wasInAir)
-                hasJumped = false;
-            wasInAir = false;
-        }
-        else
-        {
-            isOnFloor = false;
-        }
-
-        if (rayrayFall.collider != null && rayrayFall.collider.CompareTag("OneWayPlatform"))
-        {
-            canFall = true;
-        }else
-        {
-            canFall = false;
-        }
-    }
-
+    #region Collisions
     public void WallCollision()
     {
-        RaycastHit2D rayray = Physics2D.Raycast(transform.position, Vector2.up, 1, LayerMask.GetMask("Ground"));
-        if(rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
-        {
-            canjump = false;
-        }
-        else
-        {
-            canjump = true;
-        }
+        RaycastHit2D rayray;
+        rayray = Physics2D.Raycast(transform.position, Vector2.up, 1, LayerMask.GetMask("Ground"));
+        canGoUp = rayray.collider == null;
+
+        rayray = Physics2D.Raycast(transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
+        canGoDown = rayray.collider == null;
 
         rayray = Physics2D.Raycast(transform.position, Vector2.right, 1, LayerMask.GetMask("Ground"));
-        canGoRight = rayray.collider == null ;
-
-        rayray = Physics2D.Raycast(transform.position, new Vector2(1, 1), 1, LayerMask.GetMask("Ground"));
-        if (rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
-        {
-            canGoDiagonalRight = false;
-        }
-        else
-        {
-            canGoDiagonalRight = true;
-        }
+        canGoRight = rayray.collider == null;
 
         rayray = Physics2D.Raycast(transform.position, Vector2.left, 1, LayerMask.GetMask("Ground"));
         canGoLeft = rayray.collider == null;
         
-        rayray = Physics2D.Raycast(transform.position, new Vector2(-1,1) , 1, LayerMask.GetMask("Ground"));
-        if (rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
-        {
-            canGoDiagonalLeft = false;
-        }
-        else
-        {
-           canGoDiagonalLeft= true;
-        }
-
     }
     #endregion
 
@@ -344,18 +194,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = canjump ? Color.green : Color.red;
+        Gizmos.color = canGoUp ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(transform.position, Vector2.up));
-        Gizmos.color = !isOnFloor ? Color.green : Color.red;
+        Gizmos.color = canGoDown ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(transform.position, Vector2.down));
         Gizmos.color = canGoLeft ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(transform.position, Vector2.left));
         Gizmos.color = canGoRight ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(transform.position, Vector2.right));
-        Gizmos.color = canGoDiagonalRight ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(transform.position, new Vector2(1, 1)));
-        Gizmos.color = canGoDiagonalLeft ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(transform.position, new Vector2(-1, 1)));
+
     }
+}
+
+
+enum PlayerDir
+{
+    NULL,
+    UP,
+    DOWN,
+    RIGHT,
+    LEFT,
 }
 
