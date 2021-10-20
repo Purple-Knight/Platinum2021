@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d038ecf2d1335543bf943a8f453b7d5f
     GuidInternal: 
-    m_lastTime: -8585679255126792154
+    m_lastTime: -8585669496736929020
     List:
     - name: MusicBank
       guid: c950ed8ba691bb4196f94f83cbd3c44e
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585680803856700616
+    m_lastTime: -8585669693967761309
     List:
     - name: PlayCrypt
       guid: 32983bc18cc5a64abc6ad48d2e1c686e
@@ -147,6 +147,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 196.032
       minDuration: 196.032
+    - name: StopAllMusic
+      guid: 7b8cf117e8d8ce4d91fe31951a22952e
+      id: 2907867019
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: StopAllMusic
+        ObjectType: 3
+        guid: 7b8cf117e8d8ce4d91fe31951a22952e
+      Path: Events\Default Work Unit\StopAllMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -187,7 +204,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e86c45daced42f46981c3472f2f3724e
     GuidInternal: 
-    m_lastTime: -8585685329598337378
+    m_lastTime: -8585669700697252657
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -204,7 +221,7 @@ MonoBehaviour:
     m_lastTime: -8585685329598337378
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 01000000020000000300000005000000060000000a0000000c0000000d0000000f0000001100000013000000
+  ExpandedWaapiItemIds: 01000000050000000600000007000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

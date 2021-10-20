@@ -18,7 +18,7 @@ public class RhythmManager : MonoBehaviour
     public AK.Wwise.Event eventMusic2;
     public AK.Wwise.Event eventMusic3;
 
-    public AK.Wwise.Event eventStop;
+    //public AK.Wwise.Event eventStop;
 
     [Header("Beat")]
     int position;
@@ -50,7 +50,7 @@ public class RhythmManager : MonoBehaviour
     IEnumerator delayStart()
     {
         yield return new WaitForSeconds(1f);
-        eventMusic2.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        eventMusic1.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         position = 1;
     }
 
@@ -84,14 +84,11 @@ public class RhythmManager : MonoBehaviour
             onceAtStart = true;
             AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
             beatDuration = info.segmentInfo_fBeatDuration;
-            eventStop.Post(gameObject);
-            StartCoroutine(beforeStart());
-            Debug.Log("first");
+             //eventStop.Post(gameObject);
+            //StartCoroutine(beforeStart());
         }
         else
         {
-
-            Debug.Log("second");
             AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
             beatDuration = info.segmentInfo_fBeatDuration;
 

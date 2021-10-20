@@ -176,6 +176,7 @@
 				<MusicSegment Name="Lady Hear Me Tonight" ID="{0B968A1E-4442-4786-A2D4-B5C5C58933F8}" ShortID="311049348">
 					<PropertyList>
 						<Property Name="EndPosition" Type="Real64" Value="303380.333333333"/>
+						<Property Name="Tempo" Type="Real64" Value="126"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -186,23 +187,23 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<MusicTrack Name="Cat dance - Lady Hear Me Tonight" ID="{5709F8FE-9662-47C8-A9F0-7A99C9CB1DF7}" ShortID="968322884">
+						<MusicTrack Name="Lady Hear Me Tonight" ID="{E8D35B7D-DA5C-4EFB-AD91-F9760D316F64}" ShortID="739592558">
 							<ReferenceList>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Cat dance - Lady Hear Me Tonight" ID="{2603D4CF-54E1-481E-ACE2-8A330C659FE3}">
+								<AudioFileSource Name="Lady Hear Me Tonight" ID="{B2E8875F-88B8-4907-9CC4-1FC9853D1120}">
 									<Language>SFX</Language>
-									<AudioFile>Cat dance - Lady Hear Me Tonight.wav</AudioFile>
+									<AudioFile>Lady Hear Me Tonight.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="635506328"/>
+										<MediaID ID="491945090"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<TransitionList>
-								<MusicTransition Name="Root" ID="{6DACC13E-01DA-4D3A-A77A-3D9E737C5FD3}">
+								<MusicTransition Name="Root" ID="{AE97800B-172A-4885-8065-FCA98D8B0312}">
 									<PropertyList>
 										<Property Name="IsFolder" Type="bool" Value="True"/>
 									</PropertyList>
@@ -213,18 +214,18 @@
 								<ObjectList Name="Sequences">
 									<Reference>
 										<Local>
-											<MusicTrackSequence Name="" ID="{D541EBA3-30B8-4DBB-A04E-B125FA4E0F6D}">
+											<MusicTrackSequence Name="" ID="{AA231CF7-E65B-47C4-B4C9-39D77074D45C}">
 												<ObjectLists>
 													<ObjectList Name="Clips">
 														<Reference>
 															<Local>
-																<MusicClip Name="Cat dance - Lady Hear Me Tonight" ID="{C8C97046-C6CB-407F-994A-7340BD4CED5D}">
+																<MusicClip Name="Lady Hear Me Tonight" ID="{D8F65F2A-F969-4849-8CD7-B79D60337D93}">
 																	<PropertyList>
 																		<Property Name="EndTrimOffset" Type="Real64" Value="303380.333333333"/>
 																		<Property Name="FadeInMode" Type="int16" Value="0"/>
 																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																	</PropertyList>
-																	<AudioSourceRef Name="Cat dance - Lady Hear Me Tonight" ID="{2603D4CF-54E1-481E-ACE2-8A330C659FE3}"/>
+																	<AudioSourceRef Name="Lady Hear Me Tonight" ID="{B2E8875F-88B8-4907-9CC4-1FC9853D1120}"/>
 																</MusicClip>
 															</Local>
 														</Reference>

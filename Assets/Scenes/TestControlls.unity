@@ -591,16 +591,17 @@ MonoBehaviour:
   eventMusic1:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d375603b287fa124d950ebad25b4ed9f, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: a6e6c1e6b80ce5a41b8052203706f7f3, type: 2}
   eventMusic2:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: db47f54289547df479a73b28bf7d44e7, type: 2}
   eventMusic3:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
   beatDuration: 0
+  duration: []
 --- !u!4 &381930278
 Transform:
   m_ObjectHideFlags: 0
@@ -2165,7 +2166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1578556531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3119,7 +3120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1982972711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3430,6 +3431,18 @@ PrefabInstance:
       propertyPath: playerColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: _guiDebugArea.width
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: _guiDebugArea.height
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+      propertyPath: beatHitEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 4400df7bc899ad34c9555b12fbe183d3, type: 2}
     - target: {fileID: 3883265989226838410, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: m_RootOrder
       value: 0

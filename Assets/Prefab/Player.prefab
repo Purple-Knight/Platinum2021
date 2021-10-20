@@ -51,9 +51,17 @@ MonoBehaviour:
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   deadZoneController: 0.5
   bufferTime: 0.15
-  jump: 0
-  hasJumped: 0
-  jumpButtonDown: 0
+  beatHitEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  _guiDebug: 0
+  _guiDebugArea:
+    serializedVersion: 2
+    x: 0
+    y: 30
+    width: 150
+    height: 150
 --- !u!61 &3883265989226838404
 BoxCollider2D:
   m_ObjectHideFlags: 0

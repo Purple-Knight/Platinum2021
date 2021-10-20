@@ -3,6 +3,9 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{BD3CFFEC-87A0-44B7-B542-010E86110422}">
 			<PropertyList>
+				<Property Name="Event Action List\{17F18C7B-D8E8-4DCE-91FE-31951A22952E}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{3A6CC39E-45F0-477B-AD66-56DC61D4F40A}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{8AA5E6B7-52D7-4E72-A05C-1DA109B3CD43}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{B77D0730-1208-4726-BF0C-27656C56ADC6}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{C13B9832-C58C-4AA6-BC6A-D48D2E1C686E}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{D1D17B45-D4FD-459F-9CE7-AE1B34C2052F}\x64_Expand States" Type="string" Value=""/>
@@ -21,10 +24,10 @@
 				</Property>
 				<Property Name="Game Profiler\Voice Monitor\LastBus" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="General\LatestLanguage" Type="int32" Value="684519430"/>
-				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
+				<Property Name="General\LatestPlatform" Type="string" Value="Windows"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value=""/>
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value=""/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value=""/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="yVDti6aRu0GW+U+Dy9PETg=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="Interactive Music\x64_{0B968A1E-4442-4786-A2D4-B5C5C58933F8} - SegmentEditorZoomInfo" Type="string" Value="AAAAAAAA8D8AAAAAAADwP41BNV4cvQpAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA"/>
 				<Property Name="Interactive Music\x64_{6F62C79A-2CF3-4B72-BD6F-C90EA05F32E8} - SegmentEditorZoomInfo" Type="string" Value="AAAAAAAA8D8AAAAAAADwP3af79oyUiBAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA"/>
@@ -39,6 +42,8 @@
 				<Property Name="MonitoringManager\GameObjectFilter\GameObjectFilterVersion" Type="int32" Value="1"/>
 				<Property Name="MonitoringManager\GameObjectFilter\GameObjectFiltersEnable" Type="bool" Value="True"/>
 				<Property Name="MonitoringManager\GameObjectFilter\x64_GameObjectFilters" Type="string" Value=""/>
+				<Property Name="Music Transition List\{5709F8FE-9662-47C8-A9F0-7A99C9CB1DF7}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Music Transition List\{E8D35B7D-DA5C-4EFB-AD91-F9760D316F64}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\FirstVisible_11_1" Type="string" Value="{4C96B38B-3DB4-40C7-91C9-665510E38993}"/>
 				<Property Name="ProjectExplorer\FirstVisible_12_1" Type="string" Value="{23EC2DE3-3ED8-4B82-AC99-92E25F2E4C6B}"/>
 				<Property Name="ProjectExplorer\FirstVisible_1_1" Type="string" Value="{27092F88-225A-1154-6725-C8A34F3D4482}"/>

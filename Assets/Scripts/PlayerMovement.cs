@@ -12,18 +12,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Color playerColor;
     [SerializeField] float deadZoneController;
     [SerializeField] float bufferTime;
+    RhythmManager rhythmManager;
     float raycastDistance = .5f;
     float mvtHorizontal;
-    [SerializeField] float jump;
+    float jump;
     float inputTimer;
     float beatPassedTimer;
-    bool gotInput; //bool to start timer on input
+    float halfBeatTime;
+    bool gotInputThisBeat;
+    bool beforeBeatTimer; //bool to start timer on input
     bool beatPassed; // bool true is rhythm missed
     bool hasMoved; // player moved, to block double movement
-    [SerializeField] bool hasJumped; //player jumped
+    bool hasJumped; //player jumped
     bool wasInAir; //player was in the air the last beat
     bool buttonDown; //check if buttons stays down
-    [SerializeField] bool jumpButtonDown; //check if buttons stays down
+    bool jumpButtonDown; //check if buttons stays down
 
     //serounding checks
     bool isOnFloor; // check if player is grounded
@@ -38,10 +41,19 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lastPos;
     Vector2 targetPos;
 
+    bool doOnce = false;
+    [Header("Debug")]
+    [SerializeField] private bool _guiDebug = true;
+    private bool _timerDebug = false;
+    private bool _boolDebug = false;
+    [SerializeField] private Rect _guiDebugArea = new Rect(0, 20, 150, 150);
+
     private void Start()
     {
+        rhythmManager = RhythmManager.Instance;
+        rhythmManager.onMusicBeatDelegate += BeatReceived;
+
         player = ReInput.players.GetPlayer(playerID);
-        RhythmManager.Instance.onMusicBeatDelegate += BeatReceived;
         sprite.color = playerColor;
         lastPos = transform.position;
         targetPos = transform.position;
@@ -52,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         Gravity();
         WallCollision();
         GetInput();
-        if (gotInput)
+        if (beforeBeatTimer)
         {
             inputTimer += Time.deltaTime;
         }
@@ -62,10 +74,14 @@ public class PlayerMovement : MonoBehaviour
         }
         if(beatPassedTimer > bufferTime && beatPassed)
         {
-            beatPassed = false;
-            beatPassedTimer = 0;
             hasMoved = false;
             hasJumped = false;
+        }
+        if(beatPassed && beatPassedTimer >= halfBeatTime)
+        {
+            beatPassed = false;
+            beatPassedTimer = 0;
+            gotInputThisBeat = false;
             lastPos = targetPos;
         }
     }
@@ -78,13 +94,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputHorizontal && !buttonDown && !hasMoved && !beatPassed)
         {
-            gotInput = true;
+            gotInputThisBeat = true;
+            beforeBeatTimer = true;
             buttonDown = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
         }
-        else if (inputHorizontal && !buttonDown && !hasMoved && beatPassed && beatPassedTimer < bufferTime)
+        else if (inputHorizontal && !buttonDown && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !gotInputThisBeat)
         {
-            gotInput = true;
+            gotInputThisBeat = true;
+            beforeBeatTimer = true;
             buttonDown = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
             Move();
@@ -101,13 +119,13 @@ public class PlayerMovement : MonoBehaviour
         if (inputVertical && !jumpButtonDown && !hasJumped && !beatPassed) //appuier sur saut
         {
             jumpButtonDown = true;
-            gotInput = true;
+            beforeBeatTimer = true;
             jump = player.GetAxis("Move Vertical");
         }
         else if (inputVertical && !jumpButtonDown && !hasJumped && beatPassed && beatPassedTimer < bufferTime) // apres le premier beat
         {
             jumpButtonDown = true;
-            gotInput = true;
+            beforeBeatTimer = true;
             jump = player.GetAxis("Move Vertical");
             Move();
         }
@@ -192,36 +210,50 @@ public class PlayerMovement : MonoBehaviour
         }
 
         HitResult();
-
-        //diagonale with tweening
-       /* if (DOTween.IsTweening(transform)) //check if currently tweening
-        {
-            DOTween.Complete(transform);
-            transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
-        }
-        else
-        {
-            transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
-
-        }*/
-        
-        gotInput = false;
+               
+        beforeBeatTimer = false;
     }
 
     public void BeatReceived()
     {
+        if (!doOnce)
+        {
+            doOnce = true;
+            bufferTime = rhythmManager.beatDuration / 3;
+            halfBeatTime = rhythmManager.beatDuration / 2;
+            Debug.Log(bufferTime + "  --  " + halfBeatTime);
+        }
+
         beatPassed = true;
         Move();
         inputTimer = 0;
         StartCoroutine(LerpMove());
         Squeeeesh();
     }
+    IEnumerator LerpMove()
+    {
+        float t =0;
+        
+        while (t <= 1)
+        {
+            
+            yield return new WaitForEndOfFrame();
+            transform.position = Vector2.Lerp(lastPos, targetPos, t);
+            t += 1/bufferTime * Time.deltaTime;
+            if( t > 1)
+            {
+                t = 1;
+                
+            }
+        }
+        
+    }
 
     #region GravityAndCollisions
     //raycast O.O *u* hello there :)))) watcha ray casting on?
     public void Gravity()
     {
-        RaycastHit2D rayrayFall = Physics2D.Raycast(transform.position, Vector2.down,1, LayerMask.GetMask("Ground"));
+        RaycastHit2D rayrayFall = Physics2D.Raycast(transform.position, Vector2.down, raycastDistance , LayerMask.GetMask("Ground"));
 
         if( rayrayFall.collider != null)
         {
@@ -246,7 +278,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallCollision()
     {
-        RaycastHit2D rayray = Physics2D.Raycast(transform.position, Vector2.up, 1, LayerMask.GetMask("Ground"));
+        RaycastHit2D rayray = Physics2D.Raycast(transform.position, Vector2.up, raycastDistance, LayerMask.GetMask("Ground"));
         if(rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
         {
             canjump = false;
@@ -256,10 +288,10 @@ public class PlayerMovement : MonoBehaviour
             canjump = true;
         }
 
-        rayray = Physics2D.Raycast(transform.position, Vector2.right, 1, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(transform.position, Vector2.right, raycastDistance, LayerMask.GetMask("Ground"));
         canGoRight = rayray.collider == null ;
 
-        rayray = Physics2D.Raycast(transform.position, new Vector2(1, 1), 1, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(transform.position, new Vector2(1, 1), raycastDistance, LayerMask.GetMask("Ground"));
         if (rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
         {
             canGoDiagonalRight = false;
@@ -269,10 +301,10 @@ public class PlayerMovement : MonoBehaviour
             canGoDiagonalRight = true;
         }
 
-        rayray = Physics2D.Raycast(transform.position, Vector2.left, 1, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(transform.position, Vector2.left, raycastDistance, LayerMask.GetMask("Ground"));
         canGoLeft = rayray.collider == null;
         
-        rayray = Physics2D.Raycast(transform.position, new Vector2(-1,1) , 1, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(transform.position, new Vector2(-1,1) , raycastDistance, LayerMask.GetMask("Ground"));
         if (rayray.collider != null && !rayray.collider.CompareTag("OneWayPlatform"))
         {
             canGoDiagonalLeft = false;
@@ -326,23 +358,37 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-    IEnumerator LerpMove()
+
+
+    #region Debug
+    private void OnGUI()
     {
-        float t =0;
-        while (t <= 1)
+        if (!_guiDebug) return;
+
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Timers"))
         {
-            yield return new WaitForEndOfFrame();
-            transform.position = Vector2.Lerp(lastPos, targetPos, t);
-            t += 1/bufferTime * Time.deltaTime;
-            if( t > 1)
-            {
-                t = 1;
-            }
+            _timerDebug = !_timerDebug;
         }
-        
+        if (GUILayout.Button("bool"))
+        {
+            _boolDebug = !_boolDebug;
+        }
+
+        GUILayout.BeginArea(_guiDebugArea);
+
+        if (_timerDebug)
+        {
+            GUILayout.TextField("Timers \n" + "Input Timer : " + inputTimer +"\n" + "beat passed timer : " + beatPassedTimer);
+        }
+        if (_boolDebug)
+        {
+            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Has Jumped : " + hasJumped + "\n" + "Was in air : " + wasInAir + "\n" + "Got Input this beat :" + gotInputThisBeat);
+        }
+        GUILayout.EndArea();
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = canjump ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(transform.position, Vector2.up));
@@ -357,5 +403,6 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = canGoDiagonalLeft ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(transform.position, new Vector2(-1, 1)));
     }
+    #endregion
 }
 
