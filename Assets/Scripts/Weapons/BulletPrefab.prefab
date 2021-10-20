@@ -45,5 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     type: 0
+    direction: {x: 0, y: 0}
     maxTileLength: 0
     ignoreWalls: 0
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64

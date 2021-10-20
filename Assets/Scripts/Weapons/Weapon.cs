@@ -20,6 +20,7 @@ public class Weapon : ScriptableObject
     public int waitBeforeReload;
 
     //Player Ref
+    internal Vector2 lastDirection;
     [SerializeField] internal PlayerMovement pMov;
 
     #region Structs...
@@ -47,7 +48,7 @@ public class Weapon : ScriptableObject
 
         //Instantiate Bullet
         Bullet blt = Instantiate(bulletPrefab, pMov.transform.position, Quaternion.identity).GetComponent<Bullet>();
-        blt.InitInfo(bulletInfo, Mathf.Sign(pMov.mvtHorizontal) * Vector2.right);
+        blt.InitInfo(bulletInfo, lastDirection);
 
         ResetCharge();
     }

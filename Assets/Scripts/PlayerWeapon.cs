@@ -10,12 +10,16 @@ public class PlayerWeapon : MonoBehaviour
 
     float inputTimer = 0;
     internal PlayerMovement pMov;
+    Vector2 lastDirection;
+
     // bools
     private bool gotInput = false;
     private bool beatPassed = false;
 
-    [Header("TESING")]
+    [Header("DEBUG")]
     public Weapon testWeapon;
+    [SerializeField] private Rect guiDebugArea = new Rect(0, 20, 150, 150);
+    public bool debugGUI = false;
 
     private void Start()
     {
@@ -34,11 +38,27 @@ public class PlayerWeapon : MonoBehaviour
         {
             inputTimer += Time.deltaTime;
         }
+
+        if (player.GetAxisRaw("Aim Horizontal") != 0 || player.GetAxisRaw("Aim Vertical") != 0)
+        {
+            float x = player.GetAxis("Aim Horizontal");
+            float y = player.GetAxis("Aim Vertical");
+
+            if (Mathf.Abs(x) >= Mathf.Abs(y))
+                y = 0;   
+            else
+                x = 0;
+
+            lastDirection.x = (x == 0) ? x : Mathf.Sign(x);
+            lastDirection.y = (y == 0) ? y : Mathf.Sign(y);
+
+            if (weapon != null) weapon.lastDirection = lastDirection;
+        }
     }
 
     private void GetInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !gotInput)
+        if(player.GetButtonDown("Fire") && !gotInput)
         {
             gotInput = true;
         }
@@ -72,5 +92,20 @@ public class PlayerWeapon : MonoBehaviour
     public void BeatReceived()
     {
         FireWeapon();
+    }
+
+
+    //----------------
+    public void OnGUI()
+    {
+        if (!debugGUI) return;
+
+        //GUILayout.BeginHorizontal();
+
+        GUILayout.BeginArea(guiDebugArea);
+        GUILayout.TextField("Last Direction : " + lastDirection);
+        GUILayout.TextField("Horizontal Aim: " + player.GetAxis("Aim Horizontal"));
+        GUILayout.TextField("Vertical Aim : " + player.GetAxis("Aim Vertical"));
+        GUILayout.EndArea();
     }
 }
