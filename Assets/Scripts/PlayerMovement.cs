@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     bool beatPassed; // bool true is rhythm missed
     bool hasMoved; // player moved, to block double movement
     PlayerDir playerDir = PlayerDir.NULL; //direction the player want
+    bool buttonDown;
 
     //serounding checks
     bool canGoUp;
@@ -79,28 +80,34 @@ public class PlayerMovement : MonoBehaviour
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
 
 
-        if (inputHorizontal && !hasMoved && !beatPassed) // before a beat
+        if (inputHorizontal && !hasMoved && !beatPassed && !buttonDown) // before a beat
         {
             gotInput = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
         }
-        else if (inputHorizontal && !hasMoved && beatPassed && beatPassedTimer < bufferTime) // after a beat
+        else if (inputHorizontal && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown) // after a beat
         {
             gotInput = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
             Move();
+        }else if (player.GetAxis("Move Horizontal") > -deadZoneController && player.GetAxis("Move Horizontal") < deadZoneController)
+        {
+            buttonDown = false;
         }
         
-        if (inputVertical && !hasMoved && !beatPassed) //before a beat
+        if (inputVertical && !hasMoved && !beatPassed && !buttonDown) //before a beat
         {
             gotInput = true;
             mvtVertical = player.GetAxis("Move Vertical");
         }
-        else if (inputVertical && !hasMoved && beatPassed && beatPassedTimer < bufferTime) //after a beat
+        else if (inputVertical && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown) //after a beat
         {
             gotInput = true;
             mvtVertical = player.GetAxis("Move Vertical");
             Move();
+        }else if(player.GetAxis("Move Vertical") > -deadZoneController && player.GetAxis("Move Vertical") < deadZoneController)
+        {
+            buttonDown = false;
         }
     }
 
@@ -137,16 +144,16 @@ public class PlayerMovement : MonoBehaviour
             HitResult();
 
         //diagonale with tweening
-       /* if (DOTween.IsTweening(transform)) //check if currently tweening
+        if (DOTween.IsTweening(transform)) //check if currently tweening
         {
             DOTween.Complete(transform);
-            transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
+            transform.DOMove(new Vector2(transform.position.x + targetPos.x, transform.position.y + targetPos.y), .2f);
         }
         else
         {
-            transform.DOMove(new Vector2(transform.position.x + x, transform.position.y + y), .2f);
+            transform.DOMove(new Vector2(transform.position.x + targetPos.x, transform.position.y + targetPos.y), .2f);
 
-        }*/
+        }
         
         gotInput = false;
     }
@@ -156,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
         beatPassed = true;
         Move();
         inputTimer = 0;
-        StartCoroutine(LerpMove());
+        //StartCoroutine(LerpMove());
         Squeeeesh();
     }
 
@@ -164,16 +171,16 @@ public class PlayerMovement : MonoBehaviour
     public void WallCollision()
     {
         RaycastHit2D rayray;
-        rayray = Physics2D.Raycast(transform.position, Vector2.up, 1, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(transform.position, Vector2.up, raycastDistance, LayerMask.GetMask("Ground"));
         canGoUp = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(transform.position, Vector2.down, raycastDistance, LayerMask.GetMask("Ground"));
         canGoDown = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(transform.position, Vector2.right, 1, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(transform.position, Vector2.right, raycastDistance, LayerMask.GetMask("Ground"));
         canGoRight = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(transform.position, Vector2.left, 1, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(transform.position, Vector2.left, raycastDistance, LayerMask.GetMask("Ground"));
         canGoLeft = rayray.collider == null;
         
     }
