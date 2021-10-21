@@ -155,8 +155,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endTimeline: {fileID: 164719196}
   bar: {fileID: 5383227485702290579, guid: e8418c922056ca547adc72e870cef969, type: 3}
-  beatToReach: 6
   echo: {fileID: 8321464503538729669, guid: afbf10ceb51e12144b69497d656aec4d, type: 3}
+  beatToReach: 5
+  multiplicatorSpeed: 1
+  guiDebug: 1
+  guiDebugArea:
+    serializedVersion: 2
+    x: 0
+    y: 20
+    width: 150
+    height: 150
 --- !u!212 &58325273
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -251,28 +259,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef31c8fe98f363f46b3c33af0b01a87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventMusic1:
-    idInternal: 0
+  eventMusic:
+  - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
-  eventMusic2:
-    idInternal: 0
+  - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
-  eventMusic3:
-    idInternal: 0
+    WwiseObjectReference: {fileID: 11400000, guid: 36ab5370e29fb2f46b97f57b640bdbd4, type: 2}
+  - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
-  eventStop:
-    idInternal: 0
+    WwiseObjectReference: {fileID: 11400000, guid: 3800faacccbd3474d8aa8f22fedfb5db, type: 2}
+  - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 4b8cb09b388fa914593f7fc80689adec, type: 2}
+  idToLaunch: 2
+  numberOfBeat: 0
+  timeBeforeStart: 1.5
   beatDuration: 0
   duration:
   - songName: Tutel
     duration: 196
   - songName: Crypt
     duration: 124
+  - songName: MMX3
+    duration: 16.9
 --- !u!4 &102144043
 Transform:
   m_ObjectHideFlags: 0
