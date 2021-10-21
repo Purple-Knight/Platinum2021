@@ -13,8 +13,8 @@ public class Weapon : ScriptableObject
     public GameObject bulletPrefab;
 
     // Charge
-    public int chargeBeats = 1;
-    [SerializeField] private protected int chargeLevel = 0;
+    public int chargeBeats = 1;             // charge Time needed
+    private protected int chargeLevel = 0;  // current Charge
 
     //Reload
     public int waitBeforeReload;
@@ -27,14 +27,20 @@ public class Weapon : ScriptableObject
 
     #endregion
 
-    public virtual void Use()
+    public virtual void Use(bool triggerDown)
     {
-        Debug.Log("Try Shoot...");
-
-        if (chargeLevel < chargeBeats)
+        if(triggerDown) // Button Down
+        {
             Charge();
-        else
-            Fire();
+            //Debug.Log("Try Shoot...");
+        }
+        else    // Button Up
+        {
+            if (chargeLevel == chargeBeats)
+                Fire();
+            else
+                MissedBeat();
+        }
     }
 
     public virtual void Charge()
@@ -44,7 +50,7 @@ public class Weapon : ScriptableObject
 
     public virtual void Fire()
     {
-        Debug.Log("FIRE!");
+        Debug.Log("FIRE! " + chargeLevel + " charges");
 
         //Instantiate Bullet
         Bullet blt = Instantiate(bulletPrefab, pMov.transform.position, Quaternion.identity).GetComponent<Bullet>();
@@ -58,7 +64,7 @@ public class Weapon : ScriptableObject
         ResetCharge();
     }
 
-    private protected void ResetCharge() { chargeLevel = 0; }
+    private protected void ResetCharge() { chargeLevel = 0; Debug.Log("Reset Charges ."); }
 }
 
 [System.Serializable]
