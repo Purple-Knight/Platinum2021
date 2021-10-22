@@ -157,12 +157,10 @@ public class PlayerMovement : MonoBehaviour
             if (mvtVertical > 0 && canGoUp)
             {
                 targetPos.y = transform.position.y + 1;
-                playerDir = PlayerDir.UP;
             }
             else if (mvtVertical < 0 && canGoDown)
             {
                 targetPos.y = transform.position.y - 1;
-                playerDir = PlayerDir.DOWN;
             }
             hasMoved = true;
         }
@@ -171,12 +169,10 @@ public class PlayerMovement : MonoBehaviour
             if (mvtHorizontal > 0 && canGoRight)
             {
                 targetPos.x = transform.position.x + 1;
-                playerDir = PlayerDir.RIGHT;
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
                 targetPos.x = transform.position.x - 1;
-                playerDir = PlayerDir.LEFT;
             }
             hasMoved = true;
         }
@@ -224,8 +220,8 @@ public class PlayerMovement : MonoBehaviour
             if (!canMove)
             {
                 transform.DOComplete();
-                transform.DOMove(lastPos, .1f);
                 targetPos = lastPos;
+                transform.DOMove(targetPos, .1f);
             }
         }
     }
