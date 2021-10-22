@@ -125,8 +125,7 @@ public class PlayerWeapon : MonoBehaviour
                 if (beatPassed)
                     FireWeapon();
             }
-            else
-                weapon.MissedBeat(); // Reset Charges (input Down & Up in one beat)
+            else weapon.MissedBeat(); // Reset Charges (input Down & Up in one beat)
         }
     }
 

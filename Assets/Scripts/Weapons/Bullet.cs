@@ -7,6 +7,17 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
     public BulletInfo info;
     public LayerMask hitLayer;
 
+    public AnimationCurve laserWidth;
+
+    BoxCollider2D col;
+
+    private void Start()
+    {
+        col = GetComponent<BoxCollider2D>();
+
+        Invoke("DestroyBullet", .3f);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -17,12 +28,24 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
     {
         info = _Info;
         info.direction = direction;
+        Vector2 spawnPos = new Vector2(transform.position.x + direction.x, transform.position.y + direction.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(spawnPos, info.direction, 50, hitLayer);
+        if (hit.collider != null)
+        {
+            Debug.Log("HIT : " + hit.transform.name + " ; " + info.direction.x);
+            Debug.DrawLine(spawnPos, hit.point, Color.yellow, .5f);
+        }
+        else
+        {
+            Debug.LogWarning("NOTHING HIT.");
+            return;
+        }
 
         switch (info.type)
         {
             case BulletInfo.BulletType.Laser:
-                //LineRenderer
-                gameObject.AddComponent<LineRenderer>();
+                InitLaser(spawnPos, hit.point, direction);
                 break;
             case BulletInfo.BulletType.Projectile:
                 //SpriteRender
@@ -32,18 +55,28 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
                 break;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, info.direction, 50, hitLayer);
-        if(hit.collider != null)
-        {
-            Debug.Log("HIT : " + hit.transform.name + " ; " + info.direction.x);
-            Debug.DrawLine(transform.position, hit.point, Color.yellow, .5f);
-        }
-        else Debug.Log("NOTHING HIT.");
+    }
 
+    private void InitLaser(Vector2 startPos, Vector2 endPos, Vector2 direction)
+    {
+        //LineRenderer
+        LineRenderer lr = gameObject.AddComponent<LineRenderer>();
+
+        lr.SetPositions(new Vector3[] { startPos, endPos });
+        lr.widthCurve = laserWidth;
+
+       /* RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, endPos.x - startPos.x);   // Cast Players hit  (add Player layerMask)
+        foreach (RaycastHit2D hit in hits)
+        {
+            if(hit.collider != null)
+            {
+                // if
+            }
+        }*/
     }
 
     private void DestroyBullet()
     {
-
+        Destroy(gameObject);
     }
 }

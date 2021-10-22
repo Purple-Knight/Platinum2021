@@ -32,7 +32,7 @@ public class Weapon : ScriptableObject
         if(triggerDown) // Button Down
         {
             Charge();
-            Debug.Log("Try Shoot...");
+            //Debug.Log("Try Shoot...");
         }
         else    // Button Up
         {
@@ -46,12 +46,12 @@ public class Weapon : ScriptableObject
     public virtual void Charge()
     {
         chargeLevel++;
-        Debug.Log("------------------Charge Level = " + chargeLevel);
+        //Debug.Log("------------------Charge Level = " + chargeLevel);
     }
 
     public virtual void Fire()
     {
-        Debug.Log("FIRE! " + chargeLevel + " charges");
+        //Debug.Log("FIRE! " + chargeLevel + " charges");
 
         //Instantiate Bullet
         Bullet blt = Instantiate(bulletPrefab, pMov.transform.position, Quaternion.identity).GetComponent<Bullet>();
@@ -65,7 +65,7 @@ public class Weapon : ScriptableObject
         ResetCharge();
     }
 
-    private protected void ResetCharge() { chargeLevel = 0; Debug.Log("Reset Charges ."); }
+    private protected void ResetCharge() { chargeLevel = 0; }
 }
 
 [System.Serializable]
