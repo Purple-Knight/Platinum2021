@@ -11,7 +11,7 @@ public class PlayerWeapon : MonoBehaviour
     float inputTimer = 0;
     float beatPassedTimer = 0;
     internal PlayerMovement pMov;
-    Vector2 lastDirection;
+    Vector2 lastDirection = Vector2.right;
 
     // bools
     private bool gotInput = false;  // Fire Input received this beat
@@ -48,10 +48,13 @@ public class PlayerWeapon : MonoBehaviour
             {
                 if (gotInput && inputTimer > pMov.bufferTime)
                     triggerDown = false;
+
+                if (!gotInput && triggerDown)   // Holding down (Charging weapon)
+                    weapon.Use(triggerDown);
+
                 inputTimer = 0;
                 beatPassed = false;
                 gotInput = false;
-                weapon.MissedBeat();
             }
         }
 
@@ -115,13 +118,15 @@ public class PlayerWeapon : MonoBehaviour
         {
             triggerDown = false;
 
-            if(!gotInput)
+            if (!gotInput)
             {
                 gotInput = true;
 
                 if (beatPassed)
                     FireWeapon();
             }
+            else
+                weapon.MissedBeat(); // Reset Charges (input Down & Up in one beat)
         }
     }
 
@@ -140,10 +145,6 @@ public class PlayerWeapon : MonoBehaviour
                 weapon.MissedBeat();
                 Debug.Log(inputTimer + "; " + pMov.bufferTime);
             }
-        }
-        else if(triggerDown) // Holding down (Charging weapon)
-        {
-            weapon.Use(triggerDown);
         }
 
         beatPassedTimer = 0;

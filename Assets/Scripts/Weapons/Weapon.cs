@@ -14,7 +14,7 @@ public class Weapon : ScriptableObject
 
     // Charge
     public int chargeBeats = 1;             // charge Time needed
-    private protected int chargeLevel = 0;  // current Charge
+    [SerializeField] private protected int chargeLevel = 0;  // current Charge
 
     //Reload
     public int waitBeforeReload;
@@ -32,13 +32,13 @@ public class Weapon : ScriptableObject
         if(triggerDown) // Button Down
         {
             Charge();
-            //Debug.Log("Try Shoot...");
+            Debug.Log("Try Shoot...");
         }
         else    // Button Up
         {
             if (chargeLevel == chargeBeats)
                 Fire();
-            else
+            else if(chargeLevel > 0)
                 MissedBeat();
         }
     }
@@ -46,6 +46,7 @@ public class Weapon : ScriptableObject
     public virtual void Charge()
     {
         chargeLevel++;
+        Debug.Log("------------------Charge Level = " + chargeLevel);
     }
 
     public virtual void Fire()
