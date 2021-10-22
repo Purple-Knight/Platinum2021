@@ -244,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
                 rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, raycastDistance, LayerMask.GetMask("Player"));
                 break;
             case PlayerDir.LEFT:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, raycastDistance, LayerMask.GetMask("Ground"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, raycastDistance, LayerMask.GetMask("Player"));
                 break;
         }
         if (rayray.collider != null)
