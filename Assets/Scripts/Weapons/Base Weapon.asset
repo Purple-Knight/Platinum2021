@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c2e7998cf137d4dba57fdc2840ae40, type: 3}
+  m_Name: Base Weapon
+  m_EditorClassIdentifier: 
+  bulletInfo:
+    type: 0
+    direction: {x: 0, y: 0}
+    maxTileLength: 0
+    ignoreWalls: 0
+  bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
+  chargeBeats: 1
+  waitBeforeReload: 0
+  pMov: {fileID: 0}

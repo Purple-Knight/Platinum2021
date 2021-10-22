@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3883265989226838410}
   - component: {fileID: 3883265989226838409}
+  - component: {fileID: 7043354195277512944}
   - component: {fileID: 3883265989226838404}
   - component: {fileID: 3883265989226838411}
   m_Layer: 7
@@ -49,6 +50,23 @@ MonoBehaviour:
   playerID: 0
   sprite: {fileID: 6995882317632707775}
   playerColor: {r: 1, g: 1, b: 1, a: 1}
+  deadZoneController: 0.1
+  bufferTime: 0.3
+--- !u!114 &7043354195277512944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3883265989226838415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f00f0141da1a274f818d69803e4e7c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
+  testWeapon: {fileID: 0}
   deadZoneController: 0.5
   _guiDebug: 1
   _guiDebugArea:
