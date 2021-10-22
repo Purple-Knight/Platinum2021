@@ -23,6 +23,8 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private Rect guiDebugArea = new Rect(0, 20, 150, 150);
     public bool debugGUI = false;
 
+    [SerializeField] Transform aiming;
+
     private void Start()
     {
         RhythmManager.Instance.onMusicBeatDelegate += BeatReceived;
@@ -70,6 +72,8 @@ public class PlayerWeapon : MonoBehaviour
 
             lastDirection.x = (x == 0) ? x : Mathf.Sign(x);
             lastDirection.y = (y == 0) ? y : Mathf.Sign(y);
+
+            aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f)) ;
 
             if (weapon != null) weapon.lastDirection = lastDirection;
         }

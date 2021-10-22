@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Color playerColor;
     [SerializeField] float deadZoneController;
-    float bufferTime;
+    public float bufferTime;
     float halfBeatTime;
     bool gotInputThisBeat;
     float raycastDistance = .5f;
@@ -341,7 +341,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (_boolDebug)
         {
-            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Before Beat Timer : "  + beforeBeatTimer + "\n Button down : " + buttonDown);
+            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Before Beat Timer : "  + beforeBeatTimer + "\n Button down : " + buttonDown +  "\n Vertical mvt : " + mvtVertical );
         }
         GUILayout.EndArea();
     }

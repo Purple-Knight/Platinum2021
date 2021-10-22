@@ -18,12 +18,6 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         Invoke("DestroyBullet", .3f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void InitInfo(BulletInfo _Info, Vector2 direction)
     {
         info = _Info;
@@ -65,14 +59,14 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         lr.SetPositions(new Vector3[] { startPos, endPos });
         lr.widthCurve = laserWidth;
 
-       /* RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, endPos.x - startPos.x);   // Cast Players hit  (add Player layerMask)
+       RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, endPos.x - startPos.x, LayerMask.GetMask("Player"));   // Cast Players hit  (add Player layerMask)
         foreach (RaycastHit2D hit in hits)
         {
             if(hit.collider != null)
             {
-                // if
+                Debug.Log("hit player :" + hit.collider.name);
             }
-        }*/
+        }
     }
 
     private void DestroyBullet()
