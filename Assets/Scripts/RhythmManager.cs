@@ -83,7 +83,7 @@ public class RhythmManager : MonoBehaviour
         if (!onceAtStart)
         {
             onceAtStart = true;
-            eventMusic[3].Post(gameObject);
+            eventMusic[1].Post(gameObject);
             StartCoroutine(beforeStart());
             numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
             InstantiateBeat?.Invoke();

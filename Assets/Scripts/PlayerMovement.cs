@@ -11,24 +11,28 @@ public class PlayerMovement : MonoBehaviour
     public int playerID = 0;
     public SpriteRenderer sprite;
     private Player player; //Rewired player
+    private RhythmManager rhythmManager;
 
     [SerializeField] Color playerColor;
     [SerializeField] float deadZoneController;
-    [SerializeField] float bufferTime;
+    float bufferTime;
+    float halfBeatTime;
+    bool gotInputThisBeat;
     float raycastDistance = .5f;
 
-    [SerializeField] float mvtHorizontal;
-    [SerializeField] float mvtVertical;
+    float mvtHorizontal;
+    float mvtVertical;
 
     //timer
     float inputTimer;
     float beatPassedTimer;
 
-    bool gotInput; //bool to start timer on input
+    bool beforeBeatTimer; //bool to start timer on input
     bool beatPassed; // bool true is rhythm missed
     bool hasMoved; // player moved, to block double movement
     PlayerDir playerDir = PlayerDir.NULL; //direction the player want
     bool buttonDown;
+    bool canMove = true;
 
     //serounding checks
     bool canGoUp;
@@ -37,25 +41,35 @@ public class PlayerMovement : MonoBehaviour
     bool canGoLeft;
 
     //lerp
-    Vector2 lastPos;
     Vector2 targetPos;
+    Vector2 lastPos;
     #endregion
+
+    [Header("Debug")]
+    [SerializeField] private bool _guiDebug = true;
+    private bool _timerDebug = false;
+    private bool _boolDebug = false;
+    [SerializeField] private Rect _guiDebugArea = new Rect(0, 20, 150, 150);
 
     private void Start()
     {
+        rhythmManager = RhythmManager.Instance;
+        rhythmManager.onMusicBeatDelegate += BeatReceived;
+        rhythmManager.InstantiateBeat.AddListener(InstantiateRhythm);
+
         player = ReInput.players.GetPlayer(playerID);
-        RhythmManager.Instance.onMusicBeatDelegate += BeatReceived;
         sprite.color = playerColor;
-        lastPos = transform.position;
         targetPos = transform.position;
+        lastPos = targetPos;
     }
 
     private void Update()
     {
         WallCollision();
+
         GetInput();
 
-        if (gotInput)
+        if (beforeBeatTimer)
         {
             inputTimer += Time.deltaTime;
         }
@@ -65,11 +79,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if(beatPassedTimer > bufferTime && beatPassed)
         {
+            hasMoved = false;
+        }
+        if (beatPassed && beatPassedTimer >= halfBeatTime)
+        {
             beatPassed = false;
             beatPassedTimer = 0;
-            hasMoved = false;
-            lastPos = targetPos;
+            gotInputThisBeat = false;
+            
         }
+
+        OtherPlayerOnNextTile();
     }
 
 
@@ -80,82 +100,94 @@ public class PlayerMovement : MonoBehaviour
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
 
 
-        if (inputHorizontal && !hasMoved && !beatPassed && !buttonDown) // before a beat
+        if (inputHorizontal && !hasMoved && !beatPassed && !buttonDown && !gotInputThisBeat) // before a beat
         {
-            gotInput = true;
+            gotInputThisBeat = true;
+            beforeBeatTimer = true;
+            buttonDown = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
+            playerDir = mvtHorizontal > 0? PlayerDir.RIGHT: PlayerDir.LEFT;
         }
-        else if (inputHorizontal && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown) // after a beat
+        else if (inputHorizontal && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown  && ! !gotInputThisBeat) // after a beat
         {
-            gotInput = true;
+            gotInputThisBeat = true;
+            beforeBeatTimer = true;
+            buttonDown = true;
             mvtHorizontal = player.GetAxis("Move Horizontal");
+            playerDir = mvtHorizontal > 0 ? PlayerDir.RIGHT : PlayerDir.LEFT;
             Move();
         }else if (player.GetAxis("Move Horizontal") > -deadZoneController && player.GetAxis("Move Horizontal") < deadZoneController)
         {
-            buttonDown = false;
+            mvtHorizontal = 0;
         }
         
-        if (inputVertical && !hasMoved && !beatPassed && !buttonDown) //before a beat
+        if (inputVertical && !hasMoved && !beatPassed && !buttonDown && !gotInputThisBeat) //before a beat
         {
-            gotInput = true;
+            gotInputThisBeat = true;
+            beforeBeatTimer = true;
+            buttonDown = true;
             mvtVertical = player.GetAxis("Move Vertical");
+            playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
         }
-        else if (inputVertical && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown) //after a beat
+        else if (inputVertical && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown && !gotInputThisBeat) //after a beat
         {
-            gotInput = true;
+            gotInputThisBeat = true;
+            beforeBeatTimer = true;
+            buttonDown = true;
             mvtVertical = player.GetAxis("Move Vertical");
+            playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
             Move();
         }else if(player.GetAxis("Move Vertical") > -deadZoneController && player.GetAxis("Move Vertical") < deadZoneController)
         {
+            mvtVertical = 0;
+        }
+        
+        if(!inputHorizontal && !inputVertical)
+        {
             buttonDown = false;
+            playerDir = PlayerDir.NULL;
         }
     }
 
     public void Move()
     {
+        lastPos = targetPos;
         if (inputTimer < bufferTime && mvtVertical != 0 && !hasMoved) //move vertical
         {
             if (mvtVertical > 0 && canGoUp)
             {
                 targetPos.y = transform.position.y + 1;
+                playerDir = PlayerDir.UP;
             }
             else if (mvtVertical < 0 && canGoDown)
             {
                 targetPos.y = transform.position.y - 1;
+                playerDir = PlayerDir.DOWN;
             }
-            mvtVertical = 0;
             hasMoved = true;
         }
-
-        if (inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal
+        else if (inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal
         {
             if (mvtHorizontal > 0 && canGoRight)
             {
                 targetPos.x = transform.position.x + 1;
+                playerDir = PlayerDir.RIGHT;
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
                 targetPos.x = transform.position.x - 1;
+                playerDir = PlayerDir.LEFT;
             }
-            mvtHorizontal = 0;
             hasMoved = true;
         }
 
-            HitResult();
+        mvtVertical = 0;
+        mvtHorizontal = 0;
 
-        //diagonale with tweening
-        if (DOTween.IsTweening(transform)) //check if currently tweening
-        {
-            DOTween.Complete(transform);
-            transform.DOMove(new Vector2(transform.position.x + targetPos.x, transform.position.y + targetPos.y), .2f);
-        }
-        else
-        {
-            transform.DOMove(new Vector2(transform.position.x + targetPos.x, transform.position.y + targetPos.y), .2f);
+        HitResult();
+        transform.DOMove(targetPos, .2f);
 
-        }
-        
-        gotInput = false;
+        beforeBeatTimer = false;
     }
 
     public void BeatReceived()
@@ -171,18 +203,58 @@ public class PlayerMovement : MonoBehaviour
     public void WallCollision()
     {
         RaycastHit2D rayray;
-        rayray = Physics2D.Raycast(transform.position, Vector2.up, raycastDistance, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, raycastDistance, LayerMask.GetMask("Ground"));
         canGoUp = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(transform.position, Vector2.down, raycastDistance, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, raycastDistance, LayerMask.GetMask("Ground"));
         canGoDown = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(transform.position, Vector2.right, raycastDistance, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y ), Vector2.right, raycastDistance, LayerMask.GetMask("Ground"));
         canGoRight = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(transform.position, Vector2.left, raycastDistance, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y ), Vector2.left, raycastDistance, LayerMask.GetMask("Ground"));
         canGoLeft = rayray.collider == null;
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (!canMove)
+            {
+                transform.DOComplete();
+                transform.DOMove(lastPos, .1f);
+                targetPos = lastPos;
+            }
+        }
+    }
+
+    public void OtherPlayerOnNextTile()
+    {
+        RaycastHit2D rayray;
+        rayray = Physics2D.Raycast(Vector2.zero, Vector2.zero, 0, LayerMask.GetMask());
+        switch (playerDir)
+        {
+            case PlayerDir.NULL:
+                break;
+            case PlayerDir.UP:
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, raycastDistance, LayerMask.GetMask("Player"));
+                break;
+            case PlayerDir.DOWN:
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, raycastDistance, LayerMask.GetMask("Player"));
+                break;
+            case PlayerDir.RIGHT:
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, raycastDistance, LayerMask.GetMask("Player"));
+                break;
+            case PlayerDir.LEFT:
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, raycastDistance, LayerMask.GetMask("Ground"));
+                break;
+        }
+        if (rayray.collider != null)
+            canMove = false;
+        else
+            canMove = true;
     }
     #endregion
 
@@ -217,7 +289,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (inputTimer > bufferTime)
             {
-                Debug.Log("<color=red> missed </color>");
+                //Debug.Log("<color=red> missed </color>");
                 seqColor.Append(sprite.DOColor(Color.red, .2f));
             }
 
@@ -227,34 +299,70 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-    IEnumerator LerpMove()
-    {
-        float t =0;
-        while (t <= 1)
+    /*
+        IEnumerator LerpMove()
         {
-            yield return new WaitForEndOfFrame();
-            transform.position = Vector2.Lerp(lastPos, targetPos, t);
-            t += 1/bufferTime * Time.deltaTime;
-            if( t > 1)
+            float t =0;
+            while (t <= 1)
             {
-                t = 1;
+                yield return new WaitForEndOfFrame();
+                transform.position = Vector2.Lerp(lastPos, targetPos, t);
+                t += 1/bufferTime * Time.deltaTime;
+                if( t > 1)
+                {
+                    t = 1;
+                }
             }
-        }
-        
-    }
 
+        }*/
+
+    public void InstantiateRhythm()
+    {
+        bufferTime = rhythmManager.beatDuration / 3;
+        halfBeatTime = rhythmManager.beatDuration / 2;
+    }
+    #region Debug
+
+    private void OnGUI()
+    {
+        if (!_guiDebug) return;
+
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Timers"))
+        {
+            _timerDebug = !_timerDebug;
+        }
+        if (GUILayout.Button("bool"))
+        {
+            _boolDebug = !_boolDebug;
+        }
+
+        GUILayout.BeginArea(_guiDebugArea);
+
+        if (_timerDebug)
+        {
+            GUILayout.TextField("Timers \n" + "Input Timer : " + inputTimer + "\n" + "beat passed timer : " + beatPassedTimer);
+        }
+        if (_boolDebug)
+        {
+            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Before Beat Timer : "  + beforeBeatTimer + "\n Button down : " + buttonDown);
+        }
+        GUILayout.EndArea();
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = canGoUp ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(transform.position, Vector2.up));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up));
         Gizmos.color = canGoDown ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(transform.position, Vector2.down));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down));
         Gizmos.color = canGoLeft ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(transform.position, Vector2.left));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x -.5f, transform.position.y), Vector2.left));
         Gizmos.color = canGoRight ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(transform.position, Vector2.right));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x + .5f, transform.position.y ), Vector2.right));
 
     }
+
+    #endregion
 }
 
 
