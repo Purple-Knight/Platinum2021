@@ -8,6 +8,9 @@ public class LevelGenerator : MonoBehaviour
 
     public ColorToPrefab[] colorMappings;
 
+
+    public float divideMultiplicator;
+
     void Start()
     {
         GenerateLevel();
@@ -37,8 +40,11 @@ public class LevelGenerator : MonoBehaviour
         {
             if (colorMapping.color.Equals(pixelColor))
             {
-                Vector2 position = new Vector2(x, y);
-                Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
+                Vector2 position = new Vector2(transform.position.x + x / divideMultiplicator, transform.position.y + y / divideMultiplicator);
+                var block = Instantiate(colorMapping.prefab, transform.position, Quaternion.identity);
+                block.transform.parent = transform;
+                block.transform.position = position;
+                block.name = colorMapping.name + " " + x + " " + y;
             }
         }
     }
