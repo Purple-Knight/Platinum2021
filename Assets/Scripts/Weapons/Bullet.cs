@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
     {
         col = GetComponent<BoxCollider2D>();
 
-        Invoke("DestroyBullet", .3f);
+        Destroy(gameObject, .3f);
     }
 
     public void InitInfo(BulletInfo _Info, Vector2 direction)
@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
 
         lr.SetPositions(new Vector3[] { startPos, endPos });
         lr.widthCurve = laserWidth;
-        //lr.material = new Material(mat);
+        lr.materials = new Material[] { mat };
 
        RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, endPos.x - startPos.x, LayerMask.GetMask("Player"));   // Cast Players hit  (add Player layerMask)
         foreach (RaycastHit2D hit in hits)
@@ -75,8 +75,4 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         }
     }
 
-    private void DestroyBullet()
-    {
-        Destroy(gameObject);
-    }
 }

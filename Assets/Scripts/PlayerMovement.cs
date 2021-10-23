@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lastPos;
 
     public UnityEvent PlayerHit;
+    [SerializeField] ParticleSystem impactParticles;
 
     #endregion
 
@@ -237,9 +238,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!canMove)
             {
+                Instantiate(impactParticles, transform.position, Quaternion.identity);
                 transform.DOComplete();
                 targetPos = lastPos;
-                transform.DOMove(targetPos, .1f);
+                Sequence seq = DOTween.Sequence();
+                seq.Append(transform.DOMove(targetPos, .1f));
+                seq.Insert(0, sprite.transform.DOScale(1.15f, .1f));
+                seq.Insert(0, sprite.transform.DOScale(.85f, .1f));
+                seq.Append(sprite.transform.DOScale(1, .2f).SetEase(Ease.OutElastic));
             }
         }
     }
@@ -344,6 +350,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_guiDebug) return;
 
+        GUILayout.BeginArea(_guiDebugArea);
+        GUILayout.TextArea("Player " + playerID);
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Timers"))
         {
@@ -354,7 +362,7 @@ public class PlayerMovement : MonoBehaviour
             _boolDebug = !_boolDebug;
         }
 
-        GUILayout.BeginArea(_guiDebugArea);
+        GUILayout.EndHorizontal();
 
         if (_timerDebug)
         {
