@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
 
     BoxCollider2D col;
 
+    public Material mat;
+
     private void Start()
     {
         col = GetComponent<BoxCollider2D>();
@@ -58,6 +60,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
 
         lr.SetPositions(new Vector3[] { startPos, endPos });
         lr.widthCurve = laserWidth;
+        //lr.material = new Material(mat);
 
        RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, endPos.x - startPos.x, LayerMask.GetMask("Player"));   // Cast Players hit  (add Player layerMask)
         foreach (RaycastHit2D hit in hits)
@@ -65,6 +68,9 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
             if(hit.collider != null)
             {
                 Debug.Log("hit player :" + hit.collider.name);
+                PlayerMovement player;
+                hit.collider.gameObject.TryGetComponent<PlayerMovement>(out player);
+                player.HitByBullet();
             }
         }
     }

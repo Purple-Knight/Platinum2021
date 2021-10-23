@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Rewired;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     //lerp
     Vector2 targetPos;
     Vector2 lastPos;
+
+    public UnityEvent PlayerHit;
+
     #endregion
 
     [Header("Debug")]
@@ -157,10 +161,12 @@ public class PlayerMovement : MonoBehaviour
             if (mvtVertical > 0 && canGoUp)
             {
                 targetPos.y = transform.position.y + 1;
+                Squeeeesh(false);
             }
             else if (mvtVertical < 0 && canGoDown)
             {
                 targetPos.y = transform.position.y - 1;
+                Squeeeesh(false);
             }
             hasMoved = true;
         }
@@ -169,10 +175,14 @@ public class PlayerMovement : MonoBehaviour
             if (mvtHorizontal > 0 && canGoRight)
             {
                 targetPos.x = transform.position.x + 1;
+                sprite.flipX = true;
+                Squeeeesh(true);
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
                 targetPos.x = transform.position.x - 1;
+                sprite.flipX = false;
+                Squeeeesh(true);
             }
             hasMoved = true;
         }
@@ -180,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
         mvtVertical = 0;
         mvtHorizontal = 0;
 
-        HitResult();
+        BeatTiming();
         transform.DOMove(targetPos, .2f);
 
         beforeBeatTimer = false;
@@ -192,7 +202,15 @@ public class PlayerMovement : MonoBehaviour
         Move();
         inputTimer = 0;
         //StartCoroutine(LerpMove());
-        Squeeeesh();
+        if(!DOTween.IsTweening(sprite.transform))
+            Squeeeesh(true);
+    }
+
+    public void HitByBullet()
+    {
+        Debug.Log("Hit by a bullet :(");
+        PlayerHit.Invoke();
+        //death? or lose life
     }
 
     #region Collisions
@@ -255,14 +273,17 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region feedback
-    public void Squeeeesh()
+    public void Squeeeesh(bool squeeshY)
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(sprite.transform.DOScaleY(.8f, .1f)).Append(sprite.transform.DOScaleY(1, 0.1f)) ;
+        if(squeeshY)
+            seq.Append(sprite.transform.DOScaleY(.8f, .1f)).Append(sprite.transform.DOScaleY(1, 0.1f));
+        else
+            seq.Append(sprite.transform.DOScaleX(.8f, .1f)).Append(sprite.transform.DOScaleX(1, 0.1f));
         seq.Play();
     }
 
-    public void HitResult()
+    public void BeatTiming()
     {
         if (inputTimer != 0)
         {

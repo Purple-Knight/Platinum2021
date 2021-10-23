@@ -76,6 +76,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  mat: {fileID: 2100000, guid: b2c671e66aeb50449a2df56839688220, type: 2}
 --- !u!61 &8644763262687549555
 BoxCollider2D:
   m_ObjectHideFlags: 0
