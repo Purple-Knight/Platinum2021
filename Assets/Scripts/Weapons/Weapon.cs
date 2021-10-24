@@ -18,6 +18,7 @@ public class Weapon : ScriptableObject
 
     //Reload
     public int waitBeforeReload;
+    private int currentReloadBeats;
 
     //Player Ref
     internal Vector2 lastDirection;
@@ -29,7 +30,13 @@ public class Weapon : ScriptableObject
 
     public virtual void Use(bool triggerDown)
     {
-        if(triggerDown) // Button Down
+        Debug.Log("used");
+        if(triggerDown && chargeBeats == 0 && chargeLevel == 0) // Button Down
+        {
+            Fire();
+            chargeLevel++;
+            //Debug.Log("Try Shoot...");
+        }else if(triggerDown) // Button Down
         {
             Charge();
             //Debug.Log("Try Shoot...");
@@ -62,10 +69,13 @@ public class Weapon : ScriptableObject
 
     public virtual void MissedBeat()
     {
+        Debug.Log("missed");
+
         ResetCharge();
     }
 
     private protected void ResetCharge() { chargeLevel = 0; }
+
 }
 
 [System.Serializable]

@@ -353,6 +353,7 @@ public class PlayerMovement : MonoBehaviour
         GUILayout.BeginArea(_guiDebugArea);
         GUILayout.TextArea("Player " + playerID);
         GUILayout.BeginHorizontal();
+        
         if (GUILayout.Button("Timers"))
         {
             _timerDebug = !_timerDebug;

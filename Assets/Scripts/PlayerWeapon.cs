@@ -22,6 +22,7 @@ public class PlayerWeapon : MonoBehaviour
     public Weapon testWeapon;
     [SerializeField] private Rect guiDebugArea = new Rect(0, 20, 150, 150);
     public bool debugGUI = false;
+    private string tempCharges;
 
     [SerializeField] Transform aiming;
 
@@ -33,6 +34,7 @@ public class PlayerWeapon : MonoBehaviour
         player = ReInput.players.GetPlayer(pMov.playerID);
 
         Pickup(testWeapon);
+        tempCharges = "" + weapon.chargeBeats;
     }
 
     private void Update()
@@ -139,7 +141,7 @@ public class PlayerWeapon : MonoBehaviour
 
         if(gotInput) // Input Up && Down
         {
-            if (inputTimer <= pMov.bufferTime || (beatPassedTimer <= pMov.bufferTime && beatPassed))
+            if ((inputTimer <= pMov.bufferTime && inputTimer != 0) || (beatPassedTimer <= pMov.bufferTime && beatPassed))
             {
                 weapon.Use(triggerDown);
             }
@@ -172,16 +174,21 @@ public class PlayerWeapon : MonoBehaviour
         if (!debugGUI) return;
 
         GUILayout.BeginArea(guiDebugArea);
-        GUILayout.TextField("Input : " + gotInput);
-        GUILayout.TextField("Last Direction : " + lastDirection);
+        GUILayout.TextArea("Input : " + gotInput);
+        //GUILayout.TextField("Last Direction : " + lastDirection);
         /*GUILayout.BeginHorizontal();
         GUILayout.TextField("Horizontal Aim: " + player.GetAxis("Aim Horizontal"));
         GUILayout.TextField("Vertical Aim : " + player.GetAxis("Aim Vertical"));
         GUILayout.EndHorizontal();*/
 
-        GUILayout.TextField("Input Timer : " + inputTimer);
-        GUILayout.TextField("PastBeat Timer : " + beatPassedTimer);
+        //GUILayout.TextArea("Input Timer : " + inputTimer);
+        //GUILayout.TextArea("PastBeat Timer : " + beatPassedTimer);
 
+        GUILayout.BeginHorizontal();
+        GUILayout.TextArea("Num of charge Beat (int) : ");
+        tempCharges = GUILayout.TextField(tempCharges);
+        weapon.chargeBeats = int.Parse(tempCharges);
+        GUILayout.EndHorizontal();
         if (GUILayout.Button("Replace Weapon"))
             Pickup(testWeapon);
 

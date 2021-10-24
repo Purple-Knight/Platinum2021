@@ -163,7 +163,7 @@ MonoBehaviour:
   guiDebugArea:
     serializedVersion: 2
     x: 0
-    y: 20
+    y: 200
     width: 150
     height: 150
   debugGUI: 0

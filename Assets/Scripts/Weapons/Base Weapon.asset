@@ -18,7 +18,7 @@ MonoBehaviour:
     maxTileLength: 0
     ignoreWalls: 0
   bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
-  chargeBeats: 1
+  chargeBeats: 0
   chargeLevel: 0
   waitBeforeReload: 0
   pMov: {fileID: 0}

@@ -21,7 +21,6 @@ public class CameraManager : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOShakePosition(shakeDuration, shakeStrength));
         seq.Insert(0, transform.DOShakeRotation(shakeDuration, shakeStrength));
-        //seq.Append(transform.DOMove(, shakeStrength));
         seq.Play();
     }
 }
