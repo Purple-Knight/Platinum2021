@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 
-[CustomEditor(typeof(Weapon))]
+[CustomEditor(typeof(PlayerWeapon))]
 public class WeaponEditor : Editor
 {
     
