@@ -162,8 +162,8 @@ MonoBehaviour:
   guiDebugArea:
     serializedVersion: 2
     x: 0
-    y: 20
-    width: 150
+    y: 0
+    width: 120
     height: 150
 --- !u!212 &58325273
 SpriteRenderer:
@@ -265,13 +265,13 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 36ab5370e29fb2f46b97f57b640bdbd4, type: 2}
+    WwiseObjectReference: {fileID: 0}
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3800faacccbd3474d8aa8f22fedfb5db, type: 2}
+    WwiseObjectReference: {fileID: 0}
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 4b8cb09b388fa914593f7fc80689adec, type: 2}
+    WwiseObjectReference: {fileID: 0}
   idToLaunch: 2
   numberOfBeat: 0
   timeBeforeStart: 1.5
@@ -283,6 +283,9 @@ MonoBehaviour:
     duration: 124
   - songName: MMX3
     duration: 16.9
+  InstantiateBeat:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &102144043
 Transform:
   m_ObjectHideFlags: 0
@@ -461,8 +464,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 0
-  bufferTime: 0.1
   sprite: {fileID: 202812131}
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  deadZoneController: 0
+  bufferTime: 0.1
+  PlayerHit:
+    m_PersistentCalls:
+      m_Calls: []
+  impactParticles: {fileID: 0}
+  _guiDebug: 0
+  _guiDebugArea:
+    serializedVersion: 2
+    x: 0
+    y: 20
+    width: 150
+    height: 150
 --- !u!4 &202812133
 Transform:
   m_ObjectHideFlags: 0

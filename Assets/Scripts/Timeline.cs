@@ -14,10 +14,10 @@ public class Timeline : MonoBehaviour
     public GameObject echo;
 
     [Header("Variables")]
-    bool canBegin;
     public float beatToReach;
     public float multiplicatorSpeed;
 
+    bool canBegin;
     int actualBeat;
     float numberOfBeat;
 
@@ -96,16 +96,20 @@ public class Timeline : MonoBehaviour
     {
         if (!guiDebug) return;
 
+        GUILayout.BeginArea(guiDebugArea);
+
         GUILayout.BeginHorizontal();
+
         if (GUILayout.Button("Beat"))
         {
             beatBool = !beatBool;
         }
-        GUILayout.BeginArea(guiDebugArea);
+        
+        GUILayout.EndHorizontal();
 
         if (beatBool)
         {
-            GUILayout.TextField("Beat\n" + "Actual Beat : " + actualBeat + "\nBeat in Total : " + numberOfBeat);
+            GUILayout.TextField("Actual Beat : " + actualBeat + "\nBeat in Total : " + numberOfBeat);
         }
 
         GUILayout.EndArea();
