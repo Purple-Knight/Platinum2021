@@ -13,10 +13,12 @@ public class Weapon : ScriptableObject
     public GameObject bulletPrefab;
 
     // Charge
+    [SerializeField] private bool noChargeTime;
     public int chargeBeats = 1;             // charge Time needed
     [SerializeField] private protected int chargeLevel = 0;  // current Charge
 
     //Reload
+    [SerializeField] private bool noReload;
     public int waitBeforeReload;
     private int currentReloadBeats;
 
