@@ -6,7 +6,7 @@ using Rewired;
 public class PlayerWeapon : MonoBehaviour
 {
     public Weapon weapon;
-    public Player player;
+    private Player player;
 
     float inputTimer = 0;
     float beatPassedTimer = 0;
@@ -18,10 +18,11 @@ public class PlayerWeapon : MonoBehaviour
     private bool triggerDown = false; // Holding Fire Button
     private bool beatPassed = false;
 
-    [Header("DEBUG")]
-    public Weapon testWeapon;
+    //Debug
+    [SerializeField] private bool debug = false;
+    [SerializeField] private Weapon testWeapon;
+    [SerializeField] private bool debugGUI = false;
     [SerializeField] private Rect guiDebugArea = new Rect(0, 20, 150, 150);
-    public bool debugGUI = false;
     private string tempCharges;
 
     [SerializeField] Transform aiming;
@@ -32,6 +33,7 @@ public class PlayerWeapon : MonoBehaviour
 
         pMov = GetComponent<PlayerMovement>();
         player = ReInput.players.GetPlayer(pMov.playerID);
+        aiming.position = new Vector2(.7f, 0);
 
         Pickup(testWeapon);
         tempCharges = "" + weapon.chargeBeats;
