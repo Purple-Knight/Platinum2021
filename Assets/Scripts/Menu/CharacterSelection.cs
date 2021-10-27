@@ -18,7 +18,10 @@ public class CharacterSelection : MonoBehaviour
     // Object / Variables -------------------------------------
     public List<GameObject> charPortrait = new List<GameObject>();
     public float deadZone;
-        
+
+    // Save Data -------------------------------------
+    [SerializeField] PlayersData pd;
+
     private void Awake()
     {
         _instance = this;
@@ -89,10 +92,47 @@ public class CharacterSelection : MonoBehaviour
 
     public void goToPlay()
     {
-        foreach (var item in playersActual)
+        if (playersActual.Count >= 2)
         {
-            Debug.Log("Controller " + item.name + " choose char id " + charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idChar 
-                    + " choose color id" + charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idColor);
+            foreach (var item in playersActual)
+            {
+                var correct = true;
+
+                foreach (var item2 in playersActual)
+                {
+                    if (item != item2)
+                    {
+
+
+                        if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idChar == charPortrait[playersActual.IndexOf(item2)].GetComponent<CharBox>().idChar &&
+                            charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idColor == charPortrait[playersActual.IndexOf(item2)].GetComponent<CharBox>().idColor)
+                        {
+                            correct = false;
+
+                        }
+                    }
+                }
+
+                if (correct)
+                {
+                    pd.numberOfPlayer = playersActual.Count;
+                    pd.allPlayerData[playersActual.IndexOf(item)].myCharID = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idChar;
+                    pd.allPlayerData[playersActual.IndexOf(item)].myColorID = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idColor;
+
+                    saveData();
+                }
+                else
+                {
+                    Debug.Log("Error !!!");
+                    break;
+                }
+            }
         }
     }
+
+    void saveData()
+    {
+        SaveData.Save(pd);
+    }
+
 }
