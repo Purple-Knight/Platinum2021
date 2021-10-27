@@ -3238,7 +3238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: _guiDebug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3883265989226838409, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: playerColor.b
@@ -3342,7 +3342,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ef6d4acae7dfe7d48af84c08aa2ca320, type: 2}
     - target: {fileID: 7043354195277512944, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: debugGUI
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7043354195277512944, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
       propertyPath: testWeapon
