@@ -28,6 +28,13 @@ public class RhythmManager : MonoBehaviour
     public UnityEvent InstantiateBeat;
 
 
+    [Header("Beat Window")]
+    [SerializeField] private float bufferTime;
+    [SerializeField] private float halfBeatTime;
+
+    [SerializeField] private float timerInBetweenBeat = 0;
+
+
     private void Awake()
     {
         if (_instance != null)
@@ -71,9 +78,31 @@ public class RhythmManager : MonoBehaviour
         {
             eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         }
+
+        timerInBetweenBeat += Time.deltaTime;
     }
 
+    public void AmIOnBeat()
+    {
+        if (timerInBetweenBeat < bufferTime)
+        {
+            //Just after beat but in the window 
 
+            //return AfterGood
+        }
+        else if (timerInBetweenBeat > bufferTime && timerInBetweenBeat < (bufferTime * 2))
+        {
+            //Miss
+
+            //return Miss
+        }
+        else if (timerInBetweenBeat > (bufferTime * 2))
+        {
+            //Before next Beat but in the window
+
+            //return BeforeGood
+        }
+    }
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
@@ -87,11 +116,17 @@ public class RhythmManager : MonoBehaviour
             StartCoroutine(beforeStart());
             numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
             InstantiateBeat?.Invoke();
+
+            //Window Rythm
+            bufferTime = beatDuration / 3;
+            halfBeatTime = beatDuration / 2;
         }
         else
         {
             onMusicBeatDelegate?.Invoke();   
         }
+
+        timerInBetweenBeat = 0; //Reinitialize timer on beat
 
     }
 
