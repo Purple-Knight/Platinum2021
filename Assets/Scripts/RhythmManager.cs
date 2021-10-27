@@ -80,11 +80,6 @@ public class RhythmManager : MonoBehaviour
             eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log(AmIOnBeat());
-        }
-
         timerInBetweenBeat += Time.deltaTime;
     }
 
