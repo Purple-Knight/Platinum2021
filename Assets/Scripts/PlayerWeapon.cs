@@ -12,7 +12,8 @@ public class PlayerWeapon : MonoBehaviour
     float beatPassedTimer = 0;
     internal PlayerMovement pMov;
     Vector2 lastDirection = Vector2.right;
-
+    Timming playerTiming;
+    RhythmManager rhythmManager;
     // bools
     private bool gotInput = false;  // Fire Input received this beat
     private bool triggerDown = false; // Holding Fire Button
@@ -29,40 +30,69 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Start()
     {
-        RhythmManager.Instance.onMusicBeatDelegate += BeatReceived;
+        rhythmManager = RhythmManager.Instance;
+        rhythmManager.onMusicBeatDelegate += BeatReceived;
 
         pMov = GetComponent<PlayerMovement>();
         player = ReInput.players.GetPlayer(pMov.playerID);
-        aiming.position = new Vector2(.7f, 0);
-
+        aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f));
         Pickup(testWeapon);
         tempCharges = "" + weapon.chargeBeats;
+        weapon.lastDirection = lastDirection;
     }
 
     private void Update()
     {
         GetInput();
-        if(gotInput && !beatPassed)
-        {
-            inputTimer += Time.deltaTime;
-        }
+        
         if (beatPassed)
         {
             beatPassedTimer += Time.deltaTime;
 
-            if(beatPassedTimer > pMov.bufferTime)   // after Post-Beat Window
+            if(beatPassedTimer > rhythmManager.halfBeatTime)
             {
+                beatPassed = false;
+                gotInput = false;
+            }
+            /*if(beatPassedTimer > rhythmManager.bufferTime)   // after Post-Beat Window
+            {
+                playerTiming = rhythmManager.AmIOnBeat();
                 if (gotInput && inputTimer > pMov.bufferTime)
                     triggerDown = false;
 
                 if (!gotInput && triggerDown)   // Holding down (Charging weapon)
                     weapon.Use(triggerDown);
 
-                inputTimer = 0;
-                beatPassed = false;
-                gotInput = false;
+            }*/
+        }
+    }
+
+    private void GetInput()
+    {
+
+        if (player.GetButtonDown("Fire") && !gotInput)
+        {
+            gotInput = true;
+            triggerDown = true;
+            playerTiming = rhythmManager.AmIOnBeat();
+
+            if (playerTiming != Timming.MISS && playerTiming != Timming.NULL)
+            {
+                FireWeapon();
             }
         }
+        /*else if(player.GetButtonUp("Fire") && !gotInput)
+        {
+            gotInput = true;
+            triggerDown = false;
+            playerTiming = rhythmManager.AmIOnBeat();
+
+            if ( playerTiming != Timming.MISS && playerTiming != Timming.NULL)
+            {
+                FireWeapon();
+            }
+            else weapon.MissedBeat(); // Reset Charges (input Down & Up in one beat)
+        }*/
 
         if (player.GetAxisRaw("Aim Horizontal") != 0 || player.GetAxisRaw("Aim Vertical") != 0) // Last Aim Direction
         {
@@ -70,70 +100,16 @@ public class PlayerWeapon : MonoBehaviour
             float y = player.GetAxis("Aim Vertical");
 
             if (Mathf.Abs(x) >= Mathf.Abs(y))
-                y = 0;   
+                y = 0;
             else
                 x = 0;
 
             lastDirection.x = (x == 0) ? x : Mathf.Sign(x);
             lastDirection.y = (y == 0) ? y : Mathf.Sign(y);
 
-            aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f)) ;
+            aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f));
 
             if (weapon != null) weapon.lastDirection = lastDirection;
-        }
-    }
-
-    private void GetInput()
-    {
-        /*
-        if(!triggerDown && player.GetButtonDown("Fire") && !gotInput) // Button Down
-        {
-            triggerDown = true;
-            gotInput = true;
-
-            if (beatPassed) // Missed exact Beat
-                FireWeapon();
-        }
-        else if(!triggerDown && player.GetButtonDown("Fire") && beatPassed && !gotInput)
-        {
-            gotInput = true;
-            triggerDown = true;
-            FireWeapon();
-        }*/
-
-        /*else if(triggerDown && player.GetButtonUp("Fire") && !gotInput) // Button Up
-        {
-            gotInput = true;
-            triggerDown = false;
-
-            if (beatPassed) // Missed exact Beat
-                FireWeapon();
-        }*/
-
-        if (player.GetButtonDown("Fire"))
-        {
-            triggerDown = true;
-
-            if (!gotInput)
-            {
-                gotInput = true;
-
-                if (beatPassed)
-                    FireWeapon();
-            }
-        }
-        else if(player.GetButtonUp("Fire"))
-        {
-            triggerDown = false;
-
-            if (!gotInput)
-            {
-                gotInput = true;
-
-                if (beatPassed)
-                    FireWeapon();
-            }
-            else weapon.MissedBeat(); // Reset Charges (input Down & Up in one beat)
         }
     }
 
@@ -141,20 +117,8 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (weapon == null) return;
 
-        if(gotInput) // Input Up && Down
-        {
-            if ((inputTimer <= pMov.bufferTime && inputTimer != 0) || (beatPassedTimer <= pMov.bufferTime && beatPassed))
-            {
-                weapon.Use(triggerDown);
-            }
-            else if (inputTimer > pMov.bufferTime)
-            {
-                weapon.MissedBeat();
-                //Debug.Log(inputTimer + "; " + pMov.bufferTime);
-            }
-        }
+        weapon.Use(triggerDown);
 
-        beatPassedTimer = 0;
     }
 
     public void Pickup(Weapon pick)
@@ -165,8 +129,8 @@ public class PlayerWeapon : MonoBehaviour
 
     public void BeatReceived()
     {
-        FireWeapon();
         beatPassed = true;
+        beatPassedTimer = 0;
     }
 
 
