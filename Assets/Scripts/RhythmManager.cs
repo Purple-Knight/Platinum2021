@@ -29,6 +29,7 @@ public class RhythmManager : MonoBehaviour
 
 
     [Header("Beat Window")]
+    [SerializeField] private float perfectBufferTime;
     [SerializeField] private float bufferTime;
     [SerializeField] private float halfBeatTime;
 
@@ -79,29 +80,43 @@ public class RhythmManager : MonoBehaviour
             eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(AmIOnBeat());
+        }
+
         timerInBetweenBeat += Time.deltaTime;
     }
 
-    public void AmIOnBeat()
+    public Timming AmIOnBeat()
     {
-        if (timerInBetweenBeat < bufferTime)
+        if (timerInBetweenBeat >= (beatDuration - perfectBufferTime))
         {
-            //Just after beat but in the window 
-
-            //return AfterGood
+            //Perfect before
+            return Timming.PERFECT;
         }
-        else if (timerInBetweenBeat > bufferTime && timerInBetweenBeat < (bufferTime * 2))
+        else if (timerInBetweenBeat >= (bufferTime * 2))
+        {
+            //Before
+            return Timming.BEFORE;
+        }
+        else if (timerInBetweenBeat >= bufferTime && timerInBetweenBeat <= (bufferTime * 2))
         {
             //Miss
-
-            //return Miss
+            return Timming.MISS;
         }
-        else if (timerInBetweenBeat > (bufferTime * 2))
+        else if (timerInBetweenBeat <= bufferTime)
         {
-            //Before next Beat but in the window
-
-            //return BeforeGood
+            //After
+            return Timming.AFTER;
         }
+        else if (timerInBetweenBeat <= perfectBufferTime)
+        {
+            //Perfect After
+            return Timming.PERFECT;
+        }
+        
+        return Timming.NULL;
     }
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
@@ -120,6 +135,7 @@ public class RhythmManager : MonoBehaviour
             //Window Rythm
             bufferTime = beatDuration / 3;
             halfBeatTime = beatDuration / 2;
+            perfectBufferTime = beatDuration / 6;
         }
         else
         {
@@ -143,4 +159,13 @@ public class RhythmManager : MonoBehaviour
 
     }
 
+}
+
+public enum Timming
+{
+    NULL,
+    BEFORE,
+    AFTER,
+    PERFECT,
+    MISS,
 }
