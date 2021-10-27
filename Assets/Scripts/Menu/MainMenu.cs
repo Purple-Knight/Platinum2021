@@ -5,17 +5,19 @@ using Rewired;
 
 public class MainMenu : MonoBehaviour
 {
+    // Instance -------------------------------------
     private static MainMenu _instance = null;
     public static MainMenu Instance { get => _instance; }
 
 
-
+    // Rewired -------------------------------------
     public IList<Joystick> joysticks;
     private List<Player> players = new List<Player>();
 
-    public List<GameObject> menuScreens = new List<GameObject>();
 
-    public MenuState state;
+    // Object / Info -------------------------------------
+    public List<GameObject> menuScreens = new List<GameObject>();
+    [HideInInspector] public MenuState state;
 
     public enum MenuState
     {
@@ -24,7 +26,7 @@ public class MainMenu : MonoBehaviour
         CHARSELECT,
     }
 
-    private void Awake()
+    public void Awake()
     {
         _instance = this;
 

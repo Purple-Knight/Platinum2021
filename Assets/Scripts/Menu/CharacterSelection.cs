@@ -5,13 +5,19 @@ using Rewired;
 
 public class CharacterSelection : MonoBehaviour
 {
+    //Instance ----------------------------------------
     private static CharacterSelection _instance = null;
     public static CharacterSelection Instance { get => _instance; }
 
+
+    //Rewired ----------------------------------------
     private List<Player> players = new List<Player>();
     private List<Player> playersActual = new List<Player>();
 
+
+    // Object / Variables -------------------------------------
     public List<GameObject> charPortrait = new List<GameObject>();
+    public float deadZone;
         
     private void Awake()
     {
@@ -28,7 +34,7 @@ public class CharacterSelection : MonoBehaviour
     {
         foreach (var item in players)
         {
-            if (item.GetButtonDown("Confirm"))
+            if (item.GetButtonDown("Confirm")) // Confirme fct
             {
                 if (!playersActual.Contains(item))
                 {
@@ -39,14 +45,33 @@ public class CharacterSelection : MonoBehaviour
 
 
 
+            if (playersActual.Contains(item)) // selectioh characters
+            {
 
-            if (item.GetAxisRawPrev("MenuHorizontal") > 0)
-            {
-                charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(true);
-            }
-            else if (item.GetAxisRawPrev("MenuHorizontal") < 0)
-            {
-                charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(false);
+                if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(true);
+                }
+                else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(false);
+                }
+
+
+                else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(true);
+                }
+                else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(false);
+                }
+
+
+                else
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once = false;
+                }
             }
         }
     }
@@ -57,6 +82,17 @@ public class CharacterSelection : MonoBehaviour
         for (int i = 0; i < playersActual.Count; i++)
         {
             charPortrait[i].SetActive(true);
+        }
+    }
+
+
+
+    public void goToPlay()
+    {
+        foreach (var item in playersActual)
+        {
+            Debug.Log("Controller " + item.name + " choose char id " + charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idChar 
+                    + " choose color id" + charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idColor);
         }
     }
 }
