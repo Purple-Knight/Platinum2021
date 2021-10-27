@@ -30,8 +30,8 @@ public class RhythmManager : MonoBehaviour
 
     [Header("Beat Window")]
     [SerializeField] private float perfectBufferTime;
-    [SerializeField] private float bufferTime;
-    [SerializeField] private float halfBeatTime;
+    [SerializeField] public float bufferTime;
+    [SerializeField] public float halfBeatTime;
 
     [SerializeField] private float timerInBetweenBeat = 0;
 

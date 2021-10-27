@@ -125,6 +125,8 @@ public class PlayerMovement : MonoBehaviour
             } 
             else
             {
+                buttonDown = true;
+                gotInputThisBeat = true;
                 playerDir = PlayerDir.NULL;
                 mvtHorizontal = 0;
                 mvtVertical = 0;

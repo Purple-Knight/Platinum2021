@@ -36,7 +36,7 @@ public class Weapon : ScriptableObject
         if(triggerDown && chargeBeats == 0 && chargeLevel == 0) // Button Down
         {
             Fire();
-            chargeLevel++;
+            //chargeLevel++;
             //Debug.Log("Try Shoot...");
         }else if(triggerDown) // Button Down
         {
