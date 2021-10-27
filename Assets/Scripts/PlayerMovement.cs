@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 targetPos;
     Vector2 lastPos;
 
-    public UnityEvent PlayerHit;
+    //public UnityEvent PlayerHit;
     [SerializeField] ParticleSystem impactParticles;
 
     #endregion
@@ -207,12 +207,12 @@ public class PlayerMovement : MonoBehaviour
             Squeeeesh(true);
     }
 
-    public void HitByBullet()
+/*    public void HitByBullet()
     {
         Debug.Log("Hit by a bullet :(");
         PlayerHit.Invoke();
         //death? or lose life
-    }
+    }*/
 
     #region Collisions
     public void WallCollision()

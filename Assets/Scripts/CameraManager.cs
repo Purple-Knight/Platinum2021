@@ -10,8 +10,8 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerMovement[] players = FindObjectsOfType<PlayerMovement>();
-        foreach (PlayerMovement player in players)
+        PlayerHealth[] players = FindObjectsOfType<PlayerHealth>();
+        foreach (PlayerHealth player in players)
         {
             player.PlayerHit.AddListener(CameraShake);
         }

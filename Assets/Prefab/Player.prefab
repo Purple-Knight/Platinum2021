@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 3883265989226838410}
   - component: {fileID: 3883265989226838409}
   - component: {fileID: 7043354195277512944}
+  - component: {fileID: 3259888342345483222}
   - component: {fileID: 3883265989226838404}
   - component: {fileID: 3883265989226838411}
   m_Layer: 7
@@ -135,9 +136,6 @@ MonoBehaviour:
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   deadZoneController: 0.4
   bufferTime: 0.3
-  PlayerHit:
-    m_PersistentCalls:
-      m_Calls: []
   impactParticles: {fileID: 6206439804081257428, guid: 72344320b4bf27a429c5844fcc39686d, type: 3}
   _guiDebug: 1
   _guiDebugArea:
@@ -159,15 +157,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  debug: 0
   testWeapon: {fileID: 0}
+  debugGUI: 0
   guiDebugArea:
     serializedVersion: 2
     x: 0
     y: 200
     width: 150
     height: 150
-  debugGUI: 0
   aiming: {fileID: 5387571296648053381}
+--- !u!114 &3259888342345483222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3883265989226838415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fd79ff9234b5649b34489473dc9a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 1
+  PlayerHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &3883265989226838404
 BoxCollider2D:
   m_ObjectHideFlags: 0

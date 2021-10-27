@@ -32,7 +32,7 @@ public class Weapon : ScriptableObject
 
     public virtual void Use(bool triggerDown)
     {
-        Debug.Log("used");
+        //Debug.Log("used");
         if(triggerDown && chargeBeats == 0 && chargeLevel == 0) // Button Down
         {
             Fire();
@@ -71,7 +71,7 @@ public class Weapon : ScriptableObject
 
     public virtual void MissedBeat()
     {
-        Debug.Log("missed");
+        //Debug.Log("missed");
 
         ResetCharge();
     }

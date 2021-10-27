@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         RaycastHit2D hit = Physics2D.Raycast(spawnPos, info.direction, 50, hitLayer);
         if (hit.collider != null)
         {
-            Debug.Log("HIT : " + hit.transform.name + " ; " + info.direction.x);
+            //Debug.Log("HIT : " + hit.transform.name + " ; " + info.direction.x);
             Debug.DrawLine(spawnPos, hit.point, Color.yellow, .5f);
         }
         else
@@ -68,9 +68,11 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
             if(hit.collider != null)
             {
                 Debug.Log("hit player :" + hit.collider.name);
-                PlayerMovement player;
-                hit.collider.gameObject.TryGetComponent<PlayerMovement>(out player);
-                player.HitByBullet();
+                IDamageable hitObject;
+                if(hit.collider.gameObject.TryGetComponent<IDamageable>(out hitObject))
+                    hitObject.OnHit();
+                else
+                    Debug.LogError("NO Interface Found");
             }
         }
     }

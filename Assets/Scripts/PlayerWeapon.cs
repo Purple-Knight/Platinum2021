@@ -150,7 +150,7 @@ public class PlayerWeapon : MonoBehaviour
             else if (inputTimer > pMov.bufferTime)
             {
                 weapon.MissedBeat();
-                Debug.Log(inputTimer + "; " + pMov.bufferTime);
+                //Debug.Log(inputTimer + "; " + pMov.bufferTime);
             }
         }
 
