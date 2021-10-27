@@ -11,7 +11,6 @@ public static class SaveData
 
     public static void Save(PlayersData pd)
     {
-        Debug.Log(Application.persistentDataPath);
         string dir = Application.persistentDataPath + directory;
 
         if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);

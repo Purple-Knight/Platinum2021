@@ -135,4 +135,15 @@ public class CharacterSelection : MonoBehaviour
         SaveData.Save(pd);
     }
 
+
+    public void loadPD()
+    {
+        pd = SaveData.Load();
+
+        for (int i = 0; i < pd.numberOfPlayer; i++)
+        {
+            charPortrait[i].SetActive(true);
+        }
+    }
+
 }
