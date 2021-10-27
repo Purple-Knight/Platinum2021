@@ -33,7 +33,6 @@ public class MainMenu : MonoBehaviour
         for (int i = 0; i < joysticks.Count; i++)
         {
             players.Add(ReInput.players.GetPlayer(i));
-            Debug.Log(players.Count + " " + joysticks[i].name);
         }
 
     }
