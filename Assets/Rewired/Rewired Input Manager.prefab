@@ -353,7 +353,7 @@ MonoBehaviour:
       _buttonShortPressExpiresIn: 0
       _buttonLongPressTime: 1
       _buttonLongPressExpiresIn: 0
-      _buttonDeadZone: 0.5
+      _buttonDeadZone: 0.7
       _buttonDownBuffer: 0
       _buttonRepeatRate: 30
       _buttonRepeatDelay: 0

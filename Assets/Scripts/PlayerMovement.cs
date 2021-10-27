@@ -16,9 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Color playerColor;
     [SerializeField] float deadZoneController;
-    public float bufferTime;
-    float halfBeatTime;
-    bool gotInputThisBeat;
+
+    public float bufferTime; 
+    float halfBeatTime; 
+    bool gotInputThisBeat; 
     float raycastDistance = .5f;
 
     float mvtHorizontal;
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     public UnityEvent PlayerHit;
     [SerializeField] ParticleSystem impactParticles;
+    Timming playerTiming;
 
     #endregion
 
@@ -73,26 +75,18 @@ public class PlayerMovement : MonoBehaviour
         WallCollision();
 
         GetInput();
-
-        if (beforeBeatTimer)
-        {
-            inputTimer += Time.deltaTime;
-        }
         if (beatPassed)
         {
             beatPassedTimer += Time.deltaTime;
         }
-        if(beatPassedTimer > bufferTime && beatPassed)
-        {
-            hasMoved = false;
-        }
-        if (beatPassed && beatPassedTimer >= halfBeatTime)
+        if (beatPassed && beatPassedTimer >= halfBeatTime) //only one input per beat
         {
             beatPassed = false;
-            beatPassedTimer = 0;
             gotInputThisBeat = false;
+            beatPassedTimer = 0;
+            hasMoved = false;
             
-        }
+        } 
 
         OtherPlayerOnNextTile();
     }
@@ -100,64 +94,57 @@ public class PlayerMovement : MonoBehaviour
 
     public void GetInput()
     {
-        //move
+        //Is there an Input 
         bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
-
-
-        if (inputHorizontal && !hasMoved && !beatPassed && !buttonDown && !gotInputThisBeat) // before a beat
-        {
-            gotInputThisBeat = true;
-            beforeBeatTimer = true;
-            buttonDown = true;
-            mvtHorizontal = player.GetAxis("Move Horizontal");
-            playerDir = mvtHorizontal > 0? PlayerDir.RIGHT: PlayerDir.LEFT;
-        }
-        else if (inputHorizontal && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown  && ! !gotInputThisBeat) // after a beat
-        {
-            gotInputThisBeat = true;
-            beforeBeatTimer = true;
-            buttonDown = true;
-            mvtHorizontal = player.GetAxis("Move Horizontal");
-            playerDir = mvtHorizontal > 0 ? PlayerDir.RIGHT : PlayerDir.LEFT;
-            Move();
-        }else if (player.GetAxis("Move Horizontal") > -deadZoneController && player.GetAxis("Move Horizontal") < deadZoneController)
-        {
-            mvtHorizontal = 0;
-        }
         
-        if (inputVertical && !hasMoved && !beatPassed && !buttonDown && !gotInputThisBeat) //before a beat
+       
+        if (inputHorizontal || inputVertical) 
         {
-            gotInputThisBeat = true;
-            beforeBeatTimer = true;
-            buttonDown = true;
-            mvtVertical = player.GetAxis("Move Vertical");
-            playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
+            playerTiming = rhythmManager.AmIOnBeat();
+
+            if (playerTiming != Timming.MISS && playerTiming != Timming.NULL && !buttonDown && !gotInputThisBeat)
+            {
+                mvtVertical =player.GetAxis("Move Vertical");
+                mvtHorizontal = player.GetAxis("Move Horizontal");
+
+                if (Mathf.Abs(mvtVertical) > Mathf.Abs(mvtHorizontal)) 
+                {
+                    playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
+                    mvtHorizontal = 0;
+                }
+                else
+                {
+                    playerDir = mvtHorizontal > 0 ? PlayerDir.RIGHT : PlayerDir.LEFT;
+                    mvtVertical = 0;
+                }
+                
+                buttonDown = true;
+                gotInputThisBeat = true;
+                Move();
+            } 
+            else
+            {
+                playerDir = PlayerDir.NULL;
+                mvtHorizontal = 0;
+                mvtVertical = 0;
+            }
         }
-        else if (inputVertical && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown && !gotInputThisBeat) //after a beat
-        {
-            gotInputThisBeat = true;
-            beforeBeatTimer = true;
-            buttonDown = true;
-            mvtVertical = player.GetAxis("Move Vertical");
-            playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
-            Move();
-        }else if(player.GetAxis("Move Vertical") > -deadZoneController && player.GetAxis("Move Vertical") < deadZoneController)
-        {
-            mvtVertical = 0;
-        }
-        
-        if(!inputHorizontal && !inputVertical)
+        else
         {
             buttonDown = false;
             playerDir = PlayerDir.NULL;
+            mvtHorizontal = 0;
+            mvtVertical = 0;
         }
     }
 
     public void Move()
     {
         lastPos = targetPos;
-        if (inputTimer < bufferTime && mvtVertical != 0 && !hasMoved) //move vertical
+
+
+        if (mvtVertical != 0 && !hasMoved) //move vertical
         {
             if (mvtVertical > 0 && canGoUp)
             {
@@ -171,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             }
             hasMoved = true;
         }
-        else if (inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal
+        else if (mvtHorizontal != 0 && !hasMoved) //move horizontal
         {
             if (mvtHorizontal > 0 && canGoRight)
             {
@@ -194,16 +181,13 @@ public class PlayerMovement : MonoBehaviour
         BeatTiming();
         transform.DOMove(targetPos, .2f);
 
-        beforeBeatTimer = false;
+        
     }
 
     public void BeatReceived()
     {
         beatPassed = true;
-        Move();
-        inputTimer = 0;
-        //StartCoroutine(LerpMove());
-        if(!DOTween.IsTweening(sprite.transform))
+        if(!DOTween.IsTweening(sprite.transform)) // a garder je pense
             Squeeeesh(true);
     }
 
@@ -291,33 +275,28 @@ public class PlayerMovement : MonoBehaviour
 
     public void BeatTiming()
     {
-        if (inputTimer != 0)
+        Sequence seqColor = DOTween.Sequence();
+        switch (playerTiming)
         {
-            Sequence seqColor = DOTween.Sequence();
-
-            if (inputTimer < bufferTime / 3)
-            {
-                //Debug.Log("<color=green> Good </color>");
+            case Timming.PERFECT:
                 seqColor.Append(sprite.DOColor(Color.green, .1f));
-            }
-            else if (inputTimer < bufferTime / 3 * 2)
-            {
-                //Debug.Log("<color=yellow> Okay </color>");
+                break;
+            case Timming.BEFORE:
                 seqColor.Append(sprite.DOColor(Color.yellow, .1f));
-            }
-            else if (inputTimer < bufferTime)
-            {
-                //Debug.Log("<color=orange> Early / Late</color>");
-                seqColor.Append(sprite.DOColor(new Color(1, .5f, 0), .1f));
-            }
-            else if (inputTimer > bufferTime)
-            {
-                //Debug.Log("<color=red> missed </color>");
-                seqColor.Append(sprite.DOColor(Color.red, .2f));
-            }
-
-            seqColor.Append(sprite.DOColor(playerColor, .1f));
-        }
+                break;
+            case Timming.AFTER:
+                seqColor.Append(sprite.DOColor(Color.yellow, .1f));
+                break;
+            case Timming.MISS:
+                seqColor.Append(sprite.DOColor(Color.red, .1f));
+                break;
+            case Timming.NULL:
+                
+                break;
+            
+        } 
+        seqColor.Append(sprite.DOColor(playerColor, .1f));
+        
     }
 
     #endregion
@@ -341,7 +320,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void InstantiateRhythm()
     {
-        bufferTime = rhythmManager.beatDuration / 3;
+        //bufferTime = rhythmManager.beatDuration / 3;
         halfBeatTime = rhythmManager.beatDuration / 2;
     }
     #region Debug
