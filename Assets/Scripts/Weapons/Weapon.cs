@@ -24,7 +24,7 @@ public class Weapon : ScriptableObject
 
     //Player Ref
     internal Vector2 lastDirection;
-    [SerializeField] internal PlayerMovement pMov;
+    [SerializeField] internal Transform pMov;
 
     #region Structs...
 
@@ -63,7 +63,8 @@ public class Weapon : ScriptableObject
         //Debug.Log("FIRE! " + chargeLevel + " charges");
 
         //Instantiate Bullet
-        Bullet blt = Instantiate(bulletPrefab, pMov.transform.position, Quaternion.identity).GetComponent<Bullet>();
+        //Debug.Log(lastDirection);
+        Bullet blt = Instantiate(bulletPrefab, pMov.position, Quaternion.identity).GetComponent<Bullet>();
         blt.InitInfo(bulletInfo, lastDirection);
 
         ResetCharge();

@@ -62,7 +62,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         lr.widthCurve = laserWidth;
         lr.materials = new Material[] { mat };
 
-       RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, endPos.x - startPos.x, LayerMask.GetMask("Player"));   // Cast Players hit  (add Player layerMask)
+       RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, Vector2.Distance(startPos, endPos), LayerMask.GetMask("Player"));   // Cast Players hit  (add Player layerMask)
         foreach (RaycastHit2D hit in hits)
         {
             if(hit.collider != null)
@@ -76,5 +76,4 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
             }
         }
     }
-
 }

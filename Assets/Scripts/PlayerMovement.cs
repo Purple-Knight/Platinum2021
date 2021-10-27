@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     bool beforeBeatTimer; //bool to start timer on input
     bool beatPassed; // bool true is rhythm missed
     bool hasMoved; // player moved, to block double movement
-    PlayerDir playerDir = PlayerDir.NULL; //direction the player want
+    [SerializeField] PlayerDir playerDir = PlayerDir.NULL; //direction the player want
     bool buttonDown;
     bool canMove = true;
 
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 buttonDown = true;
                 gotInputThisBeat = true;
-                playerDir = PlayerDir.NULL;
+                //playerDir = PlayerDir.NULL;
                 mvtHorizontal = 0;
                 mvtVertical = 0;
             }
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             buttonDown = false;
-            playerDir = PlayerDir.NULL;
+            //playerDir = PlayerDir.NULL;
             mvtHorizontal = 0;
             mvtVertical = 0;
         }
@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        lastPos = targetPos;
+        lastPos = transform.position;
 
 
         if (mvtVertical != 0 && !hasMoved) //move vertical
@@ -193,12 +193,6 @@ public class PlayerMovement : MonoBehaviour
             Squeeeesh(true);
     }
 
-/*    public void HitByBullet()
-    {
-        Debug.Log("Hit by a bullet :(");
-        PlayerHit.Invoke();
-        //death? or lose life
-    }*/
 
     #region Collisions
     public void WallCollision()
@@ -303,26 +297,8 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-    /*
-        IEnumerator LerpMove()
-        {
-            float t =0;
-            while (t <= 1)
-            {
-                yield return new WaitForEndOfFrame();
-                transform.position = Vector2.Lerp(lastPos, targetPos, t);
-                t += 1/bufferTime * Time.deltaTime;
-                if( t > 1)
-                {
-                    t = 1;
-                }
-            }
-
-        }*/
-
     public void InstantiateRhythm()
     {
-        //bufferTime = rhythmManager.beatDuration / 3;
         halfBeatTime = rhythmManager.beatDuration / 2;
     }
     #region Debug
@@ -356,7 +332,8 @@ public class PlayerMovement : MonoBehaviour
         }
         GUILayout.EndArea();
     }
-    private void OnDrawGizmos()
+
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = canGoUp ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up));

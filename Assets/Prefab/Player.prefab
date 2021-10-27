@@ -136,6 +136,7 @@ MonoBehaviour:
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   deadZoneController: 0.4
   bufferTime: 0.3
+  playerDir: 0
   impactParticles: {fileID: 6206439804081257428, guid: 72344320b4bf27a429c5844fcc39686d, type: 3}
   _guiDebug: 1
   _guiDebugArea:
@@ -183,6 +184,10 @@ MonoBehaviour:
   PlayerHit:
     m_PersistentCalls:
       m_Calls: []
+  PlayerDied:
+    m_PersistentCalls:
+      m_Calls: []
+  isAlive: 1
 --- !u!61 &3883265989226838404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -196,7 +201,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000047683716, y: -0.01023224}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -207,7 +212,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8772116, y: 0.8431055}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
 --- !u!50 &3883265989226838411
 Rigidbody2D:

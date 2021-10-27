@@ -124,7 +124,7 @@ public class PlayerWeapon : MonoBehaviour
     public void Pickup(Weapon pick)
     {
         weapon = Instantiate(pick); //Instance of ScriptableObject
-        weapon.pMov = pMov;
+        weapon.pMov = pMov.transform;
     }
 
     public void BeatReceived()
