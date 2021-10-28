@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -17,14 +18,19 @@ public class MainMenu : MonoBehaviour
 
     // Object / Info -------------------------------------
     public List<GameObject> menuScreens = new List<GameObject>();
-    [HideInInspector] public MenuState state;
+    public MenuState state;
 
 
 
-    //Menu VAr -------------------------------------------
+    //Menu Var -------------------------------------------
     int cursorPos;
-    List<bool> once = new List<bool> { true, true, true, true };
-    float deadZone;
+    public GameObject Cursor;
+    [SerializeField] List<Transform> cPosition = new List<Transform>();
+    List<bool> once = new List<bool> { false, false, false, false };
+    public float deadZone;
+
+    // ------------------------------------
+    bool forChecking;
 
     public enum MenuState
     {
@@ -59,12 +65,50 @@ public class MainMenu : MonoBehaviour
                         toMenu();
                     }
                     break;
-                case MenuState.MENU:
-                    if(once[(players.IndexOf(item))] == true && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
-                    {
 
+                case MenuState.MENU:
+
+                    if(once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                    {
+                        if(cursorPos > 0) cursorPos--;
+                        once[(players.IndexOf(item))] = true;
+                        setCursor();
                     }
+
+                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                    {
+                        if (cursorPos < cPosition.Count - 1) cursorPos++;
+                        once[(players.IndexOf(item))] = true;
+                        setCursor();
+
+                    } else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone) {
+                        once[(players.IndexOf(item))] = false;
+                        setCursor();
+                    }
+
+
+
+                    if (item.GetButtonDown("Confirm"))
+                    {
+                        switch (cursorPos)
+                        {
+                            case 0:
+                                toCharSelect();
+                                break;
+                            case 1:
+                                forChecking = true;
+                                break;
+                            case 2:
+                                toTitle();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
                     break;
+
+
                 case MenuState.CHARSELECT:
                     break;
                 default:
@@ -72,10 +116,25 @@ public class MainMenu : MonoBehaviour
             }
 
         }
+
+        if (forChecking)
+        {
+            forChecking = false;
+            Awake();
+        }
     }
 
 
+    void setCursor()
+    {
+        Cursor.GetComponent<RectTransform>().transform.position = cPosition[cursorPos].position;
+    }
 
+    public void toTitle()
+    {
+        state = MenuState.TITLE;
+        changeScreen(0);
+    }
 
     public void toMenu()
     {

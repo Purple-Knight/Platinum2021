@@ -15,6 +15,8 @@ public class CharBox : MonoBehaviour
     [HideInInspector] public int idColor;
     [HideInInspector] public int idChar;
     [HideInInspector] public bool once;
+    [HideInInspector] public bool ok;
+    public GameObject OKGameObject;
 
     public void Start()
     {
@@ -32,7 +34,7 @@ public class CharBox : MonoBehaviour
 
     public void changeColor(bool up)
     {
-        if (!once)
+        if (!once && !ok)
         {
             once = true;
 
@@ -53,7 +55,7 @@ public class CharBox : MonoBehaviour
 
     public void changeChar(bool up)
     {
-        if (!once)
+        if (!once && !ok)
         {
             once = true;
 
@@ -72,4 +74,12 @@ public class CharBox : MonoBehaviour
         }
     }
 
+
+    public void changeOK(bool isOK)
+    {
+        ok = isOK;
+
+        if (ok) OKGameObject.SetActive(true);
+        else OKGameObject.SetActive(false);
+    }
 }
