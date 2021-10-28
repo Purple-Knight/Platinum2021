@@ -118,6 +118,7 @@ public class CharacterSelection : MonoBehaviour
                     pd.numberOfPlayer = playersActual.Count;
                     pd.allPlayerData[playersActual.IndexOf(item)].myCharID = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idChar;
                     pd.allPlayerData[playersActual.IndexOf(item)].myColorID = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idColor;
+                    pd.allPlayerData[playersActual.IndexOf(item)].playerControllerID = (item.id);
 
                     saveData();
                 }
