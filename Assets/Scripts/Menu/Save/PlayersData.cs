@@ -12,6 +12,6 @@ public class PlayersData
 public class APlayerData
 {
     public int myCharID;
-    public int myColorID;
+    public Color myColorID;
     public int playerControllerID;
 }

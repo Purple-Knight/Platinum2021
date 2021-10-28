@@ -115,9 +115,11 @@ public class CharacterSelection : MonoBehaviour
 
                 if (correct)
                 {
+                    var charportrait = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
+
                     pd.numberOfPlayer = playersActual.Count;
-                    pd.allPlayerData[playersActual.IndexOf(item)].myCharID = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idChar;
-                    pd.allPlayerData[playersActual.IndexOf(item)].myColorID = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idColor;
+                    pd.allPlayerData[playersActual.IndexOf(item)].myCharID = charportrait.idChar;
+                    pd.allPlayerData[playersActual.IndexOf(item)].myColorID = charportrait.colorList[charportrait.idColor];
                     pd.allPlayerData[playersActual.IndexOf(item)].playerControllerID = (item.id);
 
                     saveData();
@@ -143,7 +145,11 @@ public class CharacterSelection : MonoBehaviour
 
         for (int i = 0; i < pd.numberOfPlayer; i++)
         {
+            var chara = charPortrait[i].GetComponent<CharBox>();
             charPortrait[i].SetActive(true);
+            chara.idChar = pd.allPlayerData[i].myCharID;
+            chara.idColor = chara.colorList.IndexOf(pd.allPlayerData[i].myColorID);
+            playersActual.Add(players[pd.allPlayerData[i].playerControllerID]);
         }
     }
 

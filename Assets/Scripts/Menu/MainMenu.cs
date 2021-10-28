@@ -19,6 +19,13 @@ public class MainMenu : MonoBehaviour
     public List<GameObject> menuScreens = new List<GameObject>();
     [HideInInspector] public MenuState state;
 
+
+
+    //Menu VAr -------------------------------------------
+    int cursorPos;
+    List<bool> once = new List<bool> { true, true, true, true };
+    float deadZone;
+
     public enum MenuState
     {
         TITLE,
@@ -43,23 +50,27 @@ public class MainMenu : MonoBehaviour
     {
         foreach (var item in players)
         {
-            if (state == MenuState.TITLE)
+
+            switch (state)
             {
-                if (item.GetButtonDown("Start"))
-                {
-                    toMenu();
-                }
+                case MenuState.TITLE:
+                    if (item.GetButtonDown("Start"))
+                    {
+                        toMenu();
+                    }
+                    break;
+                case MenuState.MENU:
+                    if(once[(players.IndexOf(item))] == true && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                    {
+
+                    }
+                    break;
+                case MenuState.CHARSELECT:
+                    break;
+                default:
+                    break;
             }
 
-            if(state == MenuState.MENU)
-            {
-
-            }
-
-            if(state == MenuState.CHARSELECT)
-            {
-
-            }
         }
     }
 
