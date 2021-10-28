@@ -112,7 +112,6 @@ public class CharacterSelection : MonoBehaviour
                         }
                     }
                 }
-
                 if (correct)
                 {
                     var charportrait = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();

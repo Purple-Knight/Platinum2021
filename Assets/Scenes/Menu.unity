@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 64047892}
   - component: {fileID: 64047891}
   - component: {fileID: 64047890}
+  - component: {fileID: 64047893}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -497,6 +498,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 64047893}
+        m_TargetAssemblyTypeName: LoadNewScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TestDeath
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &64047891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +548,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64047888}
   m_CullTransparentMesh: 1
+--- !u!114 &64047893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64047888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1c9d13c689e1146a699956b6a282f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86996346
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65024596, y: 0}
   m_AnchorMax: {x: 1, y: 0.34600002}
-  m_AnchoredPosition: {x: 1.5, y: -37.999878}
+  m_AnchoredPosition: {x: 1.5, y: -37.999893}
   m_SizeDelta: {x: -97.05005, y: -231.83997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &314657466

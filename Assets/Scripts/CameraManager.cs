@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] float shakeStrength;
     Quaternion originRotate;
     Vector3 originPosition;
-    PlayerHealth[] players;
+    [SerializeField] List<PlayerHealth> players;
 
     private void Start()
     {
@@ -17,8 +17,8 @@ public class CameraManager : MonoBehaviour
         originRotate = transform.rotation;
 
         GameManager.Instance.PlayerWon.AddListener(CameraZoom);
-
-        players = FindObjectsOfType<PlayerHealth>();
+        GameManager.Instance.camera = this;
+        players = GameManager.Instance.players;
         foreach (PlayerHealth player in players)
         {
             player.PlayerHit.AddListener(CameraShake);
@@ -40,8 +40,14 @@ public class CameraManager : MonoBehaviour
         zoomCenter.z = transform.position.z;
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOMove(zoomCenter, 1));
-        seq.Insert(0, Camera.main.DOOrthoSize(1, 1));
+        seq.Insert(0, Camera.main.DOOrthoSize(2, 1));
 
     }
 
+    public void ResetCamera()
+    {
+        Sequence seq = DOTween.Sequence();
+        seq.Append(transform.DOLocalMove(Vector3.zero, 1));
+        seq.Insert(0, Camera.main.DOOrthoSize(5, 1));
+    }
 }

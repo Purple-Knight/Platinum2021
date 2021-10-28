@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        playerID = GetComponent<PlayerMovement>().playerID;
+        playerID = GetComponent<PlayerManager>().characterID;
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         PlayerHit.Invoke();
 
-        if (healthPoints <= 0)
+        if (healthPoints <= 0 && isAlive)
             OnDeath();
 
     }
@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         Debug.Log("Dieded !");
         PlayerDied.Invoke(playerID);
 
-        //GetComponent<PlayerWeapon>().enabled = false;
+        GetComponent<PlayerWeapon>().enabled = false;
+        GetComponent<PlayerMovement>().ResetPositions();
     }
 }
