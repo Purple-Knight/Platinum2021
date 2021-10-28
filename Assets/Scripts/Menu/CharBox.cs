@@ -16,12 +16,19 @@ public class CharBox : MonoBehaviour
     [HideInInspector] public int idChar;
     [HideInInspector] public bool once;
 
-    private void Start()
+    public void Start()
     {
         image = GetComponent<Image>();
-        image.color = colorList[0];
-        image.sprite = characterList[0];
+        image.color = colorList[idColor];
+        image.sprite = characterList[idChar];
     }
+
+
+    /*public void loadAll()
+    {
+        image.color = colorList[id];
+        image.sprite = characterList[0];
+    }*/
 
     public void changeColor(bool up)
     {
