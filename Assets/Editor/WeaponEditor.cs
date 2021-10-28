@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Weapon))]
+[CustomEditor(typeof(Weapon_old))]
 public class WeaponEditor : Editor
 {
     public override void OnInspectorGUI()

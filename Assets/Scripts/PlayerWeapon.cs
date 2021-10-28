@@ -5,7 +5,7 @@ using Rewired;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    public Weapon weapon;
+    public Weapon_old weapon;
     private Player player;
 
     float inputTimer = 0;
@@ -21,7 +21,7 @@ public class PlayerWeapon : MonoBehaviour
 
     //Debug
     [SerializeField] private bool debug = false;
-    [SerializeField] private Weapon testWeapon;
+    [SerializeField] private Weapon_old testWeapon;
     [SerializeField] private bool debugGUI = false;
     [SerializeField] private Rect guiDebugArea = new Rect(0, 20, 150, 150);
     private string tempCharges;
@@ -121,7 +121,7 @@ public class PlayerWeapon : MonoBehaviour
 
     }
 
-    public void Pickup(Weapon pick)
+    public void Pickup(Weapon_old pick)
     {
         weapon = Instantiate(pick); //Instance of ScriptableObject
         weapon.pMov = pMov.transform;
