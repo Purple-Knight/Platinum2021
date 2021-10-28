@@ -12,12 +12,15 @@ public class PlayerWeapon : MonoBehaviour
     float beatPassedTimer = 0;
     internal PlayerMovement pMov;
     Vector2 lastDirection = Vector2.right;
-    Timming playerTiming;
+    Timing playerTiming;
     RhythmManager rhythmManager;
     // bools
     private bool gotInput = false;  // Fire Input received this beat
     private bool triggerDown = false; // Holding Fire Button
     private bool beatPassed = false;
+
+    [Header("---New Weapon Hierarchy---")]
+    public Weapon currentWeapon;
 
     //Debug
     [SerializeField] private bool debug = false;
@@ -43,7 +46,8 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
+        //GetInput();
+        currentWeapon.GetInput();
         
         if (beatPassed)
         {
@@ -76,7 +80,7 @@ public class PlayerWeapon : MonoBehaviour
             triggerDown = true;
             playerTiming = rhythmManager.AmIOnBeat();
 
-            if (playerTiming != Timming.MISS && playerTiming != Timming.NULL)
+            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL)
             {
                 FireWeapon();
             }

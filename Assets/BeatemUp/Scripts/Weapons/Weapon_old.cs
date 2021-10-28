@@ -7,7 +7,7 @@ using UnityEngine;
 public class Weapon_old : ScriptableObject
 {
     //WeaponType
-    public BulletInfo bulletInfo;
+    public BulletInfo_old bulletInfo;
 
     // Bullet
     public GameObject bulletPrefab;
@@ -82,7 +82,7 @@ public class Weapon_old : ScriptableObject
 }
 
 [System.Serializable]
-public class BulletInfo
+public class BulletInfo_old
 {
     [System.Serializable]
     public enum BulletType { Laser, Projectile }
@@ -95,7 +95,7 @@ public class BulletInfo
     public bool ignoreWalls = false;
     // public int power;    // pas pertinent si one shot...
 
-    public BulletInfo(BulletType _type, Vector2 _direction, bool _ignoresWalls) // direction pertinent à init ?? -> Dépend direction Tir (player)
+    public BulletInfo_old(BulletType _type, Vector2 _direction, bool _ignoresWalls) // direction pertinent à init ?? -> Dépend direction Tir (player)
     {
         type = _type;
         direction = _direction;

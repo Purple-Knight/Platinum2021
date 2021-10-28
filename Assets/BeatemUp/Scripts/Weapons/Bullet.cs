@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour     // Script on bullet GameObject, instantiated on Weapon Fire
 {
-    public BulletInfo info;
+    public BulletInfo_old info;
     public LayerMask hitLayer;
 
     public AnimationCurve laserWidth;
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         Destroy(gameObject, .3f);
     }
 
-    public void InitInfo(BulletInfo _Info, Vector2 direction)
+    public void InitInfo(BulletInfo_old _Info, Vector2 direction)
     {
         info = _Info;
         info.direction = direction;
@@ -40,10 +40,10 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
 
         switch (info.type)
         {
-            case BulletInfo.BulletType.Laser:
+            case BulletInfo_old.BulletType.Laser:
                 InitLaser(spawnPos, hit.point, direction);
                 break;
-            case BulletInfo.BulletType.Projectile:
+            case BulletInfo_old.BulletType.Projectile:
                 //SpriteRender
                 gameObject.AddComponent<SpriteRenderer>();
                 break;

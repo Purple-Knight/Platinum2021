@@ -7,7 +7,7 @@ using UnityEditor;
 [CustomEditor(typeof(PlayerWeapon))]
 public class PlayerWeaponEditor : Editor
 {
-
+/*
     public override void OnInspectorGUI()
     {
 
@@ -39,5 +39,5 @@ public class PlayerWeaponEditor : Editor
         
         //Save the serializedObject
         serializedObject.ApplyModifiedProperties();
-    }
+    }*/
 }
