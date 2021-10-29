@@ -16,6 +16,7 @@ public class CharBox : MonoBehaviour
     [HideInInspector] public int idChar;
     [HideInInspector] public bool once;
     [HideInInspector] public bool ok;
+    public bool isAssigned;
     public GameObject OKGameObject;
 
     public void Start()
@@ -43,6 +44,7 @@ public class CharBox : MonoBehaviour
                 idColor++;
                 if (idColor > colorList.Count - 1) idColor = 0;
             }
+
             else
             {
                 idColor--;

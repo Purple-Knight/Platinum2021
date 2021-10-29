@@ -43,13 +43,18 @@ public class MainMenu : MonoBehaviour
     {
         _instance = this;
 
+        checkController();
+
+    }
+
+    public void checkController()
+    {
         joysticks = ReInput.controllers.GetJoysticks(); ///////////////////check connected disconected
 
         for (int i = 0; i < joysticks.Count; i++)
         {
-            players.Add(ReInput.players.GetPlayer(i));
+            if(!players.Contains(ReInput.players.GetPlayer(i))) players.Add(ReInput.players.GetPlayer(i));
         }
-
     }
 
     void Update()
@@ -120,7 +125,7 @@ public class MainMenu : MonoBehaviour
         if (forChecking)
         {
             forChecking = false;
-            Awake();
+            checkController();
         }
     }
 
