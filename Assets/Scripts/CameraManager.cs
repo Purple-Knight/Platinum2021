@@ -9,19 +9,21 @@ public class CameraManager : MonoBehaviour
     [SerializeField] float shakeStrength;
     Quaternion originRotate;
     Vector3 originPosition;
-    [SerializeField] List<PlayerHealth> players;
+    [SerializeField] List<PlayerManager> players;
+    float originalCameraSize;
 
     private void Start()
     {
         originPosition = transform.position;
         originRotate = transform.rotation;
+        originalCameraSize = Camera.main.orthographicSize;
 
         GameManager.Instance.PlayerWon.AddListener(CameraZoom);
         GameManager.Instance.camera = this;
         players = GameManager.Instance.players;
-        foreach (PlayerHealth player in players)
+        foreach (PlayerManager player in players)
         {
-            player.PlayerHit.AddListener(CameraShake);
+            player.playerHealth.PlayerHit.AddListener(CameraShake);
         }
     }
     public void CameraShake()
@@ -48,6 +50,6 @@ public class CameraManager : MonoBehaviour
     {
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOLocalMove(Vector3.zero, 1));
-        seq.Insert(0, Camera.main.DOOrthoSize(5, 1));
+        seq.Insert(0, Camera.main.DOOrthoSize(originalCameraSize, 1));
     }
 }

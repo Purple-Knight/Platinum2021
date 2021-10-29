@@ -6,22 +6,19 @@ using UnityEngine.Events;
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public int healthPoints = 1;
+    private int currentHealth;
     private int playerID;
     public UnityEvent PlayerHit;
     public UnityEvent<int> PlayerDied;
     public bool isAlive = true;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         playerID = GetComponent<PlayerManager>().characterID;
+        currentHealth = healthPoints;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OnHit()
     {
@@ -37,10 +34,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void OnDeath()
     {
         isAlive = false;
-        Debug.Log("Dieded !");
+        Debug.Log("Dieded !"); 
         PlayerDied.Invoke(playerID);
+    }
 
-        GetComponent<PlayerWeapon>().enabled = false;
-        GetComponent<PlayerMovement>().ResetPositions();
+    public void ResetPlayer()
+    {
+        currentHealth = healthPoints;
+        isAlive = true;
     }
 }

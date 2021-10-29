@@ -140,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
     public void Move()
     {
         lastPos = transform.position;
+        targetPos = transform.position;
 
 
         if (mvtVertical != 0 && !hasMoved) //move vertical
@@ -185,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
     public void BeatReceived()
     {
         beatPassed = true;
-        if(!DOTween.IsTweening(sprite.transform)) // a garder je pense
+        if(!DOTween.IsTweening(sprite.transform)) 
             Squeeeesh(true);
     }
 
@@ -276,16 +277,16 @@ public class PlayerMovement : MonoBehaviour
         switch (playerTiming)
         {
             case Timming.PERFECT:
-                seqColor.Append(sprite.DOColor(Color.green, .1f));
+                seqColor.Append(sprite.DOColor(new Color(0,1,0,playerColor.a), .1f));
                 break;
             case Timming.BEFORE:
-                seqColor.Append(sprite.DOColor(Color.yellow, .1f));
+                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
                 break;
             case Timming.AFTER:
-                seqColor.Append(sprite.DOColor(Color.yellow, .1f));
+                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
                 break;
             case Timming.MISS:
-                seqColor.Append(sprite.DOColor(Color.red, .1f));
+                seqColor.Append(sprite.DOColor(new Color(1, 0, 0, playerColor.a), .1f));
                 break;
             case Timming.NULL:
                 

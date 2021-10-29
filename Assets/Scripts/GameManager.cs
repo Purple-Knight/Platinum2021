@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
-    public List<PlayerHealth> players;
+    public List<PlayerManager> players;
     int numOfPlayerAlive;
     [SerializeField] Transform deathRoom;
     List<bool> playersAlive;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public void SpawnPlayer()
     {
         playersAlive = new List<bool>();
-        players = new List<PlayerHealth>();
+        players = new List<PlayerManager>();
         numOfPlayerAlive = playersData.numberOfPlayer; 
         playerWins = new int[numOfPlayerAlive];
         for (int i = 0; i < numOfPlayerAlive; i++)
@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour
             PlayerManager playerManager = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity).GetComponent<PlayerManager>();
             playerManager.InstantiatePlayer(data.playerControllerID, i , data.myColorID, data.myCharID);
             playersAlive.Add(true);
-            players.Add(playerManager.GetComponent<PlayerHealth>());
-            players[i].PlayerDied.AddListener(CheckPlayerAlive);
+            players.Add(playerManager.GetComponent<PlayerManager>());
+            players[i].playerHealth.PlayerDied.AddListener(CheckPlayerAlive);
         }
     }
 
@@ -53,7 +53,8 @@ public class GameManager : MonoBehaviour
     {
         numOfPlayerAlive--;
         playersAlive[playerID] = false;
-        players[playerID].transform.position = deathRoom.position;
+        //players[playerID].transform.position = deathRoom.position;
+        
 
         if (numOfPlayerAlive == 1)
         {
@@ -64,15 +65,16 @@ public class GameManager : MonoBehaviour
                 {
                     playerAlive = i;
                 }
+                players[i].movement.enabled = false;
             }
-            Debug.Log("player " + players[playerAlive].gameObject.name + " won");
+            Debug.Log("player " + players[playerAlive].characterID + " won");
             PlayerWon.Invoke(playerAlive);
             playerWins[playerAlive]++;
             for (int i = 0; i < playerWins.Length; i++)
             {
                 Debug.Log("Player " + (i +1) + " : " + playerWins[i]);
-                StartCoroutine(NextRound());
             }
+            StartCoroutine(NextRound());
         }
 
     }
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             players[i].transform.position = spawnPoints[i].position;
-            players[i].GetComponent<PlayerManager>().ResetPlayer();
+            players[i].ResetPlayer();
             playersAlive.Add(true);
             
         }
@@ -95,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator NextRound()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
         ResetPlayers();
         camera.ResetCamera();
     }
