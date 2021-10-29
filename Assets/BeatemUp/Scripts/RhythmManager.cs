@@ -28,6 +28,14 @@ public class RhythmManager : MonoBehaviour
     public UnityEvent InstantiateBeat;
 
 
+    [Header("Beat Window")]
+    [SerializeField] private float perfectBufferTime;
+    [SerializeField] public float bufferTime;
+    [SerializeField] public float halfBeatTime;
+
+    [SerializeField] private float timerInBetweenBeat = 0;
+
+
     private void Awake()
     {
         if (_instance != null)
@@ -71,9 +79,40 @@ public class RhythmManager : MonoBehaviour
         {
             eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
         }
+
+        timerInBetweenBeat += Time.deltaTime;
     }
 
-
+    public Timming AmIOnBeat()
+    {
+        if (timerInBetweenBeat >= (beatDuration - perfectBufferTime))
+        {
+            //Perfect before
+            return Timming.PERFECT;
+        }
+        else if (timerInBetweenBeat >= (bufferTime * 2))
+        {
+            //Before
+            return Timming.BEFORE;
+        }
+        else if (timerInBetweenBeat >= bufferTime && timerInBetweenBeat <= (bufferTime * 2))
+        {
+            //Miss
+            return Timming.MISS;
+        }
+        else if (timerInBetweenBeat <= bufferTime)
+        {
+            //After
+            return Timming.AFTER;
+        }
+        else if (timerInBetweenBeat <= perfectBufferTime)
+        {
+            //Perfect After
+            return Timming.PERFECT;
+        }
+        
+        return Timming.NULL;
+    }
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
@@ -87,11 +126,18 @@ public class RhythmManager : MonoBehaviour
             StartCoroutine(beforeStart());
             numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
             InstantiateBeat?.Invoke();
+
+            //Window Rythm
+            bufferTime = beatDuration / 3;
+            halfBeatTime = beatDuration / 2;
+            perfectBufferTime = beatDuration / 6;
         }
         else
         {
             onMusicBeatDelegate?.Invoke();   
         }
+
+        timerInBetweenBeat = 0; //Reinitialize timer on beat
 
     }
 
@@ -108,4 +154,13 @@ public class RhythmManager : MonoBehaviour
 
     }
 
+}
+
+public enum Timming
+{
+    NULL,
+    BEFORE,
+    AFTER,
+    PERFECT,
+    MISS,
 }

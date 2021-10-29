@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Rewired;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,9 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Color playerColor;
     [SerializeField] float deadZoneController;
-    float bufferTime;
-    float halfBeatTime;
-    bool gotInputThisBeat;
+
+    public float bufferTime; 
+    float halfBeatTime; 
+    bool gotInputThisBeat; 
     float raycastDistance = .5f;
 
     float mvtHorizontal;
@@ -30,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     bool beforeBeatTimer; //bool to start timer on input
     bool beatPassed; // bool true is rhythm missed
     bool hasMoved; // player moved, to block double movement
-    PlayerDir playerDir = PlayerDir.NULL; //direction the player want
+    [SerializeField] PlayerDir playerDir = PlayerDir.NULL; //direction the player want
     bool buttonDown;
     bool canMove = true;
 
@@ -43,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
     //lerp
     Vector2 targetPos;
     Vector2 lastPos;
+
+    //public UnityEvent PlayerHit;
+    [SerializeField] ParticleSystem impactParticles;
+    Timming playerTiming;
+
     #endregion
 
     [Header("Debug")]
@@ -68,26 +75,18 @@ public class PlayerMovement : MonoBehaviour
         WallCollision();
 
         GetInput();
-
-        if (beforeBeatTimer)
-        {
-            inputTimer += Time.deltaTime;
-        }
         if (beatPassed)
         {
             beatPassedTimer += Time.deltaTime;
         }
-        if(beatPassedTimer > bufferTime && beatPassed)
-        {
-            hasMoved = false;
-        }
-        if (beatPassed && beatPassedTimer >= halfBeatTime)
+        if (beatPassed && beatPassedTimer >= halfBeatTime) //only one input per beat
         {
             beatPassed = false;
-            beatPassedTimer = 0;
             gotInputThisBeat = false;
+            beatPassedTimer = 0;
+            hasMoved = false;
             
-        }
+        } 
 
         OtherPlayerOnNextTile();
     }
@@ -95,88 +94,85 @@ public class PlayerMovement : MonoBehaviour
 
     public void GetInput()
     {
-        //move
+        //Is there an Input 
         bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
-
-
-        if (inputHorizontal && !hasMoved && !beatPassed && !buttonDown && !gotInputThisBeat) // before a beat
-        {
-            gotInputThisBeat = true;
-            beforeBeatTimer = true;
-            buttonDown = true;
-            mvtHorizontal = player.GetAxis("Move Horizontal");
-            playerDir = mvtHorizontal > 0? PlayerDir.RIGHT: PlayerDir.LEFT;
-        }
-        else if (inputHorizontal && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown  && ! !gotInputThisBeat) // after a beat
-        {
-            gotInputThisBeat = true;
-            beforeBeatTimer = true;
-            buttonDown = true;
-            mvtHorizontal = player.GetAxis("Move Horizontal");
-            playerDir = mvtHorizontal > 0 ? PlayerDir.RIGHT : PlayerDir.LEFT;
-            Move();
-        }else if (player.GetAxis("Move Horizontal") > -deadZoneController && player.GetAxis("Move Horizontal") < deadZoneController)
-        {
-            mvtHorizontal = 0;
-        }
         
-        if (inputVertical && !hasMoved && !beatPassed && !buttonDown && !gotInputThisBeat) //before a beat
+       
+        if (inputHorizontal || inputVertical) 
         {
-            gotInputThisBeat = true;
-            beforeBeatTimer = true;
-            buttonDown = true;
-            mvtVertical = player.GetAxis("Move Vertical");
-            playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
+            playerTiming = rhythmManager.AmIOnBeat();
+
+            if (playerTiming != Timming.MISS && playerTiming != Timming.NULL && !buttonDown && !gotInputThisBeat)
+            {
+                mvtVertical =player.GetAxis("Move Vertical");
+                mvtHorizontal = player.GetAxis("Move Horizontal");
+
+                if (Mathf.Abs(mvtVertical) > Mathf.Abs(mvtHorizontal)) 
+                {
+                    playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
+                    mvtHorizontal = 0;
+                }
+                else
+                {
+                    playerDir = mvtHorizontal > 0 ? PlayerDir.RIGHT : PlayerDir.LEFT;
+                    mvtVertical = 0;
+                }
+                
+                buttonDown = true;
+                gotInputThisBeat = true;
+                Move();
+            } 
+            else
+            {
+                buttonDown = true;
+                gotInputThisBeat = true;
+                //playerDir = PlayerDir.NULL;
+                mvtHorizontal = 0;
+                mvtVertical = 0;
+            }
         }
-        else if (inputVertical && !hasMoved && beatPassed && beatPassedTimer < bufferTime && !buttonDown && !gotInputThisBeat) //after a beat
-        {
-            gotInputThisBeat = true;
-            beforeBeatTimer = true;
-            buttonDown = true;
-            mvtVertical = player.GetAxis("Move Vertical");
-            playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
-            Move();
-        }else if(player.GetAxis("Move Vertical") > -deadZoneController && player.GetAxis("Move Vertical") < deadZoneController)
-        {
-            mvtVertical = 0;
-        }
-        
-        if(!inputHorizontal && !inputVertical)
+        else
         {
             buttonDown = false;
-            playerDir = PlayerDir.NULL;
+            //playerDir = PlayerDir.NULL;
+            mvtHorizontal = 0;
+            mvtVertical = 0;
         }
     }
 
     public void Move()
     {
-        lastPos = targetPos;
-        if (inputTimer < bufferTime && mvtVertical != 0 && !hasMoved) //move vertical
+        lastPos = transform.position;
+
+
+        if (mvtVertical != 0 && !hasMoved) //move vertical
         {
             if (mvtVertical > 0 && canGoUp)
             {
                 targetPos.y = transform.position.y + 1;
-                playerDir = PlayerDir.UP;
+                Squeeeesh(false);
             }
             else if (mvtVertical < 0 && canGoDown)
             {
                 targetPos.y = transform.position.y - 1;
-                playerDir = PlayerDir.DOWN;
+                Squeeeesh(false);
             }
             hasMoved = true;
         }
-        else if (inputTimer < bufferTime && mvtHorizontal != 0 && !hasMoved) //move horizontal
+        else if (mvtHorizontal != 0 && !hasMoved) //move horizontal
         {
             if (mvtHorizontal > 0 && canGoRight)
             {
                 targetPos.x = transform.position.x + 1;
-                playerDir = PlayerDir.RIGHT;
+                sprite.flipX = true;
+                Squeeeesh(true);
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
                 targetPos.x = transform.position.x - 1;
-                playerDir = PlayerDir.LEFT;
+                sprite.flipX = false;
+                Squeeeesh(true);
             }
             hasMoved = true;
         }
@@ -184,20 +180,19 @@ public class PlayerMovement : MonoBehaviour
         mvtVertical = 0;
         mvtHorizontal = 0;
 
-        HitResult();
+        BeatTiming();
         transform.DOMove(targetPos, .2f);
 
-        beforeBeatTimer = false;
+        
     }
 
     public void BeatReceived()
     {
         beatPassed = true;
-        Move();
-        inputTimer = 0;
-        //StartCoroutine(LerpMove());
-        Squeeeesh();
+        if(!DOTween.IsTweening(sprite.transform)) // a garder je pense
+            Squeeeesh(true);
     }
+
 
     #region Collisions
     public void WallCollision()
@@ -223,9 +218,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!canMove)
             {
+                Instantiate(impactParticles, transform.position, Quaternion.identity);
                 transform.DOComplete();
-                transform.DOMove(lastPos, .1f);
                 targetPos = lastPos;
+                Sequence seq = DOTween.Sequence();
+                seq.Append(transform.DOMove(targetPos, .1f));
+                seq.Insert(0, sprite.transform.DOScale(1.15f, .1f));
+                seq.Insert(0, sprite.transform.DOScale(.85f, .1f));
+                seq.Append(sprite.transform.DOScale(1, .2f).SetEase(Ease.OutElastic));
             }
         }
     }
@@ -248,7 +248,7 @@ public class PlayerMovement : MonoBehaviour
                 rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, raycastDistance, LayerMask.GetMask("Player"));
                 break;
             case PlayerDir.LEFT:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, raycastDistance, LayerMask.GetMask("Ground"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, raycastDistance, LayerMask.GetMask("Player"));
                 break;
         }
         if (rayray.collider != null)
@@ -259,66 +259,46 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region feedback
-    public void Squeeeesh()
+    public void Squeeeesh(bool squeeshY)
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(sprite.transform.DOScaleY(.8f, .1f)).Append(sprite.transform.DOScaleY(1, 0.1f)) ;
+        if(squeeshY)
+            seq.Append(sprite.transform.DOScaleY(.8f, .1f)).Append(sprite.transform.DOScaleY(1, 0.1f));
+        else
+            seq.Append(sprite.transform.DOScaleX(.8f, .1f)).Append(sprite.transform.DOScaleX(1, 0.1f));
         seq.Play();
     }
 
-    public void HitResult()
+    public void BeatTiming()
     {
-        if (inputTimer != 0)
+        Sequence seqColor = DOTween.Sequence();
+        switch (playerTiming)
         {
-            Sequence seqColor = DOTween.Sequence();
-
-            if (inputTimer < bufferTime / 3)
-            {
-                //Debug.Log("<color=green> Good </color>");
+            case Timming.PERFECT:
                 seqColor.Append(sprite.DOColor(Color.green, .1f));
-            }
-            else if (inputTimer < bufferTime / 3 * 2)
-            {
-                //Debug.Log("<color=yellow> Okay </color>");
+                break;
+            case Timming.BEFORE:
                 seqColor.Append(sprite.DOColor(Color.yellow, .1f));
-            }
-            else if (inputTimer < bufferTime)
-            {
-                //Debug.Log("<color=orange> Early / Late</color>");
-                seqColor.Append(sprite.DOColor(new Color(1, .5f, 0), .1f));
-            }
-            else if (inputTimer > bufferTime)
-            {
-                //Debug.Log("<color=red> missed </color>");
-                seqColor.Append(sprite.DOColor(Color.red, .2f));
-            }
-
-            seqColor.Append(sprite.DOColor(playerColor, .1f));
-        }
+                break;
+            case Timming.AFTER:
+                seqColor.Append(sprite.DOColor(Color.yellow, .1f));
+                break;
+            case Timming.MISS:
+                seqColor.Append(sprite.DOColor(Color.red, .1f));
+                break;
+            case Timming.NULL:
+                
+                break;
+            
+        } 
+        seqColor.Append(sprite.DOColor(playerColor, .1f));
+        
     }
 
     #endregion
 
-    /*
-        IEnumerator LerpMove()
-        {
-            float t =0;
-            while (t <= 1)
-            {
-                yield return new WaitForEndOfFrame();
-                transform.position = Vector2.Lerp(lastPos, targetPos, t);
-                t += 1/bufferTime * Time.deltaTime;
-                if( t > 1)
-                {
-                    t = 1;
-                }
-            }
-
-        }*/
-
     public void InstantiateRhythm()
     {
-        bufferTime = rhythmManager.beatDuration / 3;
         halfBeatTime = rhythmManager.beatDuration / 2;
     }
     #region Debug
@@ -327,7 +307,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_guiDebug) return;
 
+        GUILayout.BeginArea(_guiDebugArea);
+        GUILayout.TextArea("Player " + playerID);
         GUILayout.BeginHorizontal();
+        
         if (GUILayout.Button("Timers"))
         {
             _timerDebug = !_timerDebug;
@@ -337,7 +320,7 @@ public class PlayerMovement : MonoBehaviour
             _boolDebug = !_boolDebug;
         }
 
-        GUILayout.BeginArea(_guiDebugArea);
+        GUILayout.EndHorizontal();
 
         if (_timerDebug)
         {
@@ -345,11 +328,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (_boolDebug)
         {
-            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Before Beat Timer : "  + beforeBeatTimer + "\n Button down : " + buttonDown);
+            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Before Beat Timer : "  + beforeBeatTimer + "\n Button down : " + buttonDown +  "\n Vertical mvt : " + mvtVertical );
         }
         GUILayout.EndArea();
     }
-    private void OnDrawGizmos()
+
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = canGoUp ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up));
