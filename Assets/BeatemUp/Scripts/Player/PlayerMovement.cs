@@ -14,10 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private Player player; //Rewired player
     private RhythmManager rhythmManager;
 
-    [SerializeField] Color playerColor;
+    public Color playerColor;
     [SerializeField] float deadZoneController;
 
-    public float bufferTime; 
     float halfBeatTime; 
     bool gotInputThisBeat; 
     float raycastDistance = .5f;
@@ -26,10 +25,8 @@ public class PlayerMovement : MonoBehaviour
     float mvtVertical;
 
     //timer
-    float inputTimer;
     float beatPassedTimer;
 
-    bool beforeBeatTimer; //bool to start timer on input
     bool beatPassed; // bool true is rhythm missed
     bool hasMoved; // player moved, to block double movement
     [SerializeField] PlayerDir playerDir = PlayerDir.NULL; //direction the player want
@@ -54,11 +51,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = true;
-    private bool _timerDebug = false;
     private bool _boolDebug = false;
     [SerializeField] private Rect _guiDebugArea = new Rect(0, 20, 150, 150);
 
-    private void Start()
+    public void InstantiateMovement()
     {
         rhythmManager = RhythmManager.Instance;
         rhythmManager.onMusicBeatDelegate += BeatReceived;
@@ -144,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
     public void Move()
     {
         lastPos = transform.position;
+        targetPos = transform.position;
 
 
         if (mvtVertical != 0 && !hasMoved) //move vertical
@@ -189,11 +186,16 @@ public class PlayerMovement : MonoBehaviour
     public void BeatReceived()
     {
         beatPassed = true;
-        if(!DOTween.IsTweening(sprite.transform)) // a garder je pense
+        if(!DOTween.IsTweening(sprite.transform)) 
             Squeeeesh(true);
     }
 
 
+    public void ResetPositions()
+    {
+        targetPos = transform.position;
+        lastPos = transform.position;
+    }
     #region Collisions
     public void WallCollision()
     {
@@ -275,16 +277,16 @@ public class PlayerMovement : MonoBehaviour
         switch (playerTiming)
         {
             case Timming.PERFECT:
-                seqColor.Append(sprite.DOColor(Color.green, .1f));
+                seqColor.Append(sprite.DOColor(new Color(0,1,0,playerColor.a), .1f));
                 break;
             case Timming.BEFORE:
-                seqColor.Append(sprite.DOColor(Color.yellow, .1f));
+                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
                 break;
             case Timming.AFTER:
-                seqColor.Append(sprite.DOColor(Color.yellow, .1f));
+                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
                 break;
             case Timming.MISS:
-                seqColor.Append(sprite.DOColor(Color.red, .1f));
+                seqColor.Append(sprite.DOColor(new Color(1, 0, 0, playerColor.a), .1f));
                 break;
             case Timming.NULL:
                 
@@ -310,11 +312,6 @@ public class PlayerMovement : MonoBehaviour
         GUILayout.BeginArea(_guiDebugArea);
         GUILayout.TextArea("Player " + playerID);
         GUILayout.BeginHorizontal();
-        
-        if (GUILayout.Button("Timers"))
-        {
-            _timerDebug = !_timerDebug;
-        }
         if (GUILayout.Button("bool"))
         {
             _boolDebug = !_boolDebug;
@@ -322,13 +319,9 @@ public class PlayerMovement : MonoBehaviour
 
         GUILayout.EndHorizontal();
 
-        if (_timerDebug)
-        {
-            GUILayout.TextField("Timers \n" + "Input Timer : " + inputTimer + "\n" + "beat passed timer : " + beatPassedTimer);
-        }
         if (_boolDebug)
         {
-            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Before Beat Timer : "  + beforeBeatTimer + "\n Button down : " + buttonDown +  "\n Vertical mvt : " + mvtVertical );
+            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Button down : " + buttonDown +  "\n Vertical mvt : " + mvtVertical );
         }
         GUILayout.EndArea();
     }

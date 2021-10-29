@@ -8,45 +8,97 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
-    [SerializeField] PlayerHealth[] players;
+    public List<PlayerManager> players;
     int numOfPlayerAlive;
     [SerializeField] Transform deathRoom;
+    List<bool> playersAlive;
+    int[] playerWins;
+    [SerializeField] Transform[] spawnPoints;
 
     public UnityEvent<int> PlayerWon;
+
+    PlayersData playersData;
+    [SerializeField] GameObject playerPrefab;
+
+    public CameraManager camera;
 
     void Start()
     {
         _instance = this;
-        for (int i = 0; i < players.Length; i++)
-        {
-            players[i].PlayerDied.AddListener(CheckPlayerAlive);
-        }
-        numOfPlayerAlive = players.Length;
+        
+        playersData = SaveData.Load();
+        SpawnPlayer();
     }
 
-    
-    void Update()
+    public void SpawnPlayer()
     {
-        
+        playersAlive = new List<bool>();
+        players = new List<PlayerManager>();
+        numOfPlayerAlive = playersData.numberOfPlayer; 
+        playerWins = new int[numOfPlayerAlive];
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            APlayerData data = playersData.allPlayerData[i];
+            PlayerManager playerManager = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity).GetComponent<PlayerManager>();
+            playerManager.InstantiatePlayer(data.playerControllerID, i , data.myColorID, data.myCharID);
+            playersAlive.Add(true);
+            players.Add(playerManager.GetComponent<PlayerManager>());
+            players[i].playerHealth.PlayerDied.AddListener(CheckPlayerAlive);
+        }
     }
+
+
 
     public void CheckPlayerAlive(int playerID )
     {
         numOfPlayerAlive--;
-        int playerAlive =0;
-        players[playerID].transform.position = deathRoom.position;
+        playersAlive[playerID] = false;
+        //players[playerID].transform.position = deathRoom.position;
+        
 
         if (numOfPlayerAlive == 1)
         {
-            for (int i = 0; i < players.Length; i++)
+            int playerAlive = 0;
+            for (int i = 0; i < playersAlive.Count; i++)
             {
-                if (players[i].isAlive)
+                if (playersAlive[i])
+                {
                     playerAlive = i;
+                }
+                players[i].movement.enabled = false;
             }
-
-            Debug.Log("player " + players[playerAlive].gameObject.name + " won");
+            Debug.Log("player " + players[playerAlive].characterID + " won");
             PlayerWon.Invoke(playerAlive);
+            playerWins[playerAlive]++;
+            for (int i = 0; i < playerWins.Length; i++)
+            {
+                Debug.Log("Player " + (i +1) + " : " + playerWins[i]);
+            }
+            StartCoroutine(NextRound());
         }
 
+    }
+
+    public void ResetPlayers()
+    {
+
+        playersAlive.Clear();
+        playersAlive = new List<bool>();
+        numOfPlayerAlive = playersData.numberOfPlayer;
+       
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            players[i].transform.position = spawnPoints[i].position;
+            players[i].ResetPlayer();
+            playersAlive.Add(true);
+            
+        }
+    }
+
+    IEnumerator NextRound()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        ResetPlayers();
+        camera.ResetCamera();
     }
 }
