@@ -22,11 +22,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void OnHit()
     {
-        --healthPoints;
+        --currentHealth;
 
         PlayerHit.Invoke();
 
-        if (healthPoints <= 0 && isAlive)
+        if (currentHealth <= 0 && isAlive)
             OnDeath();
 
     }

@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/BeatemUp/Scenes/TestControlls.unity
-    guid: 1008afc676801b4459a1539bd97a42bf
+    path: Assets/BeatemUp/Scenes/Menu.unity
+    guid: f451fe6d9422df246912eb5c14215d8c
   - enabled: 1
     path: Assets/BeatemUp/Scenes/TestDeath.unity
     guid: 5f6b715318cdc504090c36e889de02cc

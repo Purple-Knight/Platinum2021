@@ -42,7 +42,7 @@ ParticleSystem:
   serializedVersion: 7
   lengthInSec: 0.1
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -5007,6 +5007,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
+  - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   notesParticle: {fileID: 2884027074131566019}
 --- !u!114 &3883265989226838409
 MonoBehaviour:
