@@ -5,13 +5,10 @@ using Rewired;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    public Weapon_old weapon;
     private Player player;
 
-    float inputTimer = 0;
     float beatPassedTimer = 0;
     internal PlayerMovement pMov;
-    Vector2 lastDirection = Vector2.right;
     Timing playerTiming;
     RhythmManager rhythmManager;
     // bools
@@ -20,34 +17,35 @@ public class PlayerWeapon : MonoBehaviour
     private bool beatPassed = false;
 
     [Header("---New Weapon Hierarchy---")]
-    public Weapon currentWeapon;
+    public Weapon weapon;
+    public Weapon newWeaponTarget;
 
     //Debug
     [SerializeField] private bool debug = false;
-    [SerializeField] private Weapon_old testWeapon;
     [SerializeField] private bool debugGUI = false;
     [SerializeField] private Rect guiDebugArea = new Rect(0, 20, 150, 150);
-    private string tempCharges;
+    //private string tempCharges;
 
     [SerializeField] Transform aiming;
 
     private void Start()
     {
+        aiming = transform.Find("Isometric Diamond");
+        UpdateAimVisual(Vector2.right);
+
         rhythmManager = RhythmManager.Instance;
         rhythmManager.onMusicBeatDelegate += BeatReceived;
 
         pMov = GetComponent<PlayerMovement>();
         player = ReInput.players.GetPlayer(pMov.playerID);
-        aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f));
-        Pickup(testWeapon);
-        tempCharges = "" + weapon.chargeBeats;
-        weapon.lastDirection = lastDirection;
+
+        Debug.Log(player.id);
     }
 
     private void Update()
     {
-        //GetInput();
-        currentWeapon.GetInput();
+        if (weapon != null)
+            weapon.GetInput();
         
         if (beatPassed)
         {
@@ -58,77 +56,44 @@ public class PlayerWeapon : MonoBehaviour
                 beatPassed = false;
                 gotInput = false;
             }
-            /*if(beatPassedTimer > rhythmManager.bufferTime)   // after Post-Beat Window
-            {
-                playerTiming = rhythmManager.AmIOnBeat();
-                if (gotInput && inputTimer > pMov.bufferTime)
-                    triggerDown = false;
+        }
 
-                if (!gotInput && triggerDown)   // Holding down (Charging weapon)
-                    weapon.Use(triggerDown);
+        if(player.id == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+                SwapWeaponStyle("00");
 
-            }*/
+            if (Input.GetKeyDown(KeyCode.R))
+                SwapWeaponStyle("01");
+        } else if(player.id == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+                SwapWeaponStyle("00");
+
+            if (Input.GetKeyDown(KeyCode.Y))
+                SwapWeaponStyle("01");
+        }else if(player.id == 2)
+        {
+            if (Input.GetKeyDown(KeyCode.U))
+                SwapWeaponStyle("00");
+
+            if (Input.GetKeyDown(KeyCode.I))
+                SwapWeaponStyle("01");
         }
     }
 
-    private void GetInput()
+    public void SwapWeaponStyle(string key)
     {
-
-        if (player.GetButtonDown("Fire") && !gotInput)
-        {
-            gotInput = true;
-            triggerDown = true;
-            playerTiming = rhythmManager.AmIOnBeat();
-
-            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL)
-            {
-                FireWeapon();
-            }
-        }
-        /*else if(player.GetButtonUp("Fire") && !gotInput)
-        {
-            gotInput = true;
-            triggerDown = false;
-            playerTiming = rhythmManager.AmIOnBeat();
-
-            if ( playerTiming != Timming.MISS && playerTiming != Timming.NULL)
-            {
-                FireWeapon();
-            }
-            else weapon.MissedBeat(); // Reset Charges (input Down & Up in one beat)
-        }*/
-
-        if (player.GetAxisRaw("Aim Horizontal") != 0 || player.GetAxisRaw("Aim Vertical") != 0) // Last Aim Direction
-        {
-            float x = player.GetAxis("Aim Horizontal");
-            float y = player.GetAxis("Aim Vertical");
-
-            if (Mathf.Abs(x) >= Mathf.Abs(y))
-                y = 0;
-            else
-                x = 0;
-
-            lastDirection.x = (x == 0) ? x : Mathf.Sign(x);
-            lastDirection.y = (y == 0) ? y : Mathf.Sign(y);
-
-            aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f));
-
-            if (weapon != null) weapon.lastDirection = lastDirection;
-        }
+        if(weapon != null)
+            weapon = WeaponLibrary.Instance.GetFromLibrary(key, weapon);
+        else
+            weapon = WeaponLibrary.Instance.GetFromLibrary(key);
+        weapon.Init(player, this);
     }
 
-    private void FireWeapon()
+    public void UpdateAimVisual(Vector2 lastDirection)
     {
-        if (weapon == null) return;
-
-        weapon.Use(triggerDown);
-
-    }
-
-    public void Pickup(Weapon_old pick)
-    {
-        weapon = Instantiate(pick); //Instance of ScriptableObject
-        weapon.pMov = pMov.transform;
+        aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f));
     }
 
     public void BeatReceived()
@@ -145,22 +110,23 @@ public class PlayerWeapon : MonoBehaviour
 
         GUILayout.BeginArea(guiDebugArea);
         GUILayout.TextArea("Input : " + gotInput);
-        //GUILayout.TextField("Last Direction : " + lastDirection);
         /*GUILayout.BeginHorizontal();
         GUILayout.TextField("Horizontal Aim: " + player.GetAxis("Aim Horizontal"));
         GUILayout.TextField("Vertical Aim : " + player.GetAxis("Aim Vertical"));
         GUILayout.EndHorizontal();*/
 
-        //GUILayout.TextArea("Input Timer : " + inputTimer);
         //GUILayout.TextArea("PastBeat Timer : " + beatPassedTimer);
 
         GUILayout.BeginHorizontal();
-        GUILayout.TextArea("Num of charge Beat (int) : ");
-        tempCharges = GUILayout.TextField(tempCharges);
-        weapon.chargeBeats = int.Parse(tempCharges);
+        if(weapon != null)
+        {
+
+        }
         GUILayout.EndHorizontal();
         if (GUILayout.Button("Replace Weapon"))
-            Pickup(testWeapon);
+        {
+            //SwapWeaponStyle(newWeaponTarget);
+        }
 
         GUILayout.EndArea();
     }

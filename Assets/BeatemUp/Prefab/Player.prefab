@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  weaponHolder: {fileID: 8775144419209952202, guid: 3a6b56cab7a39aa4aa73b518b4cd7391, type: 3}
   debug: 0
-  testWeapon: {fileID: 0}
   debugGUI: 0
   guiDebugArea:
     serializedVersion: 2

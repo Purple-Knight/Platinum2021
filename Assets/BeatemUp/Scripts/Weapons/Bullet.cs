@@ -4,53 +4,36 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour     // Script on bullet GameObject, instantiated on Weapon Fire
 {
-    public BulletInfo_old info;
+    public BulletInfo info;
     public LayerMask hitLayer;
 
     public AnimationCurve laserWidth;
-
-    BoxCollider2D col;
 
     public Material mat;
 
     private void Start()
     {
-        col = GetComponent<BoxCollider2D>();
-
         Destroy(gameObject, .3f);
     }
 
-    public void InitInfo(BulletInfo_old _Info, Vector2 direction)
+    public void InitInfo(BulletInfo _Info, in Vector2 direction)
     {
         info = _Info;
-        info.direction = direction;
-        Vector2 spawnPos = new Vector2(transform.position.x + direction.x, transform.position.y + direction.y);
+        Vector2 spawnPos = new Vector2(transform.position.x + .5f * direction.x, transform.position.y + .5f * direction.y);
 
-        RaycastHit2D hit = Physics2D.Raycast(spawnPos, info.direction, 50, hitLayer);
+        Vector2 endPos = spawnPos;
+
+        RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, info.length, hitLayer);
         if (hit.collider != null)
         {
-            //Debug.Log("HIT : " + hit.transform.name + " ; " + info.direction.x);
-            Debug.DrawLine(spawnPos, hit.point, Color.yellow, .5f);
+            endPos = hit.point;
         }
         else
         {
-            Debug.LogWarning("NOTHING HIT.");
-            return;
+            endPos = new Vector2(spawnPos.x + info.length * direction.x, spawnPos.y + info.length * direction.y);
         }
 
-        switch (info.type)
-        {
-            case BulletInfo_old.BulletType.Laser:
-                InitLaser(spawnPos, hit.point, direction);
-                break;
-            case BulletInfo_old.BulletType.Projectile:
-                //SpriteRender
-                gameObject.AddComponent<SpriteRenderer>();
-                break;
-            default:
-                break;
-        }
-
+        InitLaser(spawnPos, endPos, direction);
     }
 
     private void InitLaser(Vector2 startPos, Vector2 endPos, Vector2 direction)
@@ -67,7 +50,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         {
             if(hit.collider != null)
             {
-                Debug.Log("hit player :" + hit.collider.name);
+                //Debug.Log("hit player :" + hit.collider.name);
                 IDamageable hitObject;
                 if(hit.collider.gameObject.TryGetComponent<IDamageable>(out hitObject))
                     hitObject.OnHit();

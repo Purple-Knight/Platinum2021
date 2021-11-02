@@ -3,32 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
-public abstract class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-    /// Inputs
+    // Player
+    protected PlayerWeapon playerWeapon;
+    public int PlayerID { get => player.id; }
+
+    // Inputs
     protected Player player;
     protected Timing playerTiming;
     protected bool gotInput;
     protected Vector2 lastDirection = Vector2.right;
+        // Editor lockLastDirection  X  Y
 
     // Weapon vars
     public int ComboToUpgarde;
     public Weapon previousWeapon;
     public Weapon nextWeapon;
 
-    [Header("---Bullets---")]
-    public GameObject bltPrefab;
+    [Header("---Bullets---")] // Bullets
+    public GameObject bulletPrefab;
 
     public List<BulletInfo> bullets;
 
-    public void Init(Player _player)
-    {
-        player = _player;
-    }
-
     private void Update()
     {
-        
+        GetAxisInput();
+    }
+
+    public void Init(Player _player, PlayerWeapon _playerWeapon)
+    {
+        player = _player;
+        playerWeapon = _playerWeapon;
     }
 
     public void GetAxisInput()
@@ -46,18 +52,25 @@ public abstract class Weapon : MonoBehaviour
             lastDirection.x = (x == 0) ? x : Mathf.Sign(x);
             lastDirection.y = (y == 0) ? y : Mathf.Sign(y);
 
-            //aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f)); // Cursor
-
+            playerWeapon.UpdateAimVisual(lastDirection);
         }
     }
 
     public virtual void GetInput() { }
-    public virtual void Fire() { } // foreach BulletInfo in bullets
+    public virtual void Fire()
+    {
+        foreach (BulletInfo info in bullets)
+        {
+            //PEW!
+            Bullet blt = Instantiate(bulletPrefab, playerWeapon.transform.position, Quaternion.identity).GetComponent<Bullet>();
+            blt.InitInfo(info, lastDirection);
+        }
+    }
 }
 
 [System.Serializable]
 public struct BulletInfo
 {
     public int length;
-    public Vector2 positionOffset;
+    //public Vector2 positionOffset;
 }

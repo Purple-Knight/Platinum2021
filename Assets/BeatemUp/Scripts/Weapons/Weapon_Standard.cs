@@ -7,7 +7,7 @@ public class Weapon_Standard : Weapon
 {
     public override void GetInput()
     {
-        if(player.GetButtonDown("Fire") && !gotInput)
+        if (player.GetButtonDown("Fire") && !gotInput)
         {
             gotInput = true;
             playerTiming = RhythmManager.Instance.AmIOnBeat();
@@ -17,11 +17,10 @@ public class Weapon_Standard : Weapon
                 Fire();
             }
         }
-    }
 
-    public override void Fire()
-    {
-        //PEW!
-        //Instantiate ???
+        if (gotInput && RhythmManager.Instance.AmIOnBeat() == Timing.MISS)
+        {
+            gotInput = false;
+        }
     }
 }

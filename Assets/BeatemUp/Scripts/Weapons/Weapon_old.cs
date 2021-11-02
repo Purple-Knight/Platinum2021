@@ -65,7 +65,7 @@ public class Weapon_old : ScriptableObject
         //Instantiate Bullet
         //Debug.Log(lastDirection);
         Bullet blt = Instantiate(bulletPrefab, pMov.position, Quaternion.identity).GetComponent<Bullet>();
-        blt.InitInfo(bulletInfo, lastDirection);
+        //blt.InitInfo(bulletInfo, lastDirection);
 
         ResetCharge();
     }
