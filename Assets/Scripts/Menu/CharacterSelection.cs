@@ -127,14 +127,15 @@ public class CharacterSelection : MonoBehaviour
 
                 #endregion
 
-                if (item.GetButtonDown("Start")){
+                if (item.GetButtonDown("Start"))
+                {
                     goToPlay();
                 }
 
 
                 if (item.GetButtonDown("Cancel"))
                 {
-                    if(charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
+                    if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
                     {
                         charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
                     }
@@ -145,6 +146,13 @@ public class CharacterSelection : MonoBehaviour
                     }
 
                     checkIfEveryoneIsReady();
+                }
+            }
+            else
+            {
+                if (item.GetButtonDown("Cancel"))
+                {
+                    MainMenu.Instance.toMenu();
                 }
             }
         }
