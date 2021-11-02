@@ -10,10 +10,9 @@ public class GameManager : MonoBehaviour
 
     public List<PlayerManager> players;
     int numOfPlayerAlive;
-    [SerializeField] Transform deathRoom;
     List<bool> playersAlive;
     int[] playerWins;
-    [SerializeField] Transform[] spawnPoints;
+    [SerializeField] List<Vector2> spawnPoints;
 
     public UnityEvent<int> PlayerWon;
 
@@ -21,12 +20,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject playerPrefab;
 
     public CameraManager camera;
+    public LevelGenerator levelGen;
 
     void Start()
     {
         _instance = this;
         
         playersData = SaveData.Load();
+        spawnPoints =  levelGen.GenerateLevel(); 
         SpawnPlayer();
     }
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             APlayerData data = playersData.allPlayerData[i];
-            PlayerManager playerManager = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity).GetComponent<PlayerManager>();
+            PlayerManager playerManager = Instantiate(playerPrefab, spawnPoints[i], Quaternion.identity).GetComponent<PlayerManager>();
             playerManager.InstantiatePlayer(data.playerControllerID, i , data.myColorID, data.myCharID);
             playersAlive.Add(true);
             players.Add(playerManager.GetComponent<PlayerManager>());
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
        
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
-            players[i].transform.position = spawnPoints[i].position;
+            players[i].transform.position = spawnPoints[i];
             players[i].ResetPlayer();
             playersAlive.Add(true);
             
