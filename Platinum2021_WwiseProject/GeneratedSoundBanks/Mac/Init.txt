@@ -1,5 +1,12 @@
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1039309139	User_RTPC_SFX_Volume			\Default Work Unit\User\User_RTPC_SFX_Volume	
+	2088371323	User_RTPC_Music_Volume			\Default Work Unit\User\User_RTPC_Music_Volume	
+	2403979167	User_RTPC_Main_Volume			\Default Work Unit\User\User_RTPC_Main_Volume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
