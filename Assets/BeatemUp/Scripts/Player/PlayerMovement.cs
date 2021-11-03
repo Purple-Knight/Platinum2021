@@ -276,16 +276,16 @@ public class PlayerMovement : MonoBehaviour
         Sequence seqColor = DOTween.Sequence();
         switch (playerTiming)
         {
-            case Timming.PERFECT:
+            case Timing.PERFECT:
                 seqColor.Append(sprite.DOColor(new Color(0,1,0,playerColor.a), .1f));
                 break;
-            case Timming.BEFORE:
+            case Timing.BEFORE:
                 seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
                 break;
-            case Timming.AFTER:
+            case Timing.AFTER:
                 seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
                 break;
-            case Timming.MISS:
+            case Timing.MISS:
                 seqColor.Append(sprite.DOColor(new Color(1, 0, 0, playerColor.a), .1f));
                 break;
             case Timing.NULL:

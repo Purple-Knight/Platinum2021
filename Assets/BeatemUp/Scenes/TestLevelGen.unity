@@ -160,6 +160,7 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
   idToLaunch: 0
+  inMenu: 0
   numberOfBeat: 0
   timeBeforeStart: 0.1
   beatDuration: 0
@@ -434,6 +435,63 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeStrength: 0.5
   players: []
+--- !u!1001 &1098916731
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205199325573693835, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: m_Name
+      value: WeaponLibrarySingleton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
 --- !u!1 &1100753348
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59458c2cbb29b0446bcdc741115875ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 2800000, guid: 5c96f47d7da513a4d99a21bfb5c16c10, type: 3}
+  map: {fileID: 2800000, guid: 9b1e1fe407ad11d498fb2097da1516c8, type: 3}
   colorMappings:
   - name: Player
     color: {r: 1, g: 0, b: 0, a: 1}
