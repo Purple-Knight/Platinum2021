@@ -16,7 +16,6 @@ public class CameraManager : MonoBehaviour
     {
         originPosition = transform.position;
         originRotate = transform.rotation;
-        originalCameraSize = Camera.main.orthographicSize;
 
         GameManager.Instance.PlayerWon.AddListener(CameraZoom);
         GameManager.Instance.camera = this;
@@ -26,6 +25,20 @@ public class CameraManager : MonoBehaviour
             player.playerHealth.PlayerHit.AddListener(CameraShake);
         }
     }
+
+    public void SetStartPos(Vector2 borders)
+    {
+        Vector2 cameraZeroPos = Camera.main.ScreenToWorldPoint(Vector3.zero);
+        while (cameraZeroPos.x > borders.x || cameraZeroPos.y > borders.y) {
+
+            Camera.main.orthographicSize += .2f;
+            cameraZeroPos = Camera.main.ScreenToWorldPoint(Vector3.zero);
+        Debug.Log(cameraZeroPos +"  -  " + borders);
+
+        }
+        originalCameraSize = Camera.main.orthographicSize;
+    }
+
     public void CameraShake()
     {
         Sequence seq = DOTween.Sequence();

@@ -12,6 +12,8 @@ public class LevelGenerator : MonoBehaviour
 
     public float divideMultiplicator;
 
+    public float spawnOffset;
+
     void Start()
     {
         //GenerateLevel();
@@ -19,6 +21,7 @@ public class LevelGenerator : MonoBehaviour
 
     public List<Vector2> GenerateLevel()
     {
+        transform.position = new Vector2(-map.width / 2 + spawnOffset, -map.height / 2 +spawnOffset);
         playerSpawnPoints = new List<Vector2>();
         for (int x = 0; x < map.width; x++)
         {

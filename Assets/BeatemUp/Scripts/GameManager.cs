@@ -21,14 +21,17 @@ public class GameManager : MonoBehaviour
 
     public CameraManager camera;
     public LevelGenerator levelGen;
+    [SerializeField] GameObject timeline;
 
     void Start()
     {
         _instance = this;
         
         playersData = SaveData.Load();
-        spawnPoints =  levelGen.GenerateLevel(); 
+        spawnPoints =  levelGen.GenerateLevel();
+        camera.SetStartPos(levelGen.transform.position);
         SpawnPlayer();
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
     }
 
     public void SpawnPlayer()
