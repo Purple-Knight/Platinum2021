@@ -39,7 +39,7 @@ public class PlayerWeapon : MonoBehaviour
         pMov = GetComponent<PlayerMovement>();
         player = ReInput.players.GetPlayer(pMov.playerID);
 
-        Debug.Log(player.id);
+        SwapWeaponStyle("0");
     }
 
     private void Update()
@@ -58,37 +58,35 @@ public class PlayerWeapon : MonoBehaviour
             }
         }
 
-        if(player.id == 0)
+        if (weapon != null)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-                SwapWeaponStyle("00");
+            if (Input.GetKeyDown(KeyCode.KeypadPlus))
+                weapon.Upgarde();
 
-            if (Input.GetKeyDown(KeyCode.R))
-                SwapWeaponStyle("01");
-        } else if(player.id == 1)
-        {
-            if (Input.GetKeyDown(KeyCode.T))
-                SwapWeaponStyle("00");
-
-            if (Input.GetKeyDown(KeyCode.Y))
-                SwapWeaponStyle("01");
-        }else if(player.id == 2)
-        {
-            if (Input.GetKeyDown(KeyCode.U))
-                SwapWeaponStyle("00");
-
-            if (Input.GetKeyDown(KeyCode.I))
-                SwapWeaponStyle("01");
+            if (Input.GetKeyDown(KeyCode.KeypadMinus))
+                weapon.Downgrade();
         }
     }
 
     public void SwapWeaponStyle(string key)
     {
+        Weapon swap = null;
+
         if(weapon != null)
-            weapon = WeaponLibrary.Instance.GetFromLibrary(key, weapon);
+            swap = WeaponLibrary.Instance.GetFromLibrary(key, weapon);
         else
-            weapon = WeaponLibrary.Instance.GetFromLibrary(key);
-        weapon.Init(player, this);
+            swap = WeaponLibrary.Instance.GetFromLibrary(key);
+
+        if(swap != null)
+        {
+            weapon = swap;
+            weapon.Init(player, this);
+        }
+        else
+        {
+            Debug.Log("<color=red>No Weapon output received !</color>"); // Invalid Key sent / output 'null' received
+        }
+
     }
 
     public void UpdateAimVisual(Vector2 lastDirection)

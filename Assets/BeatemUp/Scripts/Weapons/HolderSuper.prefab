@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3212527565164584655}
   - component: {fileID: 6629085271936703203}
   m_Layer: 0
-  m_Name: HolderClone
+  m_Name: HolderSuper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ComboToUpgarde: 5
-  previousWeapon: {fileID: 0}
-  nextWeapon: {fileID: 0}
+  weaponKey: 1
   bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
   bullets:
-  - length: 6
+  - length: 3

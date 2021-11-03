@@ -18,8 +18,7 @@ public class Weapon : MonoBehaviour
 
     // Weapon vars
     public int ComboToUpgarde;
-    public Weapon previousWeapon;
-    public Weapon nextWeapon;
+    public int weaponKey = 0;
 
     [Header("---Bullets---")] // Bullets
     public GameObject bulletPrefab;
@@ -65,6 +64,16 @@ public class Weapon : MonoBehaviour
             Bullet blt = Instantiate(bulletPrefab, playerWeapon.transform.position, Quaternion.identity).GetComponent<Bullet>();
             blt.InitInfo(info, lastDirection);
         }
+    }
+
+    public void Upgarde()
+    {
+        playerWeapon.SwapWeaponStyle((weaponKey + 1).ToString());
+    }
+
+    public void Downgrade()
+    {
+        playerWeapon.SwapWeaponStyle((weaponKey - 1).ToString());
     }
 }
 
