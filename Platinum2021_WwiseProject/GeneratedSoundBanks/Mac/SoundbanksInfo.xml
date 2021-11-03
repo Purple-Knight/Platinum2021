@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2754342975">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1092283359">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="1039309139" Name="User_RTPC_SFX_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\User_RTPC_SFX_Volume"/>
+				<GameParameter Id="2088371323" Name="User_RTPC_Music_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\User_RTPC_Music_Volume"/>
+				<GameParameter Id="2403979167" Name="User_RTPC_Main_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\User_RTPC_Main_Volume"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="2016054377">
+		<SoundBank Id="2373808839" Language="SFX" Hash="1756160070">
+			<ObjectPath>\SoundBanks\Default Work Unit\OSTBank</ObjectPath>
+			<ShortName>OSTBank</ShortName>
+			<Path>OSTBank.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3017428748" Language="SFX" Hash="1997208638">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
 			<IncludedEvents>
 				<Event Id="859070589" Name="PlayCrypt" ObjectPath="\Events\Default Work Unit\PlayCrypt" DurationType="OneShot" DurationMin="124.133873" DurationMax="124.133873"/>
-				<Event Id="3554160111" Name="PlayLady" ObjectPath="\Events\Default Work Unit\PlayLady" DurationType="OneShot" DurationMin="303.380341" DurationMax="303.380341">
-					<IncludedMemoryFiles>
-						<File Id="312401384" Language="SFX">
-							<ShortName>Lady Hear Me Tonight.wav</ShortName>
-							<Path>SFX\Lady Hear Me Tonight_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
+				<Event Id="3554160111" Name="PlayLady" ObjectPath="\Events\Default Work Unit\PlayLady" DurationType="OneShot" DurationMin="303.380341" DurationMax="303.380341"/>
 				<Event Id="1295635745" Name="PlayTutel" ObjectPath="\Events\Default Work Unit\PlayTutel" DurationType="OneShot" DurationMin="196.031998" DurationMax="196.031998"/>
 				<Event Id="2907867019" Name="StopAllMusic" ObjectPath="\Events\Default Work Unit\StopAllMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>

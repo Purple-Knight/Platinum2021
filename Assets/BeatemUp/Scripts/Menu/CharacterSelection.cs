@@ -43,7 +43,7 @@ public class CharacterSelection : MonoBehaviour
 
 
 
-            if (item.GetButtonDown("Confirm")) // Confirme fct
+            if (item.GetButtonDown("Confirm")) // Confirme fct ---------------------------------------------------------------
             {
 
                 if (!playersActual.Contains(item))
@@ -81,21 +81,21 @@ public class CharacterSelection : MonoBehaviour
                         playersActual.Add(item);
                     }
                         
-                        showPlayerSelect();
-                        checkIfEveryoneIsReady();
-                    
+                        showPlayerSelect();                    
                 }
                 else
                 {
                     charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(true);
-                    checkIfEveryoneIsReady();
                 }
+
+                    checkIfEveryoneIsReady();
+            
             }
 
 
 
 
-            if (playersActual.Contains(item)) // selectioh characters
+            if (playersActual.Contains(item)) // selectioh characters --------------------------------
             {
 
                 #region LEFT/RIGHT/UP/DOWN
@@ -127,14 +127,15 @@ public class CharacterSelection : MonoBehaviour
 
                 #endregion
 
-                if (item.GetButtonDown("Start")){
+                if (item.GetButtonDown("Start"))
+                {
                     goToPlay();
                 }
 
 
                 if (item.GetButtonDown("Cancel"))
                 {
-                    if(charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
+                    if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
                     {
                         charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
                     }
@@ -145,6 +146,13 @@ public class CharacterSelection : MonoBehaviour
                     }
 
                     checkIfEveryoneIsReady();
+                }
+            }
+            else
+            {
+                if (item.GetButtonDown("Cancel"))
+                {
+                    MainMenu.Instance.toMenu();
                 }
             }
         }
@@ -180,7 +188,6 @@ public class CharacterSelection : MonoBehaviour
 
                 foreach (var item2 in playersActual)
                 {
-
 
 
                     if (item != null && item2 != null && item != item2)

@@ -18,6 +18,7 @@ public class RhythmManager : MonoBehaviour
 
     [Header("Beat")]
     bool onceAtStart;
+    public bool inMenu;
 
     public float numberOfBeat;
     [SerializeField] private float timeBeforeStart;
@@ -143,15 +144,18 @@ public class RhythmManager : MonoBehaviour
 
     IEnumerator beforeStart()
     {
-        var beat = Timeline.Instance.beatToReach;
-
-        for (int i = 0; i < beat + 1; i++)
+        if (!inMenu)
         {
-            Timeline.Instance.SendBar();
-            yield return new WaitForSeconds(beatDuration);
-        }
-        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            var beat = Timeline.Instance.beatToReach;
 
+            for (int i = 0; i < beat + 1; i++)
+            {
+                InstantiateBeat?.Invoke();
+                yield return new WaitForSeconds(beatDuration);
+            }
+        }
+
+            eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
 
 }
