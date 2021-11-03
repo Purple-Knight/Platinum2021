@@ -3757,6 +3757,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392538048}
   m_CullTransparentMesh: 1
+--- !u!1 &1422825375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422825377}
+  - component: {fileID: 1422825376}
+  m_Layer: 0
+  m_Name: RhythmManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1422825376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422825375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef31c8fe98f363f46b3c33af0b01a87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventMusic:
+  - idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
+  - idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
+  idToLaunch: 0
+  inMenu: 1
+  numberOfBeat: 0
+  timeBeforeStart: 0
+  beatDuration: 0
+  duration:
+  - songName: Crypt
+    duration: 124
+  InstantiateBeat:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1422825377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422825375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5118253, y: -1.5658052, z: 115.123184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1550301785
 GameObject:
   m_ObjectHideFlags: 0
@@ -5215,7 +5276,6 @@ GameObject:
   - component: {fileID: 2040440406}
   - component: {fileID: 2040440405}
   - component: {fileID: 2040440404}
-  - component: {fileID: 2040440409}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5336,43 +5396,13 @@ RectTransform:
   - {fileID: 1935297533}
   - {fileID: 719830328}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2040440409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040440403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef31c8fe98f363f46b3c33af0b01a87c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventMusic:
-  - idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
-  - idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
-  idToLaunch: 0
-  inMenu: 1
-  numberOfBeat: 0
-  timeBeforeStart: 0
-  beatDuration: 0
-  duration:
-  - songName: elo
-    duration: 200
-  InstantiateBeat:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2088575132
 GameObject:
   m_ObjectHideFlags: 0
@@ -5492,7 +5522,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110001737
 GameObject:
@@ -5506,6 +5536,7 @@ GameObject:
   - component: {fileID: 2110001741}
   - component: {fileID: 2110001740}
   - component: {fileID: 2110001739}
+  - component: {fileID: 2110001742}
   m_Layer: 5
   m_Name: ToCharSelec
   m_TagString: Untagged
@@ -5627,6 +5658,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110001737}
   m_CullTransparentMesh: 1
+--- !u!114 &2110001742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110001737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDo: 0.3
+  changeScale: 1
+  xPourcentScale: 80
+  yPourcentScale: 80
 --- !u!1 &2124869473
 GameObject:
   m_ObjectHideFlags: 0
