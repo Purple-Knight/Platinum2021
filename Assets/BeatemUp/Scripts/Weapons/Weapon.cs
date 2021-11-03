@@ -1,104 +1,85 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
-[CreateAssetMenu(fileName = "Base Weapon", menuName = "Weapon")]
-[System.Serializable]
-public class Weapon : ScriptableObject
+public class Weapon : MonoBehaviour
 {
-    //WeaponType
-    public BulletInfo bulletInfo;
+    // Player
+    protected PlayerWeapon playerWeapon;
+    public int PlayerID { get => player.id; }
 
-    // Bullet
+    // Inputs
+    protected Player player;
+    protected Timing playerTiming;
+    protected bool gotInput;
+    protected Vector2 lastDirection = Vector2.right;
+        // Editor lockLastDirection  X  Y
+
+    // Weapon vars
+    public int ComboToUpgarde;
+    public int weaponKey = 0;
+
+    [Header("---Bullets---")] // Bullets
     public GameObject bulletPrefab;
 
-    // Charge
-    [SerializeField] private bool noChargeTime;
-    public int chargeBeats = 1;             // charge Time needed
-    [SerializeField] private protected int chargeLevel = 0;  // current Charge
+    public List<BulletInfo> bullets;
 
-    //Reload
-    [SerializeField] private bool noReload;
-    public int waitBeforeReload;
-    private int currentReloadBeats;
-
-    //Player Ref
-    internal Vector2 lastDirection;
-    [SerializeField] internal Transform pMov;
-
-    #region Structs...
-
-    #endregion
-
-    public virtual void Use(bool triggerDown)
+    private void Update()
     {
-        //Debug.Log("used");
-        if(triggerDown && chargeBeats == 0 && chargeLevel == 0) // Button Down
+        GetAxisInput();
+    }
+
+    public void Init(Player _player, PlayerWeapon _playerWeapon)
+    {
+        player = _player;
+        playerWeapon = _playerWeapon;
+    }
+
+    public void GetAxisInput()
+    {
+        if (player.GetAxisRaw("Aim Horizontal") != 0 || player.GetAxisRaw("Aim Vertical") != 0) // Last Aim Direction
         {
-            Fire();
-            //chargeLevel++;
-            //Debug.Log("Try Shoot...");
-        }else if(triggerDown) // Button Down
-        {
-            Charge();
-            //Debug.Log("Try Shoot...");
-        }
-        else    // Button Up
-        {
-            if (chargeLevel == chargeBeats)
-                Fire();
-            else if(chargeLevel > 0)
-                MissedBeat();
+            float x = player.GetAxis("Aim Horizontal");
+            float y = player.GetAxis("Aim Vertical");
+
+            if (Mathf.Abs(x) >= Mathf.Abs(y))
+                y = 0;
+            else
+                x = 0;
+
+            lastDirection.x = (x == 0) ? x : Mathf.Sign(x);
+            lastDirection.y = (y == 0) ? y : Mathf.Sign(y);
+
+            playerWeapon.UpdateAimVisual(lastDirection);
         }
     }
 
-    public virtual void Charge()
-    {
-        chargeLevel++;
-        //Debug.Log("------------------Charge Level = " + chargeLevel);
-    }
-
+    public virtual void GetInput() { }
     public virtual void Fire()
     {
-        //Debug.Log("FIRE! " + chargeLevel + " charges");
-
-        //Instantiate Bullet
-        //Debug.Log(lastDirection);
-        Bullet blt = Instantiate(bulletPrefab, pMov.position, Quaternion.identity).GetComponent<Bullet>();
-        blt.InitInfo(bulletInfo, lastDirection);
-
-        ResetCharge();
+        foreach (BulletInfo info in bullets)
+        {
+            //PEW!
+            Bullet blt = Instantiate(bulletPrefab, playerWeapon.transform.position, Quaternion.identity).GetComponent<Bullet>();
+            blt.InitInfo(info, lastDirection);
+        }
     }
 
-    public virtual void MissedBeat()
+    public void Upgarde()
     {
-        //Debug.Log("missed");
-
-        ResetCharge();
+        playerWeapon.SwapWeaponStyle((weaponKey + 1).ToString());
     }
 
-    private protected void ResetCharge() { chargeLevel = 0; }
-
+    public void Downgrade()
+    {
+        playerWeapon.SwapWeaponStyle((weaponKey - 1).ToString());
+    }
 }
 
 [System.Serializable]
-public class BulletInfo
+public struct BulletInfo
 {
-    [System.Serializable]
-    public enum BulletType { Laser, Projectile }
-
-    public BulletType type;
-
-    public Vector2 direction = Vector2.right;
-    public int maxTileLength = 0; // 0 = Infini ??
-
-    public bool ignoreWalls = false;
-    // public int power;    // pas pertinent si one shot...
-
-    public BulletInfo(BulletType _type, Vector2 _direction, bool _ignoresWalls) // direction pertinent à init ?? -> Dépend direction Tir (player)
-    {
-        type = _type;
-        direction = _direction;
-        ignoreWalls = _ignoresWalls;
-    }
+    public int length;
+    //public Vector2 positionOffset;
 }

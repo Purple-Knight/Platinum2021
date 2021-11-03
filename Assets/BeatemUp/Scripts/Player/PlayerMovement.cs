@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     //public UnityEvent PlayerHit;
     [SerializeField] ParticleSystem impactParticles;
-    Timming playerTiming;
+    Timing playerTiming;
 
     #endregion
 
@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerTiming = rhythmManager.AmIOnBeat();
 
-            if (playerTiming != Timming.MISS && playerTiming != Timming.NULL && !buttonDown && !gotInputThisBeat)
+            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL && !buttonDown && !gotInputThisBeat)
             {
                 mvtVertical =player.GetAxis("Move Vertical");
                 mvtHorizontal = player.GetAxis("Move Horizontal");
@@ -288,7 +288,7 @@ public class PlayerMovement : MonoBehaviour
             case Timming.MISS:
                 seqColor.Append(sprite.DOColor(new Color(1, 0, 0, playerColor.a), .1f));
                 break;
-            case Timming.NULL:
+            case Timing.NULL:
                 
                 break;
             

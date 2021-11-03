@@ -84,35 +84,35 @@ public class RhythmManager : MonoBehaviour
         timerInBetweenBeat += Time.deltaTime;
     }
 
-    public Timming AmIOnBeat()
+    public Timing AmIOnBeat()
     {
         if (timerInBetweenBeat >= (beatDuration - perfectBufferTime))
         {
             //Perfect before
-            return Timming.PERFECT;
+            return Timing.PERFECT;
         }
         else if (timerInBetweenBeat >= (bufferTime * 2))
         {
             //Before
-            return Timming.BEFORE;
+            return Timing.BEFORE;
         }
         else if (timerInBetweenBeat >= bufferTime && timerInBetweenBeat <= (bufferTime * 2))
         {
             //Miss
-            return Timming.MISS;
+            return Timing.MISS;
         }
         else if (timerInBetweenBeat <= bufferTime)
         {
             //After
-            return Timming.AFTER;
+            return Timing.AFTER;
         }
         else if (timerInBetweenBeat <= perfectBufferTime)
         {
             //Perfect After
-            return Timming.PERFECT;
+            return Timing.PERFECT;
         }
         
-        return Timming.NULL;
+        return Timing.NULL;
     }
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
@@ -160,7 +160,7 @@ public class RhythmManager : MonoBehaviour
 
 }
 
-public enum Timming
+public enum Timing
 {
     NULL,
     BEFORE,
