@@ -13,6 +13,14 @@ public class PlayerManager : MonoBehaviour
     Color playerColor;
     [SerializeField] ParticleSystem notesParticle;
 
+    #region Debug
+    bool debug = false;
+    int maxSteps = 0;
+    float freeTime = 0;
+    string maxStepsStr = "0";
+    string freeTimeStr = "0";
+    Rect debugRect;
+    #endregion
     public void InstantiatePlayer(int conrtollerID, int playerID, Color color, int spriteID)
     {
         characterID = playerID;
@@ -24,6 +32,8 @@ public class PlayerManager : MonoBehaviour
 
         playerHealth.PlayerDied.AddListener(PlayerDied);
         movement.InstantiateMovement();
+        debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
+        debug = true;
     }
 
     public void PlayerDied(int i)
@@ -49,5 +59,38 @@ public class PlayerManager : MonoBehaviour
         gameObject.layer = 7;
         movement.ResetPositions();
         playerHealth.ResetPlayer();
+    }
+
+    public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfSteps)
+    {
+        movement.StartFreeMovement(maxNumOfSteps);
+        StartCoroutine(FreeMovementTime(ignoreTime));
+    }
+    
+    IEnumerator FreeMovementTime(float freeTime)
+    {
+        yield return new WaitForSeconds(freeTime);
+        movement.EndFreeMovement();
+    }
+
+    private void OnGUI()
+    {
+        if (!debug) return;
+        GUILayout.BeginArea(debugRect);
+        GUILayout.TextArea("Player " + characterID);
+        GUILayout.BeginHorizontal();
+        GUILayout.TextArea("Max Steps :");
+        maxStepsStr = GUILayout.TextField(maxStepsStr);
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        GUILayout.TextArea("Event Time :");
+        freeTimeStr = GUILayout.TextField(freeTimeStr);
+        GUILayout.EndHorizontal();
+        if (GUILayout.Button("Lance FreeMovement Event"))
+        {
+            if(float.TryParse(freeTimeStr, out freeTime)&& int.TryParse(maxStepsStr, out maxSteps))
+                IgnoreTimelineForSec(freeTime, maxSteps);
+        }
+        GUILayout.EndArea();
     }
 }

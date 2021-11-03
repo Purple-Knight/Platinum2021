@@ -5023,7 +5023,7 @@ MonoBehaviour:
   deadZoneController: 0.4
   playerDir: 0
   impactParticles: {fileID: 6206439804081257428, guid: 72344320b4bf27a429c5844fcc39686d, type: 3}
-  _guiDebug: 1
+  _guiDebug: 0
   _guiDebugArea:
     serializedVersion: 2
     x: 0

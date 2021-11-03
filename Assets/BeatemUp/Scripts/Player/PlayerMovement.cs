@@ -47,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] ParticleSystem impactParticles;
     Timing playerTiming;
 
+    bool freeMovement = false;
+    int maxNumOfMovement = 0;
+    int currentNumOfSteps = 0;
     #endregion
 
     [Header("Debug")]
@@ -93,18 +96,26 @@ public class PlayerMovement : MonoBehaviour
         //Is there an Input 
         bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
-        
-       
-        if (inputHorizontal || inputVertical) 
+
+
+        if (inputHorizontal || inputVertical)
         {
-            playerTiming = rhythmManager.AmIOnBeat();
+            if (!freeMovement)
+            {
+                playerTiming = rhythmManager.AmIOnBeat();
+            }
+            else
+            {
+                playerTiming = Timing.PERFECT;
+                StartCoroutine(ResetFreeMovement());
+            }
 
             if (playerTiming != Timing.MISS && playerTiming != Timing.NULL && !buttonDown && !gotInputThisBeat)
             {
-                mvtVertical =player.GetAxis("Move Vertical");
+                mvtVertical = player.GetAxis("Move Vertical");
                 mvtHorizontal = player.GetAxis("Move Horizontal");
 
-                if (Mathf.Abs(mvtVertical) > Mathf.Abs(mvtHorizontal)) 
+                if (Mathf.Abs(mvtVertical) > Mathf.Abs(mvtHorizontal))
                 {
                     playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
                     mvtHorizontal = 0;
@@ -114,11 +125,11 @@ public class PlayerMovement : MonoBehaviour
                     playerDir = mvtHorizontal > 0 ? PlayerDir.RIGHT : PlayerDir.LEFT;
                     mvtVertical = 0;
                 }
-                
+
                 buttonDown = true;
                 gotInputThisBeat = true;
                 Move();
-            } 
+            }
             else
             {
                 buttonDown = true;
@@ -127,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
                 mvtHorizontal = 0;
                 mvtVertical = 0;
             }
+
         }
         else
         {
@@ -135,6 +147,13 @@ public class PlayerMovement : MonoBehaviour
             mvtHorizontal = 0;
             mvtVertical = 0;
         }
+    }
+
+    IEnumerator ResetFreeMovement()
+    {
+        yield return new WaitForSeconds(.3f);
+        gotInputThisBeat = false;
+        hasMoved = false;
     }
 
     public void Move()
@@ -178,7 +197,13 @@ public class PlayerMovement : MonoBehaviour
         mvtHorizontal = 0;
 
         BeatTiming();
-        transform.DOMove(targetPos, .2f);
+        if (freeMovement && DOTween.IsTweening(transform)) 
+            transform.DOComplete();
+        if (!freeMovement || (freeMovement && currentNumOfSteps < maxNumOfMovement))
+        {
+            transform.DOMove(targetPos, .2f);
+            currentNumOfSteps++;
+        }
 
         
     }
@@ -340,6 +365,20 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #endregion
+
+    public void StartFreeMovement(int maxNumOfSteps)
+    {
+        currentNumOfSteps = 0;
+        maxNumOfMovement = maxNumOfSteps;
+        freeMovement = true;
+    }
+    
+    public void EndFreeMovement()
+    {
+        freeMovement = false;
+        currentNumOfSteps = 0;
+        maxNumOfMovement = 0;
+    }
 }
 
 
