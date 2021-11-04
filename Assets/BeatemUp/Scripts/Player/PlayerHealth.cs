@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     
     void Start()
     {
-        playerID = GetComponent<PlayerManager>().characterID;
+        playerID = GetComponent<PlayerManager>().CharacterID;
         currentHealth = healthPoints;
     }
 

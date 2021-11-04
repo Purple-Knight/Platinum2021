@@ -5,25 +5,27 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
-    public PlayerMovement movement;
+    public PlayerMovement playerMovement;
     public PlayerWeapon playerWeapon;
     public PlayerHealth playerHealth;
-    public int characterID;
+    private int characterID;
     [SerializeField] List<Sprite> sprites;
     Color playerColor;
     [SerializeField] ParticleSystem notesParticle;
 
+    public int CharacterID { get => characterID; }
+
     public void InstantiatePlayer(int conrtollerID, int playerID, Color color, int spriteID)
     {
         characterID = playerID;
-        movement.playerID = conrtollerID;
-        movement.playerColor = color;
+        playerMovement.playerID = conrtollerID;
+        playerMovement.playerColor = color;
         playerColor = color;
         spriteRenderer.sprite = sprites[spriteID];
         spriteRenderer.color = color;
 
         playerHealth.PlayerDied.AddListener(PlayerDied);
-        movement.InstantiateMovement();
+        playerMovement.InstantiateMovement();
     }
 
     public void PlayerDied(int i)
@@ -32,7 +34,7 @@ public class PlayerManager : MonoBehaviour
         playerWeapon.enabled = false;
         playerHealth.enabled = false;
         spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
-        movement.playerColor = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
+        playerMovement.playerColor = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
         gameObject.tag ="Ghost";
         gameObject.layer = 8;
         //movement.ResetPositions();
@@ -42,12 +44,12 @@ public class PlayerManager : MonoBehaviour
     {
         playerWeapon.enabled = true;
         playerHealth.enabled = true;
-        movement.enabled = true;
-        movement.playerColor = playerColor;
+        playerMovement.enabled = true;
+        playerMovement.playerColor = playerColor;
         spriteRenderer.color = playerColor;
         gameObject.tag = "Player";
         gameObject.layer = 7;
-        movement.ResetPositions();
+        playerMovement.ResetPositions();
         playerHealth.ResetPlayer();
     }
 }
