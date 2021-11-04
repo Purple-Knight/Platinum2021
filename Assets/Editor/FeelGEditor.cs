@@ -12,6 +12,7 @@ public class FeelGEditor : Editor
 
         #region FIND PROPERTIES 
 
+        SerializedProperty action = serializedObject.FindProperty("playOnAwake");
         SerializedProperty timeToDo = serializedObject.FindProperty("timeToDo");
 
         SerializedProperty changePos = serializedObject.FindProperty("changePos");
@@ -24,6 +25,7 @@ public class FeelGEditor : Editor
 
 
 
+        EditorGUILayout.PropertyField(action);
         EditorGUILayout.PropertyField(timeToDo);
 
         EditorGUILayout.PropertyField(changePos);
