@@ -61,9 +61,9 @@ public class PlayerManager : MonoBehaviour
         playerHealth.ResetPlayer();
     }
 
-    public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfSteps)
+    public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfStepsPerSec)
     {
-        movement.StartFreeMovement(maxNumOfSteps);
+        movement.StartFreeMovement(maxNumOfStepsPerSec);
         StartCoroutine(FreeMovementTime(ignoreTime));
     }
     

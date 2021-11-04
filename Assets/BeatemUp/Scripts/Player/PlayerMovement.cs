@@ -47,15 +47,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] ParticleSystem impactParticles;
     Timing playerTiming;
 
+    //Events 
     bool freeMovement = false;
     int maxNumOfMovement = 0;
     int currentNumOfSteps = 0;
+
+     bool tpToWall = false;
+     int numbOfSteps = 0;
+
     #endregion
 
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = true;
     private bool _boolDebug = false;
-    [SerializeField] private Rect _guiDebugArea = new Rect(0, 20, 150, 150);
+    [SerializeField] private Rect _guiDebugArea = new Rect(110, 20, 150, 150);
 
     public void InstantiateMovement()
     {
@@ -147,6 +152,11 @@ public class PlayerMovement : MonoBehaviour
             mvtHorizontal = 0;
             mvtVertical = 0;
         }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            tpToWall = true;
+        }
     }
 
     IEnumerator ResetFreeMovement()
@@ -164,7 +174,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (mvtVertical != 0 && !hasMoved) //move vertical
         {
-            if (mvtVertical > 0 && canGoUp)
+            if (tpToWall && mvtVertical > 0)
+            {
+                RaycastHit2D rayray;
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, 20, LayerMask.GetMask("Ground", "Player"));
+                targetPos = rayray.collider.transform.position;
+                targetPos.y -= 1;
+                
+            }else if (tpToWall && mvtVertical < 0)
+            {
+                RaycastHit2D rayray;
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, 20, LayerMask.GetMask("Ground", "Player"));
+                targetPos = rayray.collider.transform.position;
+                targetPos.y += 1;
+            }
+            else if (mvtVertical > 0 && canGoUp)
             {
                 targetPos.y = transform.position.y + 1;
                 Squeeeesh(false);
@@ -178,7 +202,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (mvtHorizontal != 0 && !hasMoved) //move horizontal
         {
-            if (mvtHorizontal > 0 && canGoRight)
+            if(tpToWall && mvtHorizontal > 0)
+            {
+                RaycastHit2D rayray;
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, 20, LayerMask.GetMask("Ground", "Player"));
+                targetPos = rayray.collider.transform.position;
+                targetPos.x -= 1;
+
+            }else if (tpToWall && mvtHorizontal < 0)
+            {
+                RaycastHit2D rayray;
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, 20, LayerMask.GetMask("Ground", "Player"));
+                targetPos = rayray.collider.transform.position;
+                targetPos.x += 1;
+            }
+            else if (mvtHorizontal > 0 && canGoRight)
             {
                 targetPos.x = transform.position.x + 1;
                 sprite.flipX = true;
@@ -337,17 +375,14 @@ public class PlayerMovement : MonoBehaviour
         GUILayout.BeginArea(_guiDebugArea);
         GUILayout.TextArea("Player " + playerID);
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("bool"))
+        if (GUILayout.Button("Tp to walls "+ tpToWall))
         {
-            _boolDebug = !_boolDebug;
+            tpToWall = !tpToWall;
         }
 
         GUILayout.EndHorizontal();
 
-        if (_boolDebug)
-        {
-            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Button down : " + buttonDown +  "\n Vertical mvt : " + mvtVertical );
-        }
+       
         GUILayout.EndArea();
     }
 
@@ -371,6 +406,7 @@ public class PlayerMovement : MonoBehaviour
         currentNumOfSteps = 0;
         maxNumOfMovement = maxNumOfSteps;
         freeMovement = true;
+        StartCoroutine(ResetSteps());
     }
     
     public void EndFreeMovement()
@@ -378,6 +414,15 @@ public class PlayerMovement : MonoBehaviour
         freeMovement = false;
         currentNumOfSteps = 0;
         maxNumOfMovement = 0;
+    }
+
+    IEnumerator ResetSteps()
+    {
+        while (freeMovement)
+        {
+            yield return new WaitForSeconds(1);
+            currentNumOfSteps = 0;
+        }
     }
 }
 
