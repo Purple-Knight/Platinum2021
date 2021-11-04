@@ -159,6 +159,12 @@ MonoBehaviour:
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
+  - idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 005d3a63db3f6b84b8bd34203155febf, type: 2}
+  - idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 674a0a1abeec0c147a5713d83f711faf, type: 2}
   idToLaunch: 0
   inMenu: 0
   numberOfBeat: 0
@@ -167,6 +173,12 @@ MonoBehaviour:
   duration:
   - songName: Lady
     duration: 303
+  - songName: 190
+    duration: 180
+  - songName: 150
+    duration: 180
+  - songName: 190
+    duration: 180
   InstantiateBeat:
     m_PersistentCalls:
       m_Calls: []
@@ -174,6 +186,7 @@ MonoBehaviour:
   bufferTime: 0
   halfBeatTime: 0
   timerInBetweenBeat: 0
+  level: 0
 --- !u!4 &381930278
 Transform:
   m_ObjectHideFlags: 0

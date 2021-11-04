@@ -36,6 +36,7 @@ public class RhythmManager : MonoBehaviour
 
     [SerializeField] private float timerInBetweenBeat = 0;
 
+    [SerializeField] Level level;
 
     private void Awake()
     {
@@ -59,7 +60,7 @@ public class RhythmManager : MonoBehaviour
     IEnumerator delayStart()
     {
         yield return new WaitForSeconds(timeBeforeStart);
-        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBar, CallbackFunction);
     }
 
 
@@ -71,14 +72,27 @@ public class RhythmManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             eventMusic[0].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            onceAtStart = false;
+            idToLaunch = 0;
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             eventMusic[1].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            onceAtStart = false;
+            idToLaunch = 1;
+
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBar, CallbackFunction);
+            onceAtStart = false;
+            idToLaunch = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            eventMusic[3].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            onceAtStart = false;
+            idToLaunch = 3;
         }
 
         timerInBetweenBeat += Time.deltaTime;
@@ -119,6 +133,7 @@ public class RhythmManager : MonoBehaviour
     {
         AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
         beatDuration = info.segmentInfo_fBeatDuration;
+        Debug.Log(info.segmentInfo_iActiveDuration);
 
         if (!onceAtStart)
         {
@@ -130,6 +145,15 @@ public class RhythmManager : MonoBehaviour
 
             //Window Rythm
             bufferTime = beatDuration / 3;
+            switch (level)
+            {
+                case Level.Easy:
+                    bufferTime += (bufferTime / 3) * 2;
+                    break;
+                case Level.Medium:
+                    bufferTime += (bufferTime / 3);
+                    break;
+            }
             halfBeatTime = beatDuration / 2;
             perfectBufferTime = beatDuration / 6;
         }
@@ -166,5 +190,13 @@ public enum Timing
     BEFORE,
     AFTER,
     PERFECT,
-    MISS,
+    MISS
+}
+
+public enum Level
+{
+    Easy,
+    Medium,
+    Hard
+
 }

@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     int currentNumOfSteps = 0;
 
      bool tpToWall = false;
-     int numbOfSteps = 0;
+     [SerializeField] int numbOfSteps = 0;
 
     #endregion
 
@@ -190,12 +190,45 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (mvtVertical > 0 && canGoUp)
             {
-                targetPos.y = transform.position.y + 1;
+                if(numbOfSteps > 1)
+                {
+                    RaycastHit2D rayray;
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, numbOfSteps, LayerMask.GetMask("Ground"));
+                    if(rayray.collider != null)
+                    {
+                        targetPos.y = rayray.collider.transform.position.y - 1;
+                    }
+                    else
+                    {
+                        targetPos.y = transform.position.y + numbOfSteps;
+                    }
+                }
+                else 
+                {
+                    targetPos.y = transform.position.y + 1;
+                }
+                
                 Squeeeesh(false);
             }
             else if (mvtVertical < 0 && canGoDown)
             {
-                targetPos.y = transform.position.y - 1;
+                if (numbOfSteps > 1)
+                {
+                    RaycastHit2D rayray;
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, numbOfSteps, LayerMask.GetMask("Ground"));
+                    if (rayray.collider != null)
+                    {
+                        targetPos.y = rayray.collider.transform.position.y + 1;
+                    }
+                    else
+                    {
+                        targetPos.y = transform.position.y - numbOfSteps;
+                    }
+                }
+                else
+                {
+                    targetPos.y = transform.position.y - 1;
+                }
                 Squeeeesh(false);
             }
             hasMoved = true;
@@ -218,13 +251,45 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (mvtHorizontal > 0 && canGoRight)
             {
-                targetPos.x = transform.position.x + 1;
+                if (numbOfSteps > 1)
+                {
+                    RaycastHit2D rayray;
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, numbOfSteps, LayerMask.GetMask("Ground"));
+                    if (rayray.collider != null)
+                    {
+                        targetPos.x = rayray.collider.transform.position.x - 1;
+                    }
+                    else
+                    {
+                        targetPos.x = transform.position.x + numbOfSteps;
+                    }
+                }
+                else
+                {
+                    targetPos.x = transform.position.x + 1;
+                }
                 sprite.flipX = true;
                 Squeeeesh(true);
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
-                targetPos.x = transform.position.x - 1;
+                if (numbOfSteps > 1)
+                {
+                    RaycastHit2D rayray;
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, numbOfSteps, LayerMask.GetMask("Ground"));
+                    if (rayray.collider != null)
+                    {
+                        targetPos.x = rayray.collider.transform.position.x + 1;
+                    }
+                    else
+                    {
+                        targetPos.x = transform.position.x - numbOfSteps;
+                    }
+                }
+                else
+                {
+                    targetPos.x = transform.position.x - 1;
+                }
                 sprite.flipX = false;
                 Squeeeesh(true);
             }
@@ -366,41 +431,7 @@ public class PlayerMovement : MonoBehaviour
     {
         halfBeatTime = rhythmManager.beatDuration / 2;
     }
-    #region Debug
-
-    private void OnGUI()
-    {
-        if (!_guiDebug) return;
-
-        GUILayout.BeginArea(_guiDebugArea);
-        GUILayout.TextArea("Player " + playerID);
-        GUILayout.BeginHorizontal();
-        if (GUILayout.Button("Tp to walls "+ tpToWall))
-        {
-            tpToWall = !tpToWall;
-        }
-
-        GUILayout.EndHorizontal();
-
-       
-        GUILayout.EndArea();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = canGoUp ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up));
-        Gizmos.color = canGoDown ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down));
-        Gizmos.color = canGoLeft ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x -.5f, transform.position.y), Vector2.left));
-        Gizmos.color = canGoRight ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x + .5f, transform.position.y ), Vector2.right));
-
-    }
-
-    #endregion
-
+    
     public void StartFreeMovement(int maxNumOfSteps)
     {
         currentNumOfSteps = 0;
@@ -424,6 +455,41 @@ public class PlayerMovement : MonoBehaviour
             currentNumOfSteps = 0;
         }
     }
+
+    #region Debug
+
+    private void OnGUI()
+    {
+        if (!_guiDebug) return;
+
+        GUILayout.BeginArea(_guiDebugArea);
+        GUILayout.TextArea("Player " + playerID);
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Tp to walls " + tpToWall))
+        {
+            tpToWall = !tpToWall;
+        }
+
+        GUILayout.EndHorizontal();
+
+
+        GUILayout.EndArea();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = canGoUp ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up));
+        Gizmos.color = canGoDown ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down));
+        Gizmos.color = canGoLeft ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left));
+        Gizmos.color = canGoRight ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right));
+
+    }
+
+    #endregion
 }
 
 

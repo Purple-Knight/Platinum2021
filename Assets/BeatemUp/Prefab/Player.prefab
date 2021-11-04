@@ -5002,8 +5002,8 @@ MonoBehaviour:
   characterID: 0
   sprites:
   - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
-  - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
+  - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   notesParticle: {fileID: 933890351431816421}
 --- !u!114 &3883265989226838409
 MonoBehaviour:
@@ -5023,6 +5023,7 @@ MonoBehaviour:
   deadZoneController: 0.4
   playerDir: 0
   impactParticles: {fileID: 6206439804081257428, guid: 72344320b4bf27a429c5844fcc39686d, type: 3}
+  numbOfSteps: 0
   _guiDebug: 0
   _guiDebugArea:
     serializedVersion: 2
