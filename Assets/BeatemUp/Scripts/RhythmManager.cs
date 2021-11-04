@@ -122,7 +122,7 @@ public class RhythmManager : MonoBehaviour
         if (!onceAtStart)
         {
             onceAtStart = true;
-            eventMusic[1].Post(gameObject);
+            //eventMusic[1].Post(gameObject); 
             StartCoroutine(beforeStart());
             numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
             InstantiateBeat?.Invoke();
@@ -134,6 +134,7 @@ public class RhythmManager : MonoBehaviour
         }
         else
         {
+            Debug.Log(Time.time);
             onMusicBeatDelegate?.Invoke();   
         }
 
@@ -150,7 +151,7 @@ public class RhythmManager : MonoBehaviour
             Timeline.Instance.SendBar();
             yield return new WaitForSeconds(beatDuration);
         }
-        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        //eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
 
     }
 

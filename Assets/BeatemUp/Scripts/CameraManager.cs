@@ -19,7 +19,7 @@ public class CameraManager : MonoBehaviour
         originalCameraSize = Camera.main.orthographicSize;
 
         GameManager.Instance.PlayerWon.AddListener(CameraZoom);
-        GameManager.Instance.camera = this;
+        GameManager.Instance.cameraManager = this;
         players = GameManager.Instance.players;
         foreach (PlayerManager player in players)
         {

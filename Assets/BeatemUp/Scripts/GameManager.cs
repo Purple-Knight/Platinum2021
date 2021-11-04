@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     PlayersData playersData;
     [SerializeField] GameObject playerPrefab;
 
-    public CameraManager camera;
+    public CameraManager cameraManager;
 
     void Start()
     {
@@ -99,6 +99,6 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(3);
         ResetPlayers();
-        camera.ResetCamera();
+        cameraManager.ResetCamera();
     }
 }
