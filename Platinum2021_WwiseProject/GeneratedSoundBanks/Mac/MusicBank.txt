@@ -5,7 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3554160111	PlayLady			\Default Work Unit\PlayLady	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	111855593	Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Crypt of the Necrodancer Danganronpa OST\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)		21897280
-	245714757	Tutel	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Tutel_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Tutel\Tutel		37638208
-	312401384	Lady Hear Me Tonight	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Lady Hear Me Tonight_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Lady Hear Me Tonight\Lady Hear Me Tonight		58249088
+	111855593	Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Crypt of the Necrodancer Danganronpa OST\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)		21897280
+	245714757	Tutel	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Tutel_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Tutel\Tutel		37638208
+	312401384	Lady Hear Me Tonight	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Lady Hear Me Tonight_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Lady Hear Me Tonight\Lady Hear Me Tonight		58249088
 
