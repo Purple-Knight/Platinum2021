@@ -10,25 +10,34 @@ public class FeelGEditor : Editor
     {
         serializedObject.Update();
 
-
         #region FIND PROPERTIES 
-        SerializedProperty timeToDo = serializedObject.FindProperty("timeToDo");
-        SerializedProperty changeScale = serializedObject.FindProperty("changeScale");
-        SerializedProperty xPourcent = serializedObject.FindProperty("xPourcentScale");
-        SerializedProperty yPourcent = serializedObject.FindProperty("yPourcentScale");
 
+        SerializedProperty action = serializedObject.FindProperty("playOnAwake");
+        SerializedProperty timeToDo = serializedObject.FindProperty("timeToDo");
+
+        SerializedProperty changePos = serializedObject.FindProperty("changePos");
+        SerializedProperty posPourcent = serializedObject.FindProperty("posNeed");
+
+        SerializedProperty scalePourcent = serializedObject.FindProperty("scaleNeed");
+        SerializedProperty changeScale = serializedObject.FindProperty("changeScale");
 
         #endregion
 
 
 
+        EditorGUILayout.PropertyField(action);
         EditorGUILayout.PropertyField(timeToDo);
-        EditorGUILayout.PropertyField(changeScale);
 
+        EditorGUILayout.PropertyField(changePos);
+        if (changePos.boolValue)
+        {
+            EditorGUILayout.PropertyField(posPourcent);
+        }
+
+        EditorGUILayout.PropertyField(changeScale);
         if (changeScale.boolValue)
         {
-        EditorGUILayout.PropertyField(xPourcent);
-        EditorGUILayout.PropertyField(yPourcent);
+            EditorGUILayout.PropertyField(scalePourcent);
         }
 
         serializedObject.ApplyModifiedProperties();
