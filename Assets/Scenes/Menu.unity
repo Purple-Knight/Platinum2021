@@ -1239,6 +1239,8 @@ MonoBehaviour:
     yPourcentScale: 110
   - xPourcentScale: 90
     yPourcentScale: 90
+  changeColor: 0
+  colorNeed: []
 --- !u!114 &423305849 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1199221804781035099, guid: 94de4595a37afa045b6cb15acf166e0b, type: 3}
@@ -1620,6 +1622,8 @@ MonoBehaviour:
     yPourcentScale: 110
   - xPourcentScale: 90
     yPourcentScale: 90
+  changeColor: 0
+  colorNeed: []
 --- !u!1 &572307245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,6 +2001,8 @@ MonoBehaviour:
     yPourcentScale: 110
   - xPourcentScale: 90
     yPourcentScale: 90
+  changeColor: 0
+  colorNeed: []
 --- !u!1 &679226909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,6 +3506,8 @@ MonoBehaviour:
     yPourcentScale: 110
   - xPourcentScale: 90
     yPourcentScale: 90
+  changeColor: 0
+  colorNeed: []
 --- !u!114 &1416348219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3848,6 +3856,8 @@ MonoBehaviour:
     yPourcentScale: 110
   - xPourcentScale: 90
     yPourcentScale: 90
+  changeColor: 0
+  colorNeed: []
 --- !u!1 &1742646225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4291,6 +4301,8 @@ MonoBehaviour:
     yPourcentScale: 110
   - xPourcentScale: 90
     yPourcentScale: 90
+  changeColor: 0
+  colorNeed: []
 --- !u!1 &1801440307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,6 +4570,8 @@ MonoBehaviour:
     yPourcentScale: 110
   - xPourcentScale: 90
     yPourcentScale: 90
+  changeColor: 0
+  colorNeed: []
 --- !u!1 &1857308726
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,6 +5572,10 @@ MonoBehaviour:
     yPourcentScale: 110
   - xPourcentScale: 90
     yPourcentScale: 90
+  changeColor: 0
+  colorNeed:
+  - {r: 0.8207547, g: 0.28543583, b: 0.28261834, a: 0}
+  - {r: 0.2823529, g: 0.81960785, b: 0.5500074, a: 0}
 --- !u!1 &2124869473
 GameObject:
   m_ObjectHideFlags: 0

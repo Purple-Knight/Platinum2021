@@ -18,8 +18,11 @@ public class FeelGEditor : Editor
         SerializedProperty changePos = serializedObject.FindProperty("changePos");
         SerializedProperty posPourcent = serializedObject.FindProperty("posNeed");
 
-        SerializedProperty scalePourcent = serializedObject.FindProperty("scaleNeed");
         SerializedProperty changeScale = serializedObject.FindProperty("changeScale");
+        SerializedProperty scalePourcent = serializedObject.FindProperty("scaleNeed");
+
+        SerializedProperty colorChange = serializedObject.FindProperty("changeColor");
+        SerializedProperty colorPourcent = serializedObject.FindProperty("colorNeed");
 
         #endregion
 
@@ -38,6 +41,12 @@ public class FeelGEditor : Editor
         if (changeScale.boolValue)
         {
             EditorGUILayout.PropertyField(scalePourcent);
+        }
+
+        EditorGUILayout.PropertyField(colorChange);
+        if (colorChange.boolValue)
+        {
+            EditorGUILayout.PropertyField(colorPourcent);
         }
 
         serializedObject.ApplyModifiedProperties();

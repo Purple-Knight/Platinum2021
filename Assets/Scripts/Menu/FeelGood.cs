@@ -17,12 +17,24 @@ public class FeelGood : MonoBehaviour
     //Scale
     public bool changeScale;
     public List<valueNeed> scaleNeed = new List<valueNeed>();
-   
+
+    //Scale
+    public bool changeColor;
+    public List<Color> colorNeed = new List<Color>();
+
 
     private Transform trans;
     private Transform refTrans;
+
     private RectTransform transR;
     private RectTransform refTransR;
+
+
+    private SpriteRenderer sr;
+    private SpriteRenderer refsr;
+
+    private Image im;
+    private Image refim;
 
     void Start()
     {
@@ -32,13 +44,17 @@ public class FeelGood : MonoBehaviour
         if (GetComponent<RectTransform>())
         {
             transR = GetComponent<RectTransform>();
+            im = GetComponent<Image>();
             refTransR = transR;
+            refim = im;
 
         }
         else if (GetComponent<Transform>()) { 
 
             trans = GetComponent<Transform>();
+            sr = GetComponent<SpriteRenderer>();
             refTrans = trans;
+            refsr = sr;
         }
         else
         {
@@ -86,6 +102,20 @@ public class FeelGood : MonoBehaviour
                 sequence.Append(trans.transform.DOScale(new Vector2(refTrans.localScale.x, refTrans.localScale.y), timeToDo / timeForAction));
                 sequence.Play();
             }
+
+            if (changeColor)
+            {
+                var timeForAction = colorNeed.Count + 1;
+                Sequence sequence = DOTween.Sequence();
+
+                for (int i = 0; i < colorNeed.Count; i++)
+                {
+                    sequence.Append(sr.DOColor(colorNeed[i], timeToDo / timeForAction));
+                }
+
+                sequence.Append(sr.DOColor(refsr.color, timeToDo / timeForAction));
+                sequence.Play();
+            }
         }
     }
     
@@ -123,7 +153,22 @@ public class FeelGood : MonoBehaviour
                 sequence.Append(transR.transform.DOScale(new Vector2(refTransR.localScale.x, refTransR.localScale.y), timeToDo / timeForAction));
                 sequence.Play();
             }
+
+            if (changeColor)
+            {
+                var timeForAction = colorNeed.Count + 1;
+                Sequence sequence = DOTween.Sequence();
+
+                for (int i = 0; i < colorNeed.Count; i++)
+                {
+                    sequence.Append(im.DOColor(colorNeed[i], timeToDo / timeForAction));
+                }
+
+                sequence.Append(im.DOColor(refim.color, timeToDo / timeForAction));
+                sequence.Play();
+            }
         }
+
 
     }
 
@@ -143,5 +188,6 @@ public struct valueNeed
     public float yPourcentScale;
 
 }
+
 
 
