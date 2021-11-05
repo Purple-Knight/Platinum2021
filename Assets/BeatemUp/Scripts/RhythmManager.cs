@@ -133,7 +133,6 @@ public class RhythmManager : MonoBehaviour
     {
         AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
         beatDuration = info.segmentInfo_fBeatDuration;
-        Debug.Log(info.segmentInfo_iActiveDuration);
 
         if (!onceAtStart)
         {
