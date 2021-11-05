@@ -7,9 +7,8 @@ using System;
 public class GridLevelEditor : EditorWindow
 {
     float levelWidth = 10;
-    float levelHeight = 5;
+    float levelHeight = 10;
     float cellSize = 30;
-
 
     Vector2 offset;
     Vector2 drag;
@@ -17,6 +16,12 @@ public class GridLevelEditor : EditorWindow
     List<List<Node>> nodes;
     GUIStyle emptyStyle;
     Vector2 nodePos;
+
+    StyleManager styleManager;
+    bool isErasing;
+
+    Rect menuBar;
+    GUIStyle currentStyle;
 
     [MenuItem("Tools/Level Editor")]
     private static void OpenWindow()
@@ -27,11 +32,33 @@ public class GridLevelEditor : EditorWindow
 
     private void OnEnable()
     {
+        SetUpStyles();
         emptyStyle = new GUIStyle();
         Texture2D icon = Resources.Load("IconLevelEditorTex/Empty") as Texture2D;
         emptyStyle.normal.background = icon;
 
         SetUpNodes();
+        currentStyle = styleManager.buttonStyles[0].NodeStyle;
+    }
+
+    private void SetUpStyles()
+    {
+        try
+        {
+            styleManager = GameObject.FindGameObjectWithTag("StyleManager").GetComponent<StyleManager>();
+
+            for (int i = 0; i < styleManager.buttonStyles.Length; i++)
+            {
+                styleManager.buttonStyles[i].NodeStyle = new GUIStyle();
+                styleManager.buttonStyles[i].NodeStyle.normal.background = styleManager.buttonStyles[i].Icon;
+
+            }
+        }
+        catch (Exception exception)
+        {
+            Debug.LogError(exception);
+            throw;
+        }
     }
 
     private void SetUpNodes()
@@ -54,11 +81,77 @@ public class GridLevelEditor : EditorWindow
     {
         DrawGrid();
         DrawNodes();
+        DrawMenuBar();
+        ProcessNodes(Event.current);
         ProcessGrid(Event.current);
 
         if (GUI.changed)
         {
             Repaint();
+        }
+    }
+
+    private void DrawMenuBar()
+    {
+        menuBar = new Rect(0, 0, position.width, 20);
+        GUILayout.BeginArea(menuBar, EditorStyles.toolbar);
+        GUILayout.BeginHorizontal();
+
+        for (int i = 0; i < styleManager.buttonStyles.Length; i++)
+        {
+            if (GUILayout.Toggle((currentStyle == styleManager.buttonStyles[i].NodeStyle),
+                new GUIContent(styleManager.buttonStyles[i].ButtonTex),
+                EditorStyles.toolbarButton, GUILayout.Width(80)))
+            {
+                currentStyle = styleManager.buttonStyles[i].NodeStyle;
+            }
+        }
+
+        GUILayout.EndHorizontal();
+        GUILayout.EndArea();
+    }
+
+    private void ProcessNodes(Event @event)
+    {
+        int Row = (int)((@event.mousePosition.x - offset.x) / cellSize);
+        int Col = (int)((@event.mousePosition.y - offset.y) / cellSize);
+
+        if ((@event.mousePosition.x - offset.x) < 0 || (@event.mousePosition.x - offset.x) > cellSize * levelWidth ||
+            (@event.mousePosition.y - offset.y) < 0 || (@event.mousePosition.y - offset.y) > cellSize * levelHeight)
+        { }
+        else
+        {
+            if (@event.type == EventType.MouseDown)
+            {
+                if (nodes[Row][Col].style.normal.background.name == "Empty")
+                {
+                    isErasing = false;
+                }
+                else
+                {
+                    isErasing = true;
+                }
+                PaintNodes(Row, Col);
+            }
+            if (@event.type == EventType.MouseDrag)
+            {
+                PaintNodes(Row, Col);
+                @event.Use();
+            }
+        }
+    }
+
+    private void PaintNodes(int row, int col)
+    {
+        if (isErasing)
+        {
+            nodes[row][col].SetStyle(emptyStyle);
+            GUI.changed = true;
+        }
+        else
+        {
+            nodes[row][col].SetStyle(currentStyle);
+            GUI.changed = true;
         }
     }
 

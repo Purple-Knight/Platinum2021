@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class StyleManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public ButtonStyle[] buttonStyles;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[System.Serializable]
+public struct ButtonStyle
+{
+    public Texture2D Icon;
+    public string ButtonTex;
+
+    [HideInInspector] public GUIStyle NodeStyle;
 }

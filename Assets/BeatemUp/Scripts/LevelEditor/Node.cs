@@ -5,7 +5,7 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     Rect rect;
-    GUIStyle style;
+    public GUIStyle style;
 
     public Node(Vector2 position, float width, float heigth, GUIStyle defaultStyle)
     {
@@ -26,15 +26,5 @@ public class Node : MonoBehaviour
     public void SetStyle(GUIStyle nodeStyle)
     {
         style = nodeStyle;
-    }
-
-    public void SetSize(float size)
-    {
-        rect.size = new Vector2(size, size);
-    }
-    
-    public void SetPosition(Vector2 pos)
-    {
-        rect.position = pos;
     }
 }
