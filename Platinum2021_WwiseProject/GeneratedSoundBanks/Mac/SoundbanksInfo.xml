@@ -26,7 +26,7 @@
 			<ShortName>OSTBank</ShortName>
 			<Path>OSTBank.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="3876059373">
+		<SoundBank Id="3017428748" Language="SFX" Hash="2997750189">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
