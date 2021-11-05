@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         spriteRenderer.color = color;
 
         playerHealth.PlayerDied.AddListener(PlayerDied);
-        movement.InstantiateMovement();
+        playerMovement.InstantiateMovement();
         debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
         debug = true;
     }
@@ -65,14 +65,14 @@ public class PlayerManager : MonoBehaviour
 
     public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfStepsPerSec)
     {
-        movement.StartFreeMovement(maxNumOfStepsPerSec);
+        playerMovement.StartFreeMovement(maxNumOfStepsPerSec);
         StartCoroutine(FreeMovementTime(ignoreTime));
     }
     
     IEnumerator FreeMovementTime(float freeTime)
     {
         yield return new WaitForSeconds(freeTime);
-        movement.EndFreeMovement();
+        playerMovement.EndFreeMovement();
     }
 
     private void OnGUI()
