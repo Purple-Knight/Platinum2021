@@ -562,7 +562,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 64047891}
   m_OnClick:
     m_PersistentCalls:
@@ -577,6 +577,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1331163933}
+        m_TargetAssemblyTypeName: LoadNewScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TestLevelGen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &64047891
@@ -3114,6 +3126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1331163931}
   - component: {fileID: 1331163932}
+  - component: {fileID: 1331163933}
   m_Layer: 5
   m_Name: CharacterSelection
   m_TagString: Untagged
@@ -3189,6 +3202,18 @@ MonoBehaviour:
       myColorID: {r: 0, g: 0, b: 0, a: 0}
       playerControllerID: 0
       isActivated: 0
+--- !u!114 &1331163933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331163930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1c9d13c689e1146a699956b6a282f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1331997010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,7 +3595,7 @@ MonoBehaviour:
   eventMusic:
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
@@ -3585,6 +3610,10 @@ MonoBehaviour:
   InstantiateBeat:
     m_PersistentCalls:
       m_Calls: []
+  perfectBufferTime: 0
+  bufferTime: 0
+  halfBeatTime: 0
+  timerInBetweenBeat: 0
 --- !u!4 &1422825377
 Transform:
   m_ObjectHideFlags: 0
@@ -3630,6 +3659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  onOff: 0
   timeToDo: 0.2
   changePos: 1
   posNeed:
