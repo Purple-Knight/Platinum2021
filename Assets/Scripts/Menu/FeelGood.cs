@@ -57,9 +57,10 @@ public class FeelGood : MonoBehaviour
     {
         if (playOnAwake)
         {
-            var timeForAction = scaleNeed.Count + 1;
+            
             if (changePos)
             {
+                var timeForAction = posNeed.Count + 1;
                 Sequence sequence = DOTween.Sequence();
 
                 for (int i = 0; i < posNeed.Count; i++)
@@ -74,6 +75,7 @@ public class FeelGood : MonoBehaviour
 
             if (changeScale)
             {
+                var timeForAction = scaleNeed.Count + 1;
                 Sequence sequence = DOTween.Sequence();
 
                 for (int i = 0; i < scaleNeed.Count; i++)
@@ -92,9 +94,10 @@ public class FeelGood : MonoBehaviour
     {
         if (playOnAwake)
         {
-            var timeForAction = scaleNeed.Count + 1;
+            
             if (changePos)
             {
+                var timeForAction = posNeed.Count + 1;
                 Sequence sequence = DOTween.Sequence();
 
                 for (int i = 0; i < posNeed.Count; i++)
@@ -109,6 +112,7 @@ public class FeelGood : MonoBehaviour
 
             if (changeScale)
             {
+                var timeForAction = scaleNeed.Count + 1;
                 Sequence sequence = DOTween.Sequence();
 
                 for (int i = 0; i < scaleNeed.Count; i++)
