@@ -14,8 +14,8 @@ public class Weapon : MonoBehaviour
     protected Timing playerTiming;
     protected bool gotInput;
     protected Vector2 lastDirection;
-    protected float lastX;
-    protected float lastY;
+    protected float lastX = 1;
+    protected float lastY = 1;
 
     // Weapon vars
     public int ComboToUpgarde;
@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour
     [Header("---Bullets---")] // Bullets
     public GameObject bulletPrefab;
 
-    [HideInInspector] public List<BulletInfo> bullets;
+    public List<BulletInfo> bullets;
 
     public Vector2 GetDirection { get => lastDirection; }
     public Vector2 PlayerPosistion { get => playerManager.transform.position; }
@@ -113,16 +113,12 @@ public class BulletInfo
             {
                 case BulletInfo.BulletDirection.Left:
                     return Vector2.left;
-                    break;
                 case BulletInfo.BulletDirection.Right:
                     return Vector2.right;
-                    break;
                 case BulletInfo.BulletDirection.Up:
                     return Vector2.up;
-                    break;
                 case BulletInfo.BulletDirection.Down:
                     return Vector2.down;
-                    break;
                 default:
                     break;
             }
