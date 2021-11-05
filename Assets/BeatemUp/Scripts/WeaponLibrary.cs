@@ -20,7 +20,7 @@ public class WeaponLibrary : MonoBehaviour
         {
             if(instanceToReplace != null)
             {
-                GameObject replaceInList = playersWeapons.Find(x => x.GetComponent<Weapon>().PlayerID == instanceToReplace.PlayerID);
+                GameObject replaceInList = playersWeapons.Find(x => x.GetComponent<Weapon>().CharacterID == instanceToReplace.CharacterID);
                 Debug.Log(replaceInList);
                 if (replaceInList != null) playersWeapons.Remove(replaceInList);
                 Destroy(replaceInList);

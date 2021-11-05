@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ComboToUpgarde: 5
-  previousWeapon: {fileID: 0}
-  nextWeapon: {fileID: 6629085271936703203, guid: 39f0c1fe28192dc4bb8d9b78bddcd41c, type: 3}
+  weaponKey: 0
   bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
   bullets:
   - length: 1
+    lockDirection: 0
+    direction: 0
+    positionOffset: {x: 0, y: 0}
+    lockOnX: 0
+    lockOnY: 0

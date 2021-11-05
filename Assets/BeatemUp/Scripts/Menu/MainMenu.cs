@@ -26,8 +26,14 @@ public class MainMenu : MonoBehaviour
     int cursorPosOption;
     public GameObject Cursor;
     [SerializeField] List<Transform> cPosition = new List<Transform>();
+    [SerializeField] List<FeelGood> buttonFeel = new List<FeelGood>();
     [SerializeField] List<Transform> cPositionOption = new List<Transform>();
-    List<bool> once = new List<bool> { false, false, false, false };
+    [SerializeField] List<FeelGood> buttonFeelOption = new List<FeelGood>();
+    List<bool> once = new List<bool> { false, false, false, false};
+    public float timer = 0.5f;
+    public float timer2 = 0.2f;
+    List<float> playerTimer = new List<float> { 0, 0, 0, 0};
+    List<bool> boolTimer = new List<bool> { false, false, false, false};
     public float deadZone;
 
 
@@ -165,6 +171,8 @@ public class MainMenu : MonoBehaviour
                     {
                         changeSliders(true);
                         once[(players.IndexOf(item))] = true;
+                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
+                        else playerTimer[players.IndexOf(item)] = timer;
                     }
 
 
@@ -172,6 +180,8 @@ public class MainMenu : MonoBehaviour
                     {
                         changeSliders(false);
                         once[(players.IndexOf(item))] = true;
+                        if(boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
+                        else playerTimer[players.IndexOf(item)] = timer;
                     }
 
 
@@ -179,6 +189,8 @@ public class MainMenu : MonoBehaviour
                         && item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone)
                     {
                         once[(players.IndexOf(item))] = false;
+                        boolTimer[(players.IndexOf(item))] = false;
+                        playerTimer[players.IndexOf(item)] = -2;
                         setCursor();
                     }
 
@@ -202,6 +214,8 @@ public class MainMenu : MonoBehaviour
             forChecking = false;
             checkController();
         }
+
+        delayToMove();
     }
 
 
@@ -222,8 +236,54 @@ public class MainMenu : MonoBehaviour
 
     void setCursor()
     {
-        if(state == MenuState.MENU) Cursor.GetComponent<RectTransform>().transform.position = cPosition[cursorPos].position;
-        if(state == MenuState.OPTION) Cursor.GetComponent<RectTransform>().transform.position = cPositionOption[cursorPosOption].position;
+        if (state == MenuState.MENU) 
+        { 
+            Cursor.GetComponent<RectTransform>().transform.position = cPosition[cursorPos].position;
+
+            for (int i = 0; i < buttonFeel.Count; i++)
+            {
+                if(i == cursorPos)
+                {
+                    buttonFeel[i].playOnAwake = true;
+                }
+                else
+                {
+                    buttonFeel[i].playOnAwake = false;
+                }
+            }
+        }
+        if (state == MenuState.OPTION)
+        {
+            Cursor.GetComponent<RectTransform>().transform.position = cPositionOption[cursorPosOption].position;
+            
+            for (int i = 0; i < buttonFeelOption.Count; i++)
+            {
+                if (i == cursorPosOption)
+                {
+                    buttonFeelOption[i].playOnAwake = true;
+                }
+                else
+                {
+                    buttonFeelOption[i].playOnAwake = false;
+                }
+            }
+        }
+
+    }
+
+
+    void delayToMove()
+    {
+        for (int i = 0; i < playerTimer.Count; i++)
+        {
+            playerTimer[i] -= Time.deltaTime;
+
+            if(playerTimer[i] <= 0.1f && playerTimer[i] >= -0.1f)
+            {
+                once[i] = false;
+                boolTimer[i] = true;
+            }
+        }
     }
 
 

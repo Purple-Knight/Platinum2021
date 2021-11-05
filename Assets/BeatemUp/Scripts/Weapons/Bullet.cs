@@ -19,18 +19,18 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
     public void InitInfo(BulletInfo _Info, in Vector2 direction)
     {
         info = _Info;
+        float length = (info.length > 0) ? info.length : 50;
         Vector2 spawnPos = new Vector2(transform.position.x + .5f * direction.x, transform.position.y + .5f * direction.y);
-
         Vector2 endPos = spawnPos;
 
-        RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, info.length, hitLayer);
+        RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, length, hitLayer);
         if (hit.collider != null)
         {
             endPos = hit.point;
         }
         else
         {
-            endPos = new Vector2(spawnPos.x + info.length * direction.x, spawnPos.y + info.length * direction.y);
+            endPos = new Vector2(spawnPos.x + length * direction.x, spawnPos.y + length * direction.y);
         }
 
         InitLaser(spawnPos, endPos, direction);

@@ -180,7 +180,7 @@ public class CharacterSelection : MonoBehaviour
 
     public void goToPlay()
     {
-        if (playersActual.Count >= 2 && canStart)
+        if (playersActual.Count >= 1 && canStart)//------------------------------------------------------------------------------------------------------------------------------------------
         {
             foreach (var item in playersActual)
             {
@@ -264,7 +264,7 @@ public class CharacterSelection : MonoBehaviour
     {
         bool letsGo = true;
 
-        if (playersActual.Count >= 2)
+        if (playersActual.Count >= 1)//-------------------------------------------------------------------------------------------------------------------------------------------
         {
             for (int i = 0; i < 4; i++)
             {

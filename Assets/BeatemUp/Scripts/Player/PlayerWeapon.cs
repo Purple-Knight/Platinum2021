@@ -6,9 +6,9 @@ using Rewired;
 public class PlayerWeapon : MonoBehaviour
 {
     private Player player;
+    private PlayerManager playerManager;
 
     float beatPassedTimer = 0;
-    internal PlayerMovement pMov;
     Timing playerTiming;
     RhythmManager rhythmManager;
     // bools
@@ -18,7 +18,6 @@ public class PlayerWeapon : MonoBehaviour
 
     [Header("---New Weapon Hierarchy---")]
     public Weapon weapon;
-    public Weapon newWeaponTarget;
 
     //Debug
     [SerializeField] private bool debug = false;
@@ -36,10 +35,10 @@ public class PlayerWeapon : MonoBehaviour
         rhythmManager = RhythmManager.Instance;
         rhythmManager.onMusicBeatDelegate += BeatReceived;
 
-        pMov = GetComponent<PlayerMovement>();
-        player = ReInput.players.GetPlayer(pMov.playerID);
+        playerManager = GetComponent<PlayerManager>();
+        player = ReInput.players.GetPlayer(playerManager.playerMovement.playerID);
 
-        SwapWeaponStyle("0");
+        //SwapWeaponStyle("0"); // Initialize Players w/ base Weapon
     }
 
     private void Update()
@@ -58,12 +57,18 @@ public class PlayerWeapon : MonoBehaviour
             }
         }
 
-        if (weapon != null)
+        
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
-            if (Input.GetKeyDown(KeyCode.KeypadPlus))
+            if (weapon != null)
                 weapon.Upgarde();
+            else
+                SwapWeaponStyle("0");
+        }
 
-            if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            if (weapon != null)
                 weapon.Downgrade();
         }
     }
@@ -71,16 +76,20 @@ public class PlayerWeapon : MonoBehaviour
     public void SwapWeaponStyle(string key)
     {
         Weapon swap = null;
+        Vector2 direction = Vector2.right;
 
-        if(weapon != null)
+        if (weapon != null)
+        {
             swap = WeaponLibrary.Instance.GetFromLibrary(key, weapon);
+            direction = weapon.GetDirection;
+        }
         else
             swap = WeaponLibrary.Instance.GetFromLibrary(key);
 
         if(swap != null)
         {
+            swap.Init(player, playerManager, this, direction);
             weapon = swap;
-            weapon.Init(player, this);
         }
         else
         {
@@ -116,15 +125,7 @@ public class PlayerWeapon : MonoBehaviour
         //GUILayout.TextArea("PastBeat Timer : " + beatPassedTimer);
 
         GUILayout.BeginHorizontal();
-        if(weapon != null)
-        {
-
-        }
         GUILayout.EndHorizontal();
-        if (GUILayout.Button("Replace Weapon"))
-        {
-            //SwapWeaponStyle(newWeaponTarget);
-        }
 
         GUILayout.EndArea();
     }
