@@ -4996,10 +4996,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6995882317632707775}
-  movement: {fileID: 3883265989226838409}
+  playerMovement: {fileID: 3883265989226838409}
   playerWeapon: {fileID: 7043354195277512944}
   playerHealth: {fileID: 3259888342345483222}
-  characterID: 0
   sprites:
   - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
@@ -5043,7 +5042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
-  newWeaponTarget: {fileID: 0}
   debug: 0
   debugGUI: 0
   guiDebugArea:
