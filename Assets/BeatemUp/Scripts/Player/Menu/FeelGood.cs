@@ -127,8 +127,8 @@ public class FeelGood : MonoBehaviour
     private void OnDestroy()
     {
         RhythmManager.Instance.onMusicBeatDelegate -= feelGood;
+        DOTween.Kill(gameObject);
     }
-
 }
 
 

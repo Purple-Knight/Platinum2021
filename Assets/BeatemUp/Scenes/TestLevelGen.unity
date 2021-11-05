@@ -155,7 +155,7 @@ MonoBehaviour:
   eventMusic:
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d375603b287fa124d950ebad25b4ed9f, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: aab47d4d6a800ad468d2006bbebd8621, type: 2}
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
