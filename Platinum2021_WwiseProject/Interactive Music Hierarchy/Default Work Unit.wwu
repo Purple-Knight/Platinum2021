@@ -178,6 +178,7 @@
 						<MusicSegment Name="Lady Hear Me Tonight" ID="{7D635622-B4CA-47AF-BBBA-C2CFF5B74077}" ShortID="751790578">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="303380.333333333"/>
+								<Property Name="Tempo" Type="Real64" Value="126"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

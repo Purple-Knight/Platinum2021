@@ -21,6 +21,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID PLAYBACKSPEED = 1897326479U;
         static const AkUniqueID USER_RTPC_MAIN_VOLUME = 2403979167U;
         static const AkUniqueID USER_RTPC_MUSIC_VOLUME = 2088371323U;
         static const AkUniqueID USER_RTPC_SFX_VOLUME = 1039309139U;

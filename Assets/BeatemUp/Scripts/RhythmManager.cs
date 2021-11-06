@@ -103,25 +103,33 @@ public class RhythmManager : MonoBehaviour
         if (timerInBetweenBeat >= (beatDuration - perfectBufferTime))
         {
             //Perfect before
+            //Debug.Log("Perfet before");
             return Timing.PERFECT;
         }
         else if (timerInBetweenBeat >= (bufferTime * 2))
         {
             //Before
+            //Debug.Log("Before");
+
             return Timing.BEFORE;
         }
-        else if (timerInBetweenBeat >= bufferTime && timerInBetweenBeat <= (bufferTime * 2))
+        else if (timerInBetweenBeat > bufferTime && timerInBetweenBeat < (bufferTime * 2))
         {
             //Miss
+            //Debug.Log("Miss");
+
             return Timing.MISS;
         }
-        else if (timerInBetweenBeat <= bufferTime)
+        else if (timerInBetweenBeat <= bufferTime && timerInBetweenBeat > perfectBufferTime)
         {
             //After
+            //Debug.Log("After");
+
             return Timing.AFTER;
         }
         else if (timerInBetweenBeat <= perfectBufferTime)
         {
+            //Debug.Log("Perfet After");
             //Perfect After
             return Timing.PERFECT;
         }
@@ -143,17 +151,20 @@ public class RhythmManager : MonoBehaviour
             InstantiateBeat?.Invoke();
 
             //Window Rythm
-            bufferTime = beatDuration / 3;
+            halfBeatTime = beatDuration / 2;
+            
             switch (level)
             {
                 case Level.Easy:
-                    bufferTime += (bufferTime / 3) * 2;
+                    bufferTime = 5 * halfBeatTime / 6;
                     break;
                 case Level.Medium:
-                    bufferTime += (bufferTime / 3);
+                    bufferTime = 4 * halfBeatTime / 6;
+                    break;
+                case Level.Hard:
+                    bufferTime =  halfBeatTime / 2;
                     break;
             }
-            halfBeatTime = beatDuration / 2;
             perfectBufferTime = beatDuration / 6;
         }
         else

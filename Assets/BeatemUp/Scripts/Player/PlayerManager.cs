@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] ParticleSystem notesParticle;
 
     #region Debug
-    bool debug = false;
+    public bool debug = false;
     int maxSteps = 0;
     float freeTime = 0;
     string maxStepsStr = "0";

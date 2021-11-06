@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
 
 
-        if (inputHorizontal || inputVertical)
+        if ((inputHorizontal || inputVertical) && !gotInputThisBeat && !buttonDown)
         {
             if (!freeMovement)
             {
@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(ResetFreeMovement());
             }
 
-            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL && !buttonDown && !gotInputThisBeat)
+            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL )
             {
                 mvtVertical = player.GetAxis("Move Vertical");
                 mvtHorizontal = player.GetAxis("Move Horizontal");
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 gotInputThisBeat = true;
                 Move();
             }
-            else
+            else 
             {
                 buttonDown = true;
                 gotInputThisBeat = true;
@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        else
+        else if(!inputHorizontal && !inputVertical)
         {
             buttonDown = false;
             //playerDir = PlayerDir.NULL;
