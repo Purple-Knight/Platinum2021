@@ -79,6 +79,8 @@ public class Weapon : MonoBehaviour
             else bulletDirection = lastDirection;
 
             blt.InitInfo(info, bulletDirection);
+
+            //if (playerManager.comboManager != null) playerManager.comboManager.Up(); //-------------
         }
     }
 

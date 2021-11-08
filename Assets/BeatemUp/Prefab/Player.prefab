@@ -4957,6 +4957,7 @@ GameObject:
   - component: {fileID: 3883265989226838409}
   - component: {fileID: 7043354195277512944}
   - component: {fileID: 3259888342345483222}
+  - component: {fileID: -6364000640499899623}
   - component: {fileID: 3883265989226838404}
   - component: {fileID: 3883265989226838411}
   m_Layer: 7
@@ -4998,6 +4999,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6995882317632707775}
   playerMovement: {fileID: 3883265989226838409}
   playerWeapon: {fileID: 7043354195277512944}
+  comboManager: {fileID: -6364000640499899623}
   playerHealth: {fileID: 3259888342345483222}
   sprites:
   - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
@@ -5071,6 +5073,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isAlive: 1
+--- !u!114 &-6364000640499899623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3883265989226838415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87487479b4941b043a71263df9ccdd10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 1
+  exponential: 0
+  expoValue: 2
+  zeroReset: 0
 --- !u!61 &3883265989226838404
 BoxCollider2D:
   m_ObjectHideFlags: 0

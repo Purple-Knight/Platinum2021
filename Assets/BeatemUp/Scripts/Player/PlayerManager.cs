@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     public PlayerMovement playerMovement;
     public PlayerWeapon playerWeapon;
+    public ComboCounter comboManager;
     public PlayerHealth playerHealth;
     private int characterID;
     [SerializeField] List<Sprite> sprites;
