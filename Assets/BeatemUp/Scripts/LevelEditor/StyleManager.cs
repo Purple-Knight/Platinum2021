@@ -12,6 +12,7 @@ public struct ButtonStyle
 {
     public Texture2D Icon;
     public string ButtonTex;
+    public GameObject PreFabObject;
 
     [HideInInspector] public GUIStyle NodeStyle;
 }

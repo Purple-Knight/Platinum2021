@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ghost
   - StyleManager
+  - Map
   layers:
   - Default
   - TransparentFX

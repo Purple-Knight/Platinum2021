@@ -23,6 +23,9 @@ public class GridLevelEditor : EditorWindow
     Rect menuBar;
     GUIStyle currentStyle;
 
+    GameObject theMap;
+    List<List<PartScript>> parts;
+
     [MenuItem("Tools/Level Editor")]
     private static void OpenWindow()
     {
@@ -33,12 +36,52 @@ public class GridLevelEditor : EditorWindow
     private void OnEnable()
     {
         SetUpStyles();
-        emptyStyle = new GUIStyle();
-        Texture2D icon = Resources.Load("IconLevelEditorTex/Empty") as Texture2D;
-        emptyStyle.normal.background = icon;
+        SetUpNodesAndParts();
+        SetUpMap();
+    }
 
-        SetUpNodes();
-        currentStyle = styleManager.buttonStyles[0].NodeStyle;
+    private void SetUpMap()
+    {
+        try
+        {
+            theMap = GameObject.FindGameObjectWithTag("Map");
+            if (theMap != null)
+            {
+                RestoreTheMap(theMap);
+            }
+        }
+        catch (Exception exception)
+        {
+            Debug.LogError(exception);
+            throw;
+        }
+
+        if (theMap == null)
+        {
+            theMap = new GameObject("Map");
+            theMap.tag = "Map";
+        }
+    }
+
+    private void RestoreTheMap(GameObject Map)
+    {
+        if (Map.transform.childCount > 0)
+        {
+            for (int i = 0; i < Map.transform.childCount; i++)
+            {
+                int partRow = Map.transform.GetChild(i).GetComponent<PartScript>().row;
+                int partCol = Map.transform.GetChild(i).GetComponent<PartScript>().col;
+
+                GUIStyle gUIStyle = Map.transform.GetChild(i).GetComponent<PartScript>().style;
+                nodes[partRow][partCol].SetStyle(gUIStyle);
+
+                parts[partRow][partCol] = Map.transform.GetChild(i).GetComponent<PartScript>();
+                parts[partRow][partCol].part = Map.transform.GetChild(i).gameObject;
+                parts[partRow][partCol].name = Map.transform.GetChild(i).name;
+                parts[partRow][partCol].row = partRow;
+                parts[partRow][partCol].col = partCol;
+            }
+        }
     }
 
     private void SetUpStyles()
@@ -59,20 +102,26 @@ public class GridLevelEditor : EditorWindow
             Debug.LogError(exception);
             throw;
         }
+
+        emptyStyle = styleManager.buttonStyles[0].NodeStyle;
+        currentStyle = styleManager.buttonStyles[0].NodeStyle;
     }
 
-    private void SetUpNodes()
+    private void SetUpNodesAndParts()
     {
         nodes = new List<List<Node>>();
+        parts = new List<List<PartScript>>();
 
         for (int i = 0; i < levelWidth; i++)
         {
             nodes.Add(new List<Node>());
+            parts.Add(new List<PartScript>());
 
             for (int j = 0; j < levelHeight; j++)
             {
                 nodePos.Set(i * cellSize, j * cellSize);
                 nodes[i].Add(new Node(nodePos, cellSize, cellSize, emptyStyle));
+                parts[i].Add(null);
             }
         }
     }
@@ -145,13 +194,36 @@ public class GridLevelEditor : EditorWindow
     {
         if (isErasing)
         {
-            nodes[row][col].SetStyle(emptyStyle);
-            GUI.changed = true;
+            if (parts[row][col] != null)
+            {
+                nodes[row][col].SetStyle(emptyStyle);
+
+                DestroyImmediate(parts[row][col].gameObject);
+                parts[row][col] = null;
+
+                GUI.changed = true;
+            }
         }
         else
         {
-            nodes[row][col].SetStyle(currentStyle);
-            GUI.changed = true;
+            if (parts[row][col] == null)
+            {
+                nodes[row][col].SetStyle(currentStyle);
+
+                GameObject gameObject = Instantiate(Resources.Load("MapParts/" + currentStyle.normal.background.name)) as GameObject;
+                gameObject.name = currentStyle.normal.background.name;
+                gameObject.transform.position = new Vector3(row, -col, 0);
+                gameObject.transform.parent = theMap.transform;
+
+                parts[row][col] = gameObject.GetComponent<PartScript>();
+                parts[row][col].part = gameObject;
+                parts[row][col].name = gameObject.name;
+                parts[row][col].row = row;
+                parts[row][col].col = col;
+                parts[row][col].style = currentStyle;
+
+                GUI.changed = true;
+            }
         }
     }
 
