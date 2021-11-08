@@ -21,12 +21,18 @@ public class MainMenu : MonoBehaviour
     public MenuState state;
 
 
+
+    // Camera --------------------------------------------
+    public List<Transform> camPos = new List<Transform>();
+    public CameraFocus cam;
+
+
     //Menu Var -------------------------------------------
     int cursorPos;
     int cursorPosOption;
     public GameObject Cursor;
     [SerializeField] List<Transform> cPosition = new List<Transform>();
-    [SerializeField] List<FeelGood> buttonFeel = new List<FeelGood>();
+    [SerializeField] List<Feel> buttonFeel = new List<Feel>();
     [SerializeField] List<Transform> cPositionOption = new List<Transform>();
     [SerializeField] List<FeelGood> buttonFeelOption = new List<FeelGood>();
     List<bool> once = new List<bool> { false, false, false, false};
@@ -242,13 +248,15 @@ public class MainMenu : MonoBehaviour
 
             for (int i = 0; i < buttonFeel.Count; i++)
             {
-                if(i == cursorPos)
+                if(i == cursorPos && buttonFeel[i].onOff)
                 {
-                    buttonFeel[i].playOnAwake = true;
+                    //buttonFeel[i].playOnAwake = true;
+                    buttonFeel[i].launch = true;
                 }
-                else
+                else if( i != cursorPos && !buttonFeel[i].onOff)
                 {
-                    buttonFeel[i].playOnAwake = false;
+                    //buttonFeel[i].playOnAwake = false;
+                    buttonFeel[i].launch = true;
                 }
             }
         }
@@ -300,15 +308,13 @@ public class MainMenu : MonoBehaviour
     public void toMenu()
     {
         state = MenuState.MENU;
-        changeScreen(1, true);
+        changeScreen(1, false);
         cursorPosOption = 0;
     }
 
-    public void toCharSelect()
+    public void toCredits()
     {
-        state = MenuState.CHARSELECT;
         changeScreen(2, false);
-        CharacterSelection.Instance.asignPlayers(players);
     }
 
     public void toOption()
@@ -316,17 +322,28 @@ public class MainMenu : MonoBehaviour
         state = MenuState.OPTION;
         changeScreen(3, true);
     }
+    
+    public void toCharSelect()
+    {
+        state = MenuState.CHARSELECT;
+        changeScreen(4, false);
+        CharacterSelection.Instance.asignPlayers(players);
+    }
 
 
     public void changeScreen(int iref, bool cursorOn)
     {
-        for (int i = 0; i < menuScreens.Count; i++)
+        /*for (int i = 0; i < menuScreens.Count; i++)
         {
             if (i == iref) menuScreens[i].SetActive(true);
             else menuScreens[i].SetActive(false);
 
             
-        }
+        }*/
+
+        cam.target = camPos[iref];
+
+
         if (cursorOn) Cursor.SetActive(true);
         else Cursor.SetActive(false);
     }

@@ -25,8 +25,6 @@ public class FlGEditor : Editor
 
         #endregion
 
-
-
         EditorGUILayout.PropertyField(toActivate);
         EditorGUILayout.PropertyField(timeToDo);
 

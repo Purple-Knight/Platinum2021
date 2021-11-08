@@ -7,7 +7,7 @@ using DG.Tweening;
 public class Feel : MonoBehaviour
 {
     public bool launch;
-    bool onOff = true;
+    [HideInInspector] public bool onOff = true;
     public float timeToDo;
 
     //Position
@@ -21,9 +21,12 @@ public class Feel : MonoBehaviour
     public List<valueNeed> scaleNeedBack = new List<valueNeed>();
 
     private Transform trans;
-    private Transform refTrans;
+    public Vector3 refTrans;
+    public Vector3 refTransScale;
+
     private RectTransform transR;
-    private RectTransform refTransR;
+    private Vector3 refTransR;
+    private Vector3 refTransRScale;
 
 
     void Start()
@@ -32,14 +35,16 @@ public class Feel : MonoBehaviour
         if (GetComponent<RectTransform>())
         {
             transR = GetComponent<RectTransform>();
-            refTransR = transR;
+            refTransR = transR.localPosition;
+            refTransRScale = transR.localScale;
 
         }
         else if (GetComponent<Transform>())
         {
 
             trans = GetComponent<Transform>();
-            refTrans = trans;
+            refTrans = trans.localPosition;
+            refTransScale = trans.localScale;
         }
         else
         {
@@ -74,7 +79,7 @@ public class Feel : MonoBehaviour
 
                 for (int i = 0; i < posNeed.Count; i++)
                 {
-                    sequence.Append(trans.transform.DOLocalMove(new Vector2(trans.localPosition.x + posNeed[i].xPourcentScale, trans.localPosition.y + posNeed[i].yPourcentScale), timeToDo / timeForAction));
+                    sequence.Append(trans.transform.DOLocalMove(new Vector2(refTrans.x + posNeed[i].xPourcentScale, refTrans.y + posNeed[i].yPourcentScale), timeToDo / timeForAction));
                 }
 
                 sequence.Play();
@@ -88,7 +93,7 @@ public class Feel : MonoBehaviour
 
                 for (int i = 0; i < scaleNeed.Count; i++)
                 {
-                    sequence.Append(trans.transform.DOScale(new Vector2(trans.localScale.x * (scaleNeed[i].xPourcentScale / 100), trans.localScale.y * (scaleNeed[i].yPourcentScale / 100)), timeToDo / timeForAction));
+                    sequence.Append(trans.transform.DOScale(new Vector2(refTransScale.x * (scaleNeed[i].xPourcentScale / 100), refTransScale.y * (scaleNeed[i].yPourcentScale / 100)), timeToDo / timeForAction));
                 }
 
                 sequence.Play();
@@ -103,9 +108,10 @@ public class Feel : MonoBehaviour
 
                 for (int i = 0; i < posNeedBack.Count; i++)
                 {
-                    sequence.Append(trans.transform.DOLocalMove(new Vector2(trans.localPosition.x + posNeedBack[i].xPourcentScale, trans.localPosition.y + posNeedBack[i].yPourcentScale), timeToDo / timeForAction));
+                    sequence.Append(trans.transform.DOLocalMove(new Vector2(refTrans.x + posNeedBack[i].xPourcentScale, refTrans.y + posNeedBack[i].yPourcentScale), timeToDo / timeForAction));
                 }
 
+                //sequence.Append(trans.transform.DOLocalMove(new Vector2(refTrans.localPosition.x, refTrans.localPosition.y), timeToDo / timeForAction));
                 sequence.Play();
             }
 
@@ -117,7 +123,7 @@ public class Feel : MonoBehaviour
 
                 for (int i = 0; i < scaleNeedBack.Count; i++)
                 {
-                    sequence.Append(trans.transform.DOScale(new Vector2(trans.localScale.x * (scaleNeedBack[i].xPourcentScale / 100), trans.localScale.y * (scaleNeedBack[i].yPourcentScale / 100)), timeToDo / timeForAction));
+                    sequence.Append(trans.transform.DOScale(new Vector2(refTransScale.x * (scaleNeedBack[i].xPourcentScale / 100), refTransScale.y * (scaleNeedBack[i].yPourcentScale / 100)), timeToDo / timeForAction));
                 }
 
                 sequence.Play();
@@ -132,14 +138,16 @@ public class Feel : MonoBehaviour
     {
         if (onOff)
         {
-            var timeForAction = scaleNeed.Count;
+            Debug.Log("On");
+            var timeForAction = scaleNeed.Count + 1;
             if (changePos)
             {
                 Sequence sequence = DOTween.Sequence();
 
                 for (int i = 0; i < posNeed.Count; i++)
                 {
-                    sequence.Append(transR.transform.DOLocalMove(new Vector2(transR.localPosition.x + posNeed[i].xPourcentScale, transR.localPosition.y + posNeed[i].yPourcentScale), timeToDo / timeForAction));
+                    sequence.Append(transR.transform.DOLocalMove(new Vector2(refTransR.x + posNeed[i].xPourcentScale, refTransR.y + posNeed[i].yPourcentScale), timeToDo / timeForAction));
+                    Debug.Log("test");
                 }
 
                 sequence.Play();
@@ -152,7 +160,7 @@ public class Feel : MonoBehaviour
 
                 for (int i = 0; i < scaleNeed.Count; i++)
                 {
-                    sequence.Append(transR.transform.DOScale(new Vector2(transR.localScale.x * (scaleNeed[i].xPourcentScale / 100), transR.localScale.y * (scaleNeed[i].yPourcentScale / 100)), timeToDo / timeForAction));
+                    sequence.Append(transR.transform.DOScale(new Vector2(refTransRScale.x * (scaleNeed[i].xPourcentScale / 100), refTransRScale.y * (scaleNeed[i].yPourcentScale / 100)), timeToDo / timeForAction));
                 }
 
                 sequence.Play();
@@ -160,6 +168,7 @@ public class Feel : MonoBehaviour
         }
         else
         {
+            Debug.Log("Off");
             var timeForAction = scaleNeed.Count + 1;
             if (changePos)
             {
@@ -167,10 +176,10 @@ public class Feel : MonoBehaviour
 
                 for (int i = 0; i < posNeedBack.Count; i++)
                 {
-                    sequence.Append(transR.transform.DOLocalMove(new Vector2(transR.localPosition.x + posNeedBack[i].xPourcentScale, transR.localPosition.y + posNeedBack[i].yPourcentScale), timeToDo / timeForAction));
+                    sequence.Append(transR.transform.DOLocalMove(new Vector2(refTransR.x + posNeedBack[i].xPourcentScale, refTransR.y + posNeedBack[i].yPourcentScale), timeToDo / timeForAction));
                 }
 
-                sequence.Append(transR.transform.DOLocalMove(new Vector2(refTransR.localPosition.x, refTransR.localPosition.y), timeToDo / timeForAction));
+                //sequence.Append(transR.transform.DOLocalMove(new Vector2(refTransR.localPosition.x, refTransR.localPosition.y), timeToDo / timeForAction));
                 sequence.Play();
             }
 
@@ -181,10 +190,10 @@ public class Feel : MonoBehaviour
 
                 for(int i = 0; i < scaleNeedBack.Count; i++)
                 {
-                    sequence.Append(transR.transform.DOScale(new Vector2(transR.localScale.x * (scaleNeed[i].xPourcentScale / 100), transR.localScale.y * (scaleNeed[i].yPourcentScale / 100)), timeToDo / timeForAction));
+                    sequence.Append(transR.transform.DOScale(new Vector2(refTransRScale.x * (scaleNeed[i].xPourcentScale / 100), refTransRScale.y * (scaleNeed[i].yPourcentScale / 100)), timeToDo / timeForAction));
                 }
 
-                sequence.Append(transR.transform.DOScale(new Vector2(refTransR.localScale.x, refTransR.localScale.y), timeToDo / timeForAction));
+                //sequence.Append(transR.transform.DOScale(new Vector2(refTransR.localScale.x, refTransR.localScale.y), timeToDo / timeForAction));
                 sequence.Play();
             }
         }
