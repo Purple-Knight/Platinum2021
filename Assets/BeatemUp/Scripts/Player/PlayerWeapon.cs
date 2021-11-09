@@ -96,6 +96,7 @@ public class PlayerWeapon : MonoBehaviour
             Debug.Log("<color=red>No Weapon output received !</color>"); // Invalid Key sent / output 'null' received
         }
 
+        playerManager.comboManager.CurrentWeaponRef(weapon); // Set weaponRef in ComboCounter
     }
 
     public void UpdateAimVisual(Vector2 lastDirection)

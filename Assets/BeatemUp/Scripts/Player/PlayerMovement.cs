@@ -83,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
             gotInputThisBeat = false;
             beatPassedTimer = 0;
             hasMoved = false;
-            
+
+            playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
         } 
 
         OtherPlayerOnNextTile();

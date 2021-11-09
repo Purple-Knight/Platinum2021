@@ -27,6 +27,7 @@ public class PlayerManager : MonoBehaviour
 
         playerHealth.PlayerDied.AddListener(PlayerDied);
         playerMovement.InstantiateMovement();
+        comboManager.Init(this);
     }
 
     public void PlayerDied(int i)

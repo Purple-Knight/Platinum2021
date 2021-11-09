@@ -80,7 +80,7 @@ public class Weapon : MonoBehaviour
 
             blt.InitInfo(info, bulletDirection);
 
-            //if (playerManager.comboManager != null) playerManager.comboManager.Up(); //-------------
+            if (playerManager.comboManager != null) playerManager.comboManager.Keep(); //-------------
         }
     }
 
