@@ -55,12 +55,13 @@ public class RhythmManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(delayStart());
+        
     }
 
     IEnumerator delayStart()
     {
         yield return new WaitForSeconds(timeBeforeStart);
-        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBar, CallbackFunction);
+        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
 
 
@@ -84,7 +85,7 @@ public class RhythmManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBar, CallbackFunction);
+            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
             onceAtStart = false;
             idToLaunch = 2;
         }
