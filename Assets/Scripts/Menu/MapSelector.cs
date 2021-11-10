@@ -17,12 +17,15 @@ public class MapSelector : MonoBehaviour
     public List<Transform> refPoints = new List<Transform>();
     public List<GameObject> GOList = new List<GameObject>();
 
-    public List<GameObject> SubPoints = new List<GameObject>();
-    public List<Transform> refSub = new List<Transform>();
+    List<GameObject> SubPoints = new List<GameObject>();
+    List<Transform> refSub = new List<Transform>();
 
 
     [Header("Prefab")]
     public GameObject prefabSub;
+
+    [Header("Variables")]
+    [SerializeField] float animTime;
 
     //Float
     float distance = 0;
@@ -141,7 +144,7 @@ public class MapSelector : MonoBehaviour
         {
             var id = GOList.IndexOf(item);
 
-            item.transform.DOMove(SubPoints[id].transform.position, 0.1f);
+            item.transform.DOMove(SubPoints[id].transform.position, animTime);
 
             item.transform.SetSiblingIndex(Mathf.Abs(id + 1 - SubPoints.Count));
 

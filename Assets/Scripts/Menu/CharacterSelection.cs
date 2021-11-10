@@ -38,121 +38,124 @@ public class CharacterSelection : MonoBehaviour
 
     public void Update()
     {
-        foreach (var item in players)
+        if (MainMenu.Instance.state == MainMenu.MenuState.CHARSELECT)
         {
-
-
-
-            if (item.GetButtonDown("Confirm")) // Confirme fct ---------------------------------------------------------------
+            foreach (var item in players)
             {
 
-                if (!playersActual.Contains(item))
+
+
+                if (item.GetButtonDown("Confirm")) // Confirme fct ---------------------------------------------------------------
                 {
-                    foreach (var item1_5 in playersActual)
+
+                    if (!playersActual.Contains(item))
                     {
-                        Debug.Log(item1_5);
-
-                    }
-
-                    if(playersActual.Count != 0)
-                    {
-                        var toRepace = false;
-                        var indexToReplace = 0;
-
-                        var toadd = false;
-                        
-                        foreach (var item2 in playersActual)
+                        foreach (var item1_5 in playersActual)
                         {
-                            if (item2 == null)
-                            {
-                                toRepace = true;
-                                indexToReplace = playersActual.IndexOf(item2);
-                                break;
-                            }
-                            else if (playersActual[playersActual.Count - 1] == item2 && playersActual.Count < 4) toadd = true;
+                            Debug.Log(item1_5);
+
                         }
 
-                        if (toadd) playersActual.Add(item);
+                        if (playersActual.Count != 0)
+                        {
+                            var toRepace = false;
+                            var indexToReplace = 0;
 
-                        if(toRepace) playersActual[indexToReplace] = item;
-                    }
-                    else
-                    {
-                        playersActual.Add(item);
-                    }
-                        
-                        showPlayerSelect();                    
-                }
-                else
-                {
-                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(true);
-                }
+                            var toadd = false;
 
-                    checkIfEveryoneIsReady();
-            
-            }
+                            foreach (var item2 in playersActual)
+                            {
+                                if (item2 == null)
+                                {
+                                    toRepace = true;
+                                    indexToReplace = playersActual.IndexOf(item2);
+                                    break;
+                                }
+                                else if (playersActual[playersActual.Count - 1] == item2 && playersActual.Count < 4) toadd = true;
+                            }
 
+                            if (toadd) playersActual.Add(item);
 
+                            if (toRepace) playersActual[indexToReplace] = item;
+                        }
+                        else
+                        {
+                            playersActual.Add(item);
+                        }
 
-
-            if (playersActual.Contains(item)) // selectioh characters --------------------------------
-            {
-
-                #region LEFT/RIGHT/UP/DOWN
-
-                if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
-                {
-                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(true);
-                }
-                else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
-                {
-                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(false);
-                }
-
-
-                else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
-                {
-                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(true);
-                }
-                else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
-                {
-                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(false);
-                }
-
-
-                else
-                {
-                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once = false;
-                }
-
-                #endregion
-
-                if (item.GetButtonDown("Start"))
-                {
-                    goToPlay();
-                }
-
-
-                if (item.GetButtonDown("Cancel"))
-                {
-                    if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
-                    {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
-                    }
-                    else
-                    {
-                        playersActual[playersActual.IndexOf(item)] = null;
                         showPlayerSelect();
                     }
+                    else
+                    {
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(true);
+                    }
 
                     checkIfEveryoneIsReady();
+
                 }
-            }
-            else
-            {
-                if (item.GetButtonDown("Cancel"))
+
+
+
+
+                if (playersActual.Contains(item)) // selectioh characters --------------------------------
                 {
-                    MainMenu.Instance.toMenu();
+
+                    #region LEFT/RIGHT/UP/DOWN
+
+                    if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                    {
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(true);
+                    }
+                    else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
+                    {
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(false);
+                    }
+
+
+                    else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                    {
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(true);
+                    }
+                    else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                    {
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(false);
+                    }
+
+
+                    else
+                    {
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once = false;
+                    }
+
+                    #endregion
+
+                    if (item.GetButtonDown("Start"))
+                    {
+                        goToPlay();
+                    }
+
+
+                    if (item.GetButtonDown("Cancel"))
+                    {
+                        if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
+                        {
+                            charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
+                        }
+                        else
+                        {
+                            playersActual[playersActual.IndexOf(item)] = null;
+                            showPlayerSelect();
+                        }
+
+                        checkIfEveryoneIsReady();
+                    }
+                }
+                else
+                {
+                    if (item.GetButtonDown("Cancel"))
+                    {
+                        MainMenu.Instance.toMenu();
+                    }
                 }
             }
         }
@@ -210,6 +213,7 @@ public class CharacterSelection : MonoBehaviour
                 {
                     saveALL(item);
                     saveData();
+                    MainMenu.Instance.toMapSelect();
                 }
                 else
                 {

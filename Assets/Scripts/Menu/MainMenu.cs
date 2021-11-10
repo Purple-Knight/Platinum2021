@@ -371,6 +371,13 @@ public class MainMenu : MonoBehaviour
     }
 
 
+    public void toMapSelect()
+    {
+        state = MenuState.MAPSELECT;
+        changeScreen(5, false);
+    }
+
+
     public void changeScreen(int iref, bool cursorOn)
     {
         /*for (int i = 0; i < menuScreens.Count; i++)
