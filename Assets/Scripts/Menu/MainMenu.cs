@@ -55,6 +55,8 @@ public class MainMenu : MonoBehaviour
         MENU,
         CHARSELECT,
         OPTION,
+        CREDITS,
+        MAPSELECT,
     }
 
     public void Awake()
@@ -102,20 +104,20 @@ public class MainMenu : MonoBehaviour
 
                 case MenuState.MENU:
 
-                    if(once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                    if(once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                     {
                         if(cursorPos > 0) cursorPos--;
                         once[(players.IndexOf(item))] = true;
                         setCursor();
                     }
 
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                     {
                         if (cursorPos < cPosition.Count - 1) cursorPos++;
                         once[(players.IndexOf(item))] = true;
                         setCursor();
 
-                    } else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone) {
+                    } else if (item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone) {
                         once[(players.IndexOf(item))] = false;
                         setCursor();
                     }
@@ -130,10 +132,10 @@ public class MainMenu : MonoBehaviour
                                 toCharSelect();
                                 break;
                             case 1:
-                                forChecking = true;
+                                toOption();
                                 break;
                             case 2:
-                                toOption();
+                                toCredits();
                                 break;
                             case 3:
                                 toTitle();
@@ -153,7 +155,12 @@ public class MainMenu : MonoBehaviour
                 case MenuState.CHARSELECT:
                     break;
 
-
+                case MenuState.CREDITS:
+                    if (item.GetButtonDown("Cancel"))
+                    {
+                        toMenu();
+                    }
+                    break;
 
 
                 case MenuState.OPTION:
@@ -204,9 +211,36 @@ public class MainMenu : MonoBehaviour
 
                     if (item.GetButtonDown("Confirm"))
                     {
+                        if(cursorPosOption == 3) toMenu();
+                    }
+
+                    if (item.GetButtonDown("Cancel"))
+                    {
                         toMenu();
                     }
 
+                    break;
+
+
+                case MenuState.MAPSELECT:
+
+                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                    {
+                        MapSelector.Instance.downValue();
+                        once[(players.IndexOf(item))] = true;
+                    }
+
+                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                    {
+                        MapSelector.Instance.upValue();
+                        once[(players.IndexOf(item))] = true;
+
+                    }
+                    else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone)
+                    {
+                        once[(players.IndexOf(item))] = false;
+                        setCursor();
+                    }
                     break;
 
                 default:
@@ -243,7 +277,7 @@ public class MainMenu : MonoBehaviour
     void setCursor()
     {
         if (state == MenuState.MENU) 
-        { 
+        {
             Cursor.GetComponent<RectTransform>().transform.position = cPosition[cursorPos].position;
 
             for (int i = 0; i < buttonFeel.Count; i++)
@@ -314,6 +348,7 @@ public class MainMenu : MonoBehaviour
 
     public void toCredits()
     {
+        state = MenuState.CREDITS;
         changeScreen(2, false);
     }
 
