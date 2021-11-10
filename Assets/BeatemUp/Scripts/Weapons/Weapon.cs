@@ -18,7 +18,8 @@ public class Weapon : MonoBehaviour
     protected float lastY = 1;
 
     // Weapon vars
-    public int ComboToUpgarde;
+    public int ComboToUpgarde; // Upgrade limit
+    public int ComboToDowngrade; // Downgrade limit
     public int weaponKey = 0;
 
     [Header("---Bullets---")] // Bullets

@@ -5092,7 +5092,8 @@ MonoBehaviour:
   multiplier: 1
   exponential: 0
   expoValue: 2
-  zeroReset: 1
+  downgradeWeaponOnReset: 1
+  zeroReset: 0
 --- !u!61 &3883265989226838404
 BoxCollider2D:
   m_ObjectHideFlags: 0

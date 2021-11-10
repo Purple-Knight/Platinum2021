@@ -232,11 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  spawnPoints:
-  - {x: -4.8382525e+17, y: 6.66e-43}
-  - {x: 2.0313572e+20, y: 0.00000016969491}
-  - {x: -2.952637e-39, y: 6.66e-43}
-  - {x: 4.6e-44, y: 1.3605682e+22}
+  spawnPoints: []
   PlayerWon:
     m_PersistentCalls:
       m_Calls: []

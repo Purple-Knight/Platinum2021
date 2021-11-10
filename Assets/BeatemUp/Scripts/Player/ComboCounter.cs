@@ -18,7 +18,9 @@ public class ComboCounter : MonoBehaviour
     [Range(1.0f, 2.0f)] public float expoValue = 2;
 
     // Reset
-    public bool zeroReset = true;
+    public bool downgradeWeaponOnReset = true;
+    public bool zeroReset = false;
+
 
     #region Get / Set
     public int Combo {
@@ -65,7 +67,7 @@ public class ComboCounter : MonoBehaviour
 
     public int ApplyModifier(int comboValue, int addedValue = 1)
     {
-        if(exponential)
+        if(exponential && Combo > 0)
         {
             comboValue *= Mathf.RoundToInt(expoValue);
         }
@@ -80,18 +82,24 @@ public class ComboCounter : MonoBehaviour
 
     public void ResetComboValues()
     {
-        if (!receivedInput) ResetCombo();
+        if (Combo <= 0) return;
 
+        if (!receivedInput) ResetCombo();
         receivedInput = false;
     }
 
     public void ResetCombo()
     {
-        Debug.Log("RESET!!!");
-        if (zeroReset)
+        if (zeroReset) // to 0
         {
+           Debug.Log("RESET!!!");
             Combo = 0;
-            return;
+            playerManager.playerWeapon.SwapToBaseWeapon(); // Reset to Base Weapon
+        }
+        else if(downgradeWeaponOnReset) // downgrade Pallier
+        {
+            currentWeapon.Downgrade();
+            Combo = currentWeapon.ComboToDowngrade;
         }
     }
 }

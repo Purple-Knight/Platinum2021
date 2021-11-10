@@ -53,5 +53,6 @@ public class PlayerManager : MonoBehaviour
         gameObject.layer = 7;
         playerMovement.ResetPositions();
         playerHealth.ResetPlayer();
+        playerWeapon.SwapToBaseWeapon();
     }
 }

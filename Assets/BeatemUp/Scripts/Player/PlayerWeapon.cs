@@ -38,7 +38,7 @@ public class PlayerWeapon : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         player = ReInput.players.GetPlayer(playerManager.playerMovement.playerID);
 
-        //SwapWeaponStyle("0"); // Initialize Players w/ base Weapon
+        SwapWeaponStyle("0"); // Initialize Players w/ base Weapon
     }
 
     private void Update()
@@ -97,6 +97,11 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         playerManager.comboManager.CurrentWeaponRef(weapon); // Set weaponRef in ComboCounter
+    }
+
+    public void SwapToBaseWeapon()
+    {
+        SwapWeaponStyle("0");
     }
 
     public void UpdateAimVisual(Vector2 lastDirection)

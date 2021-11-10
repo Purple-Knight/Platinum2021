@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ComboToUpgarde: 50
-  weaponKey: 2
+  ComboToDowngrade: 25
+  weaponKey: 3
   bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
   bullets:
-  - length: 7
+  - length: 0
     lockDirection: 0
     direction: 0
     positionOffset: {x: 0, y: 0}
