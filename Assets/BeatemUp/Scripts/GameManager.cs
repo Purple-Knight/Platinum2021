@@ -107,4 +107,5 @@ public class GameManager : MonoBehaviour
         camera.SetStartPos(levelGen.transform.position);
         camera.ResetCamera();
     }
+
 }

@@ -4,7 +4,6 @@ using UnityEditor;
 public class MusicVisualiser : EditorWindow
 {
     RhythmManager rhythmManager;
-    
     public AK.Wwise.Event playMusic;
     public AkWwiseProjectData wwiseData;
     System.Collections.Generic.List<AkAmbient> list  = new System.Collections.Generic.List<AkAmbient>();
@@ -27,11 +26,8 @@ public class MusicVisualiser : EditorWindow
         
         if (rhythmManager == null) {
             rhythmManager = FindObjectOfType<RhythmManager>();
-            //playMusic.Post(rhythmManager.gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, InstantiatBeat);
-            uint i;
-            AkSoundEngine.LoadBank("MusicBank", out i);
-            AkSoundEngine.SetOfflineRendering(true);
-            
+            rhythmManager.onMusicBeatDelegate += InstantiatBeat;
+            //rhythmManager.onMusicBeatDelegate += InstantiatBeat;
         }
 
         //index = EditorGUILayout.Popup(index, options);
@@ -42,12 +38,12 @@ public class MusicVisualiser : EditorWindow
             playMusic.playingId Post(FindObjectOfType<AkGameObj>().gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, InstantiatBeat);
         }*/
 
-        if(GUILayout.Button("Play Music"))
+        /*if(GUILayout.Button("Play Music"))
         {
 
-            rhythmManager.eventMusic[0].Post( rhythmManager.gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, InstantiatBeat);
-            Debug.Log("Time Stamp : " + AkSoundEngine.GetTimeStamp());
-        }
+            //rhythmManager.eventMusic[0].Post( rhythmManager.gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, InstantiatBeat);
+            //Debug.Log("Time Stamp : " + AkSoundEngine.GetTimeStamp());
+        }*/
     }
 
     public void InstantiatBeat()
