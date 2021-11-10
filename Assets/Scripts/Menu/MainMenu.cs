@@ -228,18 +228,23 @@ public class MainMenu : MonoBehaviour
                     {
                         MapSelector.Instance.downValue();
                         once[(players.IndexOf(item))] = true;
+                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
+                        else playerTimer[players.IndexOf(item)] = timer;
                     }
 
                     else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
                     {
                         MapSelector.Instance.upValue();
                         once[(players.IndexOf(item))] = true;
+                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
+                        else playerTimer[players.IndexOf(item)] = timer;
 
                     }
                     else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone)
                     {
                         once[(players.IndexOf(item))] = false;
-                        setCursor();
+                        boolTimer[(players.IndexOf(item))] = false;
+                        playerTimer[players.IndexOf(item)] = -2;
                     }
                     break;
 

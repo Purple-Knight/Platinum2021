@@ -131,6 +131,8 @@ public class MapSelector : MonoBehaviour
 
             item.transform.position = SubPoints[id].transform.position;
         }
+
+        moveToGO();
     }
 
     void moveToGO()
@@ -141,8 +143,25 @@ public class MapSelector : MonoBehaviour
 
             item.transform.DOMove(SubPoints[id].transform.position, 0.1f);
 
-            item.transform.SetSiblingIndex(id);
-            item.transform.GetSiblingIndex();
+            item.transform.SetSiblingIndex(Mathf.Abs(id + 1 - SubPoints.Count));
+
+
+
+
+            Color colorProv = item.GetComponent<Image>().color;
+            float m_Hue;
+            float m_Saturation;
+            float m_Value;
+            Color.RGBToHSV(colorProv, out m_Hue, out m_Saturation, out m_Value);
+
+            if (id == 0) item.GetComponent<Image>().color = Color.HSVToRGB(m_Hue, m_Saturation, 1);
+            else item.GetComponent<Image>().color = Color.HSVToRGB(m_Hue, m_Saturation, 0.5f);
+        }
+
+
+        for (int i = GOList.Count - 1; i > GOList.Count / 2; i--)
+        {
+            GOList[i].transform.SetSiblingIndex(Mathf.Abs(i + (SubPoints.Count / 2) - SubPoints.Count));
         }
     }
 
