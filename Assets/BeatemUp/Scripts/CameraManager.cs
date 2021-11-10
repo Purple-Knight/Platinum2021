@@ -18,7 +18,7 @@ public class CameraManager : MonoBehaviour
         originRotate = transform.rotation;
 
         GameManager.Instance.PlayerWon.AddListener(CameraZoom);
-        GameManager.Instance.cameraManager = this;
+        GameManager.Instance.camera = this;
         players = GameManager.Instance.players;
         foreach (PlayerManager player in players)
         {
