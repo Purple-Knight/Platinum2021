@@ -10,24 +10,28 @@ public class GameManager : MonoBehaviour
 
     public List<PlayerManager> players;
     int numOfPlayerAlive;
-    [SerializeField] Transform deathRoom;
     List<bool> playersAlive;
     int[] playerWins;
-    [SerializeField] Transform[] spawnPoints;
+    [SerializeField] List<Vector2> spawnPoints;
 
     public UnityEvent<int> PlayerWon;
 
     PlayersData playersData;
     [SerializeField] GameObject playerPrefab;
 
-    public CameraManager cameraManager;
+    public CameraManager camera;
+    public LevelGenerator levelGen;
+    [SerializeField] GameObject timeline;
 
     void Start()
     {
         _instance = this;
         
         playersData = SaveData.Load();
+        spawnPoints =  levelGen.GenerateLevel();
         SpawnPlayer();
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
+        camera.SetStartPos(levelGen.transform.position);
     }
 
     public void SpawnPlayer()
@@ -39,7 +43,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             APlayerData data = playersData.allPlayerData[i];
-            PlayerManager playerManager = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity).GetComponent<PlayerManager>();
+            PlayerManager playerManager = Instantiate(playerPrefab, spawnPoints[i], Quaternion.identity).GetComponent<PlayerManager>();
             playerManager.InstantiatePlayer(data.playerControllerID, i , data.myColorID, data.myCharID);
             playersAlive.Add(true);
             players.Add(playerManager.GetComponent<PlayerManager>());
@@ -65,9 +69,9 @@ public class GameManager : MonoBehaviour
                 {
                     playerAlive = i;
                 }
-                players[i].movement.enabled = false;
+                players[i].playerMovement.enabled = false;
             }
-            Debug.Log("player " + players[playerAlive].characterID + " won");
+            Debug.Log("player " + players[playerAlive].CharacterID + " won");
             PlayerWon.Invoke(playerAlive);
             playerWins[playerAlive]++;
             for (int i = 0; i < playerWins.Length; i++)
@@ -81,14 +85,13 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayers()
     {
-
         playersAlive.Clear();
         playersAlive = new List<bool>();
         numOfPlayerAlive = playersData.numberOfPlayer;
        
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
-            players[i].transform.position = spawnPoints[i].position;
+            players[i].transform.position = spawnPoints[i];
             players[i].ResetPlayer();
             playersAlive.Add(true);
             
@@ -98,7 +101,10 @@ public class GameManager : MonoBehaviour
     IEnumerator NextRound()
     {
         yield return new WaitForSecondsRealtime(3);
+        spawnPoints = levelGen.GenerateLevel();
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
         ResetPlayers();
-        cameraManager.ResetCamera();
+        camera.SetStartPos(levelGen.transform.position);
+        camera.ResetCamera();
     }
 }

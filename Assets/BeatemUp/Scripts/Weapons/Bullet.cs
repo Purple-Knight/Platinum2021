@@ -9,48 +9,31 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
 
     public AnimationCurve laserWidth;
 
-    BoxCollider2D col;
-
     public Material mat;
 
     private void Start()
     {
-        col = GetComponent<BoxCollider2D>();
-
         Destroy(gameObject, .3f);
     }
 
-    public void InitInfo(BulletInfo _Info, Vector2 direction)
+    public void InitInfo(BulletInfo _Info, in Vector2 direction)
     {
         info = _Info;
-        info.direction = direction;
-        Vector2 spawnPos = new Vector2(transform.position.x + direction.x, transform.position.y + direction.y);
+        float length = (info.length > 0) ? info.length : 50;
+        Vector2 spawnPos = new Vector2(transform.position.x + .5f * direction.x, transform.position.y + .5f * direction.y);
+        Vector2 endPos = spawnPos;
 
-        RaycastHit2D hit = Physics2D.Raycast(spawnPos, info.direction, 50, hitLayer);
+        RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, length, hitLayer);
         if (hit.collider != null)
         {
-            //Debug.Log("HIT : " + hit.transform.name + " ; " + info.direction.x);
-            Debug.DrawLine(spawnPos, hit.point, Color.yellow, .5f);
+            endPos = hit.point;
         }
         else
         {
-            Debug.LogWarning("NOTHING HIT.");
-            return;
+            endPos = new Vector2(spawnPos.x + length * direction.x, spawnPos.y + length * direction.y);
         }
 
-        switch (info.type)
-        {
-            case BulletInfo.BulletType.Laser:
-                InitLaser(spawnPos, hit.point, direction);
-                break;
-            case BulletInfo.BulletType.Projectile:
-                //SpriteRender
-                gameObject.AddComponent<SpriteRenderer>();
-                break;
-            default:
-                break;
-        }
-
+        InitLaser(spawnPos, endPos, direction);
     }
 
     private void InitLaser(Vector2 startPos, Vector2 endPos, Vector2 direction)
@@ -67,7 +50,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         {
             if(hit.collider != null)
             {
-                Debug.Log("hit player :" + hit.collider.name);
+                //Debug.Log("hit player :" + hit.collider.name);
                 IDamageable hitObject;
                 if(hit.collider.gameObject.TryGetComponent<IDamageable>(out hitObject))
                     hitObject.OnHit();

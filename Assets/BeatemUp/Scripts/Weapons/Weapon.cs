@@ -1,104 +1,129 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
-[CreateAssetMenu(fileName = "Base Weapon", menuName = "Weapon")]
-[System.Serializable]
-public class Weapon : ScriptableObject
+public class Weapon : MonoBehaviour
 {
-    //WeaponType
-    public BulletInfo bulletInfo;
+    // Player
+    protected PlayerWeapon playerWeapon;
+    protected PlayerManager playerManager;
 
-    // Bullet
+    // Inputs
+    protected Player player;
+    protected Timing playerTiming;
+    protected bool gotInput;
+    protected Vector2 lastDirection;
+    protected float lastX = 1;
+    protected float lastY = 1;
+
+    // Weapon vars
+    public int ComboToUpgarde;
+    public int weaponKey = 0;
+
+    [Header("---Bullets---")] // Bullets
     public GameObject bulletPrefab;
 
-    // Charge
-    [SerializeField] private bool noChargeTime;
-    public int chargeBeats = 1;             // charge Time needed
-    [SerializeField] private protected int chargeLevel = 0;  // current Charge
+    public List<BulletInfo> bullets;
 
-    //Reload
-    [SerializeField] private bool noReload;
-    public int waitBeforeReload;
-    private int currentReloadBeats;
+    public Vector2 GetDirection { get => lastDirection; }
+    public Vector2 PlayerPosistion { get => playerManager.transform.position; }
+    public int CharacterID { get => playerManager.CharacterID; }
 
-    //Player Ref
-    internal Vector2 lastDirection;
-    [SerializeField] internal Transform pMov;
-
-    #region Structs...
-
-    #endregion
-
-    public virtual void Use(bool triggerDown)
+    private void Update()
     {
-        //Debug.Log("used");
-        if(triggerDown && chargeBeats == 0 && chargeLevel == 0) // Button Down
+        GetAxisInput();
+    }
+
+    public void Init(Player _player, PlayerManager _playerManager, PlayerWeapon _playerWeapon, Vector2 _direction)
+    {
+        player = _player;
+        playerManager = _playerManager;
+        playerWeapon = _playerWeapon;
+        lastDirection = _direction;
+    }
+
+    public void GetAxisInput()
+    {
+        if (player.GetAxisRaw("Aim Horizontal") != 0 || player.GetAxisRaw("Aim Vertical") != 0) // Last Aim Direction
         {
-            Fire();
-            //chargeLevel++;
-            //Debug.Log("Try Shoot...");
-        }else if(triggerDown) // Button Down
-        {
-            Charge();
-            //Debug.Log("Try Shoot...");
-        }
-        else    // Button Up
-        {
-            if (chargeLevel == chargeBeats)
-                Fire();
-            else if(chargeLevel > 0)
-                MissedBeat();
+            float x = player.GetAxis("Aim Horizontal");
+            float y = player.GetAxis("Aim Vertical");
+
+            if (Mathf.Abs(x) >= Mathf.Abs(y))
+                y = 0;
+            else
+                x = 0;
+
+            lastDirection.x = (x == 0) ? x : Mathf.Sign(x);
+            lastDirection.y = (y == 0) ? y : Mathf.Sign(y);
+
+            if (x != 0) lastX = lastDirection.x;
+            if (y != 0) lastY = lastDirection.y;
+
+            playerWeapon.UpdateAimVisual(lastDirection);
         }
     }
 
-    public virtual void Charge()
-    {
-        chargeLevel++;
-        //Debug.Log("------------------Charge Level = " + chargeLevel);
-    }
-
+    public virtual void GetInput() { }
     public virtual void Fire()
     {
-        //Debug.Log("FIRE! " + chargeLevel + " charges");
+        foreach (BulletInfo info in bullets)
+        {
+            Bullet blt = Instantiate(bulletPrefab, playerWeapon.transform.position, Quaternion.identity).GetComponent<Bullet>();
 
-        //Instantiate Bullet
-        //Debug.Log(lastDirection);
-        Bullet blt = Instantiate(bulletPrefab, pMov.position, Quaternion.identity).GetComponent<Bullet>();
-        blt.InitInfo(bulletInfo, lastDirection);
+            Vector2 bulletDirection;
+            if (info.lockOnX) bulletDirection = Vector2.right * lastX;
+            else if (info.lockOnY) bulletDirection = Vector2.up * lastY;
+            else if (info.lockDirection) bulletDirection = info.Direction;
+            else bulletDirection = lastDirection;
 
-        ResetCharge();
+            blt.InitInfo(info, bulletDirection);
+        }
     }
 
-    public virtual void MissedBeat()
+    public void Upgarde()
     {
-        //Debug.Log("missed");
-
-        ResetCharge();
+        playerWeapon.SwapWeaponStyle((weaponKey + 1).ToString());
     }
 
-    private protected void ResetCharge() { chargeLevel = 0; }
-
+    public void Downgrade()
+    {
+        playerWeapon.SwapWeaponStyle((weaponKey - 1).ToString());
+    }
 }
 
 [System.Serializable]
 public class BulletInfo
 {
-    [System.Serializable]
-    public enum BulletType { Laser, Projectile }
+    public enum BulletDirection { Left, Right, Up, Down }
 
-    public BulletType type;
+    public int length;
+    public bool lockDirection;
+    public BulletDirection direction;
+    public Vector2 positionOffset;
+    public bool lockOnX;
+    public bool lockOnY;
 
-    public Vector2 direction = Vector2.right;
-    public int maxTileLength = 0; // 0 = Infini ??
-
-    public bool ignoreWalls = false;
-    // public int power;    // pas pertinent si one shot...
-
-    public BulletInfo(BulletType _type, Vector2 _direction, bool _ignoresWalls) // direction pertinent à init ?? -> Dépend direction Tir (player)
+    public Vector2 Direction
     {
-        type = _type;
-        direction = _direction;
-        ignoreWalls = _ignoresWalls;
-    }
+        get
+        {
+            switch (direction)
+            {
+                case BulletInfo.BulletDirection.Left:
+                    return Vector2.left;
+                case BulletInfo.BulletDirection.Right:
+                    return Vector2.right;
+                case BulletInfo.BulletDirection.Up:
+                    return Vector2.up;
+                case BulletInfo.BulletDirection.Down:
+                    return Vector2.down;
+                default:
+                    break;
+            }
+            Debug.Log("<color=red>Invalid Direction !!!</color>");
+            return Vector2.zero;
+        }
+    } 
 }

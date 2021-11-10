@@ -18,6 +18,7 @@ public class RhythmManager : MonoBehaviour
 
     [Header("Beat")]
     bool onceAtStart;
+    public bool inMenu;
 
     public float numberOfBeat;
     [SerializeField] private float timeBeforeStart;
@@ -35,6 +36,7 @@ public class RhythmManager : MonoBehaviour
 
     [SerializeField] private float timerInBetweenBeat = 0;
 
+    [SerializeField] Level level;
 
     private void Awake()
     {
@@ -58,7 +60,7 @@ public class RhythmManager : MonoBehaviour
     IEnumerator delayStart()
     {
         yield return new WaitForSeconds(timeBeforeStart);
-        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBar, CallbackFunction);
     }
 
 
@@ -70,48 +72,69 @@ public class RhythmManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             eventMusic[0].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            onceAtStart = false;
+            idToLaunch = 0;
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             eventMusic[1].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            onceAtStart = false;
+            idToLaunch = 1;
+
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBar, CallbackFunction);
+            onceAtStart = false;
+            idToLaunch = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            eventMusic[3].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            onceAtStart = false;
+            idToLaunch = 3;
         }
 
         timerInBetweenBeat += Time.deltaTime;
     }
 
-    public Timming AmIOnBeat()
+    public Timing AmIOnBeat()
     {
         if (timerInBetweenBeat >= (beatDuration - perfectBufferTime))
         {
             //Perfect before
-            return Timming.PERFECT;
+            //Debug.Log("Perfet before");
+            return Timing.PERFECT;
         }
         else if (timerInBetweenBeat >= (bufferTime * 2))
         {
             //Before
-            return Timming.BEFORE;
+            //Debug.Log("Before");
+
+            return Timing.BEFORE;
         }
-        else if (timerInBetweenBeat >= bufferTime && timerInBetweenBeat <= (bufferTime * 2))
+        else if (timerInBetweenBeat > bufferTime && timerInBetweenBeat < (bufferTime * 2))
         {
             //Miss
-            return Timming.MISS;
+            //Debug.Log("Miss");
+
+            return Timing.MISS;
         }
-        else if (timerInBetweenBeat <= bufferTime)
+        else if (timerInBetweenBeat <= bufferTime && timerInBetweenBeat > perfectBufferTime)
         {
             //After
-            return Timming.AFTER;
+            //Debug.Log("After");
+
+            return Timing.AFTER;
         }
         else if (timerInBetweenBeat <= perfectBufferTime)
         {
+            //Debug.Log("Perfet After");
             //Perfect After
-            return Timming.PERFECT;
+            return Timing.PERFECT;
         }
         
-        return Timming.NULL;
+        return Timing.NULL;
     }
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
@@ -122,19 +145,30 @@ public class RhythmManager : MonoBehaviour
         if (!onceAtStart)
         {
             onceAtStart = true;
-            //eventMusic[1].Post(gameObject); 
+            eventMusic[1].Post(gameObject);
             StartCoroutine(beforeStart());
             numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
             InstantiateBeat?.Invoke();
 
             //Window Rythm
-            bufferTime = beatDuration / 3;
             halfBeatTime = beatDuration / 2;
+            
+            switch (level)
+            {
+                case Level.Easy:
+                    bufferTime = 5 * halfBeatTime / 6;
+                    break;
+                case Level.Medium:
+                    bufferTime = 4 * halfBeatTime / 6;
+                    break;
+                case Level.Hard:
+                    bufferTime =  halfBeatTime / 2;
+                    break;
+            }
             perfectBufferTime = beatDuration / 6;
         }
         else
         {
-            Debug.Log(Time.time);
             onMusicBeatDelegate?.Invoke();   
         }
 
@@ -144,24 +178,35 @@ public class RhythmManager : MonoBehaviour
 
     IEnumerator beforeStart()
     {
-        var beat = Timeline.Instance.beatToReach;
-
-        for (int i = 0; i < beat + 1; i++)
+        if (!inMenu)
         {
-            Timeline.Instance.SendBar();
-            yield return new WaitForSeconds(beatDuration);
-        }
-        //eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            var beat = Timeline.Instance.beatToReach;
 
+            for (int i = 0; i < beat + 1; i++)
+            {
+                InstantiateBeat?.Invoke();
+                yield return new WaitForSeconds(beatDuration);
+            }
+        }
+
+            eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
 
 }
 
-public enum Timming
+public enum Timing
 {
     NULL,
     BEFORE,
     AFTER,
     PERFECT,
-    MISS,
+    MISS
+}
+
+public enum Level
+{
+    Easy,
+    Medium,
+    Hard
+
 }

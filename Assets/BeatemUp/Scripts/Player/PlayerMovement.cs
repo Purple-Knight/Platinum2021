@@ -45,14 +45,22 @@ public class PlayerMovement : MonoBehaviour
 
     //public UnityEvent PlayerHit;
     [SerializeField] ParticleSystem impactParticles;
-    Timming playerTiming;
+    Timing playerTiming;
+
+    //Events 
+    bool freeMovement = false;
+    int maxNumOfMovement = 0;
+    int currentNumOfSteps = 0;
+
+     bool tpToWall = false;
+     [SerializeField] int numbOfSteps = 0;
 
     #endregion
 
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = true;
     private bool _boolDebug = false;
-    [SerializeField] private Rect _guiDebugArea = new Rect(0, 20, 150, 150);
+    [SerializeField] private Rect _guiDebugArea = new Rect(110, 20, 150, 150);
 
     public void InstantiateMovement()
     {
@@ -93,18 +101,26 @@ public class PlayerMovement : MonoBehaviour
         //Is there an Input 
         bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
-        
-       
-        if (inputHorizontal || inputVertical) 
-        {
-            playerTiming = rhythmManager.AmIOnBeat();
 
-            if (playerTiming != Timming.MISS && playerTiming != Timming.NULL && !buttonDown && !gotInputThisBeat)
+
+        if ((inputHorizontal || inputVertical) && !gotInputThisBeat && !buttonDown)
+        {
+            if (!freeMovement)
             {
-                mvtVertical =player.GetAxis("Move Vertical");
+                playerTiming = rhythmManager.AmIOnBeat();
+            }
+            else
+            {
+                playerTiming = Timing.PERFECT;
+                StartCoroutine(ResetFreeMovement());
+            }
+
+            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL )
+            {
+                mvtVertical = player.GetAxis("Move Vertical");
                 mvtHorizontal = player.GetAxis("Move Horizontal");
 
-                if (Mathf.Abs(mvtVertical) > Mathf.Abs(mvtHorizontal)) 
+                if (Mathf.Abs(mvtVertical) > Mathf.Abs(mvtHorizontal))
                 {
                     playerDir = mvtVertical > 0 ? PlayerDir.UP : PlayerDir.DOWN;
                     mvtHorizontal = 0;
@@ -114,12 +130,12 @@ public class PlayerMovement : MonoBehaviour
                     playerDir = mvtHorizontal > 0 ? PlayerDir.RIGHT : PlayerDir.LEFT;
                     mvtVertical = 0;
                 }
-                
+
                 buttonDown = true;
                 gotInputThisBeat = true;
                 Move();
-            } 
-            else
+            }
+            else 
             {
                 buttonDown = true;
                 gotInputThisBeat = true;
@@ -127,14 +143,27 @@ public class PlayerMovement : MonoBehaviour
                 mvtHorizontal = 0;
                 mvtVertical = 0;
             }
+
         }
-        else
+        else if(!inputHorizontal && !inputVertical)
         {
             buttonDown = false;
             //playerDir = PlayerDir.NULL;
             mvtHorizontal = 0;
             mvtVertical = 0;
         }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            tpToWall = true;
+        }
+    }
+
+    IEnumerator ResetFreeMovement()
+    {
+        yield return new WaitForSeconds(.3f);
+        gotInputThisBeat = false;
+        hasMoved = false;
     }
 
     public void Move()
@@ -145,29 +174,122 @@ public class PlayerMovement : MonoBehaviour
 
         if (mvtVertical != 0 && !hasMoved) //move vertical
         {
-            if (mvtVertical > 0 && canGoUp)
+            if (tpToWall && mvtVertical > 0)
             {
-                targetPos.y = transform.position.y + 1;
+                RaycastHit2D rayray;
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, 20, LayerMask.GetMask("Ground", "Player"));
+                targetPos = rayray.collider.transform.position;
+                targetPos.y -= 1;
+                
+            }else if (tpToWall && mvtVertical < 0)
+            {
+                RaycastHit2D rayray;
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, 20, LayerMask.GetMask("Ground", "Player"));
+                targetPos = rayray.collider.transform.position;
+                targetPos.y += 1;
+            }
+            else if (mvtVertical > 0 && canGoUp)
+            {
+                if(numbOfSteps > 1)
+                {
+                    RaycastHit2D rayray;
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, numbOfSteps, LayerMask.GetMask("Ground"));
+                    if(rayray.collider != null)
+                    {
+                        targetPos.y = rayray.collider.transform.position.y - 1;
+                    }
+                    else
+                    {
+                        targetPos.y = transform.position.y + numbOfSteps;
+                    }
+                }
+                else 
+                {
+                    targetPos.y = transform.position.y + 1;
+                }
+                
                 Squeeeesh(false);
             }
             else if (mvtVertical < 0 && canGoDown)
             {
-                targetPos.y = transform.position.y - 1;
+                if (numbOfSteps > 1)
+                {
+                    RaycastHit2D rayray;
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, numbOfSteps, LayerMask.GetMask("Ground"));
+                    if (rayray.collider != null)
+                    {
+                        targetPos.y = rayray.collider.transform.position.y + 1;
+                    }
+                    else
+                    {
+                        targetPos.y = transform.position.y - numbOfSteps;
+                    }
+                }
+                else
+                {
+                    targetPos.y = transform.position.y - 1;
+                }
                 Squeeeesh(false);
             }
             hasMoved = true;
         }
         else if (mvtHorizontal != 0 && !hasMoved) //move horizontal
         {
-            if (mvtHorizontal > 0 && canGoRight)
+            if(tpToWall && mvtHorizontal > 0)
             {
-                targetPos.x = transform.position.x + 1;
+                RaycastHit2D rayray;
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, 20, LayerMask.GetMask("Ground", "Player"));
+                targetPos = rayray.collider.transform.position;
+                targetPos.x -= 1;
+
+            }else if (tpToWall && mvtHorizontal < 0)
+            {
+                RaycastHit2D rayray;
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, 20, LayerMask.GetMask("Ground", "Player"));
+                targetPos = rayray.collider.transform.position;
+                targetPos.x += 1;
+            }
+            else if (mvtHorizontal > 0 && canGoRight)
+            {
+                if (numbOfSteps > 1)
+                {
+                    RaycastHit2D rayray;
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, numbOfSteps, LayerMask.GetMask("Ground"));
+                    if (rayray.collider != null)
+                    {
+                        targetPos.x = rayray.collider.transform.position.x - 1;
+                    }
+                    else
+                    {
+                        targetPos.x = transform.position.x + numbOfSteps;
+                    }
+                }
+                else
+                {
+                    targetPos.x = transform.position.x + 1;
+                }
                 sprite.flipX = true;
                 Squeeeesh(true);
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
-                targetPos.x = transform.position.x - 1;
+                if (numbOfSteps > 1)
+                {
+                    RaycastHit2D rayray;
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, numbOfSteps, LayerMask.GetMask("Ground"));
+                    if (rayray.collider != null)
+                    {
+                        targetPos.x = rayray.collider.transform.position.x + 1;
+                    }
+                    else
+                    {
+                        targetPos.x = transform.position.x - numbOfSteps;
+                    }
+                }
+                else
+                {
+                    targetPos.x = transform.position.x - 1;
+                }
                 sprite.flipX = false;
                 Squeeeesh(true);
             }
@@ -178,7 +300,13 @@ public class PlayerMovement : MonoBehaviour
         mvtHorizontal = 0;
 
         BeatTiming();
-        transform.DOMove(targetPos, .2f);
+        if (freeMovement && DOTween.IsTweening(transform)) 
+            transform.DOComplete();
+        if (!freeMovement || (freeMovement && currentNumOfSteps < maxNumOfMovement))
+        {
+            transform.DOMove(targetPos, .2f);
+            currentNumOfSteps++;
+        }
 
         
     }
@@ -276,19 +404,19 @@ public class PlayerMovement : MonoBehaviour
         Sequence seqColor = DOTween.Sequence();
         switch (playerTiming)
         {
-            case Timming.PERFECT:
+            case Timing.PERFECT:
                 seqColor.Append(sprite.DOColor(new Color(0,1,0,playerColor.a), .1f));
                 break;
-            case Timming.BEFORE:
+            case Timing.BEFORE:
                 seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
                 break;
-            case Timming.AFTER:
+            case Timing.AFTER:
                 seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
                 break;
-            case Timming.MISS:
+            case Timing.MISS:
                 seqColor.Append(sprite.DOColor(new Color(1, 0, 0, playerColor.a), .1f));
                 break;
-            case Timming.NULL:
+            case Timing.NULL:
                 
                 break;
             
@@ -303,6 +431,31 @@ public class PlayerMovement : MonoBehaviour
     {
         halfBeatTime = rhythmManager.beatDuration / 2;
     }
+    
+    public void StartFreeMovement(int maxNumOfSteps)
+    {
+        currentNumOfSteps = 0;
+        maxNumOfMovement = maxNumOfSteps;
+        freeMovement = true;
+        StartCoroutine(ResetSteps());
+    }
+    
+    public void EndFreeMovement()
+    {
+        freeMovement = false;
+        currentNumOfSteps = 0;
+        maxNumOfMovement = 0;
+    }
+
+    IEnumerator ResetSteps()
+    {
+        while (freeMovement)
+        {
+            yield return new WaitForSeconds(1);
+            currentNumOfSteps = 0;
+        }
+    }
+
     #region Debug
 
     private void OnGUI()
@@ -312,17 +465,14 @@ public class PlayerMovement : MonoBehaviour
         GUILayout.BeginArea(_guiDebugArea);
         GUILayout.TextArea("Player " + playerID);
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("bool"))
+        if (GUILayout.Button("Tp to walls " + tpToWall))
         {
-            _boolDebug = !_boolDebug;
+            tpToWall = !tpToWall;
         }
 
         GUILayout.EndHorizontal();
 
-        if (_boolDebug)
-        {
-            GUILayout.TextField("Booleans \n" + "Has moved : " + hasMoved + "\n" + "Got Input this beat : " + gotInputThisBeat + "\n Button down : " + buttonDown +  "\n Vertical mvt : " + mvtVertical );
-        }
+
         GUILayout.EndArea();
     }
 
@@ -333,9 +483,9 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = canGoDown ? Color.green : Color.red;
         Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down));
         Gizmos.color = canGoLeft ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x -.5f, transform.position.y), Vector2.left));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left));
         Gizmos.color = canGoRight ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x + .5f, transform.position.y ), Vector2.right));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right));
 
     }
 

@@ -15,18 +15,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     
     void Start()
     {
-        playerID = GetComponent<PlayerManager>().characterID;
+        playerID = GetComponent<PlayerManager>().CharacterID;
         currentHealth = healthPoints;
     }
 
 
     public void OnHit()
     {
-        --healthPoints;
+        --currentHealth;
 
         PlayerHit.Invoke();
 
-        if (healthPoints <= 0 && isAlive)
+        if (currentHealth <= 0 && isAlive)
             OnDeath();
 
     }
