@@ -14,6 +14,14 @@ public class PlayerManager : MonoBehaviour
     Color playerColor;
     [SerializeField] ParticleSystem notesParticle;
 
+    #region Debug
+    public bool debug = false;
+    int maxSteps = 0;
+    float freeTime = 0;
+    string maxStepsStr = "0";
+    string freeTimeStr = "0";
+    Rect debugRect;
+    #endregion
     public int CharacterID { get => characterID; }
 
     public void InstantiatePlayer(int conrtollerID, int playerID, Color color, int spriteID)
@@ -28,6 +36,8 @@ public class PlayerManager : MonoBehaviour
         playerHealth.PlayerDied.AddListener(PlayerDied);
         playerMovement.InstantiateMovement();
         comboManager.Init(this);
+        debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
+        debug = true;
     }
 
     public void PlayerDied(int i)
@@ -54,5 +64,38 @@ public class PlayerManager : MonoBehaviour
         playerMovement.ResetPositions();
         playerHealth.ResetPlayer();
         playerWeapon.SwapToBaseWeapon();
+    }
+
+    public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfStepsPerSec)
+    {
+        playerMovement.StartFreeMovement(maxNumOfStepsPerSec);
+        StartCoroutine(FreeMovementTime(ignoreTime));
+    }
+    
+    IEnumerator FreeMovementTime(float freeTime)
+    {
+        yield return new WaitForSeconds(freeTime);
+        playerMovement.EndFreeMovement();
+    }
+
+    private void OnGUI()
+    {
+        if (!debug) return;
+        GUILayout.BeginArea(debugRect);
+        GUILayout.TextArea("Player " + characterID);
+        GUILayout.BeginHorizontal();
+        GUILayout.TextArea("Max Steps :");
+        maxStepsStr = GUILayout.TextField(maxStepsStr);
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        GUILayout.TextArea("Event Time :");
+        freeTimeStr = GUILayout.TextField(freeTimeStr);
+        GUILayout.EndHorizontal();
+        if (GUILayout.Button("Lance FreeMovement Event"))
+        {
+            if(float.TryParse(freeTimeStr, out freeTime)&& int.TryParse(maxStepsStr, out maxSteps))
+                IgnoreTimelineForSec(freeTime, maxSteps);
+        }
+        GUILayout.EndArea();
     }
 }

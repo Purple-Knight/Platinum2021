@@ -29,9 +29,9 @@ public class GameManager : MonoBehaviour
         
         playersData = SaveData.Load();
         spawnPoints =  levelGen.GenerateLevel();
-        camera.SetStartPos(levelGen.transform.position);
         SpawnPlayer();
         timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
+        camera.SetStartPos(levelGen.transform.position);
     }
 
     public void SpawnPlayer()
@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayers()
     {
-
         playersAlive.Clear();
         playersAlive = new List<bool>();
         numOfPlayerAlive = playersData.numberOfPlayer;
@@ -102,7 +101,10 @@ public class GameManager : MonoBehaviour
     IEnumerator NextRound()
     {
         yield return new WaitForSecondsRealtime(3);
+        spawnPoints = levelGen.GenerateLevel();
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
         ResetPlayers();
+        camera.SetStartPos(levelGen.transform.position);
         camera.ResetCamera();
     }
 }

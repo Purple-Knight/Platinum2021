@@ -118,9 +118,67 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &437262096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437262098}
+  - component: {fileID: 437262097}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &437262097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437262096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de5675f25f7d4a428ac3fef66a27ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: eae38ca9a7862b3459b66fa1476504d8, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &437262098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437262096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
+  - component: {fileID: 519420030}
   - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: Main Camera
@@ -139,14 +198,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
+--- !u!114 &519420029
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cfe00ab163dde43ad651f44ae12e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eea38a63eb57f34e80739c13c233fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -203,4 +290,398 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1479352153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479352155}
+  - component: {fileID: 1479352154}
+  m_Layer: 0
+  m_Name: StyleManager
+  m_TagString: StyleManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1479352154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479352153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05926f0df736246bfb4851a0d67aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonStyles:
+  - Icon: {fileID: 2800000, guid: aeac9e9b6384d2a45b91267c2c6b02cd, type: 3}
+    ButtonTex: Empty
+    PreFabObject: {fileID: 1784723221761106253, guid: a2fb349b99ac250448f3ef4576302b29, type: 3}
+    NodeStyle:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 2800000, guid: aeac9e9b6384d2a45b91267c2c6b02cd, type: 3}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  - Icon: {fileID: 2800000, guid: 28018d2e6d2d64c4ba3d6fc58de0e84d, type: 3}
+    ButtonTex: Chicken
+    PreFabObject: {fileID: 7491384695012917738, guid: d2a6e887b685e1a4e91a993c50ae9623, type: 3}
+    NodeStyle:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 2800000, guid: 28018d2e6d2d64c4ba3d6fc58de0e84d, type: 3}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  - Icon: {fileID: 2800000, guid: b68f5a9257a99ab47826575f2e679ef2, type: 3}
+    ButtonTex: Cow
+    PreFabObject: {fileID: 7531166863352926764, guid: 98b62256b36eafc4f8d8b6adf5389901, type: 3}
+    NodeStyle:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 2800000, guid: b68f5a9257a99ab47826575f2e679ef2, type: 3}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  - Icon: {fileID: 2800000, guid: 63a67c3cfdd4f7a4389f00b23fb71abe, type: 3}
+    ButtonTex: Lamb
+    PreFabObject: {fileID: 2859157621942959190, guid: 434844027df4e6841b0e3ff013ced970, type: 3}
+    NodeStyle:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 2800000, guid: 63a67c3cfdd4f7a4389f00b23fb71abe, type: 3}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  - Icon: {fileID: 2800000, guid: b5c451548c1993d40bfaa89e7c37dad9, type: 3}
+    ButtonTex: Tree
+    PreFabObject: {fileID: 8560009560681575220, guid: d8216d918b11f4543943a27a689648da, type: 3}
+    NodeStyle:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 2800000, guid: b5c451548c1993d40bfaa89e7c37dad9, type: 3}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_ScaledBackgrounds: []
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+--- !u!4 &1479352155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479352153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.39910197, y: 0.005299926, z: -31.499584}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

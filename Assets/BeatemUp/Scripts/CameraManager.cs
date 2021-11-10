@@ -28,15 +28,7 @@ public class CameraManager : MonoBehaviour
 
     public void SetStartPos(Vector2 borders)
     {
-        Vector2 cameraZeroPos = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        while (cameraZeroPos.x > borders.x || cameraZeroPos.y > borders.y) {
-
-            Camera.main.orthographicSize += .2f;
-            cameraZeroPos = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        Debug.Log(cameraZeroPos +"  -  " + borders);
-
-        }
-        originalCameraSize = Camera.main.orthographicSize;
+        originalCameraSize = ((Mathf.Abs(borders.x)+1) * 2.5f / 9) *2;
     }
 
     public void CameraShake()
@@ -64,5 +56,6 @@ public class CameraManager : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOLocalMove(Vector3.zero, 1));
         seq.Insert(0, Camera.main.DOOrthoSize(originalCameraSize, 1));
+        
     }
 }

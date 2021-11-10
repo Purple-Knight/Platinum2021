@@ -10,6 +10,7 @@
 						<GameParameter Name="User_RTPC_SFX_Volume" ID="{E9DE5498-80B7-4640-BD17-1F8D8AA52951}"/>
 					</ChildrenList>
 				</Folder>
+				<GameParameter Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>
