@@ -6,9 +6,9 @@ using System;
 
 public class GridLevelEditor : EditorWindow
 {
-    float levelWidth = 10;
+    float levelWidth = 18;
     float levelHeight = 10;
-    float cellSize = 30;
+    float cellSize = 35;
 
     Vector2 offset;
     Vector2 drag;
