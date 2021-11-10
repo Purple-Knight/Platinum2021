@@ -48,7 +48,28 @@
 						<Action Name="" ID="{88528C8C-C1E0-414B-8A3C-06DB1ABEA326}" ShortID="389673640">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Lady Hear Me Tonight" ID="{0B968A1E-4442-4786-A2D4-B5C5C58933F8}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+									<ObjectRef Name="Lady Hear Me Tonight" ID="{7D635622-B4CA-47AF-BBBA-C2CFF5B74077}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="StopAllMusic" ID="{34DEAF37-B280-421F-A755-523AB2B842B8}">
+					<ChildrenList>
+						<Action Name="" ID="{C12A5BA8-92EC-40D6-8C1A-E22F8D587699}" ShortID="744655399">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayMMX3" ID="{423E2B6A-3C7F-4313-83CC-3021C1970649}">
+					<ChildrenList>
+						<Action Name="" ID="{36A9AB6A-3B92-4620-81E2-C9D801FEB9F0}" ShortID="89480328">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Megaman X3 OST - Weapon Get" ID="{97B2B17A-6103-4A73-A161-01065A00AC38}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
