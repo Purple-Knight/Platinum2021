@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &732283867700738099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732283867700738098}
+  - component: {fileID: 732283867700738109}
+  - component: {fileID: 732283867700738108}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &732283867700738098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732283867700738099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &732283867700738109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732283867700738099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472cb09c110ab564d8eca17f4dfb1d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  spawnPoints:
+  - {x: -4.8382525e+17, y: 6.66e-43}
+  - {x: 2.0313572e+20, y: 0.00000016969491}
+  - {x: -2.952637e-39, y: 6.66e-43}
+  - {x: 4.6e-44, y: 1.3605682e+22}
+  PlayerWon:
+    m_PersistentCalls:
+      m_Calls: []
+  playerPrefab: {fileID: 3883265989226838415, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
+  camera: {fileID: 0}
+  levelGen: {fileID: 0}
+  timeline: {fileID: 0}
+--- !u!114 &732283867700738108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732283867700738099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e23985d99ed304baea9f5461a9792d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playBackSpeedRTPC:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7e5ce831d29f65b46a45fe9616fd39fe, type: 2}
