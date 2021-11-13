@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerMovement playerMovement;
     public PlayerWeapon playerWeapon;
     public PlayerHealth playerHealth;
+    public Animator playerAnimator;
     private int characterID;
     [SerializeField] List<Sprite> sprites;
     Color playerColor;
@@ -26,6 +27,7 @@ public class PlayerManager : MonoBehaviour
     public void InstantiatePlayer(int conrtollerID, int playerID, Color color, int spriteID)
     {
         characterID = playerID;
+        playerAnimator.SetFloat("CharacterID", spriteID);
         playerMovement.playerID = conrtollerID;
         playerMovement.playerColor = color;
         playerColor = color;
@@ -33,6 +35,7 @@ public class PlayerManager : MonoBehaviour
         spriteRenderer.color = color;
 
         playerHealth.PlayerDied.AddListener(PlayerDied);
+        playerMovement.playerAnimator = playerAnimator;
         playerMovement.InstantiateMovement();
         debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
         debug = true;

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer sprite;
     private Player player; //Rewired player
     private RhythmManager rhythmManager;
+    public Animator playerAnimator;
 
     public Color playerColor;
     [SerializeField] float deadZoneController;
@@ -72,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         sprite.color = playerColor;
         targetPos = transform.position;
         lastPos = targetPos;
+        playerAnimator.SetFloat("Direction", 1);
     }
 
     private void Update()
@@ -129,6 +131,26 @@ public class PlayerMovement : MonoBehaviour
                 {
                     playerDir = mvtHorizontal > 0 ? PlayerDir.RIGHT : PlayerDir.LEFT;
                     mvtVertical = 0;
+                }
+
+                switch (playerDir)
+                {
+                    case PlayerDir.NULL:
+                        break;
+                    case PlayerDir.UP:
+                        playerAnimator.SetFloat("Direction", 0);
+                        break;
+                    case PlayerDir.DOWN:
+                        playerAnimator.SetFloat("Direction", 1);
+                        break;
+                    case PlayerDir.RIGHT:
+                        playerAnimator.SetFloat("Direction", 1);
+                        break;
+                    case PlayerDir.LEFT:
+                        playerAnimator.SetFloat("Direction", -1);
+                        break;
+                    default:
+                        break;
                 }
 
                 buttonDown = true;
@@ -206,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
                 else 
                 {
                     targetPos.y = transform.position.y + 1;
+                    
                 }
                 
                 Squeeeesh(false);
@@ -304,6 +327,7 @@ public class PlayerMovement : MonoBehaviour
             transform.DOComplete();
         if (!freeMovement || (freeMovement && currentNumOfSteps < maxNumOfMovement))
         {
+            playerAnimator.SetTrigger("Move");
             transform.DOMove(targetPos, .2f);
             currentNumOfSteps++;
         }
