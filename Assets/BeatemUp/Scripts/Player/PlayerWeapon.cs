@@ -101,6 +101,8 @@ public class PlayerWeapon : MonoBehaviour
     public void UpdateAimVisual(Vector2 lastDirection)
     {
         aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f));
+        playerManager.playerAnimator.SetFloat("FireDirectionHorizontal", aiming.position.x);
+        playerManager.playerAnimator.SetFloat("FireDirectionVertical", aiming.position.y);
     }
 
     public void BeatReceived()

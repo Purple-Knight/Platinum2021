@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayerDied(int i)
     {
-        notesParticle.Play();
+        //notesParticle.Play();
         playerWeapon.enabled = false;
         playerHealth.enabled = false;
         spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);

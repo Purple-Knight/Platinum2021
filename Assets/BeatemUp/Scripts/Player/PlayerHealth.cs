@@ -40,7 +40,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
 
         isAlive = false;
-        Debug.Log("Dieded !");
         PlayerDied.Invoke(playerID);
 
     }
