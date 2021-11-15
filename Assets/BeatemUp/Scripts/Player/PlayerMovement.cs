@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Rewired;
 using UnityEngine.Events;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Player player; //Rewired player
     private RhythmManager rhythmManager;
     public Animator playerAnimator;
+    [SerializeField] private GameObject beatText;
 
     public Color playerColor;
     [SerializeField] float deadZoneController;
@@ -61,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = true;
-    private bool _boolDebug = false;
     [SerializeField] private Rect _guiDebugArea = new Rect(110, 20, 150, 150);
 
     public void InstantiateMovement()
@@ -75,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         sprite.color = playerColor;
         targetPos = transform.position;
         lastPos = targetPos;
-        playerAnimator.SetFloat("Direction", 1);
     }
 
     private void Update()
@@ -141,16 +141,20 @@ public class PlayerMovement : MonoBehaviour
                     case PlayerDir.NULL:
                         break;
                     case PlayerDir.UP:
-                        playerAnimator.SetFloat("Direction", 0);
+                        playerAnimator.SetFloat("DirectionHorizontal", 0);
+                        playerAnimator.SetFloat("DirectionVertical", 1);
                         break;
                     case PlayerDir.DOWN:
-                        playerAnimator.SetFloat("Direction", 1);
+                        playerAnimator.SetFloat("DirectionHorizontal", 0);
+                        playerAnimator.SetFloat("DirectionVertical", -1);
                         break;
                     case PlayerDir.RIGHT:
-                        playerAnimator.SetFloat("Direction", 1);
+                        playerAnimator.SetFloat("DirectionHorizontal", 1);
+                        playerAnimator.SetFloat("DirectionVertical", 0);
                         break;
                     case PlayerDir.LEFT:
-                        playerAnimator.SetFloat("Direction", -1);
+                        playerAnimator.SetFloat("DirectionHorizontal", -1);
+                        playerAnimator.SetFloat("DirectionVertical", 0);
                         break;
                     default:
                         break;
@@ -167,6 +171,8 @@ public class PlayerMovement : MonoBehaviour
                 //playerDir = PlayerDir.NULL;
                 mvtHorizontal = 0;
                 mvtVertical = 0;
+                BeatTiming();
+                playerAnimator.SetTrigger("BeatMissed");
             }
 
         }
@@ -294,7 +300,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     targetPos.x = transform.position.x + 1;
                 }
-                sprite.flipX = true;
                 Squeeeesh(true);
             }
             else if (mvtHorizontal < 0 && canGoLeft)
@@ -316,7 +321,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     targetPos.x = transform.position.x - 1;
                 }
-                sprite.flipX = false;
                 Squeeeesh(true);
             }
             hasMoved = true;
@@ -428,27 +432,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void BeatTiming()
     {
-        Sequence seqColor = DOTween.Sequence();
-        switch (playerTiming)
-        {
-            case Timing.PERFECT:
-                seqColor.Append(sprite.DOColor(new Color(0,1,0,playerColor.a), .1f));
-                break;
-            case Timing.BEFORE:
-                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
-                break;
-            case Timing.AFTER:
-                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
-                break;
-            case Timing.MISS:
-                seqColor.Append(sprite.DOColor(new Color(1, 0, 0, playerColor.a), .1f));
-                break;
-            case Timing.NULL:
-                
-                break;
-            
-        } 
-        seqColor.Append(sprite.DOColor(playerColor, .1f));
+        Instantiate(beatText, transform.position, Quaternion.identity).GetComponent<BeatTimingText>().InstantiateText(playerTiming);
         
     }
 

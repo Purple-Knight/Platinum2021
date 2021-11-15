@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -5024,6 +5024,7 @@ MonoBehaviour:
   playerID: 0
   sprite: {fileID: 6995882317632707775}
   playerAnimator: {fileID: 344204938798962833}
+  beatText: {fileID: 3065274895382308146, guid: d7cd5b03ef7f6d34f9292e04a67075ce, type: 3}
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   deadZoneController: 0.4
   playerDir: 0
@@ -5156,10 +5157,10 @@ Animator:
   m_GameObject: {fileID: 3883265989226838415}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f44c949f37a124344a066fe8b89333c0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 84565927d6c9c734caef96edb563daf3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
