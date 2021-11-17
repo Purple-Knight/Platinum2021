@@ -21,6 +21,8 @@ public class ComboCounter : MonoBehaviour
     public bool downgradeWeaponOnReset = true;
     public bool zeroReset = false;
 
+    public int maxLimit = 1000;
+
 
     #region Get / Set
     public int Combo {
@@ -52,7 +54,16 @@ public class ComboCounter : MonoBehaviour
         Keep();
 
         Combo = ApplyModifier(Combo);
-        Debug.Log("Combo x" + Combo);
+
+        Color debugColor = playerManager.CharacterID switch
+        {
+            0 => new Color(232 / 255f, 53 / 255f, 161 / 255f),
+            1 => Color.cyan,
+            2 => new Color(53 / 255f, 232 / 255f, 107 / 255f),
+            3 => Color.yellow,
+            _ => Color.white,
+        };
+        Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}", (byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.CharacterID + 1, Combo));
 
         if(currentWeapon != null && Combo >= currentWeapon.ComboToUpgarde)
         {
@@ -69,7 +80,7 @@ public class ComboCounter : MonoBehaviour
     {
         if(exponential && Combo > 0)
         {
-            comboValue *= Mathf.RoundToInt(expoValue);
+            comboValue = Mathf.RoundToInt(comboValue * expoValue);
         }
         else
         {
@@ -77,7 +88,7 @@ public class ComboCounter : MonoBehaviour
             comboValue += addedValue;
         }
 
-        return comboValue;
+        return Mathf.Clamp(comboValue, 0, maxLimit);
     }
 
     public void ResetComboValues()
@@ -92,7 +103,6 @@ public class ComboCounter : MonoBehaviour
     {
         if (zeroReset) // to 0
         {
-           Debug.Log("RESET!!!");
             Combo = 0;
             playerManager.playerWeapon.SwapToBaseWeapon(); // Reset to Base Weapon
         }

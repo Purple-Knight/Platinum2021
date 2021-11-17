@@ -5006,6 +5006,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   notesParticle: {fileID: 933890351431816421}
+  debug: 0
 --- !u!114 &3883265989226838409
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -104,7 +104,7 @@ public class BulletInfo
     public int length;
     public bool lockDirection;
     public BulletDirection direction;
-    public Vector2 positionOffset;
+    [HideInInspector] public Vector2 positionOffset; //Not Implemented Yet
     public bool lockOnX;
     public bool lockOnY;
 
