@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         playersAlive.Clear();
         playersAlive = new List<bool>();
         numOfPlayerAlive = playersData.numberOfPlayer;
-       
+        Debug.Log(numOfPlayerAlive);
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             players[i].transform.position = spawnPoints[i];

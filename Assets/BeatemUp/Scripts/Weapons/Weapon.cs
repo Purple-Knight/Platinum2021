@@ -18,7 +18,8 @@ public class Weapon : MonoBehaviour
     protected float lastY = 1;
 
     // Weapon vars
-    public int ComboToUpgarde;
+    public int ComboToUpgarde; // Upgrade limit
+    public int ComboToDowngrade; // Downgrade limit
     public int weaponKey = 0;
 
     [Header("---Bullets---")] // Bullets
@@ -79,6 +80,8 @@ public class Weapon : MonoBehaviour
             else bulletDirection = lastDirection;
 
             blt.InitInfo(info, bulletDirection);
+
+            if (playerManager.comboManager != null) playerManager.comboManager.Keep(); //-------------
         }
     }
 
@@ -101,7 +104,7 @@ public class BulletInfo
     public int length;
     public bool lockDirection;
     public BulletDirection direction;
-    public Vector2 positionOffset;
+    [HideInInspector] public Vector2 positionOffset; //Not Implemented Yet
     public bool lockOnX;
     public bool lockOnY;
 

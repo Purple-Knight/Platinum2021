@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public int playerID = 0;
     public SpriteRenderer sprite;
+    private PlayerManager playerManager;
     private Player player; //Rewired player
     private RhythmManager rhythmManager;
 
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         rhythmManager.onMusicBeatDelegate += BeatReceived;
         rhythmManager.InstantiateBeat.AddListener(InstantiateRhythm);
 
+        playerManager = GetComponent<PlayerManager>();
         player = ReInput.players.GetPlayer(playerID);
         sprite.color = playerColor;
         targetPos = transform.position;
@@ -89,7 +91,8 @@ public class PlayerMovement : MonoBehaviour
             gotInputThisBeat = false;
             beatPassedTimer = 0;
             hasMoved = false;
-            
+
+            playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
         } 
 
         OtherPlayerOnNextTile();
@@ -308,7 +311,7 @@ public class PlayerMovement : MonoBehaviour
             currentNumOfSteps++;
         }
 
-        
+        playerManager.comboManager.Up();
     }
 
     public void BeatReceived()

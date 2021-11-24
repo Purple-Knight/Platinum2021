@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     public PlayerMovement playerMovement;
     public PlayerWeapon playerWeapon;
+    public ComboCounter comboManager;
     public PlayerHealth playerHealth;
     private int characterID;
     [SerializeField] List<Sprite> sprites;
@@ -34,6 +35,7 @@ public class PlayerManager : MonoBehaviour
 
         playerHealth.PlayerDied.AddListener(PlayerDied);
         playerMovement.InstantiateMovement();
+        comboManager.Init(this);
         debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
         debug = true;
     }
@@ -61,6 +63,7 @@ public class PlayerManager : MonoBehaviour
         gameObject.layer = 7;
         playerMovement.ResetPositions();
         playerHealth.ResetPlayer();
+        playerWeapon.SwapToBaseWeapon();
     }
 
     public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfStepsPerSec)
