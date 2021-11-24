@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BeatemUp/Scenes/TestLevelGen.unity
     guid: 0afa7d2fc96821c4da0423549b7a3153
+  - enabled: 1
+    path: Assets/BeatemUp/Scenes/VictoryScreen.unity
+    guid: 84015c6b5d663234eb73e95faef9f626
   m_configObjects: {}

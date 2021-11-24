@@ -27,6 +27,7 @@ public class RhythmManager : MonoBehaviour
     public List<Song> duration = new List<Song>();
 
     public UnityEvent InstantiateBeat;
+    public UnityEvent EndOfMusic;
 
 
     [Header("Beat Window")]
@@ -55,12 +56,13 @@ public class RhythmManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(delayStart());
+        
     }
 
     IEnumerator delayStart()
     {
         yield return new WaitForSeconds(timeBeforeStart);
-        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBar, CallbackFunction);
+        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
 
 
@@ -84,7 +86,7 @@ public class RhythmManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBar, CallbackFunction);
+            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
             onceAtStart = false;
             idToLaunch = 2;
         }
@@ -140,41 +142,48 @@ public class RhythmManager : MonoBehaviour
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
         AkMusicSyncCallbackInfo info = (AkMusicSyncCallbackInfo)in_info;
-        beatDuration = info.segmentInfo_fBeatDuration;
-
-        if (!onceAtStart)
+        if (in_type == AkCallbackType.AK_MusicSyncBeat)
         {
-            onceAtStart = true;
-            eventMusic[1].Post(gameObject);
-            StartCoroutine(beforeStart());
-            numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
-            InstantiateBeat?.Invoke();
+            beatDuration = info.segmentInfo_fBeatDuration;
 
-            //Window Rythm
-            halfBeatTime = beatDuration / 2;
-            
-            switch (level)
+            if (!onceAtStart)
             {
-                case Level.Easy:
-                    bufferTime = 5 * halfBeatTime / 6;
-                    break;
-                case Level.Medium:
-                    bufferTime = 4 * halfBeatTime / 6;
-                    break;
-                case Level.Hard:
-                    bufferTime =  halfBeatTime / 2;
-                    break;
+                onceAtStart = true;
+                eventMusic[1].Post(gameObject);
+                StartCoroutine(beforeStart());
+                numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
+                InstantiateBeat?.Invoke();
+
+                //Window Rythm
+                halfBeatTime = beatDuration / 2;
+
+                switch (level)
+                {
+                    case Level.Easy:
+                        bufferTime = 5 * halfBeatTime / 6;
+                        break;
+                    case Level.Medium:
+                        bufferTime = 4 * halfBeatTime / 6;
+                        break;
+                    case Level.Hard:
+                        bufferTime = halfBeatTime / 2;
+                        break;
+                }
+                perfectBufferTime = beatDuration / 6;
             }
-            perfectBufferTime = beatDuration / 6;
+            else
+            {
+                onMusicBeatDelegate?.Invoke();
+            }
+
+            timerInBetweenBeat = 0; //Reinitialize timer on beat
         }
-        else
+        else if( in_type == AkCallbackType.AK_MusicSyncUserCue)
         {
-            onMusicBeatDelegate?.Invoke();   
+            EndOfMusic?.Invoke();
         }
-
-        timerInBetweenBeat = 0; //Reinitialize timer on beat
-
     }
+
 
     IEnumerator beforeStart()
     {
@@ -189,7 +198,7 @@ public class RhythmManager : MonoBehaviour
             }
         }
 
-            eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            eventMusic[idToLaunch].Post(gameObject, (uint)0x2100, CallbackFunction);
     }
 
 }
