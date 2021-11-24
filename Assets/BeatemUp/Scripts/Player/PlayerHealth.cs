@@ -11,12 +11,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public UnityEvent PlayerHit;
     public UnityEvent<int> PlayerDied;
     public bool isAlive = true;
+    Animator playerAnimator;
 
     
     void Start()
     {
         playerID = GetComponent<PlayerManager>().CharacterID;
         currentHealth = healthPoints;
+        playerAnimator = GetComponent<Animator>();
     }
 
 
@@ -26,16 +28,20 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         PlayerHit.Invoke();
 
+        playerAnimator.SetTrigger("Hit");
+        
         if (currentHealth <= 0 && isAlive)
+        {
             OnDeath();
-
+        }
     }
 
     public void OnDeath()
     {
+
         isAlive = false;
-        Debug.Log("Dieded !"); 
         PlayerDied.Invoke(playerID);
+
     }
 
     public void ResetPlayer()
