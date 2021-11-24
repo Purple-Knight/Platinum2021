@@ -105,21 +105,23 @@ public class CharacterSelection : MonoBehaviour
 
                     if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                     {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(true);
+                        if(!charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once) charPortraitTrue[playersActual.IndexOf(item)].upValue();
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(true);
                     }
                     else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                     {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(false);
+                        if (!charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once) charPortraitTrue[playersActual.IndexOf(item)].downValue();
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(false);
                     }
 
 
                     else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
                     {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(true);
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(true);
                     }
                     else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
                     {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(false);
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(false);
                     }
 
 
