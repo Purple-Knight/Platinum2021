@@ -30,12 +30,12 @@ public class PlayerWeapon : MonoBehaviour
     private void Start()
     {
         aiming = transform.Find("Isometric Diamond");
+        UpdateAimVisual(Vector2.right);
 
         rhythmManager = RhythmManager.Instance;
         rhythmManager.onMusicBeatDelegate += BeatReceived;
 
         playerManager = GetComponent<PlayerManager>();
-        UpdateAimVisual(Vector2.right);
         player = ReInput.players.GetPlayer(playerManager.playerMovement.playerID);
 
         SwapWeaponStyle("0"); // Initialize Players w/ base Weapon
@@ -107,8 +107,6 @@ public class PlayerWeapon : MonoBehaviour
     public void UpdateAimVisual(Vector2 lastDirection)
     {
         aiming.position = new Vector2(transform.position.x + (lastDirection.x * .7f), transform.position.y + (lastDirection.y * .7f));
-        playerManager.playerAnimator.SetFloat("FireDirectionHorizontal", lastDirection.x);
-        playerManager.playerAnimator.SetFloat("FireDirectionVertical", lastDirection.y);
     }
 
     public void BeatReceived()
