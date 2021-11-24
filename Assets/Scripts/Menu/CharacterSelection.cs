@@ -17,6 +17,7 @@ public class CharacterSelection : MonoBehaviour
 
     // Object / Variables -------------------------------------
     public List<GameObject> charPortrait = new List<GameObject>();
+    public List<MapSelector> charPortraitTrue = new List<MapSelector>();
     public float deadZone;
     public GameObject buttonStart;
     bool canStart;
@@ -87,7 +88,7 @@ public class CharacterSelection : MonoBehaviour
                     }
                     else
                     {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(true);
+                        //charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(true);
                     }
 
                     checkIfEveryoneIsReady();
@@ -139,7 +140,7 @@ public class CharacterSelection : MonoBehaviour
                     {
                         if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
                         {
-                            charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
+                            //charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
                         }
                         else
                         {
@@ -169,11 +170,13 @@ public class CharacterSelection : MonoBehaviour
             if (playersActual.Count > i && playersActual[i] != null)
             {
                 charPortrait[i].SetActive(true);
+                charPortraitTrue[i].gameObject.SetActive(true);
                 charPortrait[i].GetComponent<CharBox>().isAssigned = true;
             }
             else
             {
                 charPortrait[i].SetActive(false);
+                charPortraitTrue[i].gameObject.SetActive(false);
                 charPortrait[i].GetComponent<CharBox>().isAssigned = false;
             }
         }

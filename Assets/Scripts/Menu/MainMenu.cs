@@ -226,7 +226,7 @@ public class MainMenu : MonoBehaviour
 
                     if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
                     {
-                        MapSelector.Instance.downValue();
+                        //MapSelector.Instance.downValue();
                         once[(players.IndexOf(item))] = true;
                         if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
                         else playerTimer[players.IndexOf(item)] = timer;
@@ -234,7 +234,7 @@ public class MainMenu : MonoBehaviour
 
                     else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
                     {
-                        MapSelector.Instance.upValue();
+                        //MapSelector.Instance.upValue();
                         once[(players.IndexOf(item))] = true;
                         if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
                         else playerTimer[players.IndexOf(item)] = timer;
