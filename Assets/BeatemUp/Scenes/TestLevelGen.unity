@@ -366,7 +366,11 @@ MonoBehaviour:
   eventMusic:
   - idInternal: 0
     valueGuidInternal: 
+<<<<<<< Updated upstream
     WwiseObjectReference: {fileID: 11400000, guid: aab47d4d6a800ad468d2006bbebd8621, type: 2}
+=======
+    WwiseObjectReference: {fileID: 0}
+>>>>>>> Stashed changes
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
@@ -393,9 +397,12 @@ MonoBehaviour:
   InstantiateBeat:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< Updated upstream
   EndOfMusic:
     m_PersistentCalls:
       m_Calls: []
+=======
+>>>>>>> Stashed changes
   perfectBufferTime: 0
   bufferTime: 0
   halfBeatTime: 0
@@ -564,7 +571,10 @@ MonoBehaviour:
   playerPrefab: {fileID: 3883265989226838415, guid: 6b966aea6fd025e45b8e0a9514ee2b11, type: 3}
   camera: {fileID: 671288745}
   levelGen: {fileID: 2054580097}
+<<<<<<< Updated upstream
   scoreManager: {fileID: 1638009998}
+=======
+>>>>>>> Stashed changes
   timeline: {fileID: 497517482}
 --- !u!114 &404619625
 MonoBehaviour:
@@ -810,6 +820,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
+<<<<<<< Updated upstream
+=======
+  isVictoryScreenActive: 0
+>>>>>>> Stashed changes
 --- !u!4 &762569985
 Transform:
   m_ObjectHideFlags: 0
@@ -1358,7 +1372,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< Updated upstream
   m_IsActive: 1
+=======
+  m_IsActive: 0
+>>>>>>> Stashed changes
 --- !u!114 &1293988503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,6 +1813,11 @@ MonoBehaviour:
   - {fileID: 1725765165}
   - {fileID: 2101557515}
   - {fileID: 831018996}
+<<<<<<< Updated upstream
+=======
+  playerScores: 
+  gameManager: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!4 &1638009999
 Transform:
   m_ObjectHideFlags: 0
@@ -2256,7 +2279,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59000003, y: 0}
   m_AnchorMax: {x: 0.83625, y: 0.13765645}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 3, y: -1.5023956}
+=======
+  m_AnchoredPosition: {x: 3, y: -1.5024109}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 3, y: -3.0048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938695119
