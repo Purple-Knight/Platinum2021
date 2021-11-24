@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID PLAYCRYPT = 859070589U;
         static const AkUniqueID PLAYLADY = 3554160111U;
+        static const AkUniqueID PLAYMMX3 = 1695793358U;
         static const AkUniqueID PLAYTUTEL = 1295635745U;
         static const AkUniqueID STOPALLMUSIC = 2907867019U;
     } // namespace EVENTS

@@ -1,8 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
 	859070589	PlayCrypt			\Default Work Unit\PlayCrypt	
 	1295635745	PlayTutel			\Default Work Unit\PlayTutel	
+	1695793358	PlayMMX3			\Default Work Unit\PlayMMX3	
 	2907867019	StopAllMusic			\Default Work Unit\StopAllMusic	
 	3554160111	PlayLady			\Default Work Unit\PlayLady	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1897326479	PlayBackSpeed			\Default Work Unit\PlayBackSpeed	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	111855593	Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Crypt of the Necrodancer Danganronpa OST\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)		21897280

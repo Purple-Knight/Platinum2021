@@ -7,15 +7,21 @@ public class BarTL : MonoBehaviour
 {
     public Vector3 direction;
     public float speed;
-     public float deleteTime;
+    public float deleteTime;
+
+    private Timeline tl;
 
 
     
 
-    void Start()
+    public void Start()
     {
+        tl = Timeline.Instance;
+        StopAllCoroutines();
         StartCoroutine(deletionNote());
     }
+
+
 
     void Update()
     {
@@ -23,7 +29,7 @@ public class BarTL : MonoBehaviour
     }
 
 
-    IEnumerator deletionNote()
+    public IEnumerator deletionNote()
     {
         var time = RhythmManager.Instance.beatDuration;
         var mySprite = GetComponent<SpriteRenderer>();
@@ -38,6 +44,8 @@ public class BarTL : MonoBehaviour
         mySprite.DOFade(0, time);
 
         yield return new WaitForSeconds(time);
+
+        tl.allBar.Remove(this);
 
         DOTween.Kill(gameObject);
 

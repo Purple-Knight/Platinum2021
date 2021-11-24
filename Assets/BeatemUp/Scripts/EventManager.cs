@@ -8,7 +8,13 @@ public class EventManager : MonoBehaviour
 
     public void SetPlaybackSpeed(int speed)
     {
-        playBackSpeedRTPC.SetGlobalValue( speed);
+        bool up;
+        if (playBackSpeedRTPC.GetGlobalValue() > speed) up = true;
+        else up = false;
+
+        playBackSpeedRTPC.SetGlobalValue(speed);
+        Timeline.Instance.up = up;
+        Timeline.Instance.actu = true;
     }
     
     public void PlaybackSpeedFast()

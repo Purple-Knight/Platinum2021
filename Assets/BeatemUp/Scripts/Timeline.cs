@@ -20,6 +20,13 @@ public class Timeline : MonoBehaviour
     bool canBegin;
     int actualBeat;
     float numberOfBeat;
+    public int newNOB;
+
+    [Header("RythmChange")]
+    public List<BarTL> allBar = new List<BarTL>();
+    public bool actu;
+    public bool up;
+    
 
 
     [Header("Debug")]
@@ -46,34 +53,144 @@ public class Timeline : MonoBehaviour
         RhythmManager.Instance.InstantiateBeat.AddListener(SendBar);
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void SendBar()
     {
-        if (canBegin && actualBeat < (numberOfBeat))
+        var booltest = false;
+        if (actu)
         {
-            var lastBar = Instantiate(bar, transform.position, transform.rotation);
+            actu = false;
+            actualiseAllBar(up);
+            booltest = true;
+        }
 
-            var direction = endTimeline.transform.position - transform.position;
-            var distance = Vector2.Distance(transform.position, endTimeline.transform.position);
+        if (!booltest || (booltest && up)) {
+            if (canBegin && actualBeat < (numberOfBeat))
+            {
+                var lastBar = Instantiate(bar, transform.position, transform.rotation);
+                lastBar.name += actualBeat;
 
-            var time = beatToReach * RhythmManager.Instance.beatDuration;
-            
-            var speed = (distance / time) * multiplicatorSpeed;
+                var direction = endTimeline.transform.position - transform.position;
+                var distance = Vector2.Distance(transform.position, endTimeline.transform.position);
 
-            var barScript = lastBar.GetComponent<BarTL>();
-            barScript.direction = direction.normalized;
-            barScript.speed = speed;
-            barScript.deleteTime = time;
+                var time = beatToReach * RhythmManager.Instance.beatDuration;
 
-            actualBeat++;
+                var speed = (distance / time) * multiplicatorSpeed;
 
-            createEcho();
+                var barScript = lastBar.GetComponent<BarTL>();
+                barScript.direction = direction.normalized;
+                barScript.speed = speed;
+                barScript.deleteTime = time;
+
+                allBar.Add(barScript);
+
+                actualBeat++;
+
+                createEcho();
+            }
+            else
+            {
+                canBegin = true;
+                numberOfBeat = RhythmManager.Instance.numberOfBeat;
+            }
+        }
+    }
+
+    public void actualiseAllBar(bool plus)
+    {
+        //List<BarTL> listla = new List<BarTL>();
+
+        for (int i = 0; i < allBar.Count; i++)
+        {
+            var lastBar = allBar[i];
+
+            //if (plus) listla.Add(lastBar);
+                
+                var direction = endTimeline.transform.position - lastBar.transform.position;
+                var distance = Vector2.Distance(lastBar.transform.position, endTimeline.transform.position);
+
+                var time = (RhythmManager.Instance.beatDuration) * (allBar.Count - (allBar.Count - i));
+
+                var speed = (distance / time) * multiplicatorSpeed;
+
+                var barScript = lastBar.GetComponent<BarTL>();
+                barScript.direction = direction.normalized;
+                barScript.speed = speed;
+                barScript.deleteTime = time;
+                barScript.Start();
+        }
+
+        /*if (listla.Count != 0)
+        {
+            foreach (var item in listla)
+            {
+                allBar.Remove(item);
+            }
+        }*/
+    }
+
+    /*public void actualiseAllBar(bool _plus)
+    {
+        if (!_plus) {
+            for (int i = 0; i < allBar.Count; i++)
+            {
+                var lastBar = allBar[i];
+
+                if (i > beatToReach - 1)
+                {
+                    Destroy(lastBar.gameObject);
+                }
+                else
+                {
+                    var direction = endTimeline.transform.position - lastBar.transform.position;
+                    var distance = Vector2.Distance(lastBar.transform.position, endTimeline.transform.position);
+
+                    var time = (RhythmManager.Instance.beatDuration) * (allBar.Count - (allBar.Count - i));
+
+                    var speed = (distance / time) * multiplicatorSpeed;
+
+                    var barScript = lastBar.GetComponent<BarTL>();
+                    barScript.direction = direction.normalized;
+                    barScript.speed = speed;
+                    barScript.deleteTime = time;
+                    barScript.Start();
+
+                }
+            }
+
+
         }
         else
         {
-            canBegin = true;
-            numberOfBeat = RhythmManager.Instance.numberOfBeat;
+            for (int i = allBar.Count; i <= beatToReach; i++)
+            {
+                SendBar();
+            }
+
+            for (int i = 0; i < allBar.Count; i++)
+            {
+                var lastBar = allBar[i];
+
+                    var direction = endTimeline.transform.position - lastBar.transform.position;
+                    var distance = Vector2.Distance(lastBar.transform.position, endTimeline.transform.position);
+
+                    var time = (RhythmManager.Instance.beatDuration) * (allBar.Count - (allBar.Count - i));
+
+                    var speed = (distance / time) * multiplicatorSpeed;
+
+                    var barScript = lastBar.GetComponent<BarTL>();
+                    barScript.direction = direction.normalized;
+                    barScript.speed = speed;
+                    barScript.deleteTime = time;
+                    barScript.Start();
+
+            }
         }
-    }
+    }*/
 
 
     void createEcho()
