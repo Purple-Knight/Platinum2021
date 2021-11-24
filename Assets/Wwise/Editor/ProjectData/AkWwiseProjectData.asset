@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 2d6f24040ad22d429ad3984df56c0403
     GuidInternal: 
-    m_lastTime: -8585650719987913477
+    m_lastTime: -8585656540874584844
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -100,7 +100,11 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d038ecf2d1335543bf943a8f453b7d5f
     GuidInternal: 
+<<<<<<< HEAD
     m_lastTime: -8585638613226725438
+=======
+    m_lastTime: -8585647765418939811
+>>>>>>> 715fe69c1e2eadae0e535887cc0ec4ad91e97cad
     List:
     - name: MusicBank
       guid: c950ed8ba691bb4196f94f83cbd3c44e
@@ -142,7 +146,11 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
+<<<<<<< HEAD
     m_lastTime: -8585638613446836781
+=======
+    m_lastTime: -8585647770310201111
+>>>>>>> 715fe69c1e2eadae0e535887cc0ec4ad91e97cad
     List:
     - name: EndOfMusic
       guid: aff9ad565dfaa94eacb15556c941bcf1
@@ -258,7 +266,11 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 9a51d9a503d3e347aba274c0c14197b8
     GuidInternal: 
+<<<<<<< HEAD
     m_lastTime: -8585650466010122439
+=======
+    m_lastTime: -8585650528679780532
+>>>>>>> 715fe69c1e2eadae0e535887cc0ec4ad91e97cad
     List:
     - name: PlayBackSpeed
       guid: 0981d9f3e7eefc4bb7a9270580ba71a3
@@ -382,7 +394,11 @@ MonoBehaviour:
     m_lastTime: -8585685130077032975
     List: []
   ExpandedFileSystemItemIds: 
+<<<<<<< HEAD
   ExpandedWaapiItemIds: 01000000050000000600000007000000
+=======
+  ExpandedWaapiItemIds: 0500000006000000
+>>>>>>> 715fe69c1e2eadae0e535887cc0ec4ad91e97cad
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

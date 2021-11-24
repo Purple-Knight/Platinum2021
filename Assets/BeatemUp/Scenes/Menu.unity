@@ -293,11 +293,10 @@ MonoBehaviour:
   - {r: 0.79606915, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.3480534, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
   characterList:
-  - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
-  - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
+  - {fileID: 21300000, guid: aba7217f5f1cfc14890408b36bf0c2e7, type: 3}
+  - {fileID: 21300000, guid: 9e4002dcdbf93d7439863d258f581309, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   idColor: 0
   idChar: 0
   once: 0
@@ -3039,11 +3038,10 @@ MonoBehaviour:
   - {r: 0.79606915, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.3480534, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
   characterList:
-  - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
-  - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
+  - {fileID: 21300000, guid: aba7217f5f1cfc14890408b36bf0c2e7, type: 3}
+  - {fileID: 21300000, guid: 9e4002dcdbf93d7439863d258f581309, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   idColor: 0
   idChar: 0
   once: 0
@@ -3614,6 +3612,7 @@ MonoBehaviour:
   bufferTime: 0
   halfBeatTime: 0
   timerInBetweenBeat: 0
+  level: 0
 --- !u!4 &1422825377
 Transform:
   m_ObjectHideFlags: 0
@@ -4074,11 +4073,10 @@ MonoBehaviour:
   - {r: 0.79606915, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.3480534, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
   characterList:
-  - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
-  - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
+  - {fileID: 21300000, guid: aba7217f5f1cfc14890408b36bf0c2e7, type: 3}
+  - {fileID: 21300000, guid: 9e4002dcdbf93d7439863d258f581309, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   idColor: 0
   idChar: 0
   once: 0
@@ -4682,11 +4680,10 @@ MonoBehaviour:
   - {r: 0.79606915, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.3480534, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
   characterList:
-  - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
-  - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
+  - {fileID: 21300000, guid: aba7217f5f1cfc14890408b36bf0c2e7, type: 3}
+  - {fileID: 21300000, guid: 9e4002dcdbf93d7439863d258f581309, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   idColor: 0
   idChar: 0
   once: 0

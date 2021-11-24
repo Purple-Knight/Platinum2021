@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4960,6 +4960,7 @@ GameObject:
   - component: {fileID: -6364000640499899623}
   - component: {fileID: 3883265989226838404}
   - component: {fileID: 3883265989226838411}
+  - component: {fileID: 344204938798962833}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5001,10 +5002,11 @@ MonoBehaviour:
   playerWeapon: {fileID: 7043354195277512944}
   comboManager: {fileID: -6364000640499899623}
   playerHealth: {fileID: 3259888342345483222}
+  playerAnimator: {fileID: 344204938798962833}
   sprites:
-  - {fileID: 21300000, guid: 381ba5f55e16c254b9b2558810c3a191, type: 3}
-  - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
+  - {fileID: 21300000, guid: aba7217f5f1cfc14890408b36bf0c2e7, type: 3}
+  - {fileID: 21300000, guid: 9e4002dcdbf93d7439863d258f581309, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   notesParticle: {fileID: 933890351431816421}
   debug: 0
 --- !u!114 &3883265989226838409
@@ -5021,6 +5023,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   sprite: {fileID: 6995882317632707775}
+  playerAnimator: {fileID: 344204938798962833}
+  beatText: {fileID: 3065274895382308146, guid: d7cd5b03ef7f6d34f9292e04a67075ce, type: 3}
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   deadZoneController: 0.4
   playerDir: 0
@@ -5113,9 +5117,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 3.8, y: 0.7}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.057, y: 1.057}
+    newSize: {x: 1.057, y: 1.057}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -5144,6 +5148,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!95 &344204938798962833
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3883265989226838415}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f44c949f37a124344a066fe8b89333c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5965693882611193182
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,7 +5243,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1834285, y: 1.2082063}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
