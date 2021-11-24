@@ -75,6 +75,20 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="EndOfMusic" ID="{56ADF9AF-FA5D-4EA9-ACB1-5556C941BCF1}">
+					<ChildrenList>
+						<Action Name="" ID="{628B6892-3350-4FBB-9495-B3FAE7414093}" ShortID="784505512">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="39"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

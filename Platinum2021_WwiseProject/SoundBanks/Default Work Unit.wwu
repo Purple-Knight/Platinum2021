@@ -10,6 +10,7 @@
 						<ObjectRef Name="Lady Hear Me Tonight" ID="{7D635622-B4CA-47AF-BBBA-C2CFF5B74077}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Crypt of the Necrodancer Danganronpa OST" ID="{6F62C79A-2CF3-4B72-BD6F-C90EA05F32E8}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Tutel" ID="{A526841F-2AA1-4C3D-A438-0702E3F8AAE7}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="EndOfMusic" ID="{56ADF9AF-FA5D-4EA9-ACB1-5556C941BCF1}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

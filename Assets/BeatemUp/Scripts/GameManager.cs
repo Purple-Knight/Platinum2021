@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     public CameraManager camera;
     public LevelGenerator levelGen;
+    public ScoreManager scoreManager;
     [SerializeField] GameObject timeline;
 
     void Start()
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
         SpawnPlayer();
         timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
         camera.SetStartPos(levelGen.transform.position);
+        RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
+        scoreManager.InstantiateScore();
     }
 
     public void SpawnPlayer()
@@ -108,4 +112,59 @@ public class GameManager : MonoBehaviour
         camera.ResetCamera();
     }
 
+
+    public void EndGame()
+    {
+        //321 count down
+        //disable player input
+        List<int> winners = CheckWinner();
+        APlayerData data = playersData.allPlayerData[winners[0]];
+        VictoryManager.Instance.InstantiateVictoryScene("Character idk", winners[0] +1, data.myCharID, data.myColorID);
+        //new game and menu buttons
+
+    }
+
+    public List<int> CheckWinner()
+    {
+        int winner = 0;
+        List<int> winners = new List<int>();
+        bool multipleWinner = false;
+        for (int i = 1; i < playerWins.Length; i++)
+        {
+            if(playerWins[i] > playerWins[winner])
+            {
+                winner = i;
+                multipleWinner = false;
+            }else if (playerWins[winner] == playerWins[i])
+            {
+                multipleWinner = true;
+            }
+        }
+        if (multipleWinner)
+        {
+            string victoryText = "Tied ! :";
+            for (int i = 0; i < playerWins.Length; i++)
+            {
+                if (playerWins[i] == playerWins[winner])
+                {
+                    winners.Add(i);
+                    victoryText += " player " + i;
+                }
+            }
+
+            Debug.Log(victoryText);
+        }
+        else
+        {
+            winners.Add(winner);
+        }
+            Debug.Log("winner : " + winner);
+            return winners;
+    }
+
+
+    public void LoadScene(string sceneToLoad)
+    {
+        SceneManager.LoadScene(sceneToLoad);
+    }
 }

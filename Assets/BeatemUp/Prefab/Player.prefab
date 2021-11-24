@@ -5096,6 +5096,7 @@ MonoBehaviour:
   expoValue: 2
   downgradeWeaponOnReset: 1
   zeroReset: 0
+  maxLimit: 1000
 --- !u!61 &3883265989226838404
 BoxCollider2D:
   m_ObjectHideFlags: 0
