@@ -268,12 +268,14 @@ public class CharacterSelection : MonoBehaviour
     {
 
         var charportrait = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
+        var n1 = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
 
         pd.numberOfPlayer = playersActual.Count;
         pd.allPlayerData[playersActual.IndexOf(item)].myCharID = charportrait.idChar;
         pd.allPlayerData[playersActual.IndexOf(item)].myColorID = charportrait.colorList[charportrait.idColor];
         if(charportrait.isAssigned) pd.allPlayerData[playersActual.IndexOf(item)].playerControllerID = (item.id);
         pd.allPlayerData[playersActual.IndexOf(item)].isActivated= (charportrait.isAssigned);
+        pd.allPlayerData[playersActual.IndexOf(item)].myName = n1.characterList[n1.idChar].name;
         Debug.Log("Start Game");
     }
 
