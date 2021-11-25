@@ -194,6 +194,7 @@ public class GridLevelEditor : EditorWindow
     {
         if (isErasing)
         {
+            Debug.Log("row : " + row + "   col : " + col);
             if (parts[row][col] != null)
             {
                 nodes[row][col].SetStyle(emptyStyle);
