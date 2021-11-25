@@ -8,6 +8,39 @@
 						<MusicSegment Name="Crypt of the Necrodancer Danganronpa OST" ID="{6F62C79A-2CF3-4B72-BD6F-C90EA05F32E8}" ShortID="191731233">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="135562.448979591"/>
+								<Property Name="PlaybackSpeed" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{B88DEFCC-8559-4C6B-9E94-4777AEF8EF77}" ShortID="554619339">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{8933379A-F8B8-4D9A-AB58-0E6F24097D66}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="1"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>0.25</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50</XPos>
+														<YPos>1</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>2</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
 								<Property Name="Tempo" Type="Real64" Value="126"/>
 							</PropertyList>
 							<ReferenceList>
@@ -93,6 +126,39 @@
 						<MusicSegment Name="Tutel" ID="{A526841F-2AA1-4C3D-A438-0702E3F8AAE7}" ShortID="457587574">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="196032"/>
+								<Property Name="PlaybackSpeed" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{51736E9D-94B9-4521-A41E-3E7B6B9FEDAB}" ShortID="560218826">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{495118B6-661A-47CE-A040-36CEEF207150}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="1"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>0.25</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50</XPos>
+														<YPos>1</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>2</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
 								<Property Name="Tempo" Type="Real64" Value="90"/>
 							</PropertyList>
 							<ReferenceList>
@@ -178,6 +244,39 @@
 						<MusicSegment Name="Lady Hear Me Tonight" ID="{7D635622-B4CA-47AF-BBBA-C2CFF5B74077}" ShortID="751790578">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="303380.333333333"/>
+								<Property Name="PlaybackSpeed" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{DB5D2CE1-00F5-4C1B-9DA4-E9565DBB4594}" ShortID="312123538">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{B5619EFF-DB4F-4F77-8099-CDF2BBEE5ACF}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="1"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>0.25</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50</XPos>
+														<YPos>1</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>2</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
 								<Property Name="Tempo" Type="Real64" Value="126"/>
 							</PropertyList>
 							<ReferenceList>
