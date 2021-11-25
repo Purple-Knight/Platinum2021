@@ -4,6 +4,7 @@ using UnityEngine;
 using Rewired;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class CharacterSelection : MonoBehaviour
     // Object / Variables -------------------------------------
     public List<GameObject> charPortrait = new List<GameObject>();
     public List<MapSelector> charPortraitTrue = new List<MapSelector>();
-    public List<Text> namesZone= new List<Text>();
+    public List<TextMeshProUGUI> namesZone= new List<TextMeshProUGUI>();
     public float deadZone;
     public GameObject buttonStart;
     bool canStart;
@@ -90,6 +91,8 @@ public class CharacterSelection : MonoBehaviour
                     else
                     {
                         var n1 = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
+                        var n2 = charPortraitTrue[playersActual.IndexOf(item)].GetComponent<Image>();
+
                         n1.changeOK(true);
                     }
 
@@ -102,58 +105,66 @@ public class CharacterSelection : MonoBehaviour
 
                 if (playersActual.Contains(item)) // selectioh characters --------------------------------
                 {
+
                     var n1 = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
                     var n2 = charPortraitTrue[playersActual.IndexOf(item)].GetComponent<Image>();
 
-                    #region LEFT/RIGHT/UP/DOWN
-
-                    if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                    if (!n1.ok)
                     {
-                        if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].downValue();
-                        n1.changeChar(true);
-                    }
-                    else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
-                    {
-                        if(!n1.once) charPortraitTrue[playersActual.IndexOf(item)].upValue();
-                        n1.changeChar(false);
-                    }
 
+                        #region LEFT/RIGHT/UP/DOWN
 
-                    else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
-                    {
-                        if (!n1.once)
+                        if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                         {
-                            n1.changeColor(true);
-                            for (int i = 0; i < n2.gameObject.GetComponent<MapSelector>().GoList.Count; i++)
-                            {
-                                n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
-
-                            }
-
-                            n2.gameObject.GetComponent<MapSelector>().moveToGO();
+                            if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].downValue();
+                            n1.changeChar(true);
+                            namesZone[playersActual.IndexOf(item)].text = n1.characterList[n1.idChar].name;
                         }
-                    }
-                    else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
-                    {
-                        if (!n1.once)
+                        else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                         {
-                            n1.changeColor(false);
-                            for (int i = 0; i < n2.gameObject.GetComponent<MapSelector>().GoList.Count; i++)
-                            {
-                                n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
-
-                            }
-                            n2.gameObject.GetComponent<MapSelector>().moveToGO();
+                            if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].upValue();
+                            n1.changeChar(false);
+                            namesZone[playersActual.IndexOf(item)].text = n1.characterList[n1.idChar].name;
                         }
+
+
+                        else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                        {
+                            if (!n1.once)
+                            {
+                                n1.changeColor(true);
+                                for (int i = 0; i < n2.gameObject.GetComponent<MapSelector>().GoList.Count; i++)
+                                {
+                                    n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
+
+                                }
+
+                                n2.gameObject.GetComponent<MapSelector>().moveToGO();
+                            }
+                        }
+                        else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                        {
+                            if (!n1.once)
+                            {
+                                n1.changeColor(false);
+                                for (int i = 0; i < n2.gameObject.GetComponent<MapSelector>().GoList.Count; i++)
+                                {
+                                    n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
+
+                                }
+                                n2.gameObject.GetComponent<MapSelector>().moveToGO();
+                            }
+                        }
+
+
+                        else
+                        {
+                            n1.once = false;
+                        }
+
+                        #endregion
+
                     }
-
-
-                    else
-                    {
-                        n1.once = false;
-                    }
-
-                    #endregion
 
                     if (item.GetButtonDown("Start"))
                     {
@@ -165,10 +176,11 @@ public class CharacterSelection : MonoBehaviour
                     {
                         if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
                         {
-                            //charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
+                            charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
                         }
                         else
                         {
+                            Debug.Log("etape 1");
                             playersActual[playersActual.IndexOf(item)] = null;
                             showPlayerSelect();
                         }
