@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -240,7 +241,7 @@ public class CharacterSelection : MonoBehaviour
                 {
                     saveALL(item);
                     saveData();
-                    MainMenu.Instance.toMapSelect();
+                    SceneManager.LoadScene("TestLevelGen");
                 }
                 else
                 {

@@ -3760,7 +3760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -6, y: -754.83}
+  m_AnchoredPosition: {x: -6, y: -754.82996}
   m_SizeDelta: {x: -79.25, y: -333.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &673011982
@@ -5076,7 +5076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.32843, y: 41.336605}
+  m_AnchoredPosition: {x: -361.32843, y: 41.3366}
   m_SizeDelta: {x: 515.2599, y: 326.29465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913188916
@@ -6887,7 +6887,7 @@ MonoBehaviour:
   eventMusic:
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 123bcaeaa0685144d913999a453fd830, type: 2}
+    WwiseObjectReference: {fileID: 0}
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
@@ -6902,6 +6902,14 @@ MonoBehaviour:
   InstantiateBeat:
     m_PersistentCalls:
       m_Calls: []
+  EndOfMusic:
+    m_PersistentCalls:
+      m_Calls: []
+  perfectBufferTime: 0
+  bufferTime: 0
+  halfBeatTime: 0
+  timerInBetweenBeat: 0
+  level: 0
 --- !u!4 &1422825377
 Transform:
   m_ObjectHideFlags: 0
