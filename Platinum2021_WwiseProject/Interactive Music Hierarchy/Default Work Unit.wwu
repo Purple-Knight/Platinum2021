@@ -257,6 +257,16 @@
 											</MusicCue>
 										</Local>
 									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="MusicEnd" ID="{52D3D8C9-C3F7-4631-87B2-ACDAE5E7F03F}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="2"/>
+													<Property Name="TimeMs" Type="Real64" Value="59986.3246316844"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
 								</ObjectList>
 							</ObjectLists>
 						</MusicSegment>

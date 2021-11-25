@@ -1,9 +1,11 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Rewired;
 using UnityEngine.Events;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,8 +13,11 @@ public class PlayerMovement : MonoBehaviour
 
     public int playerID = 0;
     public SpriteRenderer sprite;
+    private PlayerManager playerManager;
     private Player player; //Rewired player
     private RhythmManager rhythmManager;
+    public Animator playerAnimator;
+    [SerializeField] private GameObject beatText;
 
     public Color playerColor;
     [SerializeField] float deadZoneController;
@@ -59,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = true;
-    private bool _boolDebug = false;
     [SerializeField] private Rect _guiDebugArea = new Rect(110, 20, 150, 150);
 
     public void InstantiateMovement()
@@ -68,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         rhythmManager.onMusicBeatDelegate += BeatReceived;
         rhythmManager.InstantiateBeat.AddListener(InstantiateRhythm);
 
+        playerManager = GetComponent<PlayerManager>();
         player = ReInput.players.GetPlayer(playerID);
         sprite.color = playerColor;
         targetPos = transform.position;
@@ -89,7 +94,8 @@ public class PlayerMovement : MonoBehaviour
             gotInputThisBeat = false;
             beatPassedTimer = 0;
             hasMoved = false;
-            
+
+            playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
         } 
 
         OtherPlayerOnNextTile();
@@ -131,6 +137,30 @@ public class PlayerMovement : MonoBehaviour
                     mvtVertical = 0;
                 }
 
+                switch (playerDir)
+                {
+                    case PlayerDir.NULL:
+                        break;
+                    case PlayerDir.UP:
+                        playerAnimator.SetFloat("DirectionHorizontal", 0);
+                        playerAnimator.SetFloat("DirectionVertical", 1);
+                        break;
+                    case PlayerDir.DOWN:
+                        playerAnimator.SetFloat("DirectionHorizontal", 0);
+                        playerAnimator.SetFloat("DirectionVertical", -1);
+                        break;
+                    case PlayerDir.RIGHT:
+                        playerAnimator.SetFloat("DirectionHorizontal", 1);
+                        playerAnimator.SetFloat("DirectionVertical", 0);
+                        break;
+                    case PlayerDir.LEFT:
+                        playerAnimator.SetFloat("DirectionHorizontal", -1);
+                        playerAnimator.SetFloat("DirectionVertical", 0);
+                        break;
+                    default:
+                        break;
+                }
+
                 buttonDown = true;
                 gotInputThisBeat = true;
                 Move();
@@ -142,6 +172,8 @@ public class PlayerMovement : MonoBehaviour
                 //playerDir = PlayerDir.NULL;
                 mvtHorizontal = 0;
                 mvtVertical = 0;
+                BeatTiming();
+                playerAnimator.SetTrigger("BeatMissed");
             }
 
         }
@@ -206,8 +238,14 @@ public class PlayerMovement : MonoBehaviour
                 else 
                 {
                     targetPos.y = transform.position.y + 1;
+                    
                 }
                 
+                Squeeeesh(false);
+            }
+            else if (mvtVertical > 0 && !canGoUp) //if the player can't go up 
+            {
+                playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
                 Squeeeesh(false);
             }
             else if (mvtVertical < 0 && canGoDown)
@@ -229,6 +267,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     targetPos.y = transform.position.y - 1;
                 }
+                Squeeeesh(false);
+            }
+            else if (mvtVertical < 0 && !canGoDown) //if the player can't go down
+            {
+                playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
                 Squeeeesh(false);
             }
             hasMoved = true;
@@ -268,8 +311,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     targetPos.x = transform.position.x + 1;
                 }
-                sprite.flipX = true;
                 Squeeeesh(true);
+            }
+            else if (mvtHorizontal > 0 && !canGoRight) //if the player can't go right  
+            {
+                playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
+                Squeeeesh(false);
             }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
@@ -290,8 +337,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     targetPos.x = transform.position.x - 1;
                 }
-                sprite.flipX = false;
                 Squeeeesh(true);
+            }
+            else if (mvtHorizontal < 0 && !canGoLeft) //if the player can't go left 
+            {
+                playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
+                Squeeeesh(false);
             }
             hasMoved = true;
         }
@@ -304,11 +355,12 @@ public class PlayerMovement : MonoBehaviour
             transform.DOComplete();
         if (!freeMovement || (freeMovement && currentNumOfSteps < maxNumOfMovement))
         {
+            playerAnimator.SetTrigger("Move");
             transform.DOMove(targetPos, .2f);
             currentNumOfSteps++;
         }
 
-        
+        playerManager.comboManager.Up();
     }
 
     public void BeatReceived()
@@ -401,27 +453,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void BeatTiming()
     {
-        Sequence seqColor = DOTween.Sequence();
-        switch (playerTiming)
-        {
-            case Timing.PERFECT:
-                seqColor.Append(sprite.DOColor(new Color(0,1,0,playerColor.a), .1f));
-                break;
-            case Timing.BEFORE:
-                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
-                break;
-            case Timing.AFTER:
-                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
-                break;
-            case Timing.MISS:
-                seqColor.Append(sprite.DOColor(new Color(1, 0, 0, playerColor.a), .1f));
-                break;
-            case Timing.NULL:
-                
-                break;
-            
-        } 
-        seqColor.Append(sprite.DOColor(playerColor, .1f));
+        Instantiate(beatText, transform.position, Quaternion.identity).GetComponent<BeatTimingText>().InstantiateText(playerTiming);
         
     }
 

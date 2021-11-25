@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 
 public class Weapon_Standard : Weapon
 {
@@ -15,6 +14,7 @@ public class Weapon_Standard : Weapon
             if (playerTiming != Timing.MISS && playerTiming != Timing.NULL)
             {
                 Fire();
+                playerManager.playerAnimator.SetTrigger("Fire");
             }
         }
 
