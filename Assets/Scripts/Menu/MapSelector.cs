@@ -199,7 +199,7 @@ public class MapSelector : MonoBehaviour
     }
 
 
-    void moveToGO()
+    public void moveToGO()
     {
         foreach (var item in copieGoList)
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using UnityEngine.UI;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -43,8 +44,6 @@ public class CharacterSelection : MonoBehaviour
         {
             foreach (var item in players)
             {
-
-
 
                 if (item.GetButtonDown("Confirm")) // Confirme fct ---------------------------------------------------------------
                 {
@@ -88,7 +87,8 @@ public class CharacterSelection : MonoBehaviour
                     }
                     else
                     {
-                        //charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(true);
+                        var n1 = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
+                        n1.changeOK(true);
                     }
 
                     checkIfEveryoneIsReady();
@@ -100,34 +100,55 @@ public class CharacterSelection : MonoBehaviour
 
                 if (playersActual.Contains(item)) // selectioh characters --------------------------------
                 {
+                    var n1 = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
+                    var n2 = charPortraitTrue[playersActual.IndexOf(item)].GetComponent<Image>();
 
                     #region LEFT/RIGHT/UP/DOWN
 
                     if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                     {
-                        if(!charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once) charPortraitTrue[playersActual.IndexOf(item)].upValue();
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(true);
+                        if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].downValue();
+                        n1.changeChar(true);
                     }
                     else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                     {
-                        if (!charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once) charPortraitTrue[playersActual.IndexOf(item)].downValue();
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(false);
+                        if(!n1.once) charPortraitTrue[playersActual.IndexOf(item)].upValue();
+                        n1.changeChar(false);
                     }
 
 
                     else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
                     {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(true);
+                        if (!n1.once)
+                        {
+                            n1.changeColor(true);
+                            for (int i = 0; i < n2.gameObject.GetComponent<MapSelector>().GoList.Count; i++)
+                            {
+                                n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
+
+                            }
+
+                            n2.gameObject.GetComponent<MapSelector>().moveToGO();
+                        }
                     }
                     else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
                     {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(false);
+                        if (!n1.once)
+                        {
+                            n1.changeColor(false);
+                            for (int i = 0; i < n2.gameObject.GetComponent<MapSelector>().GoList.Count; i++)
+                            {
+                                n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
+
+                            }
+                            n2.gameObject.GetComponent<MapSelector>().moveToGO();
+                        }
                     }
 
 
                     else
                     {
-                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once = false;
+                        n1.once = false;
                     }
 
                     #endregion
