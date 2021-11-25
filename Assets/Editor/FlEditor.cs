@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(FeelGood))]
-public class FeelGEditor : Editor
+[CustomEditor(typeof(Feel))]
+public class FlGEditor : Editor
 {
     public override void OnInspectorGUI()
     {
@@ -12,43 +12,45 @@ public class FeelGEditor : Editor
 
         #region FIND PROPERTIES 
 
-        SerializedProperty action = serializedObject.FindProperty("playOnAwake");
+        SerializedProperty toActivate = serializedObject.FindProperty("launch");
         SerializedProperty timeToDo = serializedObject.FindProperty("timeToDo");
 
         SerializedProperty changePos = serializedObject.FindProperty("changePos");
         SerializedProperty posPourcent = serializedObject.FindProperty("posNeed");
+        SerializedProperty posPourcentB = serializedObject.FindProperty("posNeedBack");
 
         SerializedProperty changeScale = serializedObject.FindProperty("changeScale");
         SerializedProperty scalePourcent = serializedObject.FindProperty("scaleNeed");
-
-        SerializedProperty colorChange = serializedObject.FindProperty("changeColor");
-        SerializedProperty colorPourcent = serializedObject.FindProperty("colorNeed");
+        SerializedProperty scalePourcentB = serializedObject.FindProperty("scaleNeedBack");
 
         #endregion
 
-
-
-        EditorGUILayout.PropertyField(action);
+        EditorGUILayout.PropertyField(toActivate);
         EditorGUILayout.PropertyField(timeToDo);
 
         EditorGUILayout.PropertyField(changePos);
         if (changePos.boolValue)
         {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("------------- Aller -------------");
             EditorGUILayout.PropertyField(posPourcent);
+            EditorGUILayout.LabelField("------------- Retour -------------");
+            EditorGUILayout.PropertyField(posPourcentB);
+            EditorGUILayout.Space();
         }
 
         EditorGUILayout.PropertyField(changeScale);
         if (changeScale.boolValue)
         {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("------------- Aller -------------");
             EditorGUILayout.PropertyField(scalePourcent);
-        }
-
-        EditorGUILayout.PropertyField(colorChange);
-        if (colorChange.boolValue)
-        {
-            EditorGUILayout.PropertyField(colorPourcent);
+            EditorGUILayout.LabelField("------------- Retour -------------");
+            EditorGUILayout.PropertyField(scalePourcentB);
+            EditorGUILayout.Space();
         }
 
         serializedObject.ApplyModifiedProperties();
     }
+     
 }

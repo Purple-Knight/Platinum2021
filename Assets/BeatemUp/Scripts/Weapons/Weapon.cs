@@ -71,13 +71,24 @@ public class Weapon : MonoBehaviour
     {
         foreach (BulletInfo info in bullets)
         {
-            Bullet blt = Instantiate(bulletPrefab, playerWeapon.transform.position, Quaternion.identity).GetComponent<Bullet>();
-
+            //Locked Directions
             Vector2 bulletDirection;
-            if (info.lockOnX) bulletDirection = Vector2.right * lastX;
+            if (info.lockDirection) bulletDirection = info.getLockedDirection;
             else if (info.lockOnY) bulletDirection = Vector2.up * lastY;
-            else if (info.lockDirection) bulletDirection = info.Direction;
-            else bulletDirection = lastDirection;
+            else if (info.lockOnX) bulletDirection = Vector2.right * lastX;
+            else
+            {
+                //Angle Offset 
+                bulletDirection = info.getOffsetDirection(lastDirection);
+            }
+
+            //Position Offset
+            Vector2 bulletPosition = playerWeapon.transform.position;
+            bulletPosition += info.getPositionOffset(bulletDirection);
+
+
+            //Spawn
+            Bullet blt = Instantiate(bulletPrefab, bulletPosition, Quaternion.identity).GetComponent<Bullet>();
 
             blt.InitInfo(info, bulletDirection);
 
@@ -99,34 +110,70 @@ public class Weapon : MonoBehaviour
 [System.Serializable]
 public class BulletInfo
 {
-    public enum BulletDirection { Left, Right, Up, Down }
+    public enum BulletDirection { Left, Up, Right, Down }
+    public enum DirectionOffset { Forward, RightSide, Backward, LeftSide }
 
     public int length;
+
+    public Vector2 positionOffset;
+    public DirectionOffset inputDirectionOffset = DirectionOffset.Forward;
+    
     public bool lockDirection;
-    public BulletDirection direction;
-    [HideInInspector] public Vector2 positionOffset; //Not Implemented Yet
+    public BulletDirection lockIntoDirection;
+    
     public bool lockOnX;
     public bool lockOnY;
 
-    public Vector2 Direction
+    private Vector2 EnumToVector2(BulletDirection enumDir)
     {
-        get
+        switch (enumDir)
         {
-            switch (direction)
-            {
-                case BulletInfo.BulletDirection.Left:
-                    return Vector2.left;
-                case BulletInfo.BulletDirection.Right:
-                    return Vector2.right;
-                case BulletInfo.BulletDirection.Up:
-                    return Vector2.up;
-                case BulletInfo.BulletDirection.Down:
-                    return Vector2.down;
-                default:
-                    break;
-            }
-            Debug.Log("<color=red>Invalid Direction !!!</color>");
-            return Vector2.zero;
+            case BulletInfo.BulletDirection.Left:
+                return Vector2.left;
+            case BulletInfo.BulletDirection.Right:
+                return Vector2.right;
+            case BulletInfo.BulletDirection.Up:
+                return Vector2.up;
+            case BulletInfo.BulletDirection.Down:
+                return Vector2.down;
+            default:
+                break;
         }
-    } 
+        Debug.Log("<color=red>Invalid Direction !!!</color>");
+        return Vector2.zero;
+    }
+
+    private BulletDirection Vector2ToEnum(Vector2 dir)
+    {
+        if (dir == Vector2.left) return BulletDirection.Left;
+        else if (dir == Vector2.up) return BulletDirection.Up;
+        else if (dir == Vector2.right) return BulletDirection.Right;
+        else /*(dir == Vector2.down)*/ return BulletDirection.Down;
+    }
+
+    public Vector2 getLockedDirection { get => EnumToVector2(lockIntoDirection); }
+
+    public Vector2 getOffsetDirection(Vector2 input)
+    {
+        if (inputDirectionOffset == DirectionOffset.Forward) return input;
+
+        int output = (int)(Vector2ToEnum(input)) + (int)inputDirectionOffset;
+        if (output >= 4) output -= 4;
+        return (EnumToVector2((BulletDirection)output));
+    }
+
+    public Vector2 getPositionOffset(Vector2 inputDir)
+    {
+        switch (Vector2ToEnum(inputDir))
+        {
+            case BulletDirection.Left:
+                return new Vector2(-positionOffset.x, -positionOffset.y);
+            case BulletDirection.Up:
+                return new Vector2(-positionOffset.y, positionOffset.x);
+            case BulletDirection.Down:
+                return new Vector2(positionOffset.y, -positionOffset.x);
+            default: // case Right;
+                return positionOffset;
+        }
+    }
 }

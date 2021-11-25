@@ -21,6 +21,8 @@ public class CharBox : MonoBehaviour
 
     public void Start()
     {
+        idChar = 0;
+        idColor = 0;
         image = GetComponent<Image>();
         image.color = colorList[idColor];
         image.sprite = characterList[idChar];
