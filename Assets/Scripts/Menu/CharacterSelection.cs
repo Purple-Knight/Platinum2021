@@ -19,6 +19,7 @@ public class CharacterSelection : MonoBehaviour
     // Object / Variables -------------------------------------
     public List<GameObject> charPortrait = new List<GameObject>();
     public List<MapSelector> charPortraitTrue = new List<MapSelector>();
+    public List<Text> namesZone= new List<Text>();
     public float deadZone;
     public GameObject buttonStart;
     bool canStart;
