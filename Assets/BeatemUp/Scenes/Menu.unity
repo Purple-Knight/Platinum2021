@@ -607,7 +607,7 @@ MonoBehaviour:
   characterList:
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: 3943a6d5dfe874245a2b02040d489a1d, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   idColor: 5
   idChar: 0
   once: 0
@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3943a6d5dfe874245a2b02040d489a1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4137,7 +4137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3943a6d5dfe874245a2b02040d489a1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6179,7 +6179,7 @@ MonoBehaviour:
   characterList:
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: 3943a6d5dfe874245a2b02040d489a1d, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   idColor: 5
   idChar: 0
   once: 0
@@ -7884,7 +7884,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3943a6d5dfe874245a2b02040d489a1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8796,7 +8796,7 @@ MonoBehaviour:
   characterList:
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: 3943a6d5dfe874245a2b02040d489a1d, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   idColor: 5
   idChar: 0
   once: 0
@@ -9609,7 +9609,7 @@ MonoBehaviour:
   characterList:
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
-  - {fileID: 21300000, guid: 3943a6d5dfe874245a2b02040d489a1d, type: 3}
+  - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   idColor: 5
   idChar: 0
   once: 0
@@ -11336,7 +11336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3943a6d5dfe874245a2b02040d489a1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
