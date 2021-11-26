@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -19,8 +17,6 @@ public class CharacterSelection : MonoBehaviour
 
     // Object / Variables -------------------------------------
     public List<GameObject> charPortrait = new List<GameObject>();
-    public List<MapSelector> charPortraitTrue = new List<MapSelector>();
-    public List<Text> namesZone= new List<Text>();
     public float deadZone;
     public GameObject buttonStart;
     bool canStart;
@@ -42,146 +38,121 @@ public class CharacterSelection : MonoBehaviour
 
     public void Update()
     {
-        if (MainMenu.Instance.state == MainMenu.MenuState.CHARSELECT)
+        foreach (var item in players)
         {
-            foreach (var item in players)
+
+
+
+            if (item.GetButtonDown("Confirm")) // Confirme fct ---------------------------------------------------------------
             {
 
-                if (item.GetButtonDown("Confirm")) // Confirme fct ---------------------------------------------------------------
+                if (!playersActual.Contains(item))
                 {
-
-                    if (!playersActual.Contains(item))
+                    foreach (var item1_5 in playersActual)
                     {
-                        foreach (var item1_5 in playersActual)
+                        Debug.Log(item1_5);
+
+                    }
+
+                    if(playersActual.Count != 0)
+                    {
+                        var toRepace = false;
+                        var indexToReplace = 0;
+
+                        var toadd = false;
+                        
+                        foreach (var item2 in playersActual)
                         {
-                            Debug.Log(item1_5);
-
-                        }
-
-                        if (playersActual.Count != 0)
-                        {
-                            var toRepace = false;
-                            var indexToReplace = 0;
-
-                            var toadd = false;
-
-                            foreach (var item2 in playersActual)
+                            if (item2 == null)
                             {
-                                if (item2 == null)
-                                {
-                                    toRepace = true;
-                                    indexToReplace = playersActual.IndexOf(item2);
-                                    break;
-                                }
-                                else if (playersActual[playersActual.Count - 1] == item2 && playersActual.Count < 4) toadd = true;
+                                toRepace = true;
+                                indexToReplace = playersActual.IndexOf(item2);
+                                break;
                             }
-
-                            if (toadd) playersActual.Add(item);
-
-                            if (toRepace) playersActual[indexToReplace] = item;
-                        }
-                        else
-                        {
-                            playersActual.Add(item);
+                            else if (playersActual[playersActual.Count - 1] == item2 && playersActual.Count < 4) toadd = true;
                         }
 
-                        showPlayerSelect();
+                        if (toadd) playersActual.Add(item);
+
+                        if(toRepace) playersActual[indexToReplace] = item;
                     }
                     else
                     {
-                        var n1 = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
-                        n1.changeOK(true);
+                        playersActual.Add(item);
                     }
-
-                    checkIfEveryoneIsReady();
-
-                }
-
-
-
-
-                if (playersActual.Contains(item)) // selectioh characters --------------------------------
-                {
-                    var n1 = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
-                    var n2 = charPortraitTrue[playersActual.IndexOf(item)].GetComponent<Image>();
-
-                    #region LEFT/RIGHT/UP/DOWN
-
-                    if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
-                    {
-                        if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].downValue();
-                        n1.changeChar(true);
-                    }
-                    else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
-                    {
-                        if(!n1.once) charPortraitTrue[playersActual.IndexOf(item)].upValue();
-                        n1.changeChar(false);
-                    }
-
-
-                    else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
-                    {
-                        if (!n1.once)
-                        {
-                            n1.changeColor(true);
-                            for (int i = 0; i < n2.gameObject.GetComponent<MapSelector>().GoList.Count; i++)
-                            {
-                                n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
-
-                            }
-
-                            n2.gameObject.GetComponent<MapSelector>().moveToGO();
-                        }
-                    }
-                    else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
-                    {
-                        if (!n1.once)
-                        {
-                            n1.changeColor(false);
-                            for (int i = 0; i < n2.gameObject.GetComponent<MapSelector>().GoList.Count; i++)
-                            {
-                                n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
-
-                            }
-                            n2.gameObject.GetComponent<MapSelector>().moveToGO();
-                        }
-                    }
-
-
-                    else
-                    {
-                        n1.once = false;
-                    }
-
-                    #endregion
-
-                    if (item.GetButtonDown("Start"))
-                    {
-                        goToPlay();
-                    }
-
-
-                    if (item.GetButtonDown("Cancel"))
-                    {
-                        if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
-                        {
-                            //charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
-                        }
-                        else
-                        {
-                            playersActual[playersActual.IndexOf(item)] = null;
-                            showPlayerSelect();
-                        }
-
-                        checkIfEveryoneIsReady();
-                    }
+                        
+                        showPlayerSelect();                    
                 }
                 else
                 {
-                    if (item.GetButtonDown("Cancel"))
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(true);
+                }
+
+                    checkIfEveryoneIsReady();
+            
+            }
+
+
+
+
+            if (playersActual.Contains(item)) // selectioh characters --------------------------------
+            {
+
+                #region LEFT/RIGHT/UP/DOWN
+
+                if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(true);
+                }
+                else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeColor(false);
+                }
+
+
+                else if (item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(true);
+                }
+                else if (item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeChar(false);
+                }
+
+
+                else
+                {
+                    charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().once = false;
+                }
+
+                #endregion
+
+                if (item.GetButtonDown("Start"))
+                {
+                    goToPlay();
+                }
+
+
+                if (item.GetButtonDown("Cancel"))
+                {
+                    if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
                     {
-                        MainMenu.Instance.toMenu();
+                        charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
                     }
+                    else
+                    {
+                        playersActual[playersActual.IndexOf(item)] = null;
+                        showPlayerSelect();
+                    }
+
+                    checkIfEveryoneIsReady();
+                }
+            }
+            else
+            {
+                if (item.GetButtonDown("Cancel"))
+                {
+                    MainMenu.Instance.toMenu();
                 }
             }
         }
@@ -195,13 +166,11 @@ public class CharacterSelection : MonoBehaviour
             if (playersActual.Count > i && playersActual[i] != null)
             {
                 charPortrait[i].SetActive(true);
-                charPortraitTrue[i].gameObject.SetActive(true);
                 charPortrait[i].GetComponent<CharBox>().isAssigned = true;
             }
             else
             {
                 charPortrait[i].SetActive(false);
-                charPortraitTrue[i].gameObject.SetActive(false);
                 charPortrait[i].GetComponent<CharBox>().isAssigned = false;
             }
         }
@@ -241,7 +210,6 @@ public class CharacterSelection : MonoBehaviour
                 {
                     saveALL(item);
                     saveData();
-                    SceneManager.LoadScene("TestLevelGen");
                 }
                 else
                 {

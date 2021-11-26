@@ -17,8 +17,8 @@ public class Weapon : MonoBehaviour
     protected float lastX = 1;
     protected float lastY = 1;
 
-    // Weapon Var
-    public int ComboToUpgrade; // Upgrade limit
+    // Weapon vars
+    public int ComboToUpgarde; // Upgrade limit
     public int ComboToDowngrade; // Downgrade limit
     public int weaponKey = 0;
 
@@ -69,32 +69,17 @@ public class Weapon : MonoBehaviour
     public virtual void GetInput() { }
     public virtual void Fire()
     {
-        if (bullets.Count <= 0) return;
-
         foreach (BulletInfo info in bullets)
         {
-            //Locked Directions
+            Bullet blt = Instantiate(bulletPrefab, playerWeapon.transform.position, Quaternion.identity).GetComponent<Bullet>();
+
             Vector2 bulletDirection;
-            if (info.lockDirection) bulletDirection = info.getLockedDirection;
+            if (info.lockOnX) bulletDirection = Vector2.right * lastX;
             else if (info.lockOnY) bulletDirection = Vector2.up * lastY;
-            else if (info.lockOnX) bulletDirection = Vector2.right * lastX;
-            else
-            {
-                //Angle Offset 
-                bulletDirection = info.getOffsetDirection(lastDirection);
-            }
+            else if (info.lockDirection) bulletDirection = info.Direction;
+            else bulletDirection = lastDirection;
 
-            Vector2 bulletPosition = PlayerPosistion;
-            bulletPosition.y -= .25f;
-            //bulletDirection.x = Mathf.RoundToInt(bulletDirection.x);
-            //bulletDirection.y = Mathf.RoundToInt(bulletDirection.y);
-            //Position Offset
-            bulletPosition += info.getPositionOffset(bulletDirection);
-
-
-            //Spawn
-            Bullet blt = Instantiate(bulletPrefab, bulletPosition, Quaternion.identity).GetComponent<Bullet>();
-            blt.InitInfo(info, bulletDirection, playerManager);
+            blt.InitInfo(info, bulletDirection);
 
             if (playerManager.comboManager != null) playerManager.comboManager.Keep(); //-------------
         }
@@ -114,70 +99,34 @@ public class Weapon : MonoBehaviour
 [System.Serializable]
 public class BulletInfo
 {
-    public enum BulletDirection { Left, Up, Right, Down }
-    public enum DirectionOffset { Forward, RightSide, Backward, LeftSide }
+    public enum BulletDirection { Left, Right, Up, Down }
 
     public int length;
-
-    public Vector2 positionOffset;
-    public DirectionOffset inputDirectionOffset = DirectionOffset.Forward;
-    
     public bool lockDirection;
-    public BulletDirection lockIntoDirection;
-    
+    public BulletDirection direction;
+    [HideInInspector] public Vector2 positionOffset; //Not Implemented Yet
     public bool lockOnX;
     public bool lockOnY;
 
-    private Vector2 EnumToVector2(BulletDirection enumDir)
+    public Vector2 Direction
     {
-        switch (enumDir)
+        get
         {
-            case BulletInfo.BulletDirection.Left:
-                return Vector2.left;
-            case BulletInfo.BulletDirection.Right:
-                return Vector2.right;
-            case BulletInfo.BulletDirection.Up:
-                return Vector2.up;
-            case BulletInfo.BulletDirection.Down:
-                return Vector2.down;
-            default:
-                break;
+            switch (direction)
+            {
+                case BulletInfo.BulletDirection.Left:
+                    return Vector2.left;
+                case BulletInfo.BulletDirection.Right:
+                    return Vector2.right;
+                case BulletInfo.BulletDirection.Up:
+                    return Vector2.up;
+                case BulletInfo.BulletDirection.Down:
+                    return Vector2.down;
+                default:
+                    break;
+            }
+            Debug.Log("<color=red>Invalid Direction !!!</color>");
+            return Vector2.zero;
         }
-        Debug.Log("<color=red>Invalid Direction !!!</color>");
-        return Vector2.zero;
-    }
-
-    private BulletDirection Vector2ToEnum(Vector2 dir)
-    {
-        if (dir == Vector2.left) return BulletDirection.Left;
-        else if (dir == Vector2.up) return BulletDirection.Up;
-        else if (dir == Vector2.right) return BulletDirection.Right;
-        else /*(dir == Vector2.down)*/ return BulletDirection.Down;
-    }
-
-    public Vector2 getLockedDirection { get => EnumToVector2(lockIntoDirection); }
-
-    public Vector2 getOffsetDirection(Vector2 input)
-    {
-        if (inputDirectionOffset == DirectionOffset.Forward) return input;
-
-        int output = (int)(Vector2ToEnum(input)) + (int)inputDirectionOffset;
-        if (output >= 4) output -= 4;
-        return (EnumToVector2((BulletDirection)output));
-    }
-
-    public Vector2 getPositionOffset(Vector2 inputDir)
-    {
-        switch (Vector2ToEnum(inputDir))
-        {
-            case BulletDirection.Left:
-                return new Vector2(-positionOffset.x, -positionOffset.y);
-            case BulletDirection.Up:
-                return new Vector2(-positionOffset.y, positionOffset.x);
-            case BulletDirection.Down:
-                return new Vector2(positionOffset.y, -positionOffset.x);
-            default: // case Right;
-                return positionOffset;
-        }
-    }
+    } 
 }

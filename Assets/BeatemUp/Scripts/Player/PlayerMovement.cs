@@ -5,7 +5,6 @@ using UnityEngine;
 using DG.Tweening;
 using Rewired;
 using UnityEngine.Events;
-using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerManager playerManager;
     private Player player; //Rewired player
     private RhythmManager rhythmManager;
-    public Animator playerAnimator;
-    [SerializeField] private GameObject beatText;
 
     public Color playerColor;
     [SerializeField] float deadZoneController;
@@ -47,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
     //lerp
     Vector2 targetPos;
     Vector2 lastPos;
-    [SerializeField] Vector2 gridSize;
 
     //public UnityEvent PlayerHit;
     [SerializeField] ParticleSystem impactParticles;
@@ -65,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = true;
+    private bool _boolDebug = false;
     [SerializeField] private Rect _guiDebugArea = new Rect(110, 20, 150, 150);
 
     public void InstantiateMovement()
@@ -138,30 +135,6 @@ public class PlayerMovement : MonoBehaviour
                     mvtVertical = 0;
                 }
 
-                switch (playerDir)
-                {
-                    case PlayerDir.NULL:
-                        break;
-                    case PlayerDir.UP:
-                        playerAnimator.SetFloat("DirectionHorizontal", 0);
-                        playerAnimator.SetFloat("DirectionVertical", 1);
-                        break;
-                    case PlayerDir.DOWN:
-                        playerAnimator.SetFloat("DirectionHorizontal", 0);
-                        playerAnimator.SetFloat("DirectionVertical", -1);
-                        break;
-                    case PlayerDir.RIGHT:
-                        playerAnimator.SetFloat("DirectionHorizontal", 1);
-                        playerAnimator.SetFloat("DirectionVertical", 0);
-                        break;
-                    case PlayerDir.LEFT:
-                        playerAnimator.SetFloat("DirectionHorizontal", -1);
-                        playerAnimator.SetFloat("DirectionVertical", 0);
-                        break;
-                    default:
-                        break;
-                }
-
                 buttonDown = true;
                 gotInputThisBeat = true;
                 Move();
@@ -173,8 +146,6 @@ public class PlayerMovement : MonoBehaviour
                 //playerDir = PlayerDir.NULL;
                 mvtHorizontal = 0;
                 mvtVertical = 0;
-                BeatTiming();
-                playerAnimator.SetTrigger("BeatMissed");
             }
 
         }
@@ -210,14 +181,14 @@ public class PlayerMovement : MonoBehaviour
             if (tpToWall && mvtVertical > 0)
             {
                 RaycastHit2D rayray;
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x, gridSize.y / 2 + transform.position.y), Vector2.up, 20, LayerMask.GetMask("Ground", "Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, 20, LayerMask.GetMask("Ground", "Player"));
                 targetPos = rayray.collider.transform.position;
                 targetPos.y -= 1;
                 
             }else if (tpToWall && mvtVertical < 0)
             {
                 RaycastHit2D rayray;
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - gridSize.y), Vector2.down, 20, LayerMask.GetMask("Ground", "Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, 20, LayerMask.GetMask("Ground", "Player"));
                 targetPos = rayray.collider.transform.position;
                 targetPos.y += 1;
             }
@@ -226,20 +197,19 @@ public class PlayerMovement : MonoBehaviour
                 if(numbOfSteps > 1)
                 {
                     RaycastHit2D rayray;
-                    rayray = Physics2D.Raycast(new Vector2(transform.position.x, gridSize.y / 2 + transform.position.y), Vector2.up, numbOfSteps * gridSize.y, LayerMask.GetMask("Ground"));
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, numbOfSteps, LayerMask.GetMask("Ground"));
                     if(rayray.collider != null)
                     {
-                        targetPos.y = rayray.collider.transform.position.y - gridSize.y;
+                        targetPos.y = rayray.collider.transform.position.y - 1;
                     }
                     else
                     {
-                        targetPos.y = transform.position.y + numbOfSteps * gridSize.y;
+                        targetPos.y = transform.position.y + numbOfSteps;
                     }
                 }
                 else 
                 {
-                    targetPos.y = transform.position.y + gridSize.y;
-                    
+                    targetPos.y = transform.position.y + 1;
                 }
                 
                 Squeeeesh(false);
@@ -254,10 +224,10 @@ public class PlayerMovement : MonoBehaviour
                 if (numbOfSteps > 1)
                 {
                     RaycastHit2D rayray;
-                    rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - gridSize.y), Vector2.down, numbOfSteps * gridSize.y, LayerMask.GetMask("Ground"));
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, numbOfSteps, LayerMask.GetMask("Ground"));
                     if (rayray.collider != null)
                     {
-                        targetPos.y = rayray.collider.transform.position.y + gridSize.y;
+                        targetPos.y = rayray.collider.transform.position.y + 1;
                     }
                     else
                     {
@@ -266,7 +236,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    targetPos.y = transform.position.y - gridSize.y;
+                    targetPos.y = transform.position.y - 1;
                 }
                 Squeeeesh(false);
             }
@@ -282,14 +252,14 @@ public class PlayerMovement : MonoBehaviour
             if(tpToWall && mvtHorizontal > 0)
             {
                 RaycastHit2D rayray;
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x + (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.right, 20, LayerMask.GetMask("Ground", "Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, 20, LayerMask.GetMask("Ground", "Player"));
                 targetPos = rayray.collider.transform.position;
                 targetPos.x -= 1;
 
             }else if (tpToWall && mvtHorizontal < 0)
             {
                 RaycastHit2D rayray;
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x - (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.left, 20, LayerMask.GetMask("Ground", "Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, 20, LayerMask.GetMask("Ground", "Player"));
                 targetPos = rayray.collider.transform.position;
                 targetPos.x += 1;
             }
@@ -298,10 +268,10 @@ public class PlayerMovement : MonoBehaviour
                 if (numbOfSteps > 1)
                 {
                     RaycastHit2D rayray;
-                    rayray = Physics2D.Raycast(new Vector2(transform.position.x + (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.right, numbOfSteps * gridSize.x, LayerMask.GetMask("Ground"));
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, numbOfSteps, LayerMask.GetMask("Ground"));
                     if (rayray.collider != null)
                     {
-                        targetPos.x = rayray.collider.transform.position.x - gridSize.x;
+                        targetPos.x = rayray.collider.transform.position.x - 1;
                     }
                     else
                     {
@@ -310,8 +280,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    targetPos.x = transform.position.x + gridSize.x;
+                    targetPos.x = transform.position.x + 1;
                 }
+                sprite.flipX = true;
                 Squeeeesh(true);
             }
             else if (mvtHorizontal > 0 && !canGoRight) //if the player can't go right  
@@ -324,10 +295,10 @@ public class PlayerMovement : MonoBehaviour
                 if (numbOfSteps > 1)
                 {
                     RaycastHit2D rayray;
-                    rayray = Physics2D.Raycast(new Vector2(transform.position.x - (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.left, numbOfSteps * gridSize.x, LayerMask.GetMask("Ground"));
+                    rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, numbOfSteps, LayerMask.GetMask("Ground"));
                     if (rayray.collider != null)
                     {
-                        targetPos.x = rayray.collider.transform.position.x + gridSize.x;
+                        targetPos.x = rayray.collider.transform.position.x + 1;
                     }
                     else
                     {
@@ -336,8 +307,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    targetPos.x = transform.position.x - gridSize.x;
+                    targetPos.x = transform.position.x - 1;
                 }
+                sprite.flipX = false;
                 Squeeeesh(true);
             }
             else if (mvtHorizontal < 0 && !canGoLeft) //if the player can't go left 
@@ -356,7 +328,6 @@ public class PlayerMovement : MonoBehaviour
             transform.DOComplete();
         if (!freeMovement || (freeMovement && currentNumOfSteps < maxNumOfMovement))
         {
-            playerAnimator.SetTrigger("Move");
             transform.DOMove(targetPos, .2f);
             currentNumOfSteps++;
         }
@@ -381,16 +352,16 @@ public class PlayerMovement : MonoBehaviour
     public void WallCollision()
     {
         RaycastHit2D rayray;
-        rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, gridSize.y/2, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, raycastDistance, LayerMask.GetMask("Ground"));
         canGoUp = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - gridSize.y), Vector2.down, gridSize.y/2, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, raycastDistance, LayerMask.GetMask("Ground"));
         canGoDown = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(new Vector2(transform.position.x + (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.right, gridSize.x/2, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y ), Vector2.right, raycastDistance, LayerMask.GetMask("Ground"));
         canGoRight = rayray.collider == null;
 
-        rayray = Physics2D.Raycast(new Vector2(transform.position.x - (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.left, gridSize.x/2, LayerMask.GetMask("Ground"));
+        rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y ), Vector2.left, raycastDistance, LayerMask.GetMask("Ground"));
         canGoLeft = rayray.collider == null;
         
     }
@@ -422,16 +393,16 @@ public class PlayerMovement : MonoBehaviour
             case PlayerDir.NULL:
                 break;
             case PlayerDir.UP:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x, gridSize.y / 2 + transform.position.y), Vector2.up, raycastDistance, LayerMask.GetMask("Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up, raycastDistance, LayerMask.GetMask("Player"));
                 break;
             case PlayerDir.DOWN:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - gridSize.y), Vector2.down, raycastDistance, LayerMask.GetMask("Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down, raycastDistance, LayerMask.GetMask("Player"));
                 break;
             case PlayerDir.RIGHT:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x + (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.right, raycastDistance, LayerMask.GetMask("Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right, raycastDistance, LayerMask.GetMask("Player"));
                 break;
             case PlayerDir.LEFT:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x - (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.left, raycastDistance, LayerMask.GetMask("Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left, raycastDistance, LayerMask.GetMask("Player"));
                 break;
         }
         if (rayray.collider != null)
@@ -454,7 +425,27 @@ public class PlayerMovement : MonoBehaviour
 
     public void BeatTiming()
     {
-        Instantiate(beatText, transform.position, Quaternion.identity).GetComponent<BeatTimingText>().InstantiateText(playerTiming);
+        Sequence seqColor = DOTween.Sequence();
+        switch (playerTiming)
+        {
+            case Timing.PERFECT:
+                seqColor.Append(sprite.DOColor(new Color(0,1,0,playerColor.a), .1f));
+                break;
+            case Timing.BEFORE:
+                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
+                break;
+            case Timing.AFTER:
+                seqColor.Append(sprite.DOColor(new Color(0, .4f, .4f, playerColor.a), .1f));
+                break;
+            case Timing.MISS:
+                seqColor.Append(sprite.DOColor(new Color(1, 0, 0, playerColor.a), .1f));
+                break;
+            case Timing.NULL:
+                
+                break;
+            
+        } 
+        seqColor.Append(sprite.DOColor(playerColor, .1f));
         
     }
 
@@ -512,13 +503,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = canGoUp ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y), Vector2.up));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.up));
         Gizmos.color = canGoDown ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y - gridSize.y), Vector2.down));
-        Gizmos.color = canGoRight ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x + (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.right));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x, transform.position.y - .5f), Vector2.down));
         Gizmos.color = canGoLeft ? Color.green : Color.red;
-        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x - (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.left));
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x - .5f, transform.position.y), Vector2.left));
+        Gizmos.color = canGoRight ? Color.green : Color.red;
+        Gizmos.DrawRay(new Ray(new Vector2(transform.position.x + .5f, transform.position.y), Vector2.right));
 
     }
 

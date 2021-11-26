@@ -5,20 +5,13 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
-
     public PlayerMovement playerMovement;
     public PlayerWeapon playerWeapon;
     public ComboCounter comboManager;
     public PlayerHealth playerHealth;
-
-    public Animator playerAnimator;
-
-    [SerializeField] private Vector2 gridSize = new Vector2(1, 1);
-
     private int characterID;
     [SerializeField] List<Sprite> sprites;
     Color playerColor;
-
     [SerializeField] ParticleSystem notesParticle;
 
     #region Debug
@@ -30,12 +23,10 @@ public class PlayerManager : MonoBehaviour
     Rect debugRect;
     #endregion
     public int CharacterID { get => characterID; }
-    public Vector2 GridSize { get => gridSize; }
 
     public void InstantiatePlayer(int conrtollerID, int playerID, Color color, int spriteID)
     {
         characterID = playerID;
-        playerAnimator.SetFloat("CharacterID", spriteID);
         playerMovement.playerID = conrtollerID;
         playerMovement.playerColor = color;
         playerColor = color;
@@ -43,7 +34,6 @@ public class PlayerManager : MonoBehaviour
         spriteRenderer.color = color;
 
         playerHealth.PlayerDied.AddListener(PlayerDied);
-        playerMovement.playerAnimator = playerAnimator;
         playerMovement.InstantiateMovement();
         comboManager.Init(this);
         debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
@@ -52,7 +42,7 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayerDied(int i)
     {
-        //notesParticle.Play();
+        notesParticle.Play();
         playerWeapon.enabled = false;
         playerHealth.enabled = false;
         spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);

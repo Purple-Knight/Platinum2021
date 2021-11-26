@@ -17,7 +17,6 @@ public class VictoryManager : MonoBehaviour
     [SerializeField] List<Sprite> characterSprites;
     private bool isVictoryScreenActive = false;
     private List<Player> players = new List<Player>();
-    [SerializeField] AK.Wwise.Event stopMusic;
 
     private void Awake()
     {
@@ -55,7 +54,6 @@ public class VictoryManager : MonoBehaviour
     public void InstantiateVictoryScene(string playerName, int playerNumber, int playerCharacterId, Color playerColor)
     {
         isVictoryScreenActive = true;
-        stopMusic.Post(RhythmManager.Instance.gameObject);
         victoryCanvas.SetActive(true);
         playerNameText.text = playerName;
         playerNumberText.text = "Player " + playerNumber;
