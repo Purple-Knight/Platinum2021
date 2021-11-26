@@ -85,8 +85,9 @@ public class Weapon : MonoBehaviour
             }
 
             Vector2 bulletPosition = PlayerPosistion;
-            bulletDirection.x = Mathf.RoundToInt(bulletDirection.x);
-            bulletDirection.y = Mathf.RoundToInt(bulletDirection.y);
+            bulletPosition.y -= .25f;
+            //bulletDirection.x = Mathf.RoundToInt(bulletDirection.x);
+            //bulletDirection.y = Mathf.RoundToInt(bulletDirection.y);
             //Position Offset
             bulletPosition += info.getPositionOffset(bulletDirection);
 

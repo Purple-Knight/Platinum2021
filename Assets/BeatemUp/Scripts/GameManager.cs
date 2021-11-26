@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(3);
         spawnPoints = levelGen.SpawnNextMap();
-        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);// a modifier !!!
         ResetPlayers();
         camera.SetStartPos(levelGen.transform.position);
         camera.ResetCamera();
