@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5264921449242543161}
   - component: {fileID: 954819331479711801}
+  - component: {fileID: 3172634145305487540}
   m_Layer: 6
   m_Name: Tele
   m_TagString: Untagged
@@ -82,6 +83,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3172634145305487540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3306458203053250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  timeToDo: 0.15
+  changePos: 0
+  posNeed: []
+  changeScale: 1
+  scaleNeed:
+  - xPourcentScale: 105
+    yPourcentScale: 95
+  changeColor: 0
+  colorNeed: []
 --- !u!1001 &5106234733840334136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,11 +114,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4518699010491959988, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_Name
-      value: Barrel
+      value: Barrel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518699010491959988, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4518699010491959990, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: partName
       value: Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518699010491959991, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4518699010491959993, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_RootOrder
@@ -141,6 +172,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4518699011575062584, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4518699011575062586, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_Size.x
       value: 5.73
@@ -172,6 +207,10 @@ PrefabInstance:
     - target: {fileID: 4518699011575062587, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.394
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735004188096697746, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}

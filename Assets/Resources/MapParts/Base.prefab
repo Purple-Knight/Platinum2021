@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4518699010491959993}
   - component: {fileID: 4518699010491959990}
   - component: {fileID: 4518699010491959991}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4518699010491959988}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -153,7 +153,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4518699011575062587}
   - component: {fileID: 4518699011575062586}
-  m_Layer: 6
+  - component: {fileID: 5563327954458179609}
+  m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,6 +226,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5563327954458179609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518699011575062584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  timeToDo: 0.15
+  changePos: 0
+  posNeed: []
+  changeScale: 1
+  scaleNeed:
+  - xPourcentScale: 105
+    yPourcentScale: 95
+  changeColor: 0
+  colorNeed: []
 --- !u!1 &6735004188096697746
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 953481631637345201}
   - component: {fileID: 6978674692143766308}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +274,7 @@ Transform:
   m_GameObject: {fileID: 6735004188096697746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.13, y: 0.13, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0}
   m_Children: []
   m_Father: {fileID: 4518699010491959993}
   m_RootOrder: 1

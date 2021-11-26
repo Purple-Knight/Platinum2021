@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public List<GameObject> map;
-    //public List<Texture2D> map;
+    //public List<GameObject> map;
+    public List<Texture2D> map;
     int currentMap = 0;
 
     public ColorToPrefab[] colorMappings;
@@ -14,13 +14,19 @@ public class LevelGenerator : MonoBehaviour
     public float divideMultiplicator;
 
     public float spawnOffset;
-    GameObject currentLevel;
+    //GameObject currentLevel;
+    List<GameObject> currentObjectInLevel;
 
-    private void Start()
+    Vector2 gridSize = new Vector2(1, 0.5f);
+
+    [SerializeField] List<GameObject> groundPrefabs;
+
+    private void Awake()
     {
-        playerSpawnPoints = new List<Vector2>();
+        //playerSpawnPoints = new List<Vector2>();
+        currentObjectInLevel = new List<GameObject>();
     }
-
+/*
     public List<Vector2> SpawnNextMap()
     {
         int i = Random.Range(0, map.Count);
@@ -33,8 +39,8 @@ public class LevelGenerator : MonoBehaviour
         }
        return playerSpawnPoints;
 
-    }
-    /*public List<Vector2> GenerateLevel()
+    }*/
+    public List<Vector2> SpawnNextMap()
     {
         int i=0;
         do
@@ -70,16 +76,27 @@ public class LevelGenerator : MonoBehaviour
     GameObject GenerateTile(int x, int y)
     {
         Color pixelColor = map[currentMap].GetPixel(x, y);
-
+        Debug.Log(pixelColor);
         if (pixelColor.a == 0)
         {
+            /*Vector2 position = new Vector2((transform.position.x + x / divideMultiplicator) * gridSize.x, (transform.position.y + y / divideMultiplicator) * gridSize.y);
+            var block = Instantiate(colorMappings[2].prefab, transform.position, Quaternion.identity);
+            block.transform.parent = transform;
+            block.transform.position = position;
+            block.name = colorMappings[2].name + " " + x + " " + y;
+            return block;*/
             return null;
         }
 
         if (colorMappings[0].color.Equals(pixelColor)) // is player position
         {
-            Vector2 position = new Vector2(transform.position.x + x / divideMultiplicator, transform.position.y + y / divideMultiplicator);
+            Vector2 position = new Vector2((transform.position.x + x / divideMultiplicator) * gridSize.x, (transform.position.y + y / divideMultiplicator) * gridSize.y);
             playerSpawnPoints.Add(position);
+            /*var block = Instantiate(colorMappings[2].prefab, transform.position, Quaternion.identity);
+            block.transform.parent = transform;
+            block.transform.position = position;
+            block.name = colorMappings[2].name + " " + x + " " + y;
+            return block;*/
             return null;
         }
 
@@ -87,8 +104,13 @@ public class LevelGenerator : MonoBehaviour
         {
             if (colorMapping.color.Equals(pixelColor))
             {
-                Vector2 position = new Vector2(transform.position.x + x / divideMultiplicator, transform.position.y + y / divideMultiplicator);
-                var block = Instantiate(colorMapping.prefab, transform.position, Quaternion.identity);
+                int i = 0;
+                if(y != map[currentMap].height -1)
+                {
+                    i = Random.Range(1, groundPrefabs.Count);
+                }
+                Vector2 position = new Vector2((transform.position.x + x / divideMultiplicator) * gridSize.x, (transform.position.y + y / divideMultiplicator) * gridSize.y);
+                var block = Instantiate(/*colorMapping.prefab*/ groundPrefabs[i], transform.position, Quaternion.identity);
                 block.transform.parent = transform;
                 block.transform.position = position;
                 block.name = colorMapping.name + " " + x + " " + y;
@@ -96,5 +118,5 @@ public class LevelGenerator : MonoBehaviour
             }
         }
         return null;
-    }*/
+    }
 }
