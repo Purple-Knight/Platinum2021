@@ -23,6 +23,17 @@ public class FeelGood : MonoBehaviour
     public List<Color> colorNeed = new List<Color>();
 
 
+    public rythmRythm evenOrOdd;
+    int number;
+
+    public enum rythmRythm
+    {
+        BOTH,
+        EVEN, // paire
+        ODD, // impaire
+    }
+
+
     private Transform trans;
     private Transform refTrans;
 
@@ -64,8 +75,28 @@ public class FeelGood : MonoBehaviour
 
     void feelGood()
     {
-        if (trans) feelTrans();
-        else feelRectT();
+        var boolLa = true;
+        switch (evenOrOdd)
+        {
+            case rythmRythm.EVEN:
+                if (number % 2 != 0) boolLa = false;
+                break;
+            case rythmRythm.ODD:
+                if (number % 2 == 0) boolLa = false;
+                break;
+            case rythmRythm.BOTH:
+                break;
+            default:
+                break;
+        }
+
+        if (boolLa)
+        {
+            if (trans) feelTrans();
+            else feelRectT();
+        }
+
+        number++;
     }
 
 

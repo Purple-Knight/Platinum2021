@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 2d6f24040ad22d429ad3984df56c0403
     GuidInternal: 
-    m_lastTime: -8585650719987913477
+    m_lastTime: -8585638638005933460
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d038ecf2d1335543bf943a8f453b7d5f
     GuidInternal: 
-    m_lastTime: -8585637771083287393
+    m_lastTime: -8585636860526597875
     List:
     - name: MusicBank
       guid: c950ed8ba691bb4196f94f83cbd3c44e
@@ -142,7 +142,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585637771083297363
+    m_lastTime: -8585636860526657716
     List:
     - name: EndOfMusic
       guid: aff9ad565dfaa94eacb15556c941bcf1
@@ -258,7 +258,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 9a51d9a503d3e347aba274c0c14197b8
     GuidInternal: 
-    m_lastTime: -8585638299919969973
+    m_lastTime: -8585637728110462771
     List:
     - name: PlayBackSpeed
       guid: 0981d9f3e7eefc4bb7a9270580ba71a3
@@ -365,8 +365,156 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e86c45daced42f46981c3472f2f3724e
     GuidInternal: 
-    m_lastTime: -8585685130077032975
-    List: []
+    m_lastTime: -8585636877347724067
+    List:
+    - name: Character
+      guid: fe628db65d67094da26f22ae389ccece
+      id: 436743010
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e86c45daced42f46981c3472f2f3724e
+      - ElementName: Character
+        ObjectType: 11
+        guid: fe628db65d67094da26f22ae389ccece
+      Path: Switches\Default Work Unit\Character
+      values:
+      - name: Alix
+        guid: 4ed872722ea27c4cbaf865ba6ee713ff
+        id: 3017403401
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: Character
+          ObjectType: 11
+          guid: fe628db65d67094da26f22ae389ccece
+        - ElementName: Alix
+          ObjectType: 10
+          guid: 4ed872722ea27c4cbaf865ba6ee713ff
+      - name: K1000
+        guid: 7a790365ee9df743b445e7b207b620de
+        id: 775632447
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: Character
+          ObjectType: 11
+          guid: fe628db65d67094da26f22ae389ccece
+        - ElementName: K1000
+          ObjectType: 10
+          guid: 7a790365ee9df743b445e7b207b620de
+      - name: Savya
+        guid: ada0dd475b010e40a8bc5d6929e15358
+        id: 2795866359
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: Character
+          ObjectType: 11
+          guid: fe628db65d67094da26f22ae389ccece
+        - ElementName: Savya
+          ObjectType: 10
+          guid: ada0dd475b010e40a8bc5d6929e15358
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: Crowd
+      guid: d2c876ebc1ad854cb41b4d4609d1590b
+      id: 2848349012
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e86c45daced42f46981c3472f2f3724e
+      - ElementName: Crowd
+        ObjectType: 11
+        guid: d2c876ebc1ad854cb41b4d4609d1590b
+      Path: Switches\Default Work Unit\Crowd
+      values:
+      - name: Appaluse
+        guid: 9530fea29ad3414d89bba6523d740eff
+        id: 2609558266
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: Crowd
+          ObjectType: 11
+          guid: d2c876ebc1ad854cb41b4d4609d1590b
+        - ElementName: Appaluse
+          ObjectType: 10
+          guid: 9530fea29ad3414d89bba6523d740eff
+      - name: Buh
+        guid: f1a92f26fbcaa144a442107601506511
+        id: 714721630
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: Crowd
+          ObjectType: 11
+          guid: d2c876ebc1ad854cb41b4d4609d1590b
+        - ElementName: Buh
+          ObjectType: 10
+          guid: f1a92f26fbcaa144a442107601506511
+      - name: Hola
+        guid: 06bcf7447dffcf4fad2a27dd8fdb9509
+        id: 3164629223
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: Crowd
+          ObjectType: 11
+          guid: d2c876ebc1ad854cb41b4d4609d1590b
+        - ElementName: Hola
+          ObjectType: 10
+          guid: 06bcf7447dffcf4fad2a27dd8fdb9509
+      - name: Song
+        guid: 0447c2caaf735747aac053dde8e17ce0
+        id: 804823466
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: Crowd
+          ObjectType: 11
+          guid: d2c876ebc1ad854cb41b4d4609d1590b
+        - ElementName: Song
+          ObjectType: 10
+          guid: 0447c2caaf735747aac053dde8e17ce0
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -379,7 +527,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 3437ef2ec1abd24f9668567eaa6ed463
     GuidInternal: 
-    m_lastTime: -8585685130077032975
+    m_lastTime: -8585660846511662473
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 01000000050000000600000007000000
