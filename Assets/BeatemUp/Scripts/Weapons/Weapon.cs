@@ -17,8 +17,8 @@ public class Weapon : MonoBehaviour
     protected float lastX = 1;
     protected float lastY = 1;
 
-    // Weapon vars
-    public int ComboToUpgarde; // Upgrade limit
+    // Weapon Var
+    public int ComboToUpgrade; // Upgrade limit
     public int ComboToDowngrade; // Downgrade limit
     public int weaponKey = 0;
 
@@ -69,6 +69,8 @@ public class Weapon : MonoBehaviour
     public virtual void GetInput() { }
     public virtual void Fire()
     {
+        if (bullets.Count <= 0) return;
+
         foreach (BulletInfo info in bullets)
         {
             //Locked Directions
@@ -82,15 +84,16 @@ public class Weapon : MonoBehaviour
                 bulletDirection = info.getOffsetDirection(lastDirection);
             }
 
+            Vector2 bulletPosition = PlayerPosistion;
+            bulletDirection.x = Mathf.RoundToInt(bulletDirection.x);
+            bulletDirection.y = Mathf.RoundToInt(bulletDirection.y);
             //Position Offset
-            Vector2 bulletPosition = playerWeapon.transform.position;
             bulletPosition += info.getPositionOffset(bulletDirection);
 
 
             //Spawn
             Bullet blt = Instantiate(bulletPrefab, bulletPosition, Quaternion.identity).GetComponent<Bullet>();
-
-            blt.InitInfo(info, bulletDirection);
+            blt.InitInfo(info, bulletDirection, playerManager);
 
             if (playerManager.comboManager != null) playerManager.comboManager.Keep(); //-------------
         }

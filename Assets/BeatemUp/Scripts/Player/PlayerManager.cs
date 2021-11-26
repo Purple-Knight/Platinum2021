@@ -5,14 +5,20 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
+
     public PlayerMovement playerMovement;
     public PlayerWeapon playerWeapon;
     public ComboCounter comboManager;
     public PlayerHealth playerHealth;
+
     public Animator playerAnimator;
+
+    [SerializeField] private Vector2 gridSize = new Vector2(1, 1);
+
     private int characterID;
     [SerializeField] List<Sprite> sprites;
     Color playerColor;
+
     [SerializeField] ParticleSystem notesParticle;
 
     #region Debug
@@ -24,6 +30,7 @@ public class PlayerManager : MonoBehaviour
     Rect debugRect;
     #endregion
     public int CharacterID { get => characterID; }
+    public Vector2 GridSize { get => gridSize; }
 
     public void InstantiatePlayer(int conrtollerID, int playerID, Color color, int spriteID)
     {

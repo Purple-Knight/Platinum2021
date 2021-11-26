@@ -44,14 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f57fdb702f79e345b207fe967007677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info:
-    type: 0
-    direction: {x: 0, y: 0}
-    maxTileLength: 0
-    ignoreWalls: 0
   hitLayer:
     serializedVersion: 2
     m_Bits: 64
+  tilePositionOffset: 0.7
   laserWidth:
     serializedVersion: 2
     m_Curve:
