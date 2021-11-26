@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}" SchemaVersion="103">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Character" ID="{B68D62FE-675D-4D09-A26F-22AE389CCECE}">
+					<ChildrenList>
+						<Switch Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}"/>
+						<Switch Name="Alix" ID="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}"/>
+						<Switch Name="Savya" ID="{47DDA0AD-015B-400E-A8BC-5D6929E15358}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="Crowd" ID="{EB76C8D2-ADC1-4C85-B41B-4D4609D1590B}">
+					<ChildrenList>
+						<Switch Name="Appaluse" ID="{A2FE3095-D39A-4D41-89BB-A6523D740EFF}"/>
+						<Switch Name="Buh" ID="{262FA9F1-CAFB-44A1-A442-107601506511}"/>
+						<Switch Name="Hola" ID="{44F7BC06-FF7D-4FCF-AD2A-27DD8FDB9509}"/>
+						<Switch Name="Song" ID="{CAC24704-73AF-4757-AAC0-53DDE8E17CE0}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

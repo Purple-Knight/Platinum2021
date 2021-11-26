@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.9897, y: 49.083046}
+  m_AnchoredPosition: {x: -361.9897, y: 49.08311}
   m_SizeDelta: {x: 516.5823, y: 326.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10086874
@@ -6342,18 +6342,22 @@ MonoBehaviour:
       myColorID: {r: 0, g: 0, b: 0, a: 0}
       playerControllerID: 0
       isActivated: 0
+      myName: 
     - myCharID: 0
       myColorID: {r: 0, g: 0, b: 0, a: 0}
       playerControllerID: 0
       isActivated: 0
+      myName: 
     - myCharID: 0
       myColorID: {r: 0, g: 0, b: 0, a: 0}
       playerControllerID: 0
       isActivated: 0
+      myName: 
     - myCharID: 0
       myColorID: {r: 0, g: 0, b: 0, a: 0}
       playerControllerID: 0
       isActivated: 0
+      myName: 
 --- !u!1 &1331997010
 GameObject:
   m_ObjectHideFlags: 0
@@ -6891,7 +6895,7 @@ MonoBehaviour:
   eventMusic:
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: db1cd41d6b5b23a4fae0fade3ad8e65b, type: 2}
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}

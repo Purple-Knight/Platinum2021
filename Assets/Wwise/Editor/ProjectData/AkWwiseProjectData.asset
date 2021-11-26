@@ -159,8 +159,8 @@ MonoBehaviour:
         guid: aff9ad565dfaa94eacb15556c941bcf1
       Path: Events\Default Work Unit\EndOfMusic
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: PlayCrypt
       guid: 32983bc18cc5a64abc6ad48d2e1c686e
       id: 859070589
