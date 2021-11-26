@@ -65,7 +65,7 @@ public class ComboCounter : MonoBehaviour
         };
         Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}", (byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.CharacterID + 1, Combo));
 
-        if(currentWeapon != null && Combo >= currentWeapon.ComboToUpgarde)
+        if(currentWeapon != null && Combo >= currentWeapon.ComboToUpgrade)
         {
             currentWeapon.Upgarde();
         }

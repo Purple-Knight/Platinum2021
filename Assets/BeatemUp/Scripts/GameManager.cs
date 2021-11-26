@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         
         playersData = SaveData.Load();
-        spawnPoints =  levelGen.GenerateLevel();
+        spawnPoints =  levelGen.SpawnNextMap();
         SpawnPlayer();
         timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
         camera.SetStartPos(levelGen.transform.position);
@@ -105,8 +105,8 @@ public class GameManager : MonoBehaviour
     IEnumerator NextRound()
     {
         yield return new WaitForSecondsRealtime(3);
-        spawnPoints = levelGen.GenerateLevel();
-        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
+        spawnPoints = levelGen.SpawnNextMap();
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);// a modifier !!!
         ResetPlayers();
         camera.SetStartPos(levelGen.transform.position);
         camera.ResetCamera();
