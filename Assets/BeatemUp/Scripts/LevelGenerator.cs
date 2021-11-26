@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public List<Texture2D> map;
+    public List<GameObject> map;
+    //public List<Texture2D> map;
     int currentMap = 0;
 
     public ColorToPrefab[] colorMappings;
@@ -13,13 +14,27 @@ public class LevelGenerator : MonoBehaviour
     public float divideMultiplicator;
 
     public float spawnOffset;
-    List<GameObject> currentObjectInLevel;
+    GameObject currentLevel;
 
-    private void Awake()
+    private void Start()
     {
-        currentObjectInLevel = new List<GameObject>();
+        playerSpawnPoints = new List<Vector2>();
     }
-    public List<Vector2> GenerateLevel()
+
+    public List<Vector2> SpawnNextMap()
+    {
+        int i = Random.Range(0, map.Count);
+        currentMap = i;
+        currentLevel = Instantiate(map[i], transform);
+
+        foreach (Transform pos in currentLevel.GetComponent<MapManager>().playerSpawnPoints)
+        {
+            playerSpawnPoints.Add(pos.position);
+        }
+       return playerSpawnPoints;
+
+    }
+    /*public List<Vector2> GenerateLevel()
     {
         int i=0;
         do
@@ -81,5 +96,5 @@ public class LevelGenerator : MonoBehaviour
             }
         }
         return null;
-    }
+    }*/
 }

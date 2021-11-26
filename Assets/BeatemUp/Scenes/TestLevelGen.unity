@@ -352,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497517482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1578556533}
@@ -749,7 +749,7 @@ PrefabInstance:
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: eventMusic.Array.data[0].WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: aab47d4d6a800ad468d2006bbebd8621, type: 2}
+      objectReference: {fileID: 11400000, guid: 7136a642bd4a3d4419d42a3768455e7b, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: eventMusic.Array.data[1].WwiseObjectReference
       value: 
@@ -1538,11 +1538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map:
-  - {fileID: 2800000, guid: 9b1e1fe407ad11d498fb2097da1516c8, type: 3}
-  - {fileID: 2800000, guid: db85dfc0205d04c4f85496904c41c163, type: 3}
-  - {fileID: 2800000, guid: 055a347f2be671948bd1cd591f9fc37b, type: 3}
-  - {fileID: 2800000, guid: e3034fb2615e1b3408ae8e6cd1970353, type: 3}
-  - {fileID: 2800000, guid: 83cb6109440b09c4bb09ccc6aee7a482, type: 3}
+  - {fileID: 4908256683281186028, guid: 37bcd0ab39cd732499b7946c8d992967, type: 3}
   colorMappings:
   - name: Player
     color: {r: 1, g: 0, b: 0, a: 1}
