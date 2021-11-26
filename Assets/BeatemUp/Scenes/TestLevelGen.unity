@@ -746,14 +746,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: eventMusic.Array.data[0].WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ffeaed6cce4c8d4cb99e34ddbd9afe7, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: eventMusic.Array.data[1].WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1867,7 +1859,7 @@ PrefabInstance:
     - target: {fileID: 4675536604758143041, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: stopMusic.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 5ffeaed6cce4c8d4cb99e34ddbd9afe7, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4675536604758143422, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_Name
       value: VictoryScreen

@@ -46,7 +46,7 @@ MonoBehaviour:
   eventMusic:
   - idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: aab47d4d6a800ad468d2006bbebd8621, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 5ffeaed6cce4c8d4cb99e34ddbd9afe7, type: 2}
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
@@ -71,6 +71,9 @@ MonoBehaviour:
   - songName: 190
     duration: 180
   InstantiateBeat:
+    m_PersistentCalls:
+      m_Calls: []
+  EndOfMusic:
     m_PersistentCalls:
       m_Calls: []
   perfectBufferTime: 0
