@@ -11,5 +11,7 @@ public class PlayerPref : MonoBehaviour
         PlayerPrefs.SetFloat("MusicVolume", Sliders[1].value);
         PlayerPrefs.SetFloat("SFXVolume", Sliders[2].value);
 
+        PlayerPrefs.SetInt("FirstTime", 0);
+
     */
 }

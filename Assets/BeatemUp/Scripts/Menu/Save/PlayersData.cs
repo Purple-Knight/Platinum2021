@@ -15,4 +15,5 @@ public class APlayerData
     public Color myColorID;
     public int playerControllerID;
     public bool isActivated;
+    public string myName;
 }

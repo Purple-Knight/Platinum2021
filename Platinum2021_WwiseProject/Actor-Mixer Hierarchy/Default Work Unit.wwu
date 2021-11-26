@@ -1,6 +1,575 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}" SchemaVersion="103">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="SFX" ID="{2D867300-BB61-4826-A566-898545D25228}" ShortID="176392461">
+					<ChildrenList>
+						<Folder Name="Characters" ID="{81397FE3-B82D-4E81-9DFB-1346A86AACCC}" ShortID="728230805">
+							<ChildrenList>
+								<SwitchContainer Name="PlayerDeath" ID="{8BD83343-E9D5-488F-A57B-864D35C33EA8}" ShortID="421704057">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="Character" ID="{B68D62FE-675D-4D09-A26F-22AE389CCECE}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="AlixDeath" ID="{62FEEC02-CCF5-418E-965D-335750469094}" ShortID="982750856">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="K1000Death" ID="{E2389944-7C4B-4EB0-AB93-4C2C5EA871B8}" ShortID="115490038">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SavyaDeath" ID="{E92F474D-A704-4BB1-AC89-CA6BF27B1430}" ShortID="526536246">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<ObjectLists/>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="AlixDeath" ID="{62FEEC02-CCF5-418E-965D-335750469094}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="K1000Death" ID="{E2389944-7C4B-4EB0-AB93-4C2C5EA871B8}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="SavyaDeath" ID="{E92F474D-A704-4BB1-AC89-CA6BF27B1430}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Alix" ID="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}"/>
+												<ItemList>
+													<ItemRef Name="AlixDeath" ID="{62FEEC02-CCF5-418E-965D-335750469094}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}"/>
+												<ItemList>
+													<ItemRef Name="K1000Death" ID="{E2389944-7C4B-4EB0-AB93-4C2C5EA871B8}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Savya" ID="{47DDA0AD-015B-400E-A8BC-5D6929E15358}"/>
+												<ItemList>
+													<ItemRef Name="SavyaDeath" ID="{E92F474D-A704-4BB1-AC89-CA6BF27B1430}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="PlayerMovement" ID="{C6BB61E2-81C9-4176-9A8A-4058DC29C70B}" ShortID="131997771">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="Character" ID="{B68D62FE-675D-4D09-A26F-22AE389CCECE}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="K1000Mouv" ID="{0850DBAE-5DD6-484D-9A1A-F074D986FFD0}" ShortID="603571154">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="AlixMouv" ID="{708B1E37-CD84-4441-AD84-3446114654C2}" ShortID="466755916">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SavyaMouv" ID="{43260DDB-F015-443A-8F77-DF8E52317A5A}" ShortID="1054517198">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<ObjectLists/>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="AlixMouv" ID="{708B1E37-CD84-4441-AD84-3446114654C2}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="K1000Mouv" ID="{0850DBAE-5DD6-484D-9A1A-F074D986FFD0}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="SavyaMouv" ID="{43260DDB-F015-443A-8F77-DF8E52317A5A}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Alix" ID="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}"/>
+												<ItemList>
+													<ItemRef Name="AlixMouv" ID="{708B1E37-CD84-4441-AD84-3446114654C2}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}"/>
+												<ItemList>
+													<ItemRef Name="K1000Mouv" ID="{0850DBAE-5DD6-484D-9A1A-F074D986FFD0}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Savya" ID="{47DDA0AD-015B-400E-A8BC-5D6929E15358}"/>
+												<ItemList>
+													<ItemRef Name="SavyaMouv" ID="{43260DDB-F015-443A-8F77-DF8E52317A5A}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="PlayerSelection" ID="{5DF27633-44E0-46C1-AEA0-8284A01780DF}" ShortID="801920468">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="Character" ID="{B68D62FE-675D-4D09-A26F-22AE389CCECE}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="AlixSelection" ID="{A4C6F302-BE93-4E6A-BDE2-CF82DE9975E7}" ShortID="153643909">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="K1000Selection" ID="{2AA10B87-D761-4DAC-B72D-84F623021D2E}" ShortID="357155395">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SavyaSelection" ID="{2551241C-C5D9-47EB-BF1E-A69457640BA1}" ShortID="247760887">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<ObjectLists/>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="AlixSelection" ID="{A4C6F302-BE93-4E6A-BDE2-CF82DE9975E7}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="SavyaSelection" ID="{2551241C-C5D9-47EB-BF1E-A69457640BA1}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="K1000Selection" ID="{2AA10B87-D761-4DAC-B72D-84F623021D2E}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Alix" ID="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}"/>
+												<ItemList>
+													<ItemRef Name="AlixSelection" ID="{A4C6F302-BE93-4E6A-BDE2-CF82DE9975E7}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}"/>
+												<ItemList>
+													<ItemRef Name="K1000Selection" ID="{2AA10B87-D761-4DAC-B72D-84F623021D2E}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Savya" ID="{47DDA0AD-015B-400E-A8BC-5D6929E15358}"/>
+												<ItemList>
+													<ItemRef Name="SavyaSelection" ID="{2551241C-C5D9-47EB-BF1E-A69457640BA1}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="PlayerShoot" ID="{1AB5DB17-22E4-4B89-BDD6-44FB7C18FD16}" ShortID="100990743">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="Character" ID="{B68D62FE-675D-4D09-A26F-22AE389CCECE}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="AlixShoot" ID="{63A082AD-1056-48FA-91EF-02523C817B10}" ShortID="204821110">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="K1000Shoot" ID="{4C562EFA-3C1C-412E-A4B9-A8C32C9246D8}" ShortID="798710574">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SavyaShoot" ID="{7D7A0884-A6C0-4616-9081-3453E0137501}" ShortID="849055754">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<ObjectLists/>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="SavyaShoot" ID="{7D7A0884-A6C0-4616-9081-3453E0137501}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="AlixShoot" ID="{63A082AD-1056-48FA-91EF-02523C817B10}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="K1000Shoot" ID="{4C562EFA-3C1C-412E-A4B9-A8C32C9246D8}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Alix" ID="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}"/>
+												<ItemList>
+													<ItemRef Name="AlixShoot" ID="{63A082AD-1056-48FA-91EF-02523C817B10}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="K1000" ID="{6503797A-9DEE-43F7-B445-E7B207B620DE}"/>
+												<ItemList>
+													<ItemRef Name="K1000Shoot" ID="{4C562EFA-3C1C-412E-A4B9-A8C32C9246D8}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Savya" ID="{47DDA0AD-015B-400E-A8BC-5D6929E15358}"/>
+												<ItemList>
+													<ItemRef Name="SavyaShoot" ID="{7D7A0884-A6C0-4616-9081-3453E0137501}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Stages" ID="{132A471A-C6D8-4FF5-BC4C-E029693AC29D}" ShortID="636794162">
+							<ChildrenList>
+								<RandomSequenceContainer Name="SpeakerWelcome" ID="{B6858126-333B-4F75-92CE-42910E1AB7B2}" ShortID="77927240">
+									<PropertyList>
+										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="SpeakerWinner" ID="{106DE8F1-9975-4982-B955-B15B59299388}" ShortID="694347854">
+									<PropertyList>
+										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</RandomSequenceContainer>
+								<SwitchContainer Name="Crowd" ID="{4613C7BE-6D1D-49AD-A97D-7BBAB36DD0C4}" ShortID="546265850">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="Appaluse" ID="{A2FE3095-D39A-4D41-89BB-A6523D740EFF}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="Crowd" ID="{EB76C8D2-ADC1-4C85-B41B-4D4609D1590B}" WorkUnitID="{DA456CE8-D4CE-462F-981C-3472F2F3724E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Hola" ID="{FFB8D683-1EDC-46BC-A9B8-5FF27F7777F3}" ShortID="766939984">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Song" ID="{15101190-3068-4E5E-A617-089642F50153}" ShortID="315076890">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Buh" ID="{CEDF5256-DBC1-467B-86E9-00886993198A}" ShortID="675631976">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Applause" ID="{6F71281F-7CF1-4601-B4EA-182B913C6F69}" ShortID="14572697">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ObjectLists/>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<ObjectLists/>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Applause" ID="{6F71281F-7CF1-4601-B4EA-182B913C6F69}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Buh" ID="{CEDF5256-DBC1-467B-86E9-00886993198A}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Hola" ID="{FFB8D683-1EDC-46BC-A9B8-5FF27F7777F3}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Song" ID="{15101190-3068-4E5E-A617-089642F50153}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Song" ID="{CAC24704-73AF-4757-AAC0-53DDE8E17CE0}"/>
+												<ItemList>
+													<ItemRef Name="Song" ID="{15101190-3068-4E5E-A617-089642F50153}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Hola" ID="{44F7BC06-FF7D-4FCF-AD2A-27DD8FDB9509}"/>
+												<ItemList>
+													<ItemRef Name="Hola" ID="{FFB8D683-1EDC-46BC-A9B8-5FF27F7777F3}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Appaluse" ID="{A2FE3095-D39A-4D41-89BB-A6523D740EFF}"/>
+												<ItemList>
+													<ItemRef Name="Applause" ID="{6F71281F-7CF1-4601-B4EA-182B913C6F69}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Buh" ID="{262FA9F1-CAFB-44A1-A442-107601506511}"/>
+												<ItemList>
+													<ItemRef Name="Buh" ID="{CEDF5256-DBC1-467B-86E9-00886993198A}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<Sound Name="CountDown1" ID="{6D13C51B-09B1-41BD-B3D3-8FFA2A148286}" ShortID="367389500">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</Sound>
+								<Sound Name="CountDown2" ID="{2998B25E-7BF1-4F83-8B1B-511757EF6392}" ShortID="307060410">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="UI" ID="{F7078469-2CF2-451B-A69C-898F41E473E7}" ShortID="872395358">
+							<ChildrenList>
+								<Sound Name="Navigation" ID="{7E7CF547-9673-4F3B-A3A3-D1CD1294459F}" ShortID="382797258">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</Sound>
+								<Sound Name="Selection" ID="{A2602C4C-6734-4379-A18D-748D59EA307A}" ShortID="289708242">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</Sound>
+								<Sound Name="Validation" ID="{F00B2211-E85B-4D30-A9A0-FCEADEEB53EF}" ShortID="337927873">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</Sound>
+								<Sound Name="Return" ID="{A878E506-BD5F-43ED-A195-89154A9042D0}" ShortID="741648101">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</Sound>
+								<Sound Name="Next" ID="{EF44E9B6-1D0D-4919-B550-04E4E9AB2710}" ShortID="182865072">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists/>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
