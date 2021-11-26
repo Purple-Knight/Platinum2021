@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 62f9597facf65640bf460bce7fcd6097
     GuidInternal: 
-    m_lastTime: -8585685325309865052
+    m_lastTime: -8585685130077023001
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d038ecf2d1335543bf943a8f453b7d5f
     GuidInternal: 
-    m_lastTime: -8585650719987893540
+    m_lastTime: -8585638613226725438
     List:
     - name: MusicBank
       guid: c950ed8ba691bb4196f94f83cbd3c44e
@@ -142,8 +142,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585662858327653698
+    m_lastTime: -8585638613446836781
     List:
+    - name: EndOfMusic
+      guid: aff9ad565dfaa94eacb15556c941bcf1
+      id: 1143320996
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: EndOfMusic
+        ObjectType: 3
+        guid: aff9ad565dfaa94eacb15556c941bcf1
+      Path: Events\Default Work Unit\EndOfMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: PlayCrypt
       guid: 32983bc18cc5a64abc6ad48d2e1c686e
       id: 859070589
@@ -334,7 +351,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: ef9b90617ee2324197d941e57478b9dc
     GuidInternal: 
-    m_lastTime: -8585685325309875033
+    m_lastTime: -8585685130077042941
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -348,7 +365,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e86c45daced42f46981c3472f2f3724e
     GuidInternal: 
-    m_lastTime: -8585685325309865052
+    m_lastTime: -8585685130077032975
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -362,10 +379,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 3437ef2ec1abd24f9668567eaa6ed463
     GuidInternal: 
-    m_lastTime: -8585685325309865052
+    m_lastTime: -8585685130077032975
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 01000000050000000600000007000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

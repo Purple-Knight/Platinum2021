@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -213,6 +214,11 @@ public class PlayerMovement : MonoBehaviour
                 
                 Squeeeesh(false);
             }
+            else if (mvtVertical > 0 && !canGoUp) //if the player can't go up 
+            {
+                playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
+                Squeeeesh(false);
+            }
             else if (mvtVertical < 0 && canGoDown)
             {
                 if (numbOfSteps > 1)
@@ -232,6 +238,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     targetPos.y = transform.position.y - 1;
                 }
+                Squeeeesh(false);
+            }
+            else if (mvtVertical < 0 && !canGoDown) //if the player can't go down
+            {
+                playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
                 Squeeeesh(false);
             }
             hasMoved = true;
@@ -274,6 +285,11 @@ public class PlayerMovement : MonoBehaviour
                 sprite.flipX = true;
                 Squeeeesh(true);
             }
+            else if (mvtHorizontal > 0 && !canGoRight) //if the player can't go right  
+            {
+                playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
+                Squeeeesh(false);
+            }
             else if (mvtHorizontal < 0 && canGoLeft)
             {
                 if (numbOfSteps > 1)
@@ -295,6 +311,11 @@ public class PlayerMovement : MonoBehaviour
                 }
                 sprite.flipX = false;
                 Squeeeesh(true);
+            }
+            else if (mvtHorizontal < 0 && !canGoLeft) //if the player can't go left 
+            {
+                playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
+                Squeeeesh(false);
             }
             hasMoved = true;
         }
