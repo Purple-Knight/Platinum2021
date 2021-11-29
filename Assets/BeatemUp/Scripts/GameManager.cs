@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
     {
         //321 count down
         //disable player input
-        RhythmManager.Instance.eventMusic[1].Post(RhythmManager.Instance.gameObject);
+        
         List<int> winners = CheckWinner();
         APlayerData data = playersData.allPlayerData[winners[0]];
         VictoryManager.Instance.InstantiateVictoryScene("Character idk", winners[0] +1, data.myCharID, data.myColorID);

@@ -50,12 +50,6 @@ MonoBehaviour:
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
-  - idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  - idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   idToLaunch: 0
   inMenu: 0
   numberOfBeat: 0
@@ -64,10 +58,6 @@ MonoBehaviour:
   duration:
   - songName: Lady
     duration: 303
-  - songName: 190
-    duration: 180
-  - songName: 150
-    duration: 180
   - songName: 190
     duration: 180
   InstantiateBeat:
