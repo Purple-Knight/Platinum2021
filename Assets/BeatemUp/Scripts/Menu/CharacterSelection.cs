@@ -253,7 +253,8 @@ public class CharacterSelection : MonoBehaviour
                 {
                     saveALL(item);
                     saveData();
-                    RhythmManager.Instance.eventMusic[1].Post(RhythmManager.Instance.gameObject);
+                    RhythmManager.Instance.StopAllMusic();
+                    RhythmManager.Instance.inMenu = false;
                     SceneManager.LoadScene("TestLevelGen");
                 }
                 else

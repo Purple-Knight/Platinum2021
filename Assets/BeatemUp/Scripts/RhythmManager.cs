@@ -12,8 +12,9 @@ public class RhythmManager : MonoBehaviour
     public OnMusicBeat onMusicBeatDelegate;
 
     [Header("Music Selection")]
-    public List<AK.Wwise.Event> eventMusic = new List<AK.Wwise.Event>();
-    [SerializeField ]private int idToLaunch;
+    [SerializeField] AK.Wwise.Event menuMusicEvent;
+    [SerializeField] AK.Wwise.Event gameMusicEvent;
+    [SerializeField] AK.Wwise.Event stopAllMusicEvent;
 
 
     [Header("Beat")]
@@ -37,66 +38,50 @@ public class RhythmManager : MonoBehaviour
 
     [SerializeField] private float timerInBetweenBeat = 0;
 
+    [Header("Buffer Time")]
     [SerializeField] Level level;
+    [SerializeField] float hardPercentage;
+    [SerializeField] float mediumPercentage;
+    [SerializeField] float easyPercentage;
 
     private void Awake()
     {
         if (_instance != null)
         {
-            Destroy(gameObject);
+            
+            Destroy(this.gameObject);
         }
         else
         {
             _instance = this;
         }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
 
 
     void Start()
     {
+        StartGame();
+    }
+
+    public void StartGame()
+    {
+        onceAtStart = false;
         StartCoroutine(delayStart());
-        
     }
 
     IEnumerator delayStart()
     {
         yield return new WaitForSeconds(timeBeforeStart);
-        eventMusic[idToLaunch].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        gameMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
 
 
 
     private void Update()
     {
-        // musicSpeedRTPC.SetGlobalValue(musicSpeed);
-
-        /*if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            eventMusic[0].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            onceAtStart = false;
-            idToLaunch = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            eventMusic[1].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            onceAtStart = false;
-            idToLaunch = 1;
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            eventMusic[2].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            onceAtStart = false;
-            idToLaunch = 2;
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            eventMusic[3].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
-            onceAtStart = false;
-            idToLaunch = 3;
-        }*/
-
         timerInBetweenBeat += Time.deltaTime;
     }
 
@@ -149,9 +134,9 @@ public class RhythmManager : MonoBehaviour
             if (!onceAtStart)
             {
                 onceAtStart = true;
-                eventMusic[1].Post(gameObject);
+                stopAllMusicEvent.Post(gameObject);
                 StartCoroutine(beforeStart());
-                numberOfBeat = duration[idToLaunch].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
+                numberOfBeat = duration[0].duration / beatDuration;    //    stopper les x derniers beat en fct dde la time line ( check le nombre de beat dans la chanson et la time line)
                 InstantiateBeat?.Invoke();
 
                 //Window Rythm
@@ -160,15 +145,16 @@ public class RhythmManager : MonoBehaviour
                 switch (level)
                 {
                     case Level.Easy:
-                        bufferTime = 5 * halfBeatTime / 6;
+                        bufferTime = halfBeatTime * (easyPercentage /100);
                         break;
                     case Level.Medium:
-                        bufferTime = 4 * halfBeatTime / 6;
+                        bufferTime = halfBeatTime * (mediumPercentage / 100);
                         break;
                     case Level.Hard:
-                        bufferTime = halfBeatTime / 2;
+                        bufferTime = halfBeatTime * (hardPercentage / 100);
                         break;
                 }
+                Debug.Log(bufferTime);
                 perfectBufferTime = beatDuration / 6;
             }
             else
@@ -196,14 +182,18 @@ public class RhythmManager : MonoBehaviour
                 InstantiateBeat?.Invoke();
                 yield return new WaitForSeconds(beatDuration);
             }
+            gameMusicEvent.Post(gameObject, (uint)0x2100, CallbackFunction);
+        }else
+        {
+            menuMusicEvent.Post(gameObject, (uint)0x2100, CallbackFunction);
+
         }
 
-            eventMusic[idToLaunch].Post(gameObject, (uint)0x2100, CallbackFunction);
     }
 
     public void StopAllMusic()
     {
-        eventMusic[1].Post(gameObject);
+        stopAllMusicEvent.Post(gameObject);
     }
 
 }

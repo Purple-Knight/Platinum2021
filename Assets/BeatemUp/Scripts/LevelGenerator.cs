@@ -76,7 +76,7 @@ public class LevelGenerator : MonoBehaviour
     GameObject GenerateTile(int x, int y)
     {
         Color pixelColor = map[currentMap].GetPixel(x, y);
-        Debug.Log(pixelColor);
+        //Debug.Log(pixelColor);
         if (pixelColor.a == 0)
         {
             /*Vector2 position = new Vector2((transform.position.x + x / divideMultiplicator) * gridSize.x, (transform.position.y + y / divideMultiplicator) * gridSize.y);

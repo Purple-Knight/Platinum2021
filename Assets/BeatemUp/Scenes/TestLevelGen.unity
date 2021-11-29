@@ -153,20 +153,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef31c8fe98f363f46b3c33af0b01a87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventMusic:
-  - idInternal: 0
+  menuMusicEvent:
+    idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
-  - idInternal: 0
+  gameMusicEvent:
+    idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
-  - idInternal: 0
+  stopAllMusicEvent:
+    idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
-  - idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  idToLaunch: 0
   inMenu: 0
   numberOfBeat: 0
   timeBeforeStart: 0.1
@@ -191,6 +189,9 @@ MonoBehaviour:
   halfBeatTime: 0
   timerInBetweenBeat: 0
   level: 2
+  hardPercentage: 0
+  mediumPercentage: 0
+  easyPercentage: 0
 --- !u!4 &381930278
 Transform:
   m_ObjectHideFlags: 0
