@@ -71,7 +71,7 @@ public class RhythmManager : MonoBehaviour
     {
         // musicSpeedRTPC.SetGlobalValue(musicSpeed);
 
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        /*if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             eventMusic[0].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
             onceAtStart = false;
@@ -95,7 +95,7 @@ public class RhythmManager : MonoBehaviour
             eventMusic[3].Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
             onceAtStart = false;
             idToLaunch = 3;
-        }
+        }*/
 
         timerInBetweenBeat += Time.deltaTime;
     }
@@ -199,6 +199,11 @@ public class RhythmManager : MonoBehaviour
         }
 
             eventMusic[idToLaunch].Post(gameObject, (uint)0x2100, CallbackFunction);
+    }
+
+    public void StopAllMusic()
+    {
+        eventMusic[1].Post(gameObject);
     }
 
 }

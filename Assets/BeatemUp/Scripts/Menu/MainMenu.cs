@@ -358,10 +358,20 @@ public class MainMenu : MonoBehaviour
 
     void loadMusicVolume()
     {
-        Sliders[0].value = PlayerPrefs.GetFloat("MainVolume");
-        Sliders[1].value = PlayerPrefs.GetFloat("MusicVolume");
-        Sliders[2].value = PlayerPrefs.GetFloat("SFXVolume");
+        if (PlayerPrefs.GetInt("FirstTime") == 0)
+        {
+            PlayerPrefs.SetInt("FirstTime", 1);
+            Sliders[0].value = 50;
+            Sliders[1].value = 50;
+            Sliders[2].value = 50;
+        }
+        else
+        {
+            Sliders[0].value = PlayerPrefs.GetFloat("MainVolume");
+            Sliders[1].value = PlayerPrefs.GetFloat("MusicVolume");
+            Sliders[2].value = PlayerPrefs.GetFloat("SFXVolume");
 
+        }
         SetVolumeGen();
         SetVolumeMusic();
         SetVolumeSFX();

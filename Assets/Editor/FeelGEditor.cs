@@ -15,6 +15,8 @@ public class FeelGEditor : Editor
         SerializedProperty action = serializedObject.FindProperty("playOnAwake");
         SerializedProperty timeToDo = serializedObject.FindProperty("timeToDo");
 
+        SerializedProperty lenum = serializedObject.FindProperty("evenOrOdd"); 
+
         SerializedProperty changePos = serializedObject.FindProperty("changePos");
         SerializedProperty posPourcent = serializedObject.FindProperty("posNeed");
 
@@ -27,6 +29,8 @@ public class FeelGEditor : Editor
 
         EditorGUILayout.PropertyField(action);
         EditorGUILayout.PropertyField(timeToDo);
+
+        EditorGUILayout.PropertyField(lenum);
 
         EditorGUILayout.PropertyField(changePos);
         if (changePos.boolValue)
