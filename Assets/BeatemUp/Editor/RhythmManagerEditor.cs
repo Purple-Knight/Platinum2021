@@ -6,13 +6,12 @@ using UnityEditor;
 [CustomEditor(typeof(RhythmManager))]
 public class RhythmManagerEditor : Editor
 {
-    public static string[] EXCLUDE_PROPERTIES = { "numberOfBeat" , "beatDuration", "InstantiateBeat", "EndOfMusic", "halfBeatTime" , "hardPercentage" , "mediumPercentage", "easyPercentage" };
+    public static string[] EXCLUDE_PROPERTIES = { "numberOfBeat" , "beatDuration", "InstantiateBeat", "EndOfMusic", "halfBeatTime" , "hardPercentage" , "mediumPercentage", "easyPercentage", "BPM"};
 
-    float inspectorOffset = 270;
-    float BPM;
     float beatDuration;
     public override void OnInspectorGUI()
     {
+        float inspectorOffset = 300;
         serializedObject.Update();
         //base.OnInspectorGUI();
 
@@ -20,6 +19,7 @@ public class RhythmManagerEditor : Editor
         SerializedProperty easyPercentage = serializedObject.FindProperty("easyPercentage");
         SerializedProperty mediumPercentage = serializedObject.FindProperty("mediumPercentage");
         SerializedProperty hardPercentage = serializedObject.FindProperty("hardPercentage");
+        SerializedProperty BPM = serializedObject.FindProperty("BPM");
 
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Editor Viual Offset : ");
@@ -28,11 +28,11 @@ public class RhythmManagerEditor : Editor
 
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("BPM : ");
-        BPM = EditorGUILayout.FloatField(BPM);
+        BPM.floatValue = EditorGUILayout.FloatField(BPM.floatValue);
         EditorGUILayout.EndHorizontal();
 
-        BPM = Mathf.Clamp(BPM, 1, 400);
-        beatDuration = 60/BPM;
+        BPM.floatValue = Mathf.Clamp(BPM.floatValue, 1, 400);
+        beatDuration = 60/BPM.floatValue;
 
 
         //text above visual

@@ -189,6 +189,7 @@ MonoBehaviour:
   hardPercentage: 0
   mediumPercentage: 0
   easyPercentage: 0
+  BPM: 126
 --- !u!4 &381930278
 Transform:
   m_ObjectHideFlags: 0
@@ -745,28 +746,16 @@ PrefabInstance:
       value: RhythmManager
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: inMenu
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: beatDuration
-      value: -0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: easyPercentage
-      value: 77
+      value: 80.8
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: hardPercentage
-      value: 26.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: timeBeforeStart
-      value: 0
+      value: 17.9
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: mediumPercentage
-      value: 50.6
+      value: 45.7
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder

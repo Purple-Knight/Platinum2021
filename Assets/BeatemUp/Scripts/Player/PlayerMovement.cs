@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float deadZoneController;
 
     float halfBeatTime; 
-    bool gotInputThisBeat; 
+    bool gotInputThisBeat = true; 
     float raycastDistance = .5f;
 
     float mvtHorizontal;
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     //lerp
     Vector2 targetPos;
     Vector2 lastPos;
-    [SerializeField] Vector2 gridSize;
+     Vector2 gridSize;
 
     //public UnityEvent PlayerHit;
     [SerializeField] ParticleSystem impactParticles;
@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         rhythmManager.InstantiateBeat.AddListener(InstantiateRhythm);
 
         playerManager = GetComponent<PlayerManager>();
+        gridSize = playerManager.GridSize;
         player = ReInput.players.GetPlayer(playerID);
         sprite.color = playerColor;
         targetPos = transform.position;
@@ -106,9 +107,12 @@ public class PlayerMovement : MonoBehaviour
     public void GetInput()
     {
         //Is there an Input 
-        bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
-        bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
+        bool inputHorizontal = player.GetAxis("Move Horizontal") !=0;
+        bool inputVertical = player.GetAxis("Move Vertical") != 0;
 
+        /*bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
+        bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
+        Debug.Log(player.GetAxis("Move Horizontal"));*/
 
         if ((inputHorizontal || inputVertical) && !gotInputThisBeat && !buttonDown)
         {
@@ -186,10 +190,10 @@ public class PlayerMovement : MonoBehaviour
             mvtVertical = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+/*        if (Input.GetKeyDown(KeyCode.W))
         {
             tpToWall = true;
-        }
+        }*/
     }
 
     IEnumerator ResetFreeMovement()

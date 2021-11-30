@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4116768261202742272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6419016, y: -0.13375321, z: -2.1429987}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
   inMenu: 0
   numberOfBeat: 0
-  timeBeforeStart: 0.1
+  timeBeforeStart: 0.3
   beatDuration: 0
   duration:
   - songName: Lady
@@ -70,6 +70,6 @@ MonoBehaviour:
       m_Calls: []
   halfBeatTime: 0
   level: 0
-  hardPercentage: 45
-  mediumPercentage: 60
-  easyPercentage: 75
+  hardPercentage: 1
+  mediumPercentage: 1
+  easyPercentage: 100

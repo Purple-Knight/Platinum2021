@@ -5003,7 +5003,7 @@ MonoBehaviour:
   comboManager: {fileID: -6364000640499899623}
   playerHealth: {fileID: 3259888342345483222}
   playerAnimator: {fileID: 344204938798962833}
-  gridSize: {x: 1, y: 1}
+  gridSize: {x: 1, y: 0.5}
   sprites:
   - {fileID: 21300000, guid: aba7217f5f1cfc14890408b36bf0c2e7, type: 3}
   - {fileID: 21300000, guid: 9e4002dcdbf93d7439863d258f581309, type: 3}
