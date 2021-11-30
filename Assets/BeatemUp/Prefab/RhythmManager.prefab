@@ -68,10 +68,7 @@ MonoBehaviour:
   EndOfMusic:
     m_PersistentCalls:
       m_Calls: []
-  perfectBufferTime: 0
-  bufferTime: 0
   halfBeatTime: 0
-  timerInBetweenBeat: 0
   level: 0
   hardPercentage: 45
   mediumPercentage: 60

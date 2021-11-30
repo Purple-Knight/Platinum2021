@@ -184,10 +184,7 @@ MonoBehaviour:
   EndOfMusic:
     m_PersistentCalls:
       m_Calls: []
-  perfectBufferTime: 0
-  bufferTime: 0
   halfBeatTime: 0
-  timerInBetweenBeat: 0
   level: 2
   hardPercentage: 0
   mediumPercentage: 0
@@ -746,6 +743,30 @@ PrefabInstance:
     - target: {fileID: 4116768261202742272, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_Name
       value: RhythmManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: inMenu
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: beatDuration
+      value: -0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: easyPercentage
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: hardPercentage
+      value: 26.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: timeBeforeStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: mediumPercentage
+      value: 50.6
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
