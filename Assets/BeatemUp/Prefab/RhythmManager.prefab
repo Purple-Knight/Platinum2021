@@ -43,14 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef31c8fe98f363f46b3c33af0b01a87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventMusic:
-  - idInternal: 0
+  menuMusicEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: db1cd41d6b5b23a4fae0fade3ad8e65b, type: 2}
+  gameMusicEvent:
+    idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 5ffeaed6cce4c8d4cb99e34ddbd9afe7, type: 2}
-  - idInternal: 0
+  stopAllMusicEvent:
+    idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
-  idToLaunch: 0
   inMenu: 0
   numberOfBeat: 0
   timeBeforeStart: 0.1
@@ -58,16 +62,14 @@ MonoBehaviour:
   duration:
   - songName: Lady
     duration: 303
-  - songName: 190
-    duration: 180
   InstantiateBeat:
     m_PersistentCalls:
       m_Calls: []
   EndOfMusic:
     m_PersistentCalls:
       m_Calls: []
-  perfectBufferTime: 0
-  bufferTime: 0
   halfBeatTime: 0
-  timerInBetweenBeat: 0
-  level: 2
+  level: 0
+  hardPercentage: 45
+  mediumPercentage: 60
+  easyPercentage: 75

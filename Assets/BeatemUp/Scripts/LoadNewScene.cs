@@ -13,7 +13,7 @@ public class LoadNewScene : MonoBehaviour
     IEnumerator Delay(string sceneName)
     {
         yield return new WaitForSeconds(.5f);
-        RhythmManager.Instance.eventMusic[1].Post(RhythmManager.Instance.gameObject);
+        RhythmManager.Instance.StopAllMusic();
         SceneManager.LoadScene(sceneName);
     }
 }
