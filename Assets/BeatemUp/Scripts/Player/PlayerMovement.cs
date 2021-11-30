@@ -371,7 +371,7 @@ public class PlayerMovement : MonoBehaviour
     public void BeatReceived()
     {
         beatPassed = true;
-        if(!DOTween.IsTweening(sprite.transform)) 
+        if(sprite != null  && !DOTween.IsTweening(sprite.transform)) 
             Squeeeesh(true);
     }
 

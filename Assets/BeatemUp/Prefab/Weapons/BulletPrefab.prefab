@@ -47,7 +47,7 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 64
-  tilePositionOffset: 0.7
+  tilePositionOffset: 0.55
   laserWidth:
     serializedVersion: 2
     m_Curve:
