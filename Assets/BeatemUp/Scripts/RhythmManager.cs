@@ -62,12 +62,6 @@ public class RhythmManager : MonoBehaviour
     }
 
 
-
-    void Start()
-    {
-        StartGame();
-    }
-
     public void StartGame()
     {
         onceAtStart = false;
