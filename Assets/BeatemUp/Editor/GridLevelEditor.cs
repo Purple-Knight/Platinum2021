@@ -6,8 +6,13 @@ using System;
 
 public class GridLevelEditor : EditorWindow
 {
+    //ceci est safe a changer :eyes:
     float levelWidth = 18;
     float levelHeight = 10;
+
+    //don't touch >:( 
+
+
     float cellSize = 35;
     Vector2 inGameGridSize = new Vector2(1, .5f);
 
@@ -37,8 +42,8 @@ public class GridLevelEditor : EditorWindow
     private void OnEnable()
     {
         SetUpStyles();
-        SetUpNodesAndParts();
         SetUpMap();
+        
     }
 
     private void SetUpMap()
@@ -48,6 +53,7 @@ public class GridLevelEditor : EditorWindow
             theMap = GameObject.FindGameObjectWithTag("Map");
             if (theMap != null)
             {
+                SetUpNodesAndParts();
                 RestoreTheMap(theMap);
             }
         }
@@ -61,6 +67,7 @@ public class GridLevelEditor : EditorWindow
         {
             theMap = new GameObject("Map");
             theMap.tag = "Map";
+            SetUpNodesAndParts();
         }
     }
 
@@ -72,6 +79,7 @@ public class GridLevelEditor : EditorWindow
             {
                 int partRow = Map.transform.GetChild(i).GetComponent<PartScript>().row;
                 int partCol = Map.transform.GetChild(i).GetComponent<PartScript>().col;
+                DestroyImmediate(parts[partRow][partCol].gameObject);
 
                 GUIStyle gUIStyle = Map.transform.GetChild(i).GetComponent<PartScript>().style;
                 nodes[partRow][partCol].SetStyle(gUIStyle);
@@ -122,7 +130,8 @@ public class GridLevelEditor : EditorWindow
             {
                 nodePos.Set(j * cellSize, i * cellSize);
                 nodes[i].Add(new Node(nodePos, cellSize, cellSize, emptyStyle));
-                parts[i].Add(null);
+                parts[i].Add(null); 
+                InstantiateTile(i,j , emptyStyle);
             }
         }
     }
@@ -173,13 +182,13 @@ public class GridLevelEditor : EditorWindow
         {
             if (@event.type == EventType.MouseDown)
             {
-                if (nodes[Row][Col].style.normal.background.name == emptyStyle.normal.background.name)
+                if (nodes[Row][Col].style.normal.background.name == currentStyle.normal.background.name)
                 {
-                    isErasing = false;
+                    isErasing = true;
                 }
                 else
                 {
-                    isErasing = true;
+                    isErasing = false;
                 }
                 Debug.Log(isErasing);
                 PaintNodes(Row, Col);
@@ -197,37 +206,43 @@ public class GridLevelEditor : EditorWindow
         if (isErasing)
         {
             Debug.Log("row : " + row + "   col : " + col);
-            if (parts[row][col] != null)
+            if (parts[row][col].name == currentStyle.normal.background.name) 
             {
                 nodes[row][col].SetStyle(emptyStyle);
 
                 DestroyImmediate(parts[row][col].gameObject);
-                parts[row][col] = null;
+                InstantiateTile(row, col, emptyStyle); 
 
                 GUI.changed = true;
             }
         }
         else
         {
-            if (parts[row][col] == null)
+            if (parts[row][col].name != currentStyle.normal.background.name) 
             {
                 nodes[row][col].SetStyle(currentStyle);
 
-                GameObject gameObject = Instantiate(Resources.Load("MapParts/" + currentStyle.normal.background.name)) as GameObject;
-                gameObject.name = currentStyle.normal.background.name;
-                gameObject.transform.position = new Vector3(col * inGameGridSize.x, -row * inGameGridSize.y, 0);
-                gameObject.transform.parent = theMap.transform;
-
-                parts[row][col] = gameObject.GetComponent<PartScript>();
-                parts[row][col].part = gameObject;
-                parts[row][col].name = gameObject.name;
-                parts[row][col].row = row;
-                parts[row][col].col = col;
-                parts[row][col].style = currentStyle;
+                DestroyImmediate(parts[row][col].gameObject);
+                InstantiateTile(row, col, currentStyle);
 
                 GUI.changed = true;
             }
         }
+    }
+
+    private void InstantiateTile(int row, int col, GUIStyle style)
+    {
+        GameObject gameObject = Instantiate(Resources.Load("MapParts/" + style.normal.background.name)) as GameObject;
+        gameObject.name = style.normal.background.name;
+        gameObject.transform.position = new Vector3(col * inGameGridSize.x, -row * inGameGridSize.y, 0);
+        gameObject.transform.parent = theMap.transform;
+
+        parts[row][col] = gameObject.GetComponent<PartScript>();
+        parts[row][col].part = gameObject;
+        parts[row][col].name = gameObject.name;
+        parts[row][col].row = row;
+        parts[row][col].col = col;
+        parts[row][col].style = style;
     }
 
     private void DrawNodes()

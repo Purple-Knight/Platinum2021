@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
 
-        endGameAnim.SetTrigger("StartGame");
         RhythmManager.Instance.StartGame();
         playersData = SaveData.Load();
         spawnPoints =  levelGen.SpawnNextMap();
