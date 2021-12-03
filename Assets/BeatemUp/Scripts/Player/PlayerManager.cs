@@ -21,14 +21,14 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] ParticleSystem notesParticle;
 
-    #region Debug
+    /*#region Debug
     public bool debug = false;
     int maxSteps = 0;
     float freeTime = 0;
     string maxStepsStr = "0";
     string freeTimeStr = "0";
     Rect debugRect;
-    #endregion
+    #endregion*/
     public int CharacterID { get => characterID; }
     public Vector2 GridSize { get => gridSize; }
 
@@ -46,8 +46,8 @@ public class PlayerManager : MonoBehaviour
         playerMovement.playerAnimator = playerAnimator;
         playerMovement.InstantiateMovement();
         comboManager.Init(this);
-        debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
-        debug = true;
+        //debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
+        //debug = true;
     }
 
     public void PlayerDied(int i)

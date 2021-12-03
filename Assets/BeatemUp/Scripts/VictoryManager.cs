@@ -56,7 +56,7 @@ public class VictoryManager : MonoBehaviour
     public void InstantiateVictoryScene(string playerName, int playerNumber, int playerCharacterId, Color playerColor)
     {
         isVictoryScreenActive = true;
-        stopMusic.Post(RhythmManager.Instance.gameObject);
+        RhythmManager.Instance.StopAllMusic();
         victoryCanvas.SetActive(true);
         playerNameText.text = playerName;
         playerNumberText.text = "Player " + playerNumber;

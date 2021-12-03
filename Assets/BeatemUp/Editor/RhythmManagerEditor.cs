@@ -9,9 +9,9 @@ public class RhythmManagerEditor : Editor
     public static string[] EXCLUDE_PROPERTIES = { "numberOfBeat" , "beatDuration", "InstantiateBeat", "EndOfMusic", "halfBeatTime" , "hardPercentage" , "mediumPercentage", "easyPercentage", "BPM"};
 
     float beatDuration;
+        float inspectorOffset = 270;
     public override void OnInspectorGUI()
     {
-        float inspectorOffset = 300;
         serializedObject.Update();
         //base.OnInspectorGUI();
 
@@ -21,11 +21,11 @@ public class RhythmManagerEditor : Editor
         SerializedProperty hardPercentage = serializedObject.FindProperty("hardPercentage");
         SerializedProperty BPM = serializedObject.FindProperty("BPM");
 
-        EditorGUILayout.BeginHorizontal();
+        /*EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Editor Viual Offset : ");
         inspectorOffset = EditorGUILayout.FloatField(inspectorOffset);
         EditorGUILayout.EndHorizontal();
-
+*/
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("BPM : ");
         BPM.floatValue = EditorGUILayout.FloatField(BPM.floatValue);
@@ -35,12 +35,13 @@ public class RhythmManagerEditor : Editor
         beatDuration = 60/BPM.floatValue;
 
 
+        inspectorOffset = GUILayoutUtility.GetLastRect().position.y +20; 
         //text above visual
-        EditorGUI.LabelField( new Rect(20, 10 + inspectorOffset, 100, 10), "Beat recieved");
+        EditorGUI.LabelField( new Rect(20, inspectorOffset, 100, 10), "Beat recieved");
         EditorGUI.LabelField(new Rect((Screen.width - 95) * hardPercentage.floatValue/100, 10 + inspectorOffset, 50, 10), "Hard");
         EditorGUI.LabelField(new Rect((Screen.width - 95) * mediumPercentage.floatValue / 100, 10+ inspectorOffset, 50, 10),"Medium");
         EditorGUI.LabelField(new Rect((Screen.width - 95) * easyPercentage.floatValue / 100, 10 + inspectorOffset, 50, 15),"Easy");
-        EditorGUI.LabelField(new Rect((Screen.width - 125) , 10 + inspectorOffset, 100, 10),"Half beat");
+        EditorGUI.LabelField(new Rect((Screen.width - 125) , inspectorOffset, 100, 10),"Half beat");
         
 
         // Visuals

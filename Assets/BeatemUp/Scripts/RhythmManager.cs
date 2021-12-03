@@ -150,7 +150,6 @@ public class RhythmManager : MonoBehaviour
                         bufferTime = halfBeatTime * (hardPercentage / 100);
                         break;
                 }
-                Debug.Log(bufferTime);
                 perfectBufferTime = bufferTime * .2f;
             }
             else

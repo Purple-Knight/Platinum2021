@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         playersData = SaveData.Load();
         spawnPoints =  levelGen.SpawnNextMap();
         SpawnPlayer();
-        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y /2 + 1.5f);
         camera.SetStartPos(levelGen.transform.position);
         RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
         scoreManager.InstantiateScore();

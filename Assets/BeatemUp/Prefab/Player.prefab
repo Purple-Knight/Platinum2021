@@ -5029,7 +5029,6 @@ MonoBehaviour:
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   deadZoneController: 0.4
   playerDir: 0
-  gridSize: {x: 1, y: 0.5}
   impactParticles: {fileID: 6206439804081257428, guid: 72344320b4bf27a429c5844fcc39686d, type: 3}
   numbOfSteps: 0
   _guiDebug: 0
@@ -5116,7 +5115,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.22}
+  m_Offset: {x: 0, y: -0.24786654}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -5127,7 +5126,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.5}
+  m_Size: {x: 0.8, y: 0.44426692}
   m_EdgeRadius: 0
 --- !u!50 &3883265989226838411
 Rigidbody2D:

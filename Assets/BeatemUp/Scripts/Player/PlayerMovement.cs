@@ -20,11 +20,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject beatText;
 
     public Color playerColor;
-    [SerializeField] float deadZoneController;
 
     float halfBeatTime; 
     bool gotInputThisBeat = true; 
-    float raycastDistance = .5f;
 
     float mvtHorizontal;
     float mvtVertical;
@@ -47,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     //lerp
     Vector2 targetPos;
     Vector2 lastPos;
-     Vector2 gridSize;
+    public Vector2 gridSize;
 
     //public UnityEvent PlayerHit;
     [SerializeField] ParticleSystem impactParticles;
@@ -426,16 +424,16 @@ public class PlayerMovement : MonoBehaviour
             case PlayerDir.NULL:
                 break;
             case PlayerDir.UP:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x, gridSize.y / 2 + transform.position.y), Vector2.up, raycastDistance, LayerMask.GetMask("Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, gridSize.y / 2 + transform.position.y), Vector2.up, gridSize.y/2, LayerMask.GetMask("Player"));
                 break;
             case PlayerDir.DOWN:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - gridSize.y), Vector2.down, raycastDistance, LayerMask.GetMask("Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - gridSize.y), Vector2.down, gridSize.y / 2, LayerMask.GetMask("Player"));
                 break;
             case PlayerDir.RIGHT:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x + (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.right, raycastDistance, LayerMask.GetMask("Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x + (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.right, gridSize.x/2, LayerMask.GetMask("Player"));
                 break;
             case PlayerDir.LEFT:
-                rayray = Physics2D.Raycast(new Vector2(transform.position.x - (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.left, raycastDistance, LayerMask.GetMask("Player"));
+                rayray = Physics2D.Raycast(new Vector2(transform.position.x - (gridSize.x / 2), transform.position.y - (gridSize.y / 2)), Vector2.left, gridSize.x/2, LayerMask.GetMask("Player"));
                 break;
         }
         if (rayray.collider != null)

@@ -90,7 +90,10 @@ public class Timeline : MonoBehaviour
     }
 
 
-
+    private void OnDestroy()
+    {
+        RhythmManager.Instance.onMusicBeatDelegate -= SendBar;
+    }
 
     private void OnGUI()
     {
