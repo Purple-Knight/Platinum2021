@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3212527565164584655}
   - component: {fileID: 6629085271936703203}
   m_Layer: 0
-  m_Name: Holder
+  m_Name: ShotUpgradeThree_Savya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,15 +43,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c30333d11f21af48b31ef6cb3aafecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboToUpgrade: 10
-  ComboToDowngrade: 5
-  weaponKey: 1
+  ComboToUpgarde: 100
+  ComboToDowngrade: 30
+  weaponKey: 3
   bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
   bullets:
-  - length: 1
+  - length: 6
+    lockDirection: 1
+    direction: 0
     positionOffset: {x: 0, y: 0}
-    inputDirectionOffset: 0
-    lockDirection: 0
-    lockIntoDirection: 0
+    lockOnX: 0
+    lockOnY: 0
+  - length: 6
+    lockDirection: 1
+    direction: 1
+    positionOffset: {x: 0, y: 0}
+    lockOnX: 0
+    lockOnY: 0
+  - length: 6
+    lockDirection: 1
+    direction: 2
+    positionOffset: {x: 0, y: 0}
+    lockOnX: 0
+    lockOnY: 0
+  - length: 6
+    lockDirection: 1
+    direction: 3
+    positionOffset: {x: 0, y: 0}
     lockOnX: 0
     lockOnY: 0
