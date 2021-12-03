@@ -825,6 +825,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6952893724088883029, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: valueList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8654904934216373462, guid: 94cceb6b5c75c97469bba1836be3c452, type: 3}
+    - target: {fileID: -6952893724088883029, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: valueList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8654904934216373462, guid: a2cd24e8cbf34ef47a89928819852177, type: 3}
+    - target: {fileID: -6952893724088883029, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: valueList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8654904934216373462, guid: 0bc9a5fb26437664699cb1c8495996da, type: 3}
+    - target: {fileID: -6952893724088883029, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
+      propertyPath: valueList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8654904934216373462, guid: 3035bb16184dff94192a759ac0639485, type: 3}
     - target: {fileID: 2455372343655736703, guid: 9445b6f26f1a22b449eee058ac0b48d5, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -943,21 +959,25 @@ PrefabInstance:
       value: RhythmManager
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: easyPercentage
-      value: 80.8
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: hardPercentage
-      value: 17.9
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: mediumPercentage
-      value: 46.7
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gameMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 6f9e423d57bdcf14cafb7523e8b94873, type: 2}
+      objectReference: {fileID: 11400000, guid: aab47d4d6a800ad468d2006bbebd8621, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1251,7 +1271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.93000007, y: 0}
   m_AnchorMax: {x: 1, y: 0.06154813}
-  m_AnchoredPosition: {x: 0.090026855, y: 0.070007324}
+  m_AnchoredPosition: {x: 0.090026855, y: 0.07006836}
   m_SizeDelta: {x: -0.17297363, y: 0.059000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725765165
@@ -1612,7 +1632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.07, y: 0.06154813}
-  m_AnchoredPosition: {x: -0.08996582, y: 0.070007324}
+  m_AnchoredPosition: {x: -0.08996582, y: 0.07006836}
   m_SizeDelta: {x: -0.17300034, y: 0.059000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2039321579
