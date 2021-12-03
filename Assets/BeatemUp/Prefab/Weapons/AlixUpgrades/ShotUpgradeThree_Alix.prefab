@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3212527565164584655}
-  - component: {fileID: 8977234726652202624}
+  - component: {fileID: 6629085271936703203}
   m_Layer: 0
-  m_Name: NoWeapon
+  m_Name: ShotUpgradeThree_Alix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8977234726652202624
+--- !u!114 &6629085271936703203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 8654904934216373462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0257c637e2a98f41911d69b3df15b01, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c30333d11f21af48b31ef6cb3aafecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboToUpgrade: 5
-  ComboToDowngrade: 0
-  weaponKey: 0
+  ComboToUpgarde: 100
+  ComboToDowngrade: 35
+  weaponKey: 3
   bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
-  bullets: []
+  bullets:
+  - length: 6
+    lockDirection: 0
+    direction: 0
+    positionOffset: {x: 0, y: 0}
+    lockOnX: 0
+    lockOnY: 0
+  - length: 5
+    lockDirection: 0
+    direction: 0
+    positionOffset: {x: 0, y: 0}
+    lockOnX: 0
+    lockOnY: 0
+  - length: 5
+    lockDirection: 0
+    direction: 0
+    positionOffset: {x: 0, y: 0}
+    lockOnX: 0
+    lockOnY: 0
