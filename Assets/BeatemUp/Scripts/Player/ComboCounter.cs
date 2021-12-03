@@ -55,7 +55,7 @@ public class ComboCounter : MonoBehaviour
 
         Combo = ApplyModifier(Combo);
 
-        Color debugColor = playerManager.CharacterID switch
+        Color debugColor = playerManager.PlayerID switch
         {
             0 => new Color(232 / 255f, 53 / 255f, 161 / 255f),
             1 => Color.cyan,
@@ -63,7 +63,7 @@ public class ComboCounter : MonoBehaviour
             3 => Color.yellow,
             _ => Color.white,
         };
-        Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}", (byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.CharacterID + 1, Combo));
+        Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}", (byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.PlayerID + 1, Combo));
 
         if(currentWeapon != null && Combo >= currentWeapon.ComboToUpgrade)
         {

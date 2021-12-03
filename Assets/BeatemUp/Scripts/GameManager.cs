@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
                 }
                 players[i].playerMovement.enabled = false;
             }
-            Debug.Log("player " + players[playerAlive].CharacterID + " won");
+            Debug.Log("player " + players[playerAlive].PlayerID + " won");
             PlayerWon.Invoke(playerAlive);
             playerWins[playerAlive]++;
             for (int i = 0; i < playerWins.Length; i++)

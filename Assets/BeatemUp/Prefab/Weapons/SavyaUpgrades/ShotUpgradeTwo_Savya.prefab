@@ -43,26 +43,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c30333d11f21af48b31ef6cb3aafecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboToUpgarde: 30
+  ComboToUpgrade: 30
   ComboToDowngrade: 15
   weaponKey: 2
   bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
   bullets:
   - length: 5
+    positionOffset: {x: 0, y: 0}
+    inputDirectionOffset: 0
     lockDirection: 0
-    direction: 0
-    positionOffset: {x: 0, y: 0}
+    lockIntoDirection: 0
     lockOnX: 0
     lockOnY: 0
   - length: 3
-    lockDirection: 1
-    direction: 2
     positionOffset: {x: 0, y: 0}
+    inputDirectionOffset: 0
+    lockDirection: 1
+    lockIntoDirection: 0
     lockOnX: 0
     lockOnY: 0
   - length: 3
-    lockDirection: 1
-    direction: 3
     positionOffset: {x: 0, y: 0}
+    inputDirectionOffset: 0
+    lockDirection: 1
+    lockIntoDirection: 0
     lockOnX: 0
     lockOnY: 0

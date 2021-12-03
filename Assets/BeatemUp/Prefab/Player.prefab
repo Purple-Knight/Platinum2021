@@ -5009,7 +5009,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9e4002dcdbf93d7439863d258f581309, type: 3}
   - {fileID: 21300000, guid: 00287b9b0b26a1341b8b8037bf2ba453, type: 3}
   notesParticle: {fileID: 933890351431816421}
-  debug: 0
 --- !u!114 &3883265989226838409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5022,13 +5021,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4bd5872826f82498d44b6093b8eb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 0
+  controllerID: 0
   sprite: {fileID: 6995882317632707775}
   playerAnimator: {fileID: 344204938798962833}
   beatText: {fileID: 3065274895382308146, guid: d7cd5b03ef7f6d34f9292e04a67075ce, type: 3}
   playerColor: {r: 1, g: 1, b: 1, a: 1}
-  deadZoneController: 0.4
   playerDir: 0
+  gridSize: {x: 0, y: 0}
   impactParticles: {fileID: 6206439804081257428, guid: 72344320b4bf27a429c5844fcc39686d, type: 3}
   numbOfSteps: 0
   _guiDebug: 0

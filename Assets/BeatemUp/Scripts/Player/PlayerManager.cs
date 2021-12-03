@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private Vector2 gridSize = new Vector2(1, 1);
 
+    private int playerID = 0;
     private int characterID;
     [SerializeField] List<Sprite> sprites;
     Color playerColor;
@@ -29,14 +30,17 @@ public class PlayerManager : MonoBehaviour
     string freeTimeStr = "0";
     Rect debugRect;
     #endregion*/
+    public int PlayerID { get => playerID; }
     public int CharacterID { get => characterID; }
     public Vector2 GridSize { get => gridSize; }
 
-    public void InstantiatePlayer(int conrtollerID, int playerID, Color color, int spriteID)
+    public void InstantiatePlayer(int controllerID, int playerNumberID, Color color, int spriteID) // Controller connexion Order, Player Order (P1, P2,...), sprite = Character Selected
     {
-        characterID = playerID;
+        //Debug.Log("Controller " + controllerID + " / Player " + playerNumberID + " / Character-Sprite " + spriteID);
+        playerID = playerNumberID;
+        characterID = spriteID;
         playerAnimator.SetFloat("CharacterID", spriteID);
-        playerMovement.playerID = conrtollerID;
+        playerMovement.controllerID = controllerID;
         playerMovement.playerColor = color;
         playerColor = color;
         spriteRenderer.sprite = sprites[spriteID];

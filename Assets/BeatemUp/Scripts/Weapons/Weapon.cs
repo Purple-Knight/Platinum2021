@@ -89,7 +89,7 @@ public class Weapon : MonoBehaviour
             //bulletDirection.x = Mathf.RoundToInt(bulletDirection.x);
             //bulletDirection.y = Mathf.RoundToInt(bulletDirection.y);
             //Position Offset
-            bulletPosition += info.getPositionOffset(bulletDirection);
+            bulletPosition += info.getPositionOffset(bulletDirection) * playerManager.GridSize;
 
 
             //Spawn

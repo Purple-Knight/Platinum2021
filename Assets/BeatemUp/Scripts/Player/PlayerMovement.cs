@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables
 
-    public int playerID = 0;
+    public int controllerID = 0;
     public SpriteRenderer sprite;
     private PlayerManager playerManager;
     private Player player; //Rewired player
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerManager = GetComponent<PlayerManager>();
         gridSize = playerManager.GridSize;
-        player = ReInput.players.GetPlayer(playerID);
+        player = ReInput.players.GetPlayer(controllerID);
         sprite.color = playerColor;
         targetPos = transform.position;
         lastPos = targetPos;
@@ -498,7 +498,7 @@ public class PlayerMovement : MonoBehaviour
         if (!_guiDebug) return;
 
         GUILayout.BeginArea(_guiDebugArea);
-        GUILayout.TextArea("Player " + playerID);
+        GUILayout.TextArea("Player " + playerManager.PlayerID);
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Tp to walls " + tpToWall))
         {
