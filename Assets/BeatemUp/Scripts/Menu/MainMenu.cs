@@ -80,6 +80,11 @@ public class MainMenu : MonoBehaviour
         {
             if(!players.Contains(ReInput.players.GetPlayer(i))) players.Add(ReInput.players.GetPlayer(i));
         }
+        
+        if(joysticks.Count == 0) // keyboard only, no controllers connected
+        {
+            players.Add(ReInput.players.GetPlayer(0));
+        }
     }
 
 

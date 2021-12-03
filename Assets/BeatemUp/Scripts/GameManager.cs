@@ -25,11 +25,12 @@ public class GameManager : MonoBehaviour
     public ScoreManager scoreManager;
     [SerializeField] GameObject timeline;
 
+    [SerializeField] Animator endGameAnim;
+
     void Start()
     {
         _instance = this;
 
-        
         RhythmManager.Instance.StartGame();
         playersData = SaveData.Load();
         spawnPoints =  levelGen.SpawnNextMap();
@@ -117,14 +118,17 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        endGameAnim.SetTrigger("Countdown");
+    }
+
+    public void VictoryScreen()
+    {
         //321 count down
         //disable player input
-        
+
         List<int> winners = CheckWinner();
         APlayerData data = playersData.allPlayerData[winners[0]];
-        VictoryManager.Instance.InstantiateVictoryScene("Character idk", winners[0] +1, data.myCharID, data.myColorID);
-        //new game and menu buttons
-
+        VictoryManager.Instance.InstantiateVictoryScene("Character idk", winners[0] + 1, data.myCharID, data.myColorID);
     }
 
     public List<int> CheckWinner()

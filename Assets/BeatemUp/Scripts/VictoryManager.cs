@@ -19,6 +19,7 @@ public class VictoryManager : MonoBehaviour
     private List<Player> players = new List<Player>();
     [SerializeField] AK.Wwise.Event stopMusic;
 
+
     private void Awake()
     {
         _instance = this;

@@ -23,14 +23,15 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         Vector2 spawnPos = new Vector2(transform.position.x + (_playerManager.GridSize.x * tilePositionOffset) * direction.x, transform.position.y + (_playerManager.GridSize.y * tilePositionOffset) * direction.y);
         Vector2 endPos;
 
-        RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, length, hitLayer);
+        float grid = direction.x == 0 ? _playerManager.GridSize.y : _playerManager.GridSize.x;
+        RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, length * grid, hitLayer);
         if (hit.collider != null)
         {
             endPos = hit.point;
         }
         else
         {
-            endPos = new Vector2(spawnPos.x + length * direction.x, spawnPos.y + length * direction.y);
+            endPos = new Vector2(spawnPos.x + (length - tilePositionOffset) *_playerManager.GridSize.x * direction.x, spawnPos.y + (length - tilePositionOffset) * _playerManager.GridSize.y * direction.y);
         }
 
         InitLaser(spawnPos, endPos, direction);

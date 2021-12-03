@@ -88,7 +88,7 @@ public class PlayerManager : MonoBehaviour
         playerMovement.EndFreeMovement();
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         if (!debug) return;
         GUILayout.BeginArea(debugRect);
@@ -107,5 +107,5 @@ public class PlayerManager : MonoBehaviour
                 IgnoreTimelineForSec(freeTime, maxSteps);
         }
         GUILayout.EndArea();
-    }
+    }*/
 }

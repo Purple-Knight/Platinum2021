@@ -44,6 +44,8 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] float mediumPercentage;
     [SerializeField] float easyPercentage;
 
+    [SerializeField] float BPM = 126;
+    
     private void Awake()
     {
         if (_instance != null)
@@ -59,12 +61,6 @@ public class RhythmManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-
-
-    void Start()
-    {
-        StartGame();
-    }
 
     public void StartGame()
     {
@@ -93,21 +89,21 @@ public class RhythmManager : MonoBehaviour
             //Debug.Log("Perfet before");
             return Timing.PERFECT;
         }
-        else if (timerInBetweenBeat >= (bufferTime * 2))
+        else if (timerInBetweenBeat >= (beatDuration - bufferTime))
         {
             //Before
             //Debug.Log("Before");
 
             return Timing.BEFORE;
         }
-        else if (timerInBetweenBeat > bufferTime && timerInBetweenBeat < (bufferTime * 2))
+        else if (timerInBetweenBeat > bufferTime) // && timerInBetweenBeat < (beatDuration - bufferTime)
         {
             //Miss
             //Debug.Log("Miss");
 
             return Timing.MISS;
         }
-        else if (timerInBetweenBeat <= bufferTime && timerInBetweenBeat > perfectBufferTime)
+        else if (timerInBetweenBeat > perfectBufferTime)
         {
             //After
             //Debug.Log("After");
@@ -155,7 +151,7 @@ public class RhythmManager : MonoBehaviour
                         break;
                 }
                 Debug.Log(bufferTime);
-                perfectBufferTime = beatDuration / 6;
+                perfectBufferTime = bufferTime * .2f;
             }
             else
             {
