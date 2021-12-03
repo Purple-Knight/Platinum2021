@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4518699010491959988, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_Name
-      value: Speaker
+      value: SpeakerRight
       objectReference: {fileID: 0}
     - target: {fileID: 4518699010491959988, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_Layer
@@ -82,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 4518699011575062586, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2955083697233570075, guid: 5fbb84d8664fe2748993dc4d75acf3f4, type: 3}
+      objectReference: {fileID: 7509562653635918211, guid: 5fbb84d8664fe2748993dc4d75acf3f4, type: 3}
     - target: {fileID: 4518699011575062586, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4518699011575062587, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.433
+      value: -0.441
       objectReference: {fileID: 0}
     - target: {fileID: 6735004188096697746, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_Layer

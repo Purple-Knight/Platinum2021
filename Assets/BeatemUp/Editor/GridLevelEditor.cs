@@ -155,12 +155,21 @@ public class GridLevelEditor : EditorWindow
         menuBar = new Rect(0, 0, position.width, 20);
         GUILayout.BeginArea(menuBar, EditorStyles.toolbar);
         GUILayout.BeginHorizontal();
-
+        int offset = 0;
         for (int i = 0; i < styleManager.buttonStyles.Length; i++)
         {
+            if((i - offset) * 100 >= position.width -100)
+            {
+                offset = i;
+                GUILayout.EndHorizontal();
+                GUILayout.EndArea();
+                menuBar.y += 20;
+                GUILayout.BeginArea(menuBar, EditorStyles.toolbar);
+                GUILayout.BeginHorizontal();
+            }
             if (GUILayout.Toggle((currentStyle == styleManager.buttonStyles[i].NodeStyle),
                 new GUIContent(styleManager.buttonStyles[i].ButtonTex),
-                EditorStyles.toolbarButton, GUILayout.Width(80)))
+                EditorStyles.toolbarButton, GUILayout.Width(100)))
             {
                 currentStyle = styleManager.buttonStyles[i].NodeStyle;
             }
