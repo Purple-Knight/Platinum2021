@@ -59,18 +59,21 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayerDied(int i)
     {
-        //notesParticle.Play();
+        notesParticle.Play();
         playerWeapon.enabled = false;
         playerHealth.enabled = false;
-        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
-        playerMovement.playerColor = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
+        playerMovement.enabled = false;
+        //spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
+        //playerMovement.playerColor = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
         gameObject.tag ="Ghost";
         gameObject.layer = 8;
         //movement.ResetPositions();
+        StartCoroutine(DeathWait());
     }
 
     public void ResetPlayer()
     {
+        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, 1);
         playerWeapon.enabled = true;
         playerHealth.enabled = true;
         playerMovement.enabled = true;
@@ -93,6 +96,12 @@ public class PlayerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(freeTime);
         playerMovement.EndFreeMovement();
+    }
+
+    IEnumerator DeathWait()
+    {
+        yield return new WaitForSeconds(.5f);
+        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, 0);
     }
 
     /*private void OnGUI()
