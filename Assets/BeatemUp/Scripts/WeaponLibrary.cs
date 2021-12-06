@@ -11,10 +11,11 @@ public class WeaponLibrary : MonoBehaviour
     public List<GameObject> playersWeapons;
 
     [Header("   Fill Dictionnary")]
-    public List<GameObject> valueList;
+    public CharacterWeaponList[] characterWeaponLists;
 
     public Weapon GetFromLibrary(string key, Weapon instanceToReplace = null)
     {
+        //Debug.Log("<color=yellow>" + key + "</color>");
         GameObject output;
         if(WpLibrary.TryGetValue(key, out output))
         {
@@ -40,23 +41,30 @@ public class WeaponLibrary : MonoBehaviour
     {
         if (Instance == null) _instance = this;
 
+        // Fill Dictionnary
         WpLibrary = new Dictionary<string, GameObject>();
-        for (int i = 0; i < valueList.Count; i++)
+        for (int i = 0; i < characterWeaponLists.Length; i++)
         {
-            string k = valueList[i].GetComponent<Weapon>().weaponKey.ToString();
-            WpLibrary.Add(k, valueList[i]);
+            CharacterWeaponList weaponList = characterWeaponLists[i];
+            for (int j = 0; j < weaponList.weaponList.Count; j++)
+            {
+                string k = weaponList.characterKeyID.ToString() + weaponList.weaponList[j].GetComponent<Weapon>().weaponKey;
+                WpLibrary.Add(k, weaponList.weaponList[j]);
+            }
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class CharacterWeaponList
     {
+        public CharacterWeaponList(string name, int keyID)
+        {
+            characterName = name;
+            characterKeyID = keyID;
+        }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField] public string characterName;
+        public int characterKeyID;
+        public List<GameObject> weaponList = new List<GameObject>(4);
     }
 }

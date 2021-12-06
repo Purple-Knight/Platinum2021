@@ -25,14 +25,17 @@ public class GameManager : MonoBehaviour
     public ScoreManager scoreManager;
     [SerializeField] GameObject timeline;
 
+    [SerializeField] Animator endGameAnim;
+
     void Start()
     {
         _instance = this;
-        
+
+        RhythmManager.Instance.StartGame();
         playersData = SaveData.Load();
-        spawnPoints =  levelGen.GenerateLevel();
+        spawnPoints =  levelGen.SpawnNextMap();
         SpawnPlayer();
-        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y /2 + 1.5f);
         camera.SetStartPos(levelGen.transform.position);
         RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
         scoreManager.InstantiateScore();
@@ -75,7 +78,7 @@ public class GameManager : MonoBehaviour
                 }
                 players[i].playerMovement.enabled = false;
             }
-            Debug.Log("player " + players[playerAlive].CharacterID + " won");
+            Debug.Log("player " + players[playerAlive].PlayerID + " won");
             PlayerWon.Invoke(playerAlive);
             playerWins[playerAlive]++;
             for (int i = 0; i < playerWins.Length; i++)
@@ -105,8 +108,8 @@ public class GameManager : MonoBehaviour
     IEnumerator NextRound()
     {
         yield return new WaitForSecondsRealtime(3);
-        spawnPoints = levelGen.GenerateLevel();
-        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);
+        spawnPoints = levelGen.SpawnNextMap();
+        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);// a modifier !!!
         ResetPlayers();
         camera.SetStartPos(levelGen.transform.position);
         camera.ResetCamera();
@@ -115,13 +118,17 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        endGameAnim.SetTrigger("Countdown");
+    }
+
+    public void VictoryScreen()
+    {
         //321 count down
         //disable player input
+
         List<int> winners = CheckWinner();
         APlayerData data = playersData.allPlayerData[winners[0]];
-        VictoryManager.Instance.InstantiateVictoryScene("Character idk", winners[0] +1, data.myCharID, data.myColorID);
-        //new game and menu buttons
-
+        VictoryManager.Instance.InstantiateVictoryScene("Character idk", winners[0] + 1, data.myCharID, data.myColorID);
     }
 
     public List<int> CheckWinner()

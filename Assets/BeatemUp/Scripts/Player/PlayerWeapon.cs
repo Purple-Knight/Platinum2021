@@ -36,7 +36,7 @@ public class PlayerWeapon : MonoBehaviour
 
         playerManager = GetComponent<PlayerManager>();
         UpdateAimVisual(Vector2.right);
-        player = ReInput.players.GetPlayer(playerManager.playerMovement.playerID);
+        player = ReInput.players.GetPlayer(playerManager.playerMovement.controllerID);
 
         SwapWeaponStyle("0"); // Initialize Players w/ base Weapon
     }
@@ -63,7 +63,7 @@ public class PlayerWeapon : MonoBehaviour
             if (weapon != null)
                 weapon.Upgarde();
             else
-                SwapWeaponStyle("0");
+                SwapWeaponStyle(playerManager.CharacterID + "0");
         }
 
         if (Input.GetKeyDown(KeyCode.KeypadMinus))
@@ -73,8 +73,9 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
-    public void SwapWeaponStyle(string key)
+    public void SwapWeaponStyle(string key) // key = "ID" + "WeaponLvl" 
     {
+        key = playerManager.CharacterID + key;
         Weapon swap = null;
         Vector2 direction = Vector2.right;
 

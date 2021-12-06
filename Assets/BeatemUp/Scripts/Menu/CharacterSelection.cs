@@ -35,7 +35,7 @@ public class CharacterSelection : MonoBehaviour
         checkIfEveryoneIsReady();
     }
 
-    public void AsignPlayers(List<Player> pList)
+    public void asignPlayers(List<Player> pList)
     {
         players = pList;
     }
@@ -253,6 +253,8 @@ public class CharacterSelection : MonoBehaviour
                 {
                     saveALL(item);
                     saveData();
+                    RhythmManager.Instance.StopAllMusic();
+                    RhythmManager.Instance.inMenu = false;
                     SceneManager.LoadScene("TestLevelGen");
                 }
                 else

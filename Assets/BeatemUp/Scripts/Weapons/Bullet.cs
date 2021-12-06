@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour     // Script on bullet GameObject, instantiated on Weapon Fire
 {
-    public BulletInfo info;
     public LayerMask hitLayer;
 
+    [Range(.55f, .95f)]
+    public float tilePositionOffset = .7f;
     public AnimationCurve laserWidth;
 
     public Material mat;
@@ -16,21 +17,21 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         Destroy(gameObject, .3f);
     }
 
-    public void InitInfo(BulletInfo _Info, in Vector2 direction)
+    public void InitInfo(BulletInfo _Info, in Vector2 direction, PlayerManager _playerManager)
     {
-        info = _Info;
-        float length = (info.length > 0) ? info.length : 50;
-        Vector2 spawnPos = new Vector2(transform.position.x + .5f * direction.x, transform.position.y + .5f * direction.y);
-        Vector2 endPos = spawnPos;
+        float length = (_Info.length > 0) ? _Info.length : 50;
+        Vector2 spawnPos = new Vector2(transform.position.x + (_playerManager.GridSize.x * tilePositionOffset) * direction.x, transform.position.y + (_playerManager.GridSize.y * tilePositionOffset) * direction.y);
+        Vector2 endPos;
 
-        RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, length, hitLayer);
+        float grid = direction.x == 0 ? _playerManager.GridSize.y : _playerManager.GridSize.x;
+        RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, length * grid, hitLayer);
         if (hit.collider != null)
         {
             endPos = hit.point;
         }
         else
         {
-            endPos = new Vector2(spawnPos.x + length * direction.x, spawnPos.y + length * direction.y);
+            endPos = new Vector2(spawnPos.x + (length - tilePositionOffset) *_playerManager.GridSize.x * direction.x, spawnPos.y + (length - tilePositionOffset) * _playerManager.GridSize.y * direction.y);
         }
 
         InitLaser(spawnPos, endPos, direction);
@@ -44,6 +45,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         lr.SetPositions(new Vector3[] { startPos, endPos });
         lr.widthCurve = laserWidth;
         lr.materials = new Material[] { mat };
+        lr.sortingOrder = 1;
 
        RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, Vector2.Distance(startPos, endPos), LayerMask.GetMask("Player"));   // Cast Players hit  (add Player layerMask)
         foreach (RaycastHit2D hit in hits)

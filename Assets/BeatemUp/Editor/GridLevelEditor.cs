@@ -6,9 +6,15 @@ using System;
 
 public class GridLevelEditor : EditorWindow
 {
+    //ceci est safe a changer :eyes:
     float levelWidth = 18;
     float levelHeight = 10;
+
+    //don't touch >:( 
+
+
     float cellSize = 35;
+    Vector2 inGameGridSize = new Vector2(1, .5f);
 
     Vector2 offset;
     Vector2 drag;
@@ -36,8 +42,8 @@ public class GridLevelEditor : EditorWindow
     private void OnEnable()
     {
         SetUpStyles();
-        SetUpNodesAndParts();
         SetUpMap();
+        
     }
 
     private void SetUpMap()
@@ -47,6 +53,7 @@ public class GridLevelEditor : EditorWindow
             theMap = GameObject.FindGameObjectWithTag("Map");
             if (theMap != null)
             {
+                SetUpNodesAndParts();
                 RestoreTheMap(theMap);
             }
         }
@@ -60,6 +67,7 @@ public class GridLevelEditor : EditorWindow
         {
             theMap = new GameObject("Map");
             theMap.tag = "Map";
+            SetUpNodesAndParts();
         }
     }
 
@@ -71,6 +79,7 @@ public class GridLevelEditor : EditorWindow
             {
                 int partRow = Map.transform.GetChild(i).GetComponent<PartScript>().row;
                 int partCol = Map.transform.GetChild(i).GetComponent<PartScript>().col;
+                DestroyImmediate(parts[partRow][partCol].gameObject);
 
                 GUIStyle gUIStyle = Map.transform.GetChild(i).GetComponent<PartScript>().style;
                 nodes[partRow][partCol].SetStyle(gUIStyle);
@@ -112,16 +121,17 @@ public class GridLevelEditor : EditorWindow
         nodes = new List<List<Node>>();
         parts = new List<List<PartScript>>();
 
-        for (int i = 0; i < levelWidth; i++)
+        for (int i = 0; i < levelHeight; i++)
         {
             nodes.Add(new List<Node>());
             parts.Add(new List<PartScript>());
 
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = 0; j < levelWidth; j++)
             {
-                nodePos.Set(i * cellSize, j * cellSize);
+                nodePos.Set(j * cellSize, i * cellSize);
                 nodes[i].Add(new Node(nodePos, cellSize, cellSize, emptyStyle));
-                parts[i].Add(null);
+                parts[i].Add(null); 
+                InstantiateTile(i,j , emptyStyle);
             }
         }
     }
@@ -145,12 +155,21 @@ public class GridLevelEditor : EditorWindow
         menuBar = new Rect(0, 0, position.width, 20);
         GUILayout.BeginArea(menuBar, EditorStyles.toolbar);
         GUILayout.BeginHorizontal();
-
+        int offset = 0;
         for (int i = 0; i < styleManager.buttonStyles.Length; i++)
         {
+            if((i - offset) * 100 >= position.width -100)
+            {
+                offset = i;
+                GUILayout.EndHorizontal();
+                GUILayout.EndArea();
+                menuBar.y += 20;
+                GUILayout.BeginArea(menuBar, EditorStyles.toolbar);
+                GUILayout.BeginHorizontal();
+            }
             if (GUILayout.Toggle((currentStyle == styleManager.buttonStyles[i].NodeStyle),
                 new GUIContent(styleManager.buttonStyles[i].ButtonTex),
-                EditorStyles.toolbarButton, GUILayout.Width(80)))
+                EditorStyles.toolbarButton, GUILayout.Width(100)))
             {
                 currentStyle = styleManager.buttonStyles[i].NodeStyle;
             }
@@ -162,24 +181,25 @@ public class GridLevelEditor : EditorWindow
 
     private void ProcessNodes(Event @event)
     {
-        int Row = (int)((@event.mousePosition.x - offset.x) / cellSize);
-        int Col = (int)((@event.mousePosition.y - offset.y) / cellSize);
+        int Col = (int)((@event.mousePosition.x - offset.x) / cellSize);
+        int Row = (int)((@event.mousePosition.y - offset.y) / cellSize);
 
-        if ((@event.mousePosition.x - offset.x) < 0 || (@event.mousePosition.x - offset.x) > cellSize * levelWidth ||
+        if ((@event.mousePosition.x - offset.x) < 0 || (@event.mousePosition.x - offset.x) > cellSize * levelWidth||
             (@event.mousePosition.y - offset.y) < 0 || (@event.mousePosition.y - offset.y) > cellSize * levelHeight)
         { }
         else
         {
             if (@event.type == EventType.MouseDown)
             {
-                if (nodes[Row][Col].style.normal.background.name == "Empty")
-                {
-                    isErasing = false;
-                }
-                else
+                if (nodes[Row][Col].style.normal.background.name == currentStyle.normal.background.name)
                 {
                     isErasing = true;
                 }
+                else
+                {
+                    isErasing = false;
+                }
+                Debug.Log(isErasing);
                 PaintNodes(Row, Col);
             }
             if (@event.type == EventType.MouseDrag)
@@ -194,44 +214,51 @@ public class GridLevelEditor : EditorWindow
     {
         if (isErasing)
         {
-            if (parts[row][col] != null)
+            Debug.Log("row : " + row + "   col : " + col);
+            if (parts[row][col].name == currentStyle.normal.background.name) 
             {
                 nodes[row][col].SetStyle(emptyStyle);
 
                 DestroyImmediate(parts[row][col].gameObject);
-                parts[row][col] = null;
+                InstantiateTile(row, col, emptyStyle); 
 
                 GUI.changed = true;
             }
         }
         else
         {
-            if (parts[row][col] == null)
+            if (parts[row][col].name != currentStyle.normal.background.name) 
             {
                 nodes[row][col].SetStyle(currentStyle);
 
-                GameObject gameObject = Instantiate(Resources.Load("MapParts/" + currentStyle.normal.background.name)) as GameObject;
-                gameObject.name = currentStyle.normal.background.name;
-                gameObject.transform.position = new Vector3(row, -col, 0);
-                gameObject.transform.parent = theMap.transform;
-
-                parts[row][col] = gameObject.GetComponent<PartScript>();
-                parts[row][col].part = gameObject;
-                parts[row][col].name = gameObject.name;
-                parts[row][col].row = row;
-                parts[row][col].col = col;
-                parts[row][col].style = currentStyle;
+                DestroyImmediate(parts[row][col].gameObject);
+                InstantiateTile(row, col, currentStyle);
 
                 GUI.changed = true;
             }
         }
     }
 
+    private void InstantiateTile(int row, int col, GUIStyle style)
+    {
+        GameObject gameObject = Instantiate(Resources.Load("MapParts/" + style.normal.background.name)) as GameObject;
+        gameObject.name = style.normal.background.name;
+        gameObject.transform.position = new Vector3(col * inGameGridSize.x, -row * inGameGridSize.y, 0);
+        gameObject.transform.parent = theMap.transform;
+
+        parts[row][col] = gameObject.GetComponent<PartScript>();
+        parts[row][col].part = gameObject;
+        parts[row][col].name = gameObject.name;
+        parts[row][col].row = row;
+        parts[row][col].col = col;
+        parts[row][col].style = style;
+    }
+
     private void DrawNodes()
     {
-        for (int i = 0; i < levelWidth; i++)
+        for (int i = 0; i < levelHeight; i++)
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = 0; j < levelWidth; j++)
             {
                 nodes[i][j].Draw();
             }
@@ -257,9 +284,9 @@ public class GridLevelEditor : EditorWindow
     {
         drag = delta; //drag Grid
 
-        for (int i = 0; i < levelWidth; i++) //drag Level Elements
+        for (int i = 0; i < levelHeight; i++) //drag Level Elements
         {
-            for (int j = 0; j < levelHeight; j++)
+            for (int j = 0; j < levelWidth; j++)
             {
                 nodes[i][j].Drag(delta);
             }

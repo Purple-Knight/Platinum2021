@@ -5,31 +5,42 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
+
     public PlayerMovement playerMovement;
     public PlayerWeapon playerWeapon;
     public ComboCounter comboManager;
     public PlayerHealth playerHealth;
+
     public Animator playerAnimator;
+
+    [SerializeField] private Vector2 gridSize = new Vector2(1, 1);
+
+    private int playerID = 0;
     private int characterID;
     [SerializeField] List<Sprite> sprites;
     Color playerColor;
+
     [SerializeField] ParticleSystem notesParticle;
 
-    #region Debug
+    /*#region Debug
     public bool debug = false;
     int maxSteps = 0;
     float freeTime = 0;
     string maxStepsStr = "0";
     string freeTimeStr = "0";
     Rect debugRect;
-    #endregion
+    #endregion*/
+    public int PlayerID { get => playerID; }
     public int CharacterID { get => characterID; }
+    public Vector2 GridSize { get => gridSize; }
 
-    public void InstantiatePlayer(int conrtollerID, int playerID, Color color, int spriteID)
+    public void InstantiatePlayer(int controllerID, int playerNumberID, Color color, int spriteID) // Controller connexion Order, Player Order (P1, P2,...), sprite = Character Selected
     {
-        characterID = playerID;
+        //Debug.Log("Controller " + controllerID + " / Player " + playerNumberID + " / Character-Sprite " + spriteID);
+        playerID = playerNumberID;
+        characterID = spriteID;
         playerAnimator.SetFloat("CharacterID", spriteID);
-        playerMovement.playerID = conrtollerID;
+        playerMovement.controllerID = controllerID;
         playerMovement.playerColor = color;
         playerColor = color;
         spriteRenderer.sprite = sprites[spriteID];
@@ -39,8 +50,8 @@ public class PlayerManager : MonoBehaviour
         playerMovement.playerAnimator = playerAnimator;
         playerMovement.InstantiateMovement();
         comboManager.Init(this);
-        debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
-        debug = true;
+        //debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
+        //debug = true;
     }
 
     public void PlayerDied(int i)
@@ -81,7 +92,7 @@ public class PlayerManager : MonoBehaviour
         playerMovement.EndFreeMovement();
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         if (!debug) return;
         GUILayout.BeginArea(debugRect);
@@ -100,5 +111,5 @@ public class PlayerManager : MonoBehaviour
                 IgnoreTimelineForSec(freeTime, maxSteps);
         }
         GUILayout.EndArea();
-    }
+    }*/
 }

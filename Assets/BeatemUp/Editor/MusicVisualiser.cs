@@ -7,9 +7,9 @@ public class MusicVisualiser : EditorWindow
     public AK.Wwise.Event playMusic;
     public AkWwiseProjectData wwiseData;
     System.Collections.Generic.List<AkAmbient> list  = new System.Collections.Generic.List<AkAmbient>();
-    int index = 0;
+    /*int index = 0;
     string[] options = new string[] { "Crypt", "Lady", "Tutel" };
-    bool DoOnce = false;
+    bool DoOnce = false;*/
     private static readonly System.Collections.Generic.List<AkEvent> akEvents = new System.Collections.Generic.List<AkEvent>();
     [MenuItem("Window/Music Visualiser")]
     static void Init()
