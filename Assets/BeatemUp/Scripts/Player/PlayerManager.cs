@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     Color playerColor;
 
     private bool gotInputThisBeat = true;
-    public bool GotInputThisBeat { get { Debug.Log("Get => " + gotInputThisBeat); return gotInputThisBeat; } set { Debug.Log("Set => "+ gotInputThisBeat); gotInputThisBeat = value; } }
+    public bool GotInputThisBeat { get => gotInputThisBeat; set => gotInputThisBeat = value; }
 
     [SerializeField] ParticleSystem notesParticle;
 
