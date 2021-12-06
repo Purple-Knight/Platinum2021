@@ -71,6 +71,7 @@ public class Weapon : MonoBehaviour
     {
         if (bullets.Count <= 0) return;
 
+        playerManager.playerAnimator.SetTrigger("Fire");
         foreach (BulletInfo info in bullets)
         {
             //Locked Directions

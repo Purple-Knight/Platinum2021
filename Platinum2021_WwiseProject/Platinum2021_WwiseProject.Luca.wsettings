@@ -5,9 +5,26 @@
 			<PropertyList>
 				<Property Name="Event Action List\{34DEAF37-B280-421F-A755-523AB2B842B8}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{423E2B6A-3C7F-4313-83CC-3021C1970649}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{4C2466AE-CCFA-40AE-AD25-5B5C121C0DBD}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{4C3087E5-0011-463D-8D25-90AF4A920D87}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{56ADF9AF-FA5D-4EA9-ACB1-5556C941BCF1}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{637E7353-C3FF-4574-B828-3C88B14D5FCC}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{6E3D834B-E8F3-45E0-BF3C-0572C0764CC5}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{7EACEC42-4EED-48B4-9748-36734C8F7666}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{8432A084-51D0-482C-AE1A-4374AE41DBF7}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{8BB4DAE0-E615-48FD-A7FB-375B5C4DAED5}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{8D77292F-A88C-479E-8CA5-48152A646BE5}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{91AF4168-9A82-4C3A-82B2-E648C5D1EDBE}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{9200A1FB-DBF8-497A-9281-2EF0A3E02676}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{9E9DB284-20B3-43A2-986F-771D08515749}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{9F9673F7-944B-4068-A179-1099758A299F}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{9FDAC584-2989-4547-901B-74B214685595}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{AC75B879-A73D-47FA-834A-538B0655A754}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{B77D0730-1208-4726-BF0C-27656C56ADC6}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{C13B9832-C58C-4AA6-BC6A-D48D2E1C686E}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{DEF7447F-A4BC-4C4C-B939-F3C809BCBAB8}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{E4A205B6-6C86-42E2-8EAA-106460F4DD93}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{F24D4471-8F1A-4DE2-B39C-ABA4910DFC1B}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
@@ -77,9 +94,9 @@
 				<Property Name="ProjectExplorer\x64_Expanded_20_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_21_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_22_1" Type="string" Value=""/>
-				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="2KQUFaYdKkGhfnXKDCFJ8w=="/>
+				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_3_1" Type="string" Value="aYQH9/IsG0WmnImPQeRz5wBzhi1huyZIpWaJhUXSUiinQOS6ugfMSJt6pDdJboXovscTRh1trUmpfXu6s23QxON/OYEtuIFOnfsTRqhqrMwaRyoT2Mb1T7xM4ClpOsKd"/>
-				<Property Name="ProjectExplorer\x64_Expanded_4_1" Type="string" Value="76VoF5NY80yCx/Uc8xL85w=="/>
+				<Property Name="ProjectExplorer\x64_Expanded_4_1" Type="string" Value="xudagL9E+0OTR0ZfRPpmi3byYzKN9rxEsqgAwpFDFwjVtJise1deS4abg4K3bYsM76VoF5NY80yCx/Uc8xL85zGRat304TZOtGyTL1UE/iI="/>
 				<Property Name="ProjectExplorer\x64_Expanded_5_1" Type="string" Value="6GxF2s7UL0aYHDRy8vNyTtLIduvBrYVMtBtNRgnRWQs="/>
 				<Property Name="ProjectExplorer\x64_Expanded_6_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_7_1" Type="string" Value="0Djs8tEzVUO/lDqPRTt9Xw=="/>

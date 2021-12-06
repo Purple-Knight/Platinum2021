@@ -46,7 +46,7 @@ MonoBehaviour:
   ComboToUpgrade: 30
   ComboToDowngrade: 15
   weaponKey: 2
-  bulletPrefab: {fileID: 857314862302640490, guid: 4de66ce868854f0499eb073df284df69, type: 3}
+  bulletPrefab: {fileID: 857314862302640490, guid: fd72e8fd24956e649acfd161674162ef, type: 3}
   bullets:
   - length: 5
     positionOffset: {x: 0, y: 0}
