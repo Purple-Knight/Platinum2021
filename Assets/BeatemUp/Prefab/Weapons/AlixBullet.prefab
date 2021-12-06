@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6440347704355207474}
   - component: {fileID: 8644763262687549555}
   m_Layer: 0
-  m_Name: BulletPrefab
+  m_Name: AlixBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,16 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f57fdb702f79e345b207fe967007677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info:
-    length: 0
-    lockDirection: 0
-    direction: 0
-    positionOffset: {x: 0, y: 0}
-    lockOnX: 0
-    lockOnY: 0
   hitLayer:
     serializedVersion: 2
     m_Bits: 64
+  tilePositionOffset: 0.7
   laserWidth:
     serializedVersion: 2
     m_Curve:
@@ -78,7 +72,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  mat: {fileID: 2100000, guid: b2c671e66aeb50449a2df56839688220, type: 2}
+  mat: {fileID: 2100000, guid: 2c5815f61d9587e45a2eca81cffd4df0, type: 2}
 --- !u!61 &8644763262687549555
 BoxCollider2D:
   m_ObjectHideFlags: 0
