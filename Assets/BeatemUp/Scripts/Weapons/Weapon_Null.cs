@@ -6,9 +6,9 @@ public class Weapon_Null : Weapon
 {
     public override void GetInput()
     {
-        if (player.GetButtonDown("Fire") && !gotInput)
+        if (player.GetButtonDown("Fire") && !GotInput)
         {
-            gotInput = true;
+            GotInput = true;
             playerTiming = RhythmManager.Instance.AmIOnBeat();
 
             if (playerTiming != Timing.MISS && playerTiming != Timing.NULL)
@@ -17,9 +17,9 @@ public class Weapon_Null : Weapon
             }
         }
 
-        if (gotInput && RhythmManager.Instance.AmIOnBeat() == Timing.MISS)
+        if (GotInput && RhythmManager.Instance.AmIOnBeat() == Timing.MISS)
         {
-            gotInput = false;
+            GotInput = false;
         }
     }
 }

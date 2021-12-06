@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public Color playerColor;
 
     float halfBeatTime; 
-    bool gotInputThisBeat = true; 
+    bool GotInput { get => playerManager.GotInputThisBeat; set => playerManager.GotInputThisBeat = value; } 
 
     float mvtHorizontal;
     float mvtVertical;
@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (beatPassed && beatPassedTimer >= halfBeatTime) //only one input per beat
         {
             beatPassed = false;
-            gotInputThisBeat = false;
+            GotInput = false;
             beatPassedTimer = 0;
             hasMoved = false;
 
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
         Debug.Log(player.GetAxis("Move Horizontal"));*/
 
-        if ((inputHorizontal || inputVertical) && !gotInputThisBeat && !buttonDown)
+        if ((inputHorizontal || inputVertical) && !GotInput && !buttonDown)
         {
             if (!freeMovement)
             {
@@ -165,13 +165,13 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 buttonDown = true;
-                gotInputThisBeat = true;
+                GotInput = true;
                 Move();
             }
             else 
             {
                 buttonDown = true;
-                gotInputThisBeat = true;
+                GotInput = true;
                 //playerDir = PlayerDir.NULL;
                 mvtHorizontal = 0;
                 mvtVertical = 0;
@@ -197,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ResetFreeMovement()
     {
         yield return new WaitForSeconds(.3f);
-        gotInputThisBeat = false;
+        GotInput = false;
         hasMoved = false;
     }
 

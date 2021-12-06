@@ -9,11 +9,9 @@ public class PlayerWeapon : MonoBehaviour
     private PlayerManager playerManager;
 
     float beatPassedTimer = 0;
-    Timing playerTiming;
     RhythmManager rhythmManager;
     // bools
-    private bool gotInput = false;  // Fire Input received this beat
-    private bool triggerDown = false; // Holding Fire Button
+    private bool GotInput { get => playerManager.GotInputThisBeat; set => playerManager.GotInputThisBeat = value; }  // Fire Input received this beat
     private bool beatPassed = false;
 
     [Header("---New Weapon Hierarchy---")]
@@ -53,7 +51,7 @@ public class PlayerWeapon : MonoBehaviour
             if(beatPassedTimer > rhythmManager.halfBeatTime)
             {
                 beatPassed = false;
-                gotInput = false;
+                GotInput = false;
             }
         }
 
@@ -125,7 +123,7 @@ public class PlayerWeapon : MonoBehaviour
         if (!debugGUI) return;
 
         GUILayout.BeginArea(guiDebugArea);
-        GUILayout.TextArea("Input : " + gotInput);
+        GUILayout.TextArea("Input : " + GotInput);
         /*GUILayout.BeginHorizontal();
         GUILayout.TextField("Horizontal Aim: " + player.GetAxis("Aim Horizontal"));
         GUILayout.TextField("Vertical Aim : " + player.GetAxis("Aim Vertical"));

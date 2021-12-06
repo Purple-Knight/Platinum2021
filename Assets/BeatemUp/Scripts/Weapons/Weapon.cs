@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     // Inputs
     protected Player player;
     protected Timing playerTiming;
-    protected bool gotInput;
+    protected bool GotInput { get => playerManager.GotInputThisBeat; set => playerManager.GotInputThisBeat = value; }
     protected Vector2 lastDirection;
     protected float lastX = 1;
     protected float lastY = 1;

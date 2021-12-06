@@ -20,6 +20,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] List<Sprite> sprites;
     Color playerColor;
 
+    private bool gotInputThisBeat = true;
+    public bool GotInputThisBeat { get { Debug.Log("Get => " + gotInputThisBeat); return gotInputThisBeat; } set { Debug.Log("Set => "+ gotInputThisBeat); gotInputThisBeat = value; } }
+
     [SerializeField] ParticleSystem notesParticle;
 
     /*#region Debug
