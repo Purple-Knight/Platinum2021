@@ -32,6 +32,7 @@ public class MapSelector : MonoBehaviour
     [SerializeField] int mainPoint;
 
     [SerializeField] List<Vector3> sizeSelected = new List<Vector3>();
+    [SerializeField] private Vector3 sizeBack;
 
     //Float
     float distance = 0;
@@ -238,7 +239,7 @@ public class MapSelector : MonoBehaviour
             else
             {
                 item.GetComponent<Image>().color = Color.HSVToRGB(m_Hue, m_Saturation, 0.5f);
-                item.transform.DOScale(new Vector3(1f, 1f, 1f), animTime);
+                item.transform.DOScale(new Vector3(sizeBack.x, sizeBack.y, sizeBack.z), animTime);
             }
         }
 
@@ -248,7 +249,6 @@ public class MapSelector : MonoBehaviour
             copieGoList[i].transform.SetSiblingIndex(Mathf.Abs(i + (SubPoints.Count / 2) - SubPoints.Count));
         }
     }
-
 
     void moveToGO(bool up)
     {
