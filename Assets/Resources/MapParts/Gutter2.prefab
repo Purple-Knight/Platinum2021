@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4518699010491959988, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_Name
-      value: Gutter1
+      value: Gutter2
       objectReference: {fileID: 0}
     - target: {fileID: 4518699010491959993, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_RootOrder
@@ -58,6 +58,6 @@ PrefabInstance:
     - target: {fileID: 6978674692143766308, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2331129536662271033, guid: 5fbb84d8664fe2748993dc4d75acf3f4, type: 3}
+      objectReference: {fileID: 21300000, guid: aaeb05b1e1d1e694b906d37f8106bd42, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}

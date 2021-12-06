@@ -13,9 +13,14 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
+<<<<<<< HEAD:Assets/BeatemUp/Graphs/LazerSavya.mat
   m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
+=======
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+>>>>>>> art:Assets/BeatemUp/Graphs/Art/3D assets/Scene1/Tiled/Material #58.mat
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
