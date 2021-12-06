@@ -55,17 +55,3 @@ MonoBehaviour:
     lockIntoDirection: 0
     lockOnX: 0
     lockOnY: 0
-  - length: 2
-    positionOffset: {x: 0, y: 0}
-    inputDirectionOffset: 0
-    lockDirection: 0
-    lockIntoDirection: 0
-    lockOnX: 0
-    lockOnY: 0
-  - length: 2
-    positionOffset: {x: 0, y: 0}
-    inputDirectionOffset: 0
-    lockDirection: 0
-    lockIntoDirection: 0
-    lockOnX: 0
-    lockOnY: 0
