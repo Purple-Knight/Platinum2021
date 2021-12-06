@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f21f074-362a-46bb-9431-1bc6dc0f3e09" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/BeatemUp/Graphs/K-1000.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BeatemUp/Graphs/K-1000.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BeatemUp/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BeatemUp/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BeatemUp/Scripts/Menu/CharacterSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BeatemUp/Scripts/Menu/CharacterSelection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BeatemUp/Scripts/Menu/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BeatemUp/Scripts/Menu/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platinum2021_WwiseProject/Platinum2021_WwiseProject.Luca.wsettings" beforeDir="false" afterPath="$PROJECT_DIR$/Platinum2021_WwiseProject/Platinum2021_WwiseProject.Luca.wsettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BeatemUp/Prefab/Menu.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1638778802914</updated>
       <workItem from="1638778957751" duration="1481000" />
+      <workItem from="1638793312087" duration="594000" />
     </task>
     <servers />
   </component>
