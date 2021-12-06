@@ -35,7 +35,7 @@ public class CharacterSelection : MonoBehaviour
         checkIfEveryoneIsReady();
     }
 
-    public void asignPlayers(List<Player> pList)
+    public void AsignPlayers(List<Player> pList)
     {
         players = pList;
     }

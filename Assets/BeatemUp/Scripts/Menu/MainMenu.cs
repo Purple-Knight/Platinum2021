@@ -367,7 +367,7 @@ public class MainMenu : MonoBehaviour
     {
         state = MenuState.CHARSELECT;
         changeScreen(4, false);
-        CharacterSelection.Instance.asignPlayers(players);
+        CharacterSelection.Instance.AsignPlayers(players);
     }
 
 
