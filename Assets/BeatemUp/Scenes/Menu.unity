@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.9897, y: 49.083145}
+  m_AnchoredPosition: {x: -361.9897, y: 49.083153}
   m_SizeDelta: {x: 516.5823, y: 326.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10086874
@@ -1631,7 +1631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7451095, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: -754.84}
+  m_AnchoredPosition: {x: -5, y: -754.83997}
   m_SizeDelta: {x: -88.56, y: -335.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &314657466
@@ -2771,7 +2771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -6, y: -754.83014}
+  m_AnchoredPosition: {x: -6, y: -754.8301}
   m_SizeDelta: {x: -79.25, y: -333.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &673011982
@@ -3910,7 +3910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.32843, y: 41.336643}
+  m_AnchoredPosition: {x: -361.32843, y: 41.336647}
   m_SizeDelta: {x: 515.2599, y: 326.29465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913188916
@@ -7389,7 +7389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.7451095, y: 1}
-  m_AnchoredPosition: {x: 2, y: -755.22015}
+  m_AnchoredPosition: {x: 2, y: -755.2201}
   m_SizeDelta: {x: -71.25, y: -331.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1848810891
@@ -8630,7 +8630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.25, y: 1}
-  m_AnchoredPosition: {x: 4, y: -754.6899}
+  m_AnchoredPosition: {x: 4, y: -754.6898}
   m_SizeDelta: {x: -81.94995, y: -334.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110001739
@@ -9032,7 +9032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1769615763752225319, guid: 94de4595a37afa045b6cb15acf166e0b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 59.57267
+      value: 59.572666
       objectReference: {fileID: 0}
     - target: {fileID: 7021777535521031963, guid: 94de4595a37afa045b6cb15acf166e0b, type: 3}
       propertyPath: m_IsActive

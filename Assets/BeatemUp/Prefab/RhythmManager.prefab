@@ -70,7 +70,7 @@ MonoBehaviour:
       m_Calls: []
   halfBeatTime: 0
   level: 0
-  hardPercentage: 1
-  mediumPercentage: 1
-  easyPercentage: 100
+  hardPercentage: 45
+  mediumPercentage: 60
+  easyPercentage: 75
   BPM: 126

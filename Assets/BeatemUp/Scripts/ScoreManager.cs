@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
         for (int i = 0; i < gameManager.players.Count; i++)
         {
             playerScoresImages[i].sprite = characterSprites[gameManager.players[i].CharacterID];
-            playerScoresText[i].text = "P" + (i + 1) + " : ";
+            playerScoresText[i].text = "P" + (i + 1) + " : 0";
 
         }
         for (int i = gameManager.players.Count; i < 4; i++)
