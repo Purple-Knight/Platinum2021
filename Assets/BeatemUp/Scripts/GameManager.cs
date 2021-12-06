@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         camera.SetStartPos(levelGen.transform.position);
         RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
         scoreManager.InstantiateScore();
+        endGameAnim.SetTrigger("StartGame");
     }
 
     public void SpawnPlayer()
@@ -128,7 +129,7 @@ public class GameManager : MonoBehaviour
 
         List<int> winners = CheckWinner();
         APlayerData data = playersData.allPlayerData[winners[0]];
-        VictoryManager.Instance.InstantiateVictoryScene("Character idk", winners[0] + 1, data.myCharID, data.myColorID);
+        VictoryManager.Instance.InstantiateVictoryScene(playerWins);
     }
 
     public List<int> CheckWinner()
@@ -165,8 +166,7 @@ public class GameManager : MonoBehaviour
         {
             winners.Add(winner);
         }
-            Debug.Log("winner : " + winner);
-            return winners;
+        return winners;
     }
 
 
