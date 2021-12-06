@@ -142,8 +142,177 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585636860526657716
+    m_lastTime: -8585636699294284326
     List:
+    - name: Buh
+      guid: 2f29778d8ca89e478ca548152a646be5
+      id: 714721630
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: Crowd
+        ObjectType: 4
+        guid: 76f263328df6bc44b2a800c291431708
+      - ElementName: Buh
+        ObjectType: 3
+        guid: 2f29778d8ca89e478ca548152a646be5
+      Path: Events\Default Work Unit\Stage\Crowd\Buh
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: BuhApplause
+      guid: 6841af91829a3a4c82b2e648c5d1edbe
+      id: 715154991
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: Crowd
+        ObjectType: 4
+        guid: 76f263328df6bc44b2a800c291431708
+      - ElementName: BuhApplause
+        ObjectType: 3
+        guid: 6841af91829a3a4c82b2e648c5d1edbe
+      Path: Events\Default Work Unit\Stage\Crowd\BuhApplause
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: BuhHola
+      guid: 84a03284d0512c48ae1a4374ae41dbf7
+      id: 3907778708
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: Crowd
+        ObjectType: 4
+        guid: 76f263328df6bc44b2a800c291431708
+      - ElementName: BuhHola
+        ObjectType: 3
+        guid: 84a03284d0512c48ae1a4374ae41dbf7
+      Path: Events\Default Work Unit\Stage\Crowd\BuhHola
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: BuhSong
+      guid: 4b833d6ef3e8e045bf3c0572c0764cc5
+      id: 4048935073
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: Crowd
+        ObjectType: 4
+        guid: 76f263328df6bc44b2a800c291431708
+      - ElementName: BuhSong
+        ObjectType: 3
+        guid: 4b833d6ef3e8e045bf3c0572c0764cc5
+      Path: Events\Default Work Unit\Stage\Crowd\BuhSong
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Character
+      guid: c6e75a80bf44fb439347465f44fa668b
+      id: 436743010
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Character
+        ObjectType: 4
+        guid: c6e75a80bf44fb439347465f44fa668b
+      Path: Events\Default Work Unit\Character
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Count1
+      guid: 84c5da9f89294745901b74b214685595
+      id: 4275771351
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: Count1
+        ObjectType: 3
+        guid: 84c5da9f89294745901b74b214685595
+      Path: Events\Default Work Unit\Stage\Count1
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Count2
+      guid: fba10092f8db7a4992812ef0a3e02676
+      id: 4275771348
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: Count2
+        ObjectType: 3
+        guid: fba10092f8db7a4992812ef0a3e02676
+      Path: Events\Default Work Unit\Stage\Count2
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Crowd
+      guid: 76f263328df6bc44b2a800c291431708
+      id: 2848349012
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: Crowd
+        ObjectType: 4
+        guid: 76f263328df6bc44b2a800c291431708
+      Path: Events\Default Work Unit\Stage\Crowd
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: EndOfMusic
       guid: aff9ad565dfaa94eacb15556c941bcf1
       id: 1143320996
@@ -161,6 +330,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Navigation
+      guid: 71444df21a8fe24db39caba4910dfc1b
+      id: 1082482811
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: UI
+        ObjectType: 4
+        guid: d5b498ac7b575e4b869b8382b76d8b0c
+      - ElementName: Navigation
+        ObjectType: 3
+        guid: 71444df21a8fe24db39caba4910dfc1b
+      Path: Events\Default Work Unit\UI\Navigation
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Next
+      guid: b605a2e4866ce2428eaa106460f4dd93
+      id: 982796106
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: UI
+        ObjectType: 4
+        guid: d5b498ac7b575e4b869b8382b76d8b0c
+      - ElementName: Next
+        ObjectType: 3
+        guid: b605a2e4866ce2428eaa106460f4dd93
+      Path: Events\Default Work Unit\UI\Next
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PlayCrypt
       guid: 32983bc18cc5a64abc6ad48d2e1c686e
       id: 859070589
@@ -178,6 +387,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 124.13387
       minDuration: 124.13387
+    - name: PlayDeath
+      guid: 79b875ac3da7fa47834a538b0655a754
+      id: 2840201783
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Character
+        ObjectType: 4
+        guid: c6e75a80bf44fb439347465f44fa668b
+      - ElementName: PlayDeath
+        ObjectType: 3
+        guid: 79b875ac3da7fa47834a538b0655a754
+      Path: Events\Default Work Unit\Character\PlayDeath
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PlayLady
       guid: 30077db708122647bf0c27656c56adc6
       id: 3554160111
@@ -212,6 +441,66 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: PlayMove
+      guid: 84b29d9eb320a243986f771d08515749
+      id: 1729642804
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Character
+        ObjectType: 4
+        guid: c6e75a80bf44fb439347465f44fa668b
+      - ElementName: PlayMove
+        ObjectType: 3
+        guid: 84b29d9eb320a243986f771d08515749
+      Path: Events\Default Work Unit\Character\PlayMove
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PlaySelection
+      guid: 42ecac7eed4eb448974836734c8f7666
+      id: 2126442687
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Character
+        ObjectType: 4
+        guid: c6e75a80bf44fb439347465f44fa668b
+      - ElementName: PlaySelection
+        ObjectType: 3
+        guid: 42ecac7eed4eb448974836734c8f7666
+      Path: Events\Default Work Unit\Character\PlaySelection
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PlayShoot
+      guid: e587304c11003d468d2590af4a920d87
+      id: 1489638472
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Character
+        ObjectType: 4
+        guid: c6e75a80bf44fb439347465f44fa668b
+      - ElementName: PlayShoot
+        ObjectType: 3
+        guid: e587304c11003d468d2590af4a920d87
+      Path: Events\Default Work Unit\Character\PlayShoot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PlayTutel
       guid: 457bd1d1fdd49f459ce7ae1b34c2052f
       id: 1295635745
@@ -229,6 +518,103 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 196.032
       minDuration: 196.032
+    - name: Return
+      guid: 7f44f7debca44c4cb939f3c809bcbab8
+      id: 3859834159
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: UI
+        ObjectType: 4
+        guid: d5b498ac7b575e4b869b8382b76d8b0c
+      - ElementName: Return
+        ObjectType: 3
+        guid: 7f44f7debca44c4cb939f3c809bcbab8
+      Path: Events\Default Work Unit\UI\Return
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Selection
+      guid: f773969f4b946840a1791099758a299f
+      id: 1973847113
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: UI
+        ObjectType: 4
+        guid: d5b498ac7b575e4b869b8382b76d8b0c
+      - ElementName: Selection
+        ObjectType: 3
+        guid: f773969f4b946840a1791099758a299f
+      Path: Events\Default Work Unit\UI\Selection
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SpkWelcom
+      guid: e0dab48b15e6fd48a7fb375b5c4daed5
+      id: 2674882108
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: SpkWelcom
+        ObjectType: 3
+        guid: e0dab48b15e6fd48a7fb375b5c4daed5
+      Path: Events\Default Work Unit\Stage\SpkWelcom
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SpkWinner
+      guid: 53737e63ffc37445b8283c88b14d5fcc
+      id: 4245097106
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      - ElementName: SpkWinner
+        ObjectType: 3
+        guid: 53737e63ffc37445b8283c88b14d5fcc
+      Path: Events\Default Work Unit\Stage\SpkWinner
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stage
+      guid: 31916addf4e1364eb46c932f5504fe22
+      id: 1063701865
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Stage
+        ObjectType: 4
+        guid: 31916addf4e1364eb46c932f5504fe22
+      Path: Events\Default Work Unit\Stage
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: StopAllMusic
       guid: 37afde3480b21f42a755523ab2b842b8
       id: 2907867019
@@ -246,6 +632,43 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: UI
+      guid: d5b498ac7b575e4b869b8382b76d8b0c
+      id: 1551306167
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: UI
+        ObjectType: 4
+        guid: d5b498ac7b575e4b869b8382b76d8b0c
+      Path: Events\Default Work Unit\UI
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Validation
+      guid: ae66244cfaccae40ad255b5c121c0dbd
+      id: 1719053472
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: UI
+        ObjectType: 4
+        guid: d5b498ac7b575e4b869b8382b76d8b0c
+      - ElementName: Validation
+        ObjectType: 3
+        guid: ae66244cfaccae40ad255b5c121c0dbd
+      Path: Events\Default Work Unit\UI\Validation
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -365,7 +788,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e86c45daced42f46981c3472f2f3724e
     GuidInternal: 
-    m_lastTime: -8585636877347724067
+    m_lastTime: -8585636769229673409
     List:
     - name: Character
       guid: fe628db65d67094da26f22ae389ccece
