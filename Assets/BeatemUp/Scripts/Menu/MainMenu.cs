@@ -41,6 +41,9 @@ public class MainMenu : MonoBehaviour
     List<float> playerTimer = new List<float> { 0, 0, 0, 0};
     List<bool> boolTimer = new List<bool> { false, false, false, false};
     public float deadZone;
+    
+    // Map / Difficulty -----------------------------------
+    public MapSelector mapS;
 
 
     // Slider --------------------------------------------
@@ -143,7 +146,7 @@ public class MainMenu : MonoBehaviour
                                 toCredits();
                                 break;
                             case 3:
-                                toTitle();
+                                toQuit();
                                 break;
                             default:
                                 break;
@@ -229,23 +232,25 @@ public class MainMenu : MonoBehaviour
 
                 case MenuState.MAPSELECT:
 
-                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                    
+                    
+                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                     {
-                        //MapSelector.Instance.downValue();
+                        mapS.downValue();
                         once[(players.IndexOf(item))] = true;
                         if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
                         else playerTimer[players.IndexOf(item)] = timer;
                     }
 
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                     {
-                        //MapSelector.Instance.upValue();
+                        mapS.upValue();
                         once[(players.IndexOf(item))] = true;
                         if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
                         else playerTimer[players.IndexOf(item)] = timer;
 
                     }
-                    else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone)
+                    else if (item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone)
                     {
                         once[(players.IndexOf(item))] = false;
                         boolTimer[(players.IndexOf(item))] = false;
@@ -342,11 +347,12 @@ public class MainMenu : MonoBehaviour
     // Scene ---------------------------------------------------------------------
     #region Change Scene /
 
-    public void toTitle()
+    public void toQuit()
     {
-        state = MenuState.TITLE;
+        Application.Quit();
+        /*state = MenuState.TITLE;
         changeScreen(0, false);
-        cursorPos = 0;
+        cursorPos = 0;*/
     }
 
     public void toMenu()
