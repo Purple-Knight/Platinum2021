@@ -7,7 +7,7 @@ using DG.Tweening;
 public class Feel : MonoBehaviour
 {
     public bool launch;
-    [HideInInspector] public bool onOff = true;
+    public bool onOff = true;
     public float timeToDo;
 
     //Position
@@ -138,7 +138,7 @@ public class Feel : MonoBehaviour
     {
         if (onOff)
         {
-            Debug.Log("On");
+            //Debug.Log("On");
             var timeForAction = scaleNeed.Count + 1;
             if (changePos)
             {
@@ -147,7 +147,7 @@ public class Feel : MonoBehaviour
                 for (int i = 0; i < posNeed.Count; i++)
                 {
                     sequence.Append(transR.transform.DOLocalMove(new Vector2(refTransR.x + posNeed[i].xPourcentScale, refTransR.y + posNeed[i].yPourcentScale), timeToDo / timeForAction));
-                    Debug.Log("test");
+                    //Debug.Log("test");
                 }
 
                 sequence.Play();
@@ -168,8 +168,9 @@ public class Feel : MonoBehaviour
         }
         else
         {
-            Debug.Log("Off");
-            var timeForAction = scaleNeed.Count + 1;
+            
+            //Debug.Log("Off");
+            var timeForAction = scaleNeedBack.Count + 1;
             if (changePos)
             {
                 Sequence sequence = DOTween.Sequence();
@@ -190,9 +191,10 @@ public class Feel : MonoBehaviour
 
                 for(int i = 0; i < scaleNeedBack.Count; i++)
                 {
-                    sequence.Append(transR.transform.DOScale(new Vector2(refTransRScale.x * (scaleNeed[i].xPourcentScale / 100), refTransRScale.y * (scaleNeed[i].yPourcentScale / 100)), timeToDo / timeForAction));
+                    sequence.Append(transR.transform.DOScale(new Vector2(refTransRScale.x * (scaleNeedBack[i].xPourcentScale / 100), refTransRScale.y * (scaleNeedBack[i].yPourcentScale / 100)), timeToDo / timeForAction));
+                    
                 }
-
+                
                 //sequence.Append(transR.transform.DOScale(new Vector2(refTransR.localScale.x, refTransR.localScale.y), timeToDo / timeForAction));
                 sequence.Play();
             }

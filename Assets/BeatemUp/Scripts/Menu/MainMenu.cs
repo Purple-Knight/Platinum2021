@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -48,9 +50,16 @@ public class MainMenu : MonoBehaviour
     List<bool> boolTimer = new List<bool> { false, false, false, false};
     public float deadZone;
     
-    // Map / Difficulty -----------------------------------
-    public MapSelector mapS;
-
+    [Header("Map")]
+    public int cursorPosMap;
+    [SerializeField] List<Feel> buttonFeelMap = new List<Feel>();
+    
+    //Load level -------------------------------------
+    [Header("Loader level")] 
+    public GameObject fadeGO;
+    public GameObject loadingScreen;
+    
+    private LevelLoader loader;
 
     // Slider --------------------------------------------
     public List<Slider> Sliders = new List<Slider>();
@@ -78,6 +87,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        loader = GetComponent<LevelLoader>();
         loadMusicVolume();
     }
 
@@ -95,8 +105,6 @@ public class MainMenu : MonoBehaviour
             players.Add(ReInput.players.GetPlayer(0));
         }
     }
-
-
 
 
     void Update()
@@ -167,10 +175,6 @@ public class MainMenu : MonoBehaviour
                     }
 
                     break;
-
-
-
-
 
 
                 case MenuState.CHARSELECT:
@@ -244,32 +248,43 @@ public class MainMenu : MonoBehaviour
 
 
                 case MenuState.MAPSELECT:
-
-                    
                     
                     if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                     {
-                        mapS.downValue();
+                        if (cursorPosMap > 0)
+                        {
+                            cursorPosMap--;
+                            setCursor();
+                        }
                         once[(players.IndexOf(item))] = true;
-                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
-                        else playerTimer[players.IndexOf(item)] = timer;
+
                     }
 
                     else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                     {
-                        mapS.upValue();
+                        if (cursorPosMap < buttonFeelMap.Count - 1)
+                        {
+                            cursorPosMap++;
+                            setCursor();
+                        }
                         once[(players.IndexOf(item))] = true;
-                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
-                        else playerTimer[players.IndexOf(item)] = timer;
 
                     }
                     else if (item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone)
                     {
                         once[(players.IndexOf(item))] = false;
-                        boolTimer[(players.IndexOf(item))] = false;
-                        playerTimer[players.IndexOf(item)] = -2;
                     }
+                    
+                    if (item.GetButtonDown("Confirm"))
+                    {
+                        //SceneManager.LoadScene("TestLevelGen");
+                        fadeGO.SetActive(true);
+                        StartCoroutine(loadTime());
+                    }
+
                     break;
+                
+                
 
                 default:
                     break;
@@ -287,7 +302,14 @@ public class MainMenu : MonoBehaviour
     }
 
 
-
+    IEnumerator loadTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        loadingScreen.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        fadeGO.SetActive(false);
+        loader.LoadLevel("TestLevelGen");
+    }
 
     void changeSliders(bool plus)
     {
@@ -322,7 +344,7 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
-        if (state == MenuState.OPTION)
+        else if (state == MenuState.OPTION)
         {
             Cursor.GetComponent<RectTransform>().transform.position = cPositionOption[cursorPosOption].position;
             
@@ -338,6 +360,24 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
+        else if (state == MenuState.MAPSELECT) 
+        {
+            if (cursorPosMap == 0)
+            {
+                buttonFeelMap[0].onOff = true;
+                buttonFeelMap[0].launch = true;
+                buttonFeelMap[1].onOff = false;
+                buttonFeelMap[1].launch = true;
+            }
+            else
+            {
+                buttonFeelMap[1].onOff = true;
+                buttonFeelMap[1].launch = true;
+                buttonFeelMap[0].onOff = false;
+                buttonFeelMap[0].launch = true;
+            }
+        }
+        
 
     }
 
@@ -399,6 +439,7 @@ public class MainMenu : MonoBehaviour
     {
         state = MenuState.MAPSELECT;
         changeScreen(5, false);
+        setCursor();
     }
 
 

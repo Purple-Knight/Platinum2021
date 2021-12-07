@@ -18,12 +18,7 @@ public class CharacterSelection : MonoBehaviour
     private List<Player> players = new List<Player>();
     private List<Player> playersActual = new List<Player>();
 
-    //Load level -------------------------------------
-    [Header("Loader level")] 
-    public GameObject fadeGO;
-    public GameObject loadingScreen;
     
-    private LevelLoader loader;
 
     // Object / Variables -------------------------------------
     [Header("Variables")]
@@ -45,7 +40,7 @@ public class CharacterSelection : MonoBehaviour
 
     private void Start()
     {
-        loader = GetComponent<LevelLoader>();
+        
     }
 
     public void asignPlayers(List<Player> pList)
@@ -268,9 +263,7 @@ public class CharacterSelection : MonoBehaviour
                     saveData();
                     RhythmManager.Instance.StopAllMusic();
                     RhythmManager.Instance.inMenu = false;
-                    //SceneManager.LoadScene("TestLevelGen");
-                    fadeGO.SetActive(true);
-                    StartCoroutine(loadTime());
+                    MainMenu.Instance.toMapSelect();
                 }
                 else
                 {
@@ -279,15 +272,6 @@ public class CharacterSelection : MonoBehaviour
                 }
             }
         }
-    }
-
-    IEnumerator loadTime()
-    {
-        yield return new WaitForSeconds(0.5f);
-        loadingScreen.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        fadeGO.SetActive(false);
-        loader.LoadLevel("TestLevelGen");
     }
 
     void saveALL(Player item)
