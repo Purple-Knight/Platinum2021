@@ -282,6 +282,44 @@
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Musique" ID="{85037423-9BDE-4A13-A90B-2EF41413EFE0}" ShortID="561601841"/>
+				<Event Name="PlayMainMusic" ID="{3EE94C83-46AE-467B-ABE5-4F40A6FEDDF9}">
+					<ChildrenList>
+						<Action Name="" ID="{CE854B62-803C-4065-8380-1D2BFAA40F00}" ShortID="1002875568">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{6D98EC0D-F809-4A20-9C4C-1D71D248EC4D}" ShortID="462271873">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Base" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{F8D7BBC9-B13E-445A-BADF-799C7B8480FC}" ShortID="564473518">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="GTR" ID="{7B43C925-95DB-4AA8-A399-0CFF33054CAD}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{1E3075B6-A49C-4630-B226-DFDD4E39F6D3}" ShortID="480926871">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Harpe" ID="{48956740-879D-484A-8171-B1692ADABAD8}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{8A9391CA-3B0D-4395-ABD3-2C529F151DAA}" ShortID="465774766">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Synte" ID="{2B47AC03-60A9-4145-95E9-5E51EE8AD308}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
