@@ -73,6 +73,8 @@ public class PlayerWeapon : MonoBehaviour
 
     public void SwapWeaponStyle(string key) // key = "ID" + "WeaponLvl" 
     {
+        if (int.Parse(key) < 0) return;
+
         key = playerManager.CharacterID + key;
         Weapon swap = null;
         Vector2 direction = Vector2.right;

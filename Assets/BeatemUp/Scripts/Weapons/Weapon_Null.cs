@@ -14,6 +14,7 @@ public class Weapon_Null : Weapon
             if (playerTiming != Timing.MISS && playerTiming != Timing.NULL)
             {
                 Fire();
+                playerManager.playerAnimator.SetTrigger("Fire");
             }
         }
 

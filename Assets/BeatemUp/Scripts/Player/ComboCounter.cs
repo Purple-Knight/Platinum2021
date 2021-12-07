@@ -9,7 +9,7 @@ public class ComboCounter : MonoBehaviour
     private Weapon currentWeapon;
 
     [HideInInspector] public UnityEvent onComboGoalReached;
-    private bool receivedInput = false;
+    private bool GotInput = false;
 
     [SerializeField] private int _combo = 0;
     // Modifiers
@@ -43,13 +43,13 @@ public class ComboCounter : MonoBehaviour
 
     public void Keep()
     {
-        if (receivedInput) return;
-        else receivedInput = true;
+        if (GotInput) return;
+        else GotInput = true;
     }
 
     public void Up()
     {
-        if (receivedInput) return;
+        if (GotInput) return;
 
         Keep();
 
@@ -93,13 +93,13 @@ public class ComboCounter : MonoBehaviour
 
     public void ResetComboValues()
     {
-        if (Combo <= 0) return;
+        if (Combo <= 0 && !GotInput) return;
 
-        if (!receivedInput) ResetCombo();
-        receivedInput = false;
+        if (!GotInput) ResetCombo();
+        GotInput = false;
     }
 
-    public void ResetCombo()
+    private void ResetCombo()
     {
         if (zeroReset) // to 0
         {
