@@ -189,7 +189,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1526726655
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1526726655
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1236,6 +1236,10 @@ PrefabInstance:
       propertyPath: mediumPercentage
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: gameMusicEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: bc79c1591d16a6f408b1c9e0aa029245, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1933,6 +1937,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6388573592087733648, guid: 459425bc6843f0847a2f673775595ac8, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581322617250864878, guid: 459425bc6843f0847a2f673775595ac8, type: 3}
+      propertyPath: m_Softness.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
