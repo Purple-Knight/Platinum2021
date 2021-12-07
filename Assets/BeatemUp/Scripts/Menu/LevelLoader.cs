@@ -3,10 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Rewired;
+using TMPro;
 
 public class LevelLoader : MonoBehaviour
 {
-    /*[HideInInspector]*/ public bool isOk;
+    // Rewired -------------------------------------
+    public IList<Joystick> joysticks;
+    private List<Player> players = new List<Player>();
+
+    //Ref ------------------------------------------
+    public TextMeshProUGUI textLoad;
+    
+    private void Start()
+    {
+        checkController();
+    }
+
+    public void checkController()
+    {
+        joysticks = ReInput.controllers.GetJoysticks(); ///////////////////check connected disconected
+
+        for (int i = 0; i < joysticks.Count; i++)
+        {
+            if(!players.Contains(ReInput.players.GetPlayer(i))) players.Add(ReInput.players.GetPlayer(i));
+        }
+        
+        if(joysticks.Count == 0) // keyboard only, no controllers connected
+        {
+            players.Add(ReInput.players.GetPlayer(0));
+        }
+    }
+    
+    
     public void LoadLevel(string levelToLoad)
     {
         StartCoroutine(LoadAsynchronously(levelToLoad));
@@ -14,8 +43,6 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadAsynchronously(string levelToLoad)
     {
-        yield return null;
-        
         AsyncOperation operation = SceneManager.LoadSceneAsync(levelToLoad);
         
         operation.allowSceneActivation = false;
@@ -23,19 +50,24 @@ public class LevelLoader : MonoBehaviour
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
-
+            textLoad.text = "LOADING : " + progress * 100 + "%";
+            
             if (operation.progress >= 0.9f)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                textLoad.text = "PRESS A TO CONTINUE";
+                
+                foreach (var item in players)
                 {
-                    operation.allowSceneActivation = true;
+                    if (item.GetButtonDown("Confirm"))
+                    {
+                        operation.allowSceneActivation = true;
+                    }
                 }
             }
 
-
+            yield return null;
         }
         
-        yield return null;
         
     }
 }
