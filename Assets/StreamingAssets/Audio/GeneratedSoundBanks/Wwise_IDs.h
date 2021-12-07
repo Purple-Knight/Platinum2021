@@ -20,6 +20,35 @@ namespace AK
         static const AkUniqueID STOPALLMUSIC = 2907867019U;
     } // namespace EVENTS
 
+    namespace SWITCHES
+    {
+        namespace CHARACTER
+        {
+            static const AkUniqueID GROUP = 436743010U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID ALIX = 3017403401U;
+                static const AkUniqueID K1000 = 775632447U;
+                static const AkUniqueID SAVYA = 2795866359U;
+            } // namespace SWITCH
+        } // namespace CHARACTER
+
+        namespace CROWD
+        {
+            static const AkUniqueID GROUP = 2848349012U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID APPALUSE = 2609558266U;
+                static const AkUniqueID BUH = 714721630U;
+                static const AkUniqueID HOLA = 3164629223U;
+                static const AkUniqueID SONG = 804823466U;
+            } // namespace SWITCH
+        } // namespace CROWD
+
+    } // namespace SWITCHES
+
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID PLAYBACKSPEED = 1897326479U;

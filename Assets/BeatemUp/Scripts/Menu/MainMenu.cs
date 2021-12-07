@@ -23,11 +23,17 @@ public class MainMenu : MonoBehaviour
 
 
     // Camera --------------------------------------------
+    [Header("Camera")]
     public List<Transform> camPos = new List<Transform>();
     public CameraFocus cam;
 
+    //Title -------------------------------------
+    [Header("Title")]
+    [SerializeField] List<Feel> doorSystem = new List<Feel>();
+    [SerializeField] GameObject pressStart;
 
     //Menu Var -------------------------------------------
+    [Header("Var")]
     int cursorPos;
     int cursorPosOption;
     public GameObject Cursor;
@@ -103,6 +109,13 @@ public class MainMenu : MonoBehaviour
                 case MenuState.TITLE:
                     if (item.GetButtonDown("Start"))
                     {
+                        foreach (var item2 in doorSystem)
+                        {
+                            item2.launch = true;
+                        }
+
+                        pressStart.SetActive(false);
+                        state = MenuState.MENU;
                         toMenu();
                     }
                     break;
