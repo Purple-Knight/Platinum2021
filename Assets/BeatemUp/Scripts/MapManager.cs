@@ -5,4 +5,5 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     public List<Transform> playerSpawnPoints;
+    public Vector2 mapSize;
 }
