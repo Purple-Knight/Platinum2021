@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public CameraManager camera;
     public LevelGenerator levelGen;
     public ScoreManager scoreManager;
+    EventManager eventManager;
     [SerializeField] GameObject timeline;
 
     [SerializeField] Animator endGameAnim;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
 
+        eventManager = GetComponent<EventManager>();
         RhythmManager.Instance.StartGame();
         playersData = SaveData.Load();
         spawnPoints =  levelGen.SpawnNextMap();
@@ -79,13 +81,10 @@ public class GameManager : MonoBehaviour
                 }
                 players[i].playerMovement.enabled = false;
             }
-            Debug.Log("player " + players[playerAlive].PlayerID + " won");
             PlayerWon.Invoke(playerAlive);
             playerWins[playerAlive]++;
-            for (int i = 0; i < playerWins.Length; i++)
-            {
-                Debug.Log("Player " + (i +1) + " : " + playerWins[i]);
-            }
+            
+            eventManager.EndEvent();
             StartCoroutine(NextRound());
         }
 
@@ -114,6 +113,11 @@ public class GameManager : MonoBehaviour
         ResetPlayers();
         camera.SetStartPos(levelGen.transform.position);
         camera.ResetCamera();
+        if (Random.Range(0, 5) >= 4)
+        {
+            endGameAnim.SetTrigger("StartEvent");
+            eventManager.StartEvent();
+        }
     }
 
 
@@ -126,7 +130,7 @@ public class GameManager : MonoBehaviour
     {
         //321 count down
         //disable player input
-
+        eventManager.PlaybackSpeedOriginal();
         List<int> winners = CheckWinner();
         APlayerData data = playersData.allPlayerData[winners[0]];
         VictoryManager.Instance.InstantiateVictoryScene(playerWins);
