@@ -241,7 +241,7 @@ public class GridLevelEditor : EditorWindow
 
     private void InstantiateTile(int row, int col, GUIStyle style)
     {
-        GameObject gameObject = Instantiate(Resources.Load("MapParts/" + style.normal.background.name)) as GameObject;
+        GameObject gameObject = PrefabUtility.InstantiatePrefab(Resources.Load("MapParts/" + style.normal.background.name)) as GameObject;
         gameObject.name = style.normal.background.name;
         gameObject.transform.position = new Vector3(col * inGameGridSize.x, -row * inGameGridSize.y, 0);
         gameObject.transform.parent = theMap.transform;
