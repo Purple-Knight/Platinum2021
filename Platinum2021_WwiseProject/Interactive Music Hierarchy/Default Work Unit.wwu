@@ -123,7 +123,7 @@
 								</MusicSegment>
 								<MusicSegment Name="GTR" ID="{7B43C925-95DB-4AA8-A399-0CFF33054CAD}" ShortID="1014141557">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="8900"/>
+										<Property Name="EndPosition" Type="Real64" Value="10100.1307883283"/>
 										<Property Name="Tempo" Type="Real64" Value="115"/>
 									</PropertyList>
 									<ReferenceList>
@@ -198,7 +198,7 @@
 													<MusicCue Name="Exit Cue" ID="{85B46F0F-F77C-4DA2-AE64-D0581740C2D4}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="1"/>
-															<Property Name="TimeMs" Type="Real64" Value="8352.17391304348"/>
+															<Property Name="TimeMs" Type="Real64" Value="10100.1307883283"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>
