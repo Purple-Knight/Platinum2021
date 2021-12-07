@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
                 hasEvent = false;
                 eventManager.EndEvent();
             }
+            players[playerAlive].BlockpPlayerInput();
             StartCoroutine(NextRound());
         }
 
