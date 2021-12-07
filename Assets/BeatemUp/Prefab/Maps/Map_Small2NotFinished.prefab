@@ -22651,7 +22651,7 @@ GameObject:
   - component: {fileID: 3133413915375443292}
   - component: {fileID: 1216409051092692932}
   m_Layer: 0
-  m_Name: Map_Small2
+  m_Name: Map_Small2NotFinished
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
