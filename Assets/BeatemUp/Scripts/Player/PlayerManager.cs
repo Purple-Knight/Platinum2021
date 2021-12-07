@@ -65,8 +65,8 @@ public class PlayerManager : MonoBehaviour
         playerMovement.enabled = false;
         //spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
         //playerMovement.playerColor = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
-        gameObject.tag ="Ghost";
-        gameObject.layer = 8;
+        //gameObject.tag ="Ghost";
+        //gameObject.layer = 8;
         //movement.ResetPositions();
         StartCoroutine(DeathWait());
     }
@@ -79,11 +79,24 @@ public class PlayerManager : MonoBehaviour
         playerMovement.enabled = true;
         playerMovement.playerColor = playerColor;
         spriteRenderer.color = playerColor;
-        gameObject.tag = "Player";
-        gameObject.layer = 7;
+        //gameObject.tag = "Player";
+        //gameObject.layer = 7;
         playerMovement.ResetPositions();
         playerHealth.ResetPlayer();
         playerWeapon.SwapToBaseWeapon();
+    }
+
+    public void BlockpPlayerInput()
+    {
+        playerWeapon.enabled = false;
+        playerHealth.enabled = false;
+        playerMovement.enabled = false;
+    }
+
+    public void ResetColor()
+    {
+        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, 1);
+
     }
 
     public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfStepsPerSec)
