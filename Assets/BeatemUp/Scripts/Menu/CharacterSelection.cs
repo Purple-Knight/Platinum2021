@@ -21,6 +21,8 @@ public class CharacterSelection : MonoBehaviour
     //Load level -------------------------------------
     [Header("Loader level")] 
     public GameObject fadeGO;
+    public GameObject loadingScreen;
+    
     private LevelLoader loader;
 
     // Object / Variables -------------------------------------
@@ -268,7 +270,7 @@ public class CharacterSelection : MonoBehaviour
                     RhythmManager.Instance.inMenu = false;
                     //SceneManager.LoadScene("TestLevelGen");
                     fadeGO.SetActive(true);
-                    loader.LoadLevel("TestLevelGen");
+                    StartCoroutine(loadTime());
                 }
                 else
                 {
@@ -277,6 +279,15 @@ public class CharacterSelection : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator loadTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        loadingScreen.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        fadeGO.SetActive(false);
+        loader.LoadLevel("TestLevelGen");
     }
 
     void saveALL(Player item)
