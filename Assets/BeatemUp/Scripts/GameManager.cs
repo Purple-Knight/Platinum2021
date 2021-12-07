@@ -100,7 +100,6 @@ public class GameManager : MonoBehaviour
         playersAlive.Clear();
         playersAlive = new List<bool>();
         numOfPlayerAlive = playersData.numberOfPlayer;
-        Debug.Log(numOfPlayerAlive);
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             players[i].transform.position = spawnPoints[i];
@@ -109,20 +108,46 @@ public class GameManager : MonoBehaviour
             
         }
     }
+    
+    public void ResetPlayersBeforeEvent()
+    {
+        playersAlive.Clear();
+        playersAlive = new List<bool>();
+        numOfPlayerAlive = playersData.numberOfPlayer;
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            players[i].transform.position = spawnPoints[i];
+            playersAlive.Add(true);
+            players[i].ResetColor();
+
+        }
+    }
+
+    public void ResetPlayerAfterAnim()
+    {
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            players[i].ResetPlayer();
+        }
+    }
 
     IEnumerator NextRound()
     {
         yield return new WaitForSecondsRealtime(3);
         spawnPoints = levelGen.SpawnNextMap();
         timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);// a modifier !!!
-        ResetPlayers();
         camera.SetStartPos(levelGen.transform.position);
+        ResetPlayersBeforeEvent();
         camera.ResetCamera();
         if (Random.Range(0, 5) >= 4)
         {
             hasEvent = true;
             endGameAnim.SetTrigger("StartEvent");
             eventManager.StartEvent();
+        }
+        else
+        {
+        endGameAnim.SetTrigger("StartRound");
         }
     }
 
@@ -137,8 +162,8 @@ public class GameManager : MonoBehaviour
         //321 count down
         //disable player input
         eventManager.PlaybackSpeedOriginal();
-        List<int> winners = CheckWinner();
-        APlayerData data = playersData.allPlayerData[winners[0]];
+        //List<int> winners = CheckWinner();
+        //APlayerData data = playersData.allPlayerData[winners[0]];
         VictoryManager.Instance.InstantiateVictoryScene(playerWins);
     }
 
@@ -179,6 +204,13 @@ public class GameManager : MonoBehaviour
         return winners;
     }
 
+    public void BlockAllPlayers()
+    {
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            players[i].BlockpPlayerInput();
+        }
+    }
 
     public void LoadScene(string sceneToLoad)
     {
