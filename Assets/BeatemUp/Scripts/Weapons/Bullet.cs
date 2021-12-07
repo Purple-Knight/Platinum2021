@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         float length = (_Info.length > 0) ? _Info.length : 50;
         Vector2 spawnPos = new Vector2(transform.position.x + (_playerManager.GridSize.x * tilePositionOffset) * direction.x, transform.position.y + (_playerManager.GridSize.y * tilePositionOffset) * direction.y);
         Vector2 endPos;
-
         float grid = direction.x == 0 ? _playerManager.GridSize.y : _playerManager.GridSize.x;
         RaycastHit2D hit = Physics2D.Raycast(spawnPos, direction, length * grid, hitLayer);
         if (hit.collider != null)
@@ -34,18 +33,20 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
             endPos = new Vector2(spawnPos.x + (length - tilePositionOffset) *_playerManager.GridSize.x * direction.x, spawnPos.y + (length - tilePositionOffset) * _playerManager.GridSize.y * direction.y);
         }
 
-        InitLaser(spawnPos, endPos, direction);
+        float widthFactor = (direction.x == 0) ? _playerManager.GridSize.x : _playerManager.GridSize.y;
+        InitLaser(spawnPos, endPos, direction, widthFactor);
     }
 
-    private void InitLaser(Vector2 startPos, Vector2 endPos, Vector2 direction)
+    private void InitLaser(Vector2 startPos, Vector2 endPos, Vector2 direction, float widthFactor)
     {
         //LineRenderer
         LineRenderer lr = gameObject.AddComponent<LineRenderer>();
 
         lr.SetPositions(new Vector3[] { startPos, endPos });
         lr.widthCurve = laserWidth;
+        lr.widthCurve = new AnimationCurve(new Keyframe(0, laserWidth.Evaluate(0) * widthFactor), new Keyframe(1, laserWidth.Evaluate(1) * widthFactor));
         lr.materials = new Material[] { mat };
-        lr.sortingOrder = 1;
+        //lr.sortingOrder = 1;
 
        RaycastHit2D[] hits = Physics2D.RaycastAll(startPos, direction, Vector2.Distance(startPos, endPos), LayerMask.GetMask("Player"));   // Cast Players hit  (add Player layerMask)
         foreach (RaycastHit2D hit in hits)
