@@ -36,91 +36,6 @@
 						</MusicSegment>
 						<Folder Name="Level_115bpm" ID="{565D0893-7010-45A2-8549-486D1CE00088}" ShortID="641861242">
 							<ChildrenList>
-								<MusicSegment Name="Base" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}" ShortID="241229835">
-									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="9078.26086956522"/>
-										<Property Name="Tempo" Type="Real64" Value="115"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<MusicTrack Name="Base rythmique  4 mesures 115BPM" ID="{0DBA2F44-4035-4A7D-9C51-3C9C7A4A996F}" ShortID="410968111">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Base rythmique  4 mesures 115BPM" ID="{D4F2D46E-8391-426B-87C8-FF5D430DEB01}">
-													<Language>SFX</Language>
-													<AudioFile>Base rythmique  4 mesures 115BPM.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="228500161"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{628099AE-EC34-412C-A7B0-8C00109316E4}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{C1AABE43-1048-4346-AFE1-89253F43017F}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Base rythmique  4 mesures 115BPM" ID="{BC9A74B3-23CF-4A52-90C8-F8FB262D4B23}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="8347.83333333333"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Base rythmique  4 mesures 115BPM" ID="{D4F2D46E-8391-426B-87C8-FF5D430DEB01}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-									</ChildrenList>
-									<ObjectLists>
-										<ObjectList Name="Cues">
-											<Reference>
-												<Local>
-													<MusicCue Name="Entry Cue" ID="{1E274FF1-32A6-4183-A8E9-1DAEC96B4F85}"/>
-												</Local>
-											</Reference>
-											<Reference>
-												<Local>
-													<MusicCue Name="Exit Cue" ID="{F836506A-3531-4C61-9239-15C7B7D03CBA}">
-														<PropertyList>
-															<Property Name="CueType" Type="int16" Value="1"/>
-															<Property Name="TimeMs" Type="Real64" Value="8347.82608695652"/>
-														</PropertyList>
-													</MusicCue>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-								</MusicSegment>
 								<MusicSegment Name="GTR" ID="{7B43C925-95DB-4AA8-A399-0CFF33054CAD}" ShortID="1014141557">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="10100.1307883283"/>
@@ -134,58 +49,6 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 										</Reference>
 									</ReferenceList>
-									<ChildrenList>
-										<MusicTrack Name="Perso GTR 4 mesures 115 BPM" ID="{27047645-2B77-469F-887D-DF490DB84C89}" ShortID="891784060">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Perso GTR 4 mesures 115 BPM" ID="{02FD2ACA-56B6-447D-9C69-AE14E3004601}">
-													<Language>SFX</Language>
-													<AudioFile>Perso GTR 4 mesures 115 BPM.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="160550462"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{D99F7327-959A-43F0-9810-96551D45B742}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{73EE6678-AA0D-4A7C-B4F0-B26E712BB992}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Perso GTR 4 mesures 115 BPM" ID="{51A1411A-37BA-49F5-9A57-3C2FAF54E62B}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="8347.83333333333"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Perso GTR 4 mesures 115 BPM" ID="{02FD2ACA-56B6-447D-9C69-AE14E3004601}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-									</ChildrenList>
 									<ObjectLists>
 										<ObjectList Name="Cues">
 											<Reference>
@@ -219,58 +82,6 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 										</Reference>
 									</ReferenceList>
-									<ChildrenList>
-										<MusicTrack Name="Perso Synthé 4 mesures 115 BPM" ID="{8500CB6E-2694-4D53-9C8C-96C5C4E31CD4}" ShortID="653594345">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Perso Synthé 4 mesures 115 BPM" ID="{9F014DCB-04A2-49ED-A037-6ABA55F05756}">
-													<Language>SFX</Language>
-													<AudioFile>Perso Synthé 4 mesures 115 BPM.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="356100802"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{876CC167-1EFA-4F8D-90E5-4DB3CFF2D553}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{223AE6AB-B4A4-409B-A48F-697F843824BF}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Perso Synthé 4 mesures 115 BPM" ID="{745BCAF3-45CF-4039-AAA2-5B1DC014409B}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="8383.125"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Perso Synthé 4 mesures 115 BPM" ID="{9F014DCB-04A2-49ED-A037-6ABA55F05756}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-									</ChildrenList>
 									<ObjectLists>
 										<ObjectList Name="Cues">
 											<Reference>
@@ -304,58 +115,6 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 										</Reference>
 									</ReferenceList>
-									<ChildrenList>
-										<MusicTrack Name="Perso Harpe 4 mesures 115 BPM" ID="{9AB6F3A3-2CB4-4D45-BEF2-03164E103AFD}" ShortID="145026666">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Perso Harpe 4 mesures 115 BPM" ID="{5B43B79E-B19F-4AA7-8E31-FDE7A4E0405A}">
-													<Language>SFX</Language>
-													<AudioFile>Perso Harpe 4 mesures 115 BPM.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="812710171"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{6760FBE7-BF2B-41D6-82A5-7BA7E96B4053}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{58AABC29-F855-4E72-B791-53EAEFD49495}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Perso Harpe 4 mesures 115 BPM" ID="{FC977791-2006-43D5-BB24-57B05A6F1657}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="8347.83333333333"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Perso Harpe 4 mesures 115 BPM" ID="{5B43B79E-B19F-4AA7-8E31-FDE7A4E0405A}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-									</ChildrenList>
 									<ObjectLists>
 										<ObjectList Name="Cues">
 											<Reference>
@@ -376,6 +135,298 @@
 										</ObjectList>
 									</ObjectLists>
 								</MusicSegment>
+								<MusicPlaylistContainer Name="MisucPlaylist" ID="{720608AE-A0E8-453A-9EAE-D2215E1163EF}" ShortID="755603937">
+									<PropertyList>
+										<Property Name="Tempo" Type="Real64" Value="115"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicSegment Name="Base" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}" ShortID="241229835">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="10102.4379368124"/>
+												<Property Name="GridOffsetPreset" Type="int16" Value="53"/>
+												<Property Name="Tempo" Type="Real64" Value="115"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="Base rythmique  4 mesures 115BPM" ID="{0DBA2F44-4035-4A7D-9C51-3C9C7A4A996F}" ShortID="410968111">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Base rythmique  4 mesures 115BPM" ID="{D4F2D46E-8391-426B-87C8-FF5D430DEB01}">
+															<Language>SFX</Language>
+															<AudioFile>Base rythmique  4 mesures 115BPM.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="228500161"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{628099AE-EC34-412C-A7B0-8C00109316E4}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<ObjectLists>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{C1AABE43-1048-4346-AFE1-89253F43017F}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="Base rythmique  4 mesures 115BPM" ID="{BC9A74B3-23CF-4A52-90C8-F8FB262D4B23}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="8347.83333333333"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="Base rythmique  4 mesures 115BPM" ID="{D4F2D46E-8391-426B-87C8-FF5D430DEB01}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+												<MusicTrack Name="Perso GTR 4 mesures 115 BPM" ID="{27047645-2B77-469F-887D-DF490DB84C89}" ShortID="891784060">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Perso GTR 4 mesures 115 BPM" ID="{02FD2ACA-56B6-447D-9C69-AE14E3004601}">
+															<Language>SFX</Language>
+															<AudioFile>Perso GTR 4 mesures 115 BPM.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="160550462"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{D99F7327-959A-43F0-9810-96551D45B742}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<ObjectLists>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{73EE6678-AA0D-4A7C-B4F0-B26E712BB992}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="Perso GTR 4 mesures 115 BPM" ID="{51A1411A-37BA-49F5-9A57-3C2FAF54E62B}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="8347.83333333333"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="Perso GTR 4 mesures 115 BPM" ID="{02FD2ACA-56B6-447D-9C69-AE14E3004601}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+												<MusicTrack Name="Perso Harpe 4 mesures 115 BPM" ID="{9AB6F3A3-2CB4-4D45-BEF2-03164E103AFD}" ShortID="145026666">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Perso Harpe 4 mesures 115 BPM" ID="{5B43B79E-B19F-4AA7-8E31-FDE7A4E0405A}">
+															<Language>SFX</Language>
+															<AudioFile>Perso Harpe 4 mesures 115 BPM.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="812710171"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{6760FBE7-BF2B-41D6-82A5-7BA7E96B4053}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<ObjectLists>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{58AABC29-F855-4E72-B791-53EAEFD49495}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="Perso Harpe 4 mesures 115 BPM" ID="{FC977791-2006-43D5-BB24-57B05A6F1657}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="8347.83333333333"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="Perso Harpe 4 mesures 115 BPM" ID="{5B43B79E-B19F-4AA7-8E31-FDE7A4E0405A}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+												<MusicTrack Name="Perso Synthé 4 mesures 115 BPM" ID="{8500CB6E-2694-4D53-9C8C-96C5C4E31CD4}" ShortID="653594345">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Perso Synthé 4 mesures 115 BPM" ID="{9F014DCB-04A2-49ED-A037-6ABA55F05756}">
+															<Language>SFX</Language>
+															<AudioFile>Perso Synthé 4 mesures 115 BPM.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="356100802"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{876CC167-1EFA-4F8D-90E5-4DB3CFF2D553}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<ObjectLists>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{223AE6AB-B4A4-409B-A48F-697F843824BF}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="Perso Synthé 4 mesures 115 BPM" ID="{745BCAF3-45CF-4039-AAA2-5B1DC014409B}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="8383.125"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="Perso Synthé 4 mesures 115 BPM" ID="{9F014DCB-04A2-49ED-A037-6ABA55F05756}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Cues">
+													<Reference>
+														<Local>
+															<MusicCue Name="Entry Cue" ID="{1E274FF1-32A6-4183-A8E9-1DAEC96B4F85}"/>
+														</Local>
+													</Reference>
+													<Reference>
+														<Local>
+															<MusicCue Name="Exit Cue" ID="{F836506A-3531-4C61-9239-15C7B7D03CBA}">
+																<PropertyList>
+																	<Property Name="CueType" Type="int16" Value="1"/>
+																	<Property Name="TimeMs" Type="Real64" Value="8347.82608695652"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicSegment>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{B602290B-6B2C-4780-851E-ED60E3160A5C}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{AE663311-48DA-4353-8619-871A19381222}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<ObjectLists/>
+									<Playlist>
+										<MusicPlaylistItem Name="" ID="{2D34019A-B6B8-4A4C-804A-F7F63BAC0182}" ShortID="221185782">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{F450ADF5-FACC-4E33-9AD7-ED540602CC03}" ShortID="1055047002">
+													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Base" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Playlist>
+								</MusicPlaylistContainer>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Level2" ID="{5796AEF9-B6FD-4772-A0EA-A8FE45982EA0}" ShortID="540726088">
