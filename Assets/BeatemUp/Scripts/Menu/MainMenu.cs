@@ -304,8 +304,17 @@ public class MainMenu : MonoBehaviour
                         if (item.GetButtonDown("Confirm"))
                         {
                             //SceneManager.LoadScene("TestLevelGen");
+                            if (cursorPosMap == 0)
+                            {
+                                RhythmManager.Instance.level = Level.Medium;
+                            }
+                            else
+                            {
+                                RhythmManager.Instance.level = Level.Hard;
+                            }
                             fadeGO.SetActive(true);
-                            StartCoroutine(loadTime());timeToInteract = 0.7f;
+                            StartCoroutine(loadTime());
+                            timeToInteract = 0.7f;
                         }
 
                         break;
