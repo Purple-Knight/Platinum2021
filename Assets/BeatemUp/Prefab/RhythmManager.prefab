@@ -50,11 +50,19 @@ MonoBehaviour:
   gameMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 0d39aa5e1b7dfeb48a8d9c6fb46fd7f6, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: bc79c1591d16a6f408b1c9e0aa029245, type: 2}
   stopAllMusicEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
+  pauseEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3151c4a90f517304881f2513a2b5a426, type: 2}
+  unpauseEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 463f47d5e34e6864f85d3387f638b856, type: 2}
   inMenu: 0
   numberOfBeat: 0
   timeBeforeStart: 0.3

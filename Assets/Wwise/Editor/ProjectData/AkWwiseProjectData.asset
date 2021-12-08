@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 62f9597facf65640bf460bce7fcd6097
     GuidInternal: 
-    m_lastTime: -8585685130077023001
+    m_lastTime: -8585685329598327390
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -774,7 +774,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: ef9b90617ee2324197d941e57478b9dc
     GuidInternal: 
-    m_lastTime: -8585685130077042941
+    m_lastTime: -8585685329598347383
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -950,10 +950,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 3437ef2ec1abd24f9668567eaa6ed463
     GuidInternal: 
-    m_lastTime: -8585660846511662473
+    m_lastTime: -8585685329598337378
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 010000000500000006000000070000001c0000001d000000
+  ExpandedWaapiItemIds: 0500000006000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
