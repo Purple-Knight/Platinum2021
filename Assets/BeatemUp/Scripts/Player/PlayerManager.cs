@@ -86,6 +86,19 @@ public class PlayerManager : MonoBehaviour
         playerWeapon.SwapToBaseWeapon();
     }
 
+    public void BlockpPlayerInput()
+    {
+        playerWeapon.enabled = false;
+        playerHealth.enabled = false;
+        playerMovement.enabled = false;
+    }
+
+    public void ResetColor()
+    {
+        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, 1);
+
+    }
+
     public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfStepsPerSec)
     {
         playerMovement.StartFreeMovement(maxNumOfStepsPerSec);

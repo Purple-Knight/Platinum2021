@@ -11,8 +11,7 @@ public class GridLevelEditor : EditorWindow
     float levelHeight = 10;
 
     //don't touch >:( 
-
-
+    #region Var
     float cellSize = 35;
     Vector2 inGameGridSize = new Vector2(1, .5f);
 
@@ -31,19 +30,20 @@ public class GridLevelEditor : EditorWindow
 
     GameObject theMap;
     List<List<PartScript>> parts;
+    #endregion
 
     [MenuItem("Tools/Level Editor")]
     private static void OpenWindow()
     {
         GridLevelEditor window = GetWindow<GridLevelEditor>();
-        window.titleContent = new GUIContent("Level Editor");
+        GUIContent gUIContent = new GUIContent("Level Editor");
+        window.titleContent = gUIContent;
     }
 
     private void OnEnable()
     {
         SetUpStyles();
         SetUpMap();
-        
     }
 
     private void SetUpMap()
@@ -241,7 +241,7 @@ public class GridLevelEditor : EditorWindow
 
     private void InstantiateTile(int row, int col, GUIStyle style)
     {
-        GameObject gameObject = Instantiate(Resources.Load("MapParts/" + style.normal.background.name)) as GameObject;
+        GameObject gameObject = PrefabUtility.InstantiatePrefab(Resources.Load("MapParts/" + style.normal.background.name)) as GameObject;
         gameObject.name = style.normal.background.name;
         gameObject.transform.position = new Vector3(col * inGameGridSize.x, -row * inGameGridSize.y, 0);
         gameObject.transform.parent = theMap.transform;

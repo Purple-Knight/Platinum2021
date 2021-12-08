@@ -90,12 +90,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (beatPassed && beatPassedTimer >= halfBeatTime) //only one input per beat
         {
+            playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
+
             beatPassed = false;
             GotInput = false;
             beatPassedTimer = 0;
             hasMoved = false;
-
-            playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
         } 
 
         OtherPlayerOnNextTile();

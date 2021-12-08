@@ -923,7 +923,7 @@
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>0.25</YPos>
+														<YPos>0.75</YPos>
 														<Flags>5</Flags>
 													</Point>
 													<Point>
@@ -933,7 +933,7 @@
 													</Point>
 													<Point>
 														<XPos>100</XPos>
-														<YPos>2</YPos>
+														<YPos>1.25</YPos>
 														<Flags>37</Flags>
 													</Point>
 												</PointList>
@@ -1025,7 +1025,7 @@
 											<MusicCue Name="MusicEnd" ID="{52D3D8C9-C3F7-4631-87B2-ACDAE5E7F03F}">
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="2"/>
-													<Property Name="TimeMs" Type="Real64" Value="59986.3246316844"/>
+													<Property Name="TimeMs" Type="Real64" Value="120415.073043919"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>

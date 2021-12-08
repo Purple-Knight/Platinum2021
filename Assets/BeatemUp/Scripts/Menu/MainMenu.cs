@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -23,11 +25,20 @@ public class MainMenu : MonoBehaviour
 
 
     // Camera --------------------------------------------
+    [Header("Camera")]
     public List<Transform> camPos = new List<Transform>();
     public CameraFocus cam;
 
+    //Title -------------------------------------
+    [Header("Title")]
+    [SerializeField] List<Feel> doorSystem = new List<Feel>();
+    [SerializeField] GameObject pressStart;
 
     //Menu Var -------------------------------------------
+    [Header("Var")]
+    bool canInteract;
+    [HideInInspector] public float timeToInteract;
+    
     int cursorPos;
     int cursorPosOption;
     public GameObject Cursor;
@@ -41,7 +52,17 @@ public class MainMenu : MonoBehaviour
     List<float> playerTimer = new List<float> { 0, 0, 0, 0};
     List<bool> boolTimer = new List<bool> { false, false, false, false};
     public float deadZone;
-
+    
+    [Header("Map")]
+    public int cursorPosMap;
+    [SerializeField] List<Feel> buttonFeelMap = new List<Feel>();
+    
+    //Load level -------------------------------------
+    [Header("Loader level")] 
+    public GameObject fadeGO;
+    public GameObject loadingScreen;
+    
+    private LevelLoader loader;
 
     // Slider --------------------------------------------
     public List<Slider> Sliders = new List<Slider>();
@@ -69,11 +90,13 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        loader = GetComponent<LevelLoader>();
         loadMusicVolume();
     }
 
     public void checkController()
     {
+        Debug.Log("Check Controller OK");
         joysticks = ReInput.controllers.GetJoysticks(); ///////////////////check connected disconected
 
         for (int i = 0; i < joysticks.Count; i++)
@@ -88,175 +111,212 @@ public class MainMenu : MonoBehaviour
     }
 
 
-
-
     void Update()
     {
-        foreach (var item in players)
+        timeWaitInteract();
+        
+        if (canInteract)
         {
-
-            switch (state)
+            foreach (var item in players)
             {
-                case MenuState.TITLE:
-                    if (item.GetButtonDown("Start"))
-                    {
-                        toMenu();
-                    }
-                    break;
 
-
-
-
-                case MenuState.MENU:
-
-                    if(once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
-                    {
-                        if(cursorPos > 0) cursorPos--;
-                        once[(players.IndexOf(item))] = true;
-                        setCursor();
-                    }
-
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
-                    {
-                        if (cursorPos < cPosition.Count - 1) cursorPos++;
-                        once[(players.IndexOf(item))] = true;
-                        setCursor();
-
-                    } else if (item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone) {
-                        once[(players.IndexOf(item))] = false;
-                        setCursor();
-                    }
-
-
-
-                    if (item.GetButtonDown("Confirm"))
-                    {
-                        switch (cursorPos)
+                switch (state)
+                {
+                    case MenuState.TITLE:
+                        if (item.GetButtonDown("Start"))
                         {
-                            case 0:
-                                toCharSelect();
-                                break;
-                            case 1:
-                                toOption();
-                                break;
-                            case 2:
-                                toCredits();
-                                break;
-                            case 3:
-                                toTitle();
-                                break;
-                            default:
-                                break;
+                            foreach (var item2 in doorSystem)
+                            {
+                                item2.launch = true;
+                            }
+
+                            pressStart.SetActive(false);
+                            state = MenuState.MENU;
+                            toMenu();
+                            timeToInteract = 0.5f;
                         }
-                    }
 
-                    break;
-
+                        break;
 
 
 
 
+                    case MenuState.MENU:
 
-                case MenuState.CHARSELECT:
-                    break;
+                        if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
+                        {
+                            if (cursorPos > 0) cursorPos--;
+                            once[(players.IndexOf(item))] = true;
+                            setCursor();
+                        }
 
-                case MenuState.CREDITS:
-                    if (item.GetButtonDown("Cancel"))
-                    {
-                        toMenu();
-                    }
-                    break;
+                        else if (once[(players.IndexOf(item))] == false &&
+                                 item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                        {
+                            if (cursorPos < cPosition.Count - 1) cursorPos++;
+                            once[(players.IndexOf(item))] = true;
+                            setCursor();
 
-
-                case MenuState.OPTION:
-
-                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
-                    {
-                        if (cursorPosOption > 0) cursorPosOption--;
-                        once[(players.IndexOf(item))] = true;
-                        setCursor();
-                    }
-
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
-                    {
-                        if (cursorPosOption < cPositionOption.Count - 1) cursorPosOption++;
-                        once[(players.IndexOf(item))] = true;
-                        setCursor();
-
-                    }
-
-                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
-                    {
-                        changeSliders(true);
-                        once[(players.IndexOf(item))] = true;
-                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
-                        else playerTimer[players.IndexOf(item)] = timer;
-                    }
-
-
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
-                    {
-                        changeSliders(false);
-                        once[(players.IndexOf(item))] = true;
-                        if(boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
-                        else playerTimer[players.IndexOf(item)] = timer;
-                    }
-
-
-                    else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone
-                        && item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone)
-                    {
-                        once[(players.IndexOf(item))] = false;
-                        boolTimer[(players.IndexOf(item))] = false;
-                        playerTimer[players.IndexOf(item)] = -2;
-                        setCursor();
-                    }
+                        }
+                        else if (item.GetAxisRaw("MenuHorizontal") < deadZone &&
+                                 item.GetAxisRaw("MenuHorizontal") > -deadZone)
+                        {
+                            once[(players.IndexOf(item))] = false;
+                            setCursor();
+                        }
 
 
 
-                    if (item.GetButtonDown("Confirm"))
-                    {
-                        if(cursorPosOption == 3) toMenu();
-                    }
+                        if (item.GetButtonDown("Confirm"))
+                        {
+                            switch (cursorPos)
+                            {
+                                case 0:
+                                    toCharSelect();
+                                    timeToInteract = 0.3f;
+                                    break;
+                                case 1:
+                                    toOption();
+                                    timeToInteract = 0.3f;
+                                    break;
+                                case 2:
+                                    toCredits();
+                                    timeToInteract = 0.3f;
+                                    break;
+                                case 3:
+                                    toQuit();
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
 
-                    if (item.GetButtonDown("Cancel"))
-                    {
-                        toMenu();
-                    }
-
-                    break;
+                        break;
 
 
-                case MenuState.MAPSELECT:
+                    case MenuState.CHARSELECT:
+                        break;
 
-                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
-                    {
-                        //MapSelector.Instance.downValue();
-                        once[(players.IndexOf(item))] = true;
-                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
-                        else playerTimer[players.IndexOf(item)] = timer;
-                    }
+                    case MenuState.CREDITS:
+                        if (item.GetButtonDown("Cancel"))
+                        {
+                            toMenu();
+                            timeToInteract = 0.3f;
+                        }
 
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
-                    {
-                        //MapSelector.Instance.upValue();
-                        once[(players.IndexOf(item))] = true;
-                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
-                        else playerTimer[players.IndexOf(item)] = timer;
+                        break;
 
-                    }
-                    else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone)
-                    {
-                        once[(players.IndexOf(item))] = false;
-                        boolTimer[(players.IndexOf(item))] = false;
-                        playerTimer[players.IndexOf(item)] = -2;
-                    }
-                    break;
 
-                default:
-                    break;
+                    case MenuState.OPTION:
+
+                        if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                        {
+                            if (cursorPosOption > 0) cursorPosOption--;
+                            once[(players.IndexOf(item))] = true;
+                            setCursor();
+                        }
+
+                        else if (once[(players.IndexOf(item))] == false &&
+                                 item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                        {
+                            if (cursorPosOption < cPositionOption.Count - 1) cursorPosOption++;
+                            once[(players.IndexOf(item))] = true;
+                            setCursor();
+
+                        }
+
+                        if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                        {
+                            changeSliders(true);
+                            once[(players.IndexOf(item))] = true;
+                            if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
+                            else playerTimer[players.IndexOf(item)] = timer;
+                        }
+
+
+                        else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
+                        {
+                            changeSliders(false);
+                            once[(players.IndexOf(item))] = true;
+                            if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
+                            else playerTimer[players.IndexOf(item)] = timer;
+                        }
+
+
+                        else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") >
+                                                                            -deadZone && item.GetAxisRaw("MenuHorizontal") <
+                                                                            deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone)
+                        {
+                            once[(players.IndexOf(item))] = false;
+                            boolTimer[(players.IndexOf(item))] = false;
+                            playerTimer[players.IndexOf(item)] = -2;
+                            setCursor();
+                        }
+
+
+
+                        if (item.GetButtonDown("Confirm"))
+                        {
+                            if (cursorPosOption == 3) checkController();
+                        }
+
+                        if (item.GetButtonDown("Cancel"))
+                        {
+                            toMenu();
+                            timeToInteract = 0.3f;
+                        }
+
+                        break;
+
+
+                    case MenuState.MAPSELECT:
+
+                        if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
+                        {
+                            if (cursorPosMap > 0)
+                            {
+                                cursorPosMap--;
+                                setCursor();
+                            }
+
+                            once[(players.IndexOf(item))] = true;
+
+                        }
+
+                        else if (once[(players.IndexOf(item))] == false &&
+                                 item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                        {
+                            if (cursorPosMap < buttonFeelMap.Count - 1)
+                            {
+                                cursorPosMap++;
+                                setCursor();
+                            }
+
+                            once[(players.IndexOf(item))] = true;
+
+                        }
+                        else if (item.GetAxisRaw("MenuHorizontal") < deadZone &&
+                                 item.GetAxisRaw("MenuHorizontal") > -deadZone)
+                        {
+                            once[(players.IndexOf(item))] = false;
+                        }
+
+                        if (item.GetButtonDown("Confirm"))
+                        {
+                            //SceneManager.LoadScene("TestLevelGen");
+                            fadeGO.SetActive(true);
+                            StartCoroutine(loadTime());timeToInteract = 0.7f;
+                        }
+
+                        break;
+
+
+
+                    default:
+                        break;
+                }
+
             }
-
         }
 
         if (forChecking)
@@ -269,7 +329,14 @@ public class MainMenu : MonoBehaviour
     }
 
 
-
+    IEnumerator loadTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        loadingScreen.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        fadeGO.SetActive(false);
+        loader.LoadLevel("TestLevelGen");
+    }
 
     void changeSliders(bool plus)
     {
@@ -304,7 +371,7 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
-        if (state == MenuState.OPTION)
+        else if (state == MenuState.OPTION)
         {
             Cursor.GetComponent<RectTransform>().transform.position = cPositionOption[cursorPosOption].position;
             
@@ -320,6 +387,24 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
+        else if (state == MenuState.MAPSELECT) 
+        {
+            if (cursorPosMap == 0)
+            {
+                buttonFeelMap[0].onOff = true;
+                buttonFeelMap[0].launch = true;
+                buttonFeelMap[1].onOff = false;
+                buttonFeelMap[1].launch = true;
+            }
+            else
+            {
+                buttonFeelMap[1].onOff = true;
+                buttonFeelMap[1].launch = true;
+                buttonFeelMap[0].onOff = false;
+                buttonFeelMap[0].launch = true;
+            }
+        }
+        
 
     }
 
@@ -338,15 +423,28 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-
+    void timeWaitInteract()
+    {
+        if(timeToInteract > 0)
+        {
+            canInteract = false;
+            timeToInteract -= Time.deltaTime;
+        }
+        else
+        {
+            canInteract = true;
+        }
+    }
+    
     // Scene ---------------------------------------------------------------------
     #region Change Scene /
 
-    public void toTitle()
+    public void toQuit()
     {
-        state = MenuState.TITLE;
+        Application.Quit();
+        /*state = MenuState.TITLE;
         changeScreen(0, false);
-        cursorPos = 0;
+        cursorPos = 0;*/
     }
 
     public void toMenu()
@@ -380,6 +478,7 @@ public class MainMenu : MonoBehaviour
     {
         state = MenuState.MAPSELECT;
         changeScreen(5, false);
+        setCursor();
     }
 
 

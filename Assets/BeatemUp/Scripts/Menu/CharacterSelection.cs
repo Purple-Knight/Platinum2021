@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +18,10 @@ public class CharacterSelection : MonoBehaviour
     private List<Player> players = new List<Player>();
     private List<Player> playersActual = new List<Player>();
 
+    
 
     // Object / Variables -------------------------------------
+    [Header("Variables")]
     public List<GameObject> charPortrait = new List<GameObject>();
     public List<MapSelector> charPortraitTrue = new List<MapSelector>();
     public List<TextMeshProUGUI> namesZone= new List<TextMeshProUGUI>();
@@ -33,6 +36,11 @@ public class CharacterSelection : MonoBehaviour
     {
         _instance = this;
         checkIfEveryoneIsReady();
+    }
+
+    private void Start()
+    {
+        
     }
 
     public void asignPlayers(List<Player> pList)
@@ -255,7 +263,7 @@ public class CharacterSelection : MonoBehaviour
                     saveData();
                     RhythmManager.Instance.StopAllMusic();
                     RhythmManager.Instance.inMenu = false;
-                    SceneManager.LoadScene("TestLevelGen");
+                    MainMenu.Instance.toMapSelect();
                 }
                 else
                 {

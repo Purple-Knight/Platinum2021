@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public CameraManager camera;
     public LevelGenerator levelGen;
     public ScoreManager scoreManager;
+    EventManager eventManager;
+    bool hasEvent = false;
     [SerializeField] GameObject timeline;
 
     [SerializeField] Animator endGameAnim;
@@ -31,11 +33,12 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
 
+        eventManager = GetComponent<EventManager>();
         RhythmManager.Instance.StartGame();
         playersData = SaveData.Load();
         spawnPoints =  levelGen.SpawnNextMap();
         SpawnPlayer();
-        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y /2 + 1.5f);
+        timeline.transform.position = new Vector2(timeline.transform.position.x, levelGen.transform.position.y +1.5f);
         camera.SetStartPos(levelGen.transform.position);
         RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
         scoreManager.InstantiateScore();
@@ -51,6 +54,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             APlayerData data = playersData.allPlayerData[i];
+            Debug.Log(spawnPoints[i]);
             PlayerManager playerManager = Instantiate(playerPrefab, spawnPoints[i], Quaternion.identity).GetComponent<PlayerManager>();
             playerManager.InstantiatePlayer(data.playerControllerID, i , data.myColorID, data.myCharID);
             playersAlive.Add(true);
@@ -79,13 +83,14 @@ public class GameManager : MonoBehaviour
                 }
                 players[i].playerMovement.enabled = false;
             }
-            Debug.Log("player " + players[playerAlive].PlayerID + " won");
             PlayerWon.Invoke(playerAlive);
             playerWins[playerAlive]++;
-            for (int i = 0; i < playerWins.Length; i++)
+            if (hasEvent)
             {
-                Debug.Log("Player " + (i +1) + " : " + playerWins[i]);
+                hasEvent = false;
+                eventManager.EndEvent();
             }
+            players[playerAlive].BlockpPlayerInput();
             StartCoroutine(NextRound());
         }
 
@@ -96,7 +101,6 @@ public class GameManager : MonoBehaviour
         playersAlive.Clear();
         playersAlive = new List<bool>();
         numOfPlayerAlive = playersData.numberOfPlayer;
-        Debug.Log(numOfPlayerAlive);
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             players[i].transform.position = spawnPoints[i];
@@ -105,15 +109,47 @@ public class GameManager : MonoBehaviour
             
         }
     }
+    
+    public void ResetPlayersBeforeEvent()
+    {
+        playersAlive.Clear();
+        playersAlive = new List<bool>();
+        numOfPlayerAlive = playersData.numberOfPlayer;
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            players[i].transform.position = spawnPoints[i];
+            playersAlive.Add(true);
+            players[i].ResetColor();
+
+        }
+    }
+
+    public void ResetPlayerAfterAnim()
+    {
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            players[i].ResetPlayer();
+        }
+    }
 
     IEnumerator NextRound()
     {
         yield return new WaitForSecondsRealtime(3);
         spawnPoints = levelGen.SpawnNextMap();
         timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);// a modifier !!!
-        ResetPlayers();
         camera.SetStartPos(levelGen.transform.position);
+        ResetPlayersBeforeEvent();
         camera.ResetCamera();
+        if (Random.Range(0, 5) >= 4)
+        {
+            hasEvent = true;
+            endGameAnim.SetTrigger("StartEvent");
+            eventManager.StartEvent();
+        }
+        else
+        {
+        endGameAnim.SetTrigger("StartRound");
+        }
     }
 
 
@@ -126,9 +162,9 @@ public class GameManager : MonoBehaviour
     {
         //321 count down
         //disable player input
-
-        List<int> winners = CheckWinner();
-        APlayerData data = playersData.allPlayerData[winners[0]];
+        eventManager.PlaybackSpeedOriginal();
+        //List<int> winners = CheckWinner();
+        //APlayerData data = playersData.allPlayerData[winners[0]];
         VictoryManager.Instance.InstantiateVictoryScene(playerWins);
     }
 
@@ -169,6 +205,13 @@ public class GameManager : MonoBehaviour
         return winners;
     }
 
+    public void BlockAllPlayers()
+    {
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            players[i].BlockpPlayerInput();
+        }
+    }
 
     public void LoadScene(string sceneToLoad)
     {
