@@ -96,6 +96,7 @@ public class MainMenu : MonoBehaviour
 
     public void checkController()
     {
+        Debug.Log("Check Controller OK");
         joysticks = ReInput.controllers.GetJoysticks(); ///////////////////check connected disconected
 
         for (int i = 0; i < joysticks.Count; i++)
@@ -256,8 +257,7 @@ public class MainMenu : MonoBehaviour
 
                         if (item.GetButtonDown("Confirm"))
                         {
-                            if (cursorPosOption == 3) toMenu();
-                            timeToInteract = 0.3f;
+                            if (cursorPosOption == 3) checkController();
                         }
 
                         if (item.GetButtonDown("Cancel"))

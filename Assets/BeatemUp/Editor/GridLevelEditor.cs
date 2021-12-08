@@ -43,7 +43,6 @@ public class GridLevelEditor : EditorWindow
     {
         SetUpStyles();
         SetUpMap();
-        
     }
 
     private void SetUpMap()
