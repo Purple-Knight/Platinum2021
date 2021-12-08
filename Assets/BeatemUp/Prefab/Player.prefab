@@ -5032,6 +5032,9 @@ MonoBehaviour:
   gridSize: {x: 0, y: 0}
   impactParticles: {fileID: 6206439804081257428, guid: 72344320b4bf27a429c5844fcc39686d, type: 3}
   numbOfSteps: 0
+  pauseGame:
+    m_PersistentCalls:
+      m_Calls: []
   _guiDebug: 0
   _guiDebugArea:
     serializedVersion: 2
@@ -5167,77 +5170,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7895861061406589115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5500653681256525961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playOnAwake: 1
-  timeToDo: 0.2
-  changePos: 1
-  posNeed:
-  - xPourcentScale: -0.3
-    yPourcentScale: 0
-  changeScale: 0
-  scaleNeed: []
-  changeColor: 0
-  colorNeed: []
-  evenOrOdd: 2
---- !u!114 &6642323636812976676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5500653681256525961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playOnAwake: 1
-  timeToDo: 0.2
-  changePos: 1
-  posNeed:
-  - xPourcentScale: 0.3
-    yPourcentScale: 0
-  changeScale: 0
-  scaleNeed: []
-  changeColor: 0
-  colorNeed: []
-  evenOrOdd: 1
---- !u!114 &3898858308463032312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5500653681256525961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playOnAwake: 1
-  timeToDo: 0.2
-  changePos: 0
-  posNeed: []
-  changeScale: 1
-  scaleNeed:
-  - xPourcentScale: 80
-    yPourcentScale: 80
-  - xPourcentScale: 115
-    yPourcentScale: 115
-  changeColor: 0
-  colorNeed: []
-  evenOrOdd: 0
 --- !u!1 &5965693882611193182
 GameObject:
   m_ObjectHideFlags: 0
@@ -10281,17 +10213,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6814052783101597118, guid: 40c7b15f9d5913942b6b7d95126c2600, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c7b15f9d5913942b6b7d95126c2600, type: 3}
---- !u!1 &5500653681256525961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5000655878010095966, guid: 40c7b15f9d5913942b6b7d95126c2600, type: 3}
-  m_PrefabInstance: {fileID: 663112610241034711}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6154041743997882863 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6653036263715956792, guid: 40c7b15f9d5913942b6b7d95126c2600, type: 3}
