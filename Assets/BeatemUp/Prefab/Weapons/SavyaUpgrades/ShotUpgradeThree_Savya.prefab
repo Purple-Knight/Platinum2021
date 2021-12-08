@@ -52,7 +52,7 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0}
     inputDirectionOffset: 0
     lockDirection: 1
-    lockIntoDirection: 0
+    lockIntoDirection: 1
     lockOnX: 0
     lockOnY: 0
   - length: 4
@@ -66,13 +66,14 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0}
     inputDirectionOffset: 0
     lockDirection: 1
-    lockIntoDirection: 0
+    lockIntoDirection: 3
     lockOnX: 0
     lockOnY: 0
   - length: 4
     positionOffset: {x: 0, y: 0}
     inputDirectionOffset: 0
     lockDirection: 1
-    lockIntoDirection: 0
+    lockIntoDirection: 2
     lockOnX: 0
     lockOnY: 0
+  comboTextColor: {r: 0.8980392, g: 0.39952183, b: 0, a: 1}
