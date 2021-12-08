@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+[CanEditMultipleObjects]
 [CustomEditor(typeof(FeelGood))]
 public class FeelGEditor : Editor
 {
