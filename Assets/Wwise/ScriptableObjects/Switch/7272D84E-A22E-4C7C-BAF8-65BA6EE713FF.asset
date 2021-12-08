@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78b34eb1ea243449b1ef403e7fb6a8e, type: 3}
+  m_Name: 7272D84E-A22E-4C7C-BAF8-65BA6EE713FF
+  m_EditorClassIdentifier: 
+  objectName: Alix
+  id: 3017403401
+  guid: 7272D84E-A22E-4C7C-BAF8-65BA6EE713FF
+  WwiseSwitchGroupReference: {fileID: 11400000, guid: 023ad64d933a3e544ab693673e1b86c6, type: 2}

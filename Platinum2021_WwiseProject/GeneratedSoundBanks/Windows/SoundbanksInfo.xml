@@ -26,7 +26,7 @@
 			<ShortName>OSTBank</ShortName>
 			<Path>OSTBank.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="579622886">
+		<SoundBank Id="3017428748" Language="SFX" Hash="2132958409">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
@@ -40,6 +40,7 @@
 				<Event Id="1143320996" Name="EndOfMusic" ObjectPath="\Events\Default Work Unit\EndOfMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1082482811" Name="Navigation" ObjectPath="\Events\Default Work Unit\UI\Navigation" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="982796106" Name="Next" ObjectPath="\Events\Default Work Unit\UI\Next" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1589270263" Name="PauseGame" ObjectPath="\Events\Default Work Unit\PauseGame" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="859070589" Name="PlayCrypt" ObjectPath="\Events\Default Work Unit\PlayCrypt" DurationType="OneShot" DurationMin="124.133873" DurationMax="124.133873">
 					<IncludedMemoryFiles>
 						<File Id="111855593" Language="SFX">
@@ -130,6 +131,10 @@
 							<ShortName>Perso Synthé 4 mesures 115 BPM.wav</ShortName>
 							<Path>SFX\Perso Synthé 4 mesures 115 BPM_D79FB2B7.wem</Path>
 						</File>
+						<File Id="405316960" Language="SFX">
+							<ShortName>Outro 4 mesures 115 BPM.wav</ShortName>
+							<Path>SFX\Outro 4 mesures 115 BPM_D79FB2B7.wem</Path>
+						</File>
 						<File Id="812710171" Language="SFX">
 							<ShortName>Perso Harpe 4 mesures 115 BPM.wav</ShortName>
 							<Path>SFX\Perso Harpe 4 mesures 115 BPM_D79FB2B7.wem</Path>
@@ -138,7 +143,101 @@
 				</Event>
 				<Event Id="1729642804" Name="PlayMove" ObjectPath="\Events\Default Work Unit\Character\PlayMove" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2126442687" Name="PlaySelection" ObjectPath="\Events\Default Work Unit\Character\PlaySelection" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1489638472" Name="PlayShoot" ObjectPath="\Events\Default Work Unit\Character\PlayShoot" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1489638472" Name="PlayShoot" ObjectPath="\Events\Default Work Unit\Character\PlayShoot" DurationType="OneShot" DurationMin="1.900000" DurationMax="3.500000">
+					<IncludedMemoryFiles>
+						<File Id="108546915" Language="SFX">
+							<ShortName>AlixSHot8.wav</ShortName>
+							<Path>SFX\AlixSHot8_10C4C929.wem</Path>
+						</File>
+						<File Id="297830839" Language="SFX">
+							<ShortName>K_1000_SHOT_03.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_03_10C4C929.wem</Path>
+						</File>
+						<File Id="335046646" Language="SFX">
+							<ShortName>AlixSHot5.wav</ShortName>
+							<Path>SFX\AlixSHot5_10C4C929.wem</Path>
+						</File>
+						<File Id="345391036" Language="SFX">
+							<ShortName>AlixSHot2.wav</ShortName>
+							<Path>SFX\AlixSHot2_10C4C929.wem</Path>
+						</File>
+						<File Id="384453966" Language="SFX">
+							<ShortName>AlixSHot6.wav</ShortName>
+							<Path>SFX\AlixSHot6_10C4C929.wem</Path>
+						</File>
+						<File Id="419372711" Language="SFX">
+							<ShortName>K_1000_SHOT_01.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_01_10C4C929.wem</Path>
+						</File>
+						<File Id="459676048" Language="SFX">
+							<ShortName>AlixSHot4.wav</ShortName>
+							<Path>SFX\AlixSHot4_10C4C929.wem</Path>
+						</File>
+						<File Id="609590300" Language="SFX">
+							<ShortName>K_1000_SHOT_05.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_05_10C4C929.wem</Path>
+						</File>
+						<File Id="621173241" Language="SFX">
+							<ShortName>K_1000_SHOT_07.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_07_10C4C929.wem</Path>
+						</File>
+						<File Id="701184528" Language="SFX">
+							<ShortName>K_1000_SHOT_06.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_06_10C4C929.wem</Path>
+						</File>
+						<File Id="866428292" Language="SFX">
+							<ShortName>AlixSHot3.wav</ShortName>
+							<Path>SFX\AlixSHot3_10C4C929.wem</Path>
+						</File>
+						<File Id="929642540" Language="SFX">
+							<ShortName>K_1000_SHOT_04.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_04_10C4C929.wem</Path>
+						</File>
+						<File Id="945936271" Language="SFX">
+							<ShortName>K_1000_SHOT_08.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_08_10C4C929.wem</Path>
+						</File>
+						<File Id="960711957" Language="SFX">
+							<ShortName>AlixSHot1.wav</ShortName>
+							<Path>SFX\AlixSHot1_10C4C929.wem</Path>
+						</File>
+						<File Id="988324216" Language="SFX">
+							<ShortName>K_1000_SHOT_02.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1031276903" Language="SFX">
+							<ShortName>AlixSHot7.wav</ShortName>
+							<Path>SFX\AlixSHot7_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{6503797A-9DEE-43F7-B445-E7B207B620DE}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}">
+							<Media>
+								<File Id="108546915"/>
+								<File Id="335046646"/>
+								<File Id="345391036"/>
+								<File Id="384453966"/>
+								<File Id="459676048"/>
+								<File Id="866428292"/>
+								<File Id="960711957"/>
+								<File Id="1031276903"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{6503797A-9DEE-43F7-B445-E7B207B620DE}">
+							<Media>
+								<File Id="297830839"/>
+								<File Id="419372711"/>
+								<File Id="609590300"/>
+								<File Id="621173241"/>
+								<File Id="701184528"/>
+								<File Id="929642540"/>
+								<File Id="945936271"/>
+								<File Id="988324216"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="1295635745" Name="PlayTutel" ObjectPath="\Events\Default Work Unit\PlayTutel" DurationType="OneShot" DurationMin="196.031998" DurationMax="196.031998">
 					<IncludedMemoryFiles>
 						<File Id="245714757" Language="SFX">
@@ -152,12 +251,17 @@
 				<Event Id="2674882108" Name="SpkWelcom" ObjectPath="\Events\Default Work Unit\Stage\SpkWelcom" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4245097106" Name="SpkWinner" ObjectPath="\Events\Default Work Unit\Stage\SpkWinner" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2907867019" Name="StopAllMusic" ObjectPath="\Events\Default Work Unit\StopAllMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="376844784" Name="UnpauseGame" ObjectPath="\Events\Default Work Unit\UnpauseGame" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1719053472" Name="Validation" ObjectPath="\Events\Default Work Unit\UI\Validation" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="106912977" Language="SFX">
 					<ShortName>K_1000_DEATH_05.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_05_10C4C929.wem</Path>
+				</File>
+				<File Id="108546915" Language="SFX">
+					<ShortName>AlixSHot8.wav</ShortName>
+					<Path>SFX\AlixSHot8_10C4C929.wem</Path>
 				</File>
 				<File Id="111855593" Language="SFX">
 					<ShortName>Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4).wav</ShortName>
@@ -179,6 +283,10 @@
 					<ShortName>Alix_Death_02.wav</ShortName>
 					<Path>SFX\Alix_Death_02_10C4C929.wem</Path>
 				</File>
+				<File Id="297830839" Language="SFX">
+					<ShortName>K_1000_SHOT_03.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_03_10C4C929.wem</Path>
+				</File>
 				<File Id="305853774" Language="SFX">
 					<ShortName>Alix_Death_04.wav</ShortName>
 					<Path>SFX\Alix_Death_04_10C4C929.wem</Path>
@@ -187,21 +295,57 @@
 					<ShortName>Lady Hear Me Tonight.wav</ShortName>
 					<Path>SFX\Lady Hear Me Tonight_D79FB2B7.wem</Path>
 				</File>
+				<File Id="335046646" Language="SFX">
+					<ShortName>AlixSHot5.wav</ShortName>
+					<Path>SFX\AlixSHot5_10C4C929.wem</Path>
+				</File>
+				<File Id="345391036" Language="SFX">
+					<ShortName>AlixSHot2.wav</ShortName>
+					<Path>SFX\AlixSHot2_10C4C929.wem</Path>
+				</File>
 				<File Id="356100802" Language="SFX">
 					<ShortName>Perso Synthé 4 mesures 115 BPM.wav</ShortName>
 					<Path>SFX\Perso Synthé 4 mesures 115 BPM_D79FB2B7.wem</Path>
+				</File>
+				<File Id="384453966" Language="SFX">
+					<ShortName>AlixSHot6.wav</ShortName>
+					<Path>SFX\AlixSHot6_10C4C929.wem</Path>
+				</File>
+				<File Id="405316960" Language="SFX">
+					<ShortName>Outro 4 mesures 115 BPM.wav</ShortName>
+					<Path>SFX\Outro 4 mesures 115 BPM_D79FB2B7.wem</Path>
+				</File>
+				<File Id="419372711" Language="SFX">
+					<ShortName>K_1000_SHOT_01.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_01_10C4C929.wem</Path>
 				</File>
 				<File Id="423576052" Language="SFX">
 					<ShortName>K_1000_DEATH_03.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_03_10C4C929.wem</Path>
 				</File>
+				<File Id="459676048" Language="SFX">
+					<ShortName>AlixSHot4.wav</ShortName>
+					<Path>SFX\AlixSHot4_10C4C929.wem</Path>
+				</File>
 				<File Id="566722943" Language="SFX">
 					<ShortName>Alix_Death_05.wav</ShortName>
 					<Path>SFX\Alix_Death_05_10C4C929.wem</Path>
 				</File>
+				<File Id="609590300" Language="SFX">
+					<ShortName>K_1000_SHOT_05.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_05_10C4C929.wem</Path>
+				</File>
+				<File Id="621173241" Language="SFX">
+					<ShortName>K_1000_SHOT_07.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_07_10C4C929.wem</Path>
+				</File>
 				<File Id="673532382" Language="SFX">
 					<ShortName>K_1000_DEATH_01.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_01_10C4C929.wem</Path>
+				</File>
+				<File Id="701184528" Language="SFX">
+					<ShortName>K_1000_SHOT_06.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_06_10C4C929.wem</Path>
 				</File>
 				<File Id="737322455" Language="SFX">
 					<ShortName>Alix_Death_03.wav</ShortName>
@@ -214,6 +358,30 @@
 				<File Id="837278497" Language="SFX">
 					<ShortName>K_1000_DEATH_02.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_02_10C4C929.wem</Path>
+				</File>
+				<File Id="866428292" Language="SFX">
+					<ShortName>AlixSHot3.wav</ShortName>
+					<Path>SFX\AlixSHot3_10C4C929.wem</Path>
+				</File>
+				<File Id="929642540" Language="SFX">
+					<ShortName>K_1000_SHOT_04.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_04_10C4C929.wem</Path>
+				</File>
+				<File Id="945936271" Language="SFX">
+					<ShortName>K_1000_SHOT_08.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_08_10C4C929.wem</Path>
+				</File>
+				<File Id="960711957" Language="SFX">
+					<ShortName>AlixSHot1.wav</ShortName>
+					<Path>SFX\AlixSHot1_10C4C929.wem</Path>
+				</File>
+				<File Id="988324216" Language="SFX">
+					<ShortName>K_1000_SHOT_02.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_02_10C4C929.wem</Path>
+				</File>
+				<File Id="1031276903" Language="SFX">
+					<ShortName>AlixSHot7.wav</ShortName>
+					<Path>SFX\AlixSHot7_10C4C929.wem</Path>
 				</File>
 				<File Id="1037547258" Language="SFX">
 					<ShortName>K_1000_DEATH_04.wav</ShortName>

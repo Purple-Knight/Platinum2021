@@ -22,6 +22,7 @@ namespace AK
         static const AkUniqueID ENDOFMUSIC = 1143320996U;
         static const AkUniqueID NAVIGATION = 1082482811U;
         static const AkUniqueID NEXT = 982796106U;
+        static const AkUniqueID PAUSEGAME = 1589270263U;
         static const AkUniqueID PLAYCRYPT = 859070589U;
         static const AkUniqueID PLAYDEATH = 2840201783U;
         static const AkUniqueID PLAYLADY = 3554160111U;
@@ -35,6 +36,7 @@ namespace AK
         static const AkUniqueID SPKWELCOM = 2674882108U;
         static const AkUniqueID SPKWINNER = 4245097106U;
         static const AkUniqueID STOPALLMUSIC = 2907867019U;
+        static const AkUniqueID UNPAUSEGAME = 376844784U;
         static const AkUniqueID VALIDATION = 1719053472U;
     } // namespace EVENTS
 
