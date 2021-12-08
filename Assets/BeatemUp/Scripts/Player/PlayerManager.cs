@@ -25,6 +25,11 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] ParticleSystem notesParticle;
 
+    [SerializeField] AK.Wwise.Switch SwitchAlix;
+    [SerializeField] AK.Wwise.Switch SwitchK1000;
+    [SerializeField] AK.Wwise.Switch SwitchSavya;
+    public AK.Wwise.Switch CurrentSwitch;
+
     /*#region Debug
     public bool debug = false;
     int maxSteps = 0;
@@ -55,10 +60,27 @@ public class PlayerManager : MonoBehaviour
         comboManager.Init(this);
         //debugRect = new Rect(10 + characterID * 100.0f, 10, 100, 150);
         //debug = true;
+
+        switch (characterID)
+        {
+            case 0:
+                CurrentSwitch = SwitchAlix;
+                break;
+            case 1:
+                CurrentSwitch = SwitchK1000;
+                break;
+            case 2:
+                CurrentSwitch = SwitchSavya;
+                break;
+            default:
+                break;
+        }
     }
 
     public void PlayerDied(int i)
     {
+        CurrentSwitch.SetValue(RhythmManager.Instance.gameObject);
+        RhythmManager.Instance.PlayDeathSound();
         notesParticle.Play();
         playerWeapon.enabled = false;
         playerHealth.enabled = false;

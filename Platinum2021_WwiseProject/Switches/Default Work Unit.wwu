@@ -18,6 +18,12 @@
 						<Switch Name="Song" ID="{CAC24704-73AF-4757-AAC0-53DDE8E17CE0}"/>
 					</ChildrenList>
 				</SwitchGroup>
+				<SwitchGroup Name="MusiqueBPM" ID="{F6C71A97-64D9-419D-AC2C-7A1002BA788C}">
+					<ChildrenList>
+						<Switch Name="_115BPM" ID="{6383E8FA-0316-4174-8114-14C7BC7435E0}"/>
+						<Switch Name="_150BPM" ID="{905BCAF6-C161-4F60-9325-BEB00C178F33}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

@@ -32,6 +32,100 @@
 													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 												</Reference>
 											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Alix_Death_02" ID="{0A3158D3-0400-4BDC-9DDF-F11A60E69C28}" ShortID="7458318">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Death_02" ID="{32201B9F-1A00-4EAD-A20E-5B443833C5A7}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Death_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="278564730"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Death_02" ID="{32201B9F-1A00-4EAD-A20E-5B443833C5A7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Alix_Death_03" ID="{C82FF4F1-681B-4729-AE85-519F6A615FBF}" ShortID="569228624">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Death_03" ID="{035004E3-7A8D-4DE2-8C82-070BE0B6598B}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Death_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="737322455"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Death_03" ID="{035004E3-7A8D-4DE2-8C82-070BE0B6598B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Alix_Death_04" ID="{0EDA4788-228D-4334-A88A-0A0AE31FDE96}" ShortID="75455911">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Death_04" ID="{7F934CB2-C768-4174-84F1-F6078C150228}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Death_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="305853774"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Death_04" ID="{7F934CB2-C768-4174-84F1-F6078C150228}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Alix_Death_05" ID="{1E58DBD3-3B23-45C3-8B87-C9FDDEFB314B}" ShortID="682175610">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Death_05" ID="{9E20B920-F5DA-4857-A6DC-89E437E523A4}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Death_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="566722943"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Death_05" ID="{9E20B920-F5DA-4857-A6DC-89E437E523A4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
 											<ObjectLists/>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="K1000Death" ID="{E2389944-7C4B-4EB0-AB93-4C2C5EA871B8}" ShortID="115490038">
@@ -43,9 +137,133 @@
 													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 												</Reference>
 											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="K_1000_DEATH_01" ID="{06863F83-683C-48E3-BE34-256B7094D28C}" ShortID="936606196">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_DEATH_01" ID="{86CD6837-1026-4681-8F6E-20BDEBE22727}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_DEATH_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="673532382"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_DEATH_01" ID="{86CD6837-1026-4681-8F6E-20BDEBE22727}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_DEATH_02" ID="{8BCDC0D8-1952-414A-9E23-615291F67E0D}" ShortID="708486600">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_DEATH_02" ID="{E371043C-B578-4817-9B8A-F11A35A17ED4}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_DEATH_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="837278497"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_DEATH_02" ID="{E371043C-B578-4817-9B8A-F11A35A17ED4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_DEATH_03" ID="{2ADA68FC-3B3F-4BFA-A3D3-95A4D2DBE013}" ShortID="616934313">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_DEATH_03" ID="{AEBFB081-9587-4B89-BBF3-2DD6D9B3CCAF}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_DEATH_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="423576052"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_DEATH_03" ID="{AEBFB081-9587-4B89-BBF3-2DD6D9B3CCAF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_DEATH_04" ID="{30058CFD-244E-4883-98F7-24CA1B776157}" ShortID="146011380">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_DEATH_04" ID="{BBF694FD-138C-4791-A30B-DEC372C9D698}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_DEATH_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1037547258"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_DEATH_04" ID="{BBF694FD-138C-4791-A30B-DEC372C9D698}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_DEATH_05" ID="{9318DB9C-9B00-413A-9563-39DC3603673B}" ShortID="42189551">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_DEATH_05" ID="{F8325C59-E979-4E24-BD86-E883E854FE47}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_DEATH_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="106912977"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_DEATH_05" ID="{F8325C59-E979-4E24-BD86-E883E854FE47}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
 											<ObjectLists/>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="SavyaDeath" ID="{E92F474D-A704-4BB1-AC89-CA6BF27B1430}" ShortID="526536246">
+											<PropertyList>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -93,6 +311,13 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<SwitchContainer Name="PlayerMovement" ID="{C6BB61E2-81C9-4176-9A8A-4058DC29C70B}" ShortID="131997771">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -178,6 +403,13 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<SwitchContainer Name="PlayerSelection" ID="{5DF27633-44E0-46C1-AEA0-8284A01780DF}" ShortID="801920468">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -202,6 +434,123 @@
 													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 												</Reference>
 											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Alix_Selection_01" ID="{0B771C29-8FB1-4B95-A9FA-776F82751A8D}" ShortID="963500145">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Selection_01" ID="{E09B91D7-7DF2-46D4-A163-6B2DEA5AA36E}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Selection_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="679086485"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Selection_01" ID="{E09B91D7-7DF2-46D4-A163-6B2DEA5AA36E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Alix_Selection_02" ID="{F23FFC7C-C3F6-4758-A54F-BECA91798F8A}" ShortID="967714078">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Selection_02" ID="{038125D5-AF83-4F55-8803-183D541047EB}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Selection_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="932497494"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Selection_02" ID="{038125D5-AF83-4F55-8803-183D541047EB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Alix_Selection_03" ID="{CD8FA749-AE3A-46F8-8F9C-9805C4EC0934}" ShortID="984583113">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Selection_03" ID="{46739508-17E6-41BE-80DE-E56F410B8F3F}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Selection_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="468765414"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Selection_03" ID="{46739508-17E6-41BE-80DE-E56F410B8F3F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Alix_Selection_04" ID="{3519CAF4-28BC-438E-BFDB-F308062CD0D1}" ShortID="246968871">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Selection_04" ID="{7516DF66-D5E4-42BF-A50E-786F862D9166}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Selection_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="940345182"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Selection_04" ID="{7516DF66-D5E4-42BF-A50E-786F862D9166}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Alix_Selection_05" ID="{4DFC5985-CFEA-4301-BD8F-66B6ABFDA364}" ShortID="67546070">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Alix_Selection_05" ID="{40F24878-EE4A-472D-97C6-93AACC1CFEB4}">
+															<Language>SFX</Language>
+															<AudioFile>Alix_Selection_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="457859071"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="Alix_Selection_05" ID="{40F24878-EE4A-472D-97C6-93AACC1CFEB4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
 											<ObjectLists/>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="K1000Selection" ID="{2AA10B87-D761-4DAC-B72D-84F623021D2E}" ShortID="357155395">
@@ -287,6 +636,192 @@
 													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 												</Reference>
 											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="AlixSHot1" ID="{71C7965D-7766-4CA4-8D7F-78290231BE95}" ShortID="48626240">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AlixSHot1" ID="{83A23833-4116-4F9B-A1D0-000192362934}">
+															<Language>SFX</Language>
+															<AudioFile>AlixSHot1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="960711957"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="AlixSHot1" ID="{83A23833-4116-4F9B-A1D0-000192362934}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="AlixSHot2" ID="{7CEB90A3-D7F5-44FC-A2AE-8308A8828DBB}" ShortID="43483954">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AlixSHot2" ID="{0E43C358-BD7C-4479-B502-8EBC84B75775}">
+															<Language>SFX</Language>
+															<AudioFile>AlixSHot2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="345391036"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="AlixSHot2" ID="{0E43C358-BD7C-4479-B502-8EBC84B75775}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="AlixSHot3" ID="{C6995B9A-D411-4F03-A32F-013DB6317429}" ShortID="73084123">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AlixSHot3" ID="{A8326ED4-F4AF-4D25-9A14-E70CC1C1A24E}">
+															<Language>SFX</Language>
+															<AudioFile>AlixSHot3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="866428292"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="AlixSHot3" ID="{A8326ED4-F4AF-4D25-9A14-E70CC1C1A24E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="AlixSHot4" ID="{C63FED80-8CB9-4623-B6B9-9A8A1C8EFA9B}" ShortID="28328455">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AlixSHot4" ID="{B6432E73-8A19-4FEF-82CE-E9110EAA5E63}">
+															<Language>SFX</Language>
+															<AudioFile>AlixSHot4.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="459676048"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="AlixSHot4" ID="{B6432E73-8A19-4FEF-82CE-E9110EAA5E63}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="AlixSHot5" ID="{2C440CE6-3B60-4409-B320-41FCC37F441C}" ShortID="934103336">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AlixSHot5" ID="{F49524CC-10BE-4DD5-A75B-A0CFAC392F56}">
+															<Language>SFX</Language>
+															<AudioFile>AlixSHot5.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="335046646"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="AlixSHot5" ID="{F49524CC-10BE-4DD5-A75B-A0CFAC392F56}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="AlixSHot6" ID="{8F58DDA3-0A5B-4D69-BB40-F0497F328839}" ShortID="819173029">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AlixSHot6" ID="{09A974FF-053E-4FAC-8D8D-CB470DF1B89E}">
+															<Language>SFX</Language>
+															<AudioFile>AlixSHot6.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="384453966"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="AlixSHot6" ID="{09A974FF-053E-4FAC-8D8D-CB470DF1B89E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="AlixSHot7" ID="{5AD1A9BE-016B-43EE-BD75-3D8DD9AAAE25}" ShortID="111383999">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AlixSHot7" ID="{BF08C994-8AAE-453D-9131-9295B384414F}">
+															<Language>SFX</Language>
+															<AudioFile>AlixSHot7.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1031276903"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="AlixSHot7" ID="{BF08C994-8AAE-453D-9131-9295B384414F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="AlixSHot8" ID="{4B4E3A4A-75C8-43B3-8CB4-E648307B78D6}" ShortID="223181972">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AlixSHot8" ID="{D8E49FCB-B5EF-4C39-B807-80C54A12E712}">
+															<Language>SFX</Language>
+															<AudioFile>AlixSHot8.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="108546915"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="AlixSHot8" ID="{D8E49FCB-B5EF-4C39-B807-80C54A12E712}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
 											<ObjectLists/>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="K1000Shoot" ID="{4C562EFA-3C1C-412E-A4B9-A8C32C9246D8}" ShortID="798710574">
@@ -298,9 +833,202 @@
 													<ObjectRef Name="SFX" ID="{2A06EBB1-A7B8-455E-BBC9-13C351A5D85B}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
 												</Reference>
 											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="K_1000_SHOT_01" ID="{C8BB3532-39F2-4464-A17E-6DCE2C252565}" ShortID="385545195">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_SHOT_01" ID="{5CA870F4-ADA9-47A9-BEBE-673DA2A8A0C9}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_SHOT_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="419372711"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_SHOT_01" ID="{5CA870F4-ADA9-47A9-BEBE-673DA2A8A0C9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_SHOT_02" ID="{EC7D90DE-B4C3-4E20-ACAC-5444F4F5475F}" ShortID="292146756">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_SHOT_02" ID="{4616C218-8662-473D-82B0-825E86B56E9F}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_SHOT_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="988324216"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_SHOT_02" ID="{4616C218-8662-473D-82B0-825E86B56E9F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_SHOT_03" ID="{8697F487-95B3-4D48-9419-5F232A641563}" ShortID="871385358">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_SHOT_03" ID="{A08C943F-9A83-4535-992B-8930B891887C}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_SHOT_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="297830839"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_SHOT_03" ID="{A08C943F-9A83-4535-992B-8930B891887C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_SHOT_04" ID="{79A48F69-7109-40E3-A34E-FEE9B58DA101}" ShortID="215712675">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_SHOT_04" ID="{C40A5D15-2E75-4F09-92DE-45C2D393D622}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_SHOT_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="929642540"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_SHOT_04" ID="{C40A5D15-2E75-4F09-92DE-45C2D393D622}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_SHOT_05" ID="{557AFD83-0775-407E-B4DA-9286279756A0}" ShortID="920552707">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_SHOT_05" ID="{F8104826-0AA6-40D6-8AFB-A743328EFD41}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_SHOT_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="609590300"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_SHOT_05" ID="{F8104826-0AA6-40D6-8AFB-A743328EFD41}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_SHOT_06" ID="{198B74A1-E1B8-49FD-AD4B-791EF0B54ADE}" ShortID="900839476">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_SHOT_06" ID="{70FF2413-E905-473F-9729-BB2B99B3E0CE}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_SHOT_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="701184528"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_SHOT_06" ID="{70FF2413-E905-473F-9729-BB2B99B3E0CE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_SHOT_07" ID="{125DAC81-5777-4B92-9F9D-521D19694602}" ShortID="887756716">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_SHOT_07" ID="{18B4CFCE-8AA5-4C4E-8100-1A56A9F3A412}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_SHOT_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="621173241"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_SHOT_07" ID="{18B4CFCE-8AA5-4C4E-8100-1A56A9F3A412}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="K_1000_SHOT_08" ID="{B66AEB02-DF14-4704-89EC-CE2FF33E9595}" ShortID="660048167">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="K_1000_SHOT_08" ID="{DF54C39B-0BC1-4A45-852C-8EC6897C3C73}">
+															<Language>SFX</Language>
+															<AudioFile>K_1000_SHOT_08.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="945936271"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists/>
+													<ActiveSourceList>
+														<ActiveSource Name="K_1000_SHOT_08" ID="{DF54C39B-0BC1-4A45-852C-8EC6897C3C73}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
 											<ObjectLists/>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="SavyaShoot" ID="{7D7A0884-A6C0-4616-9081-3453E0137501}" ShortID="849055754">
+											<PropertyList>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -350,6 +1078,13 @@
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Stages" ID="{132A471A-C6D8-4FF5-BC4C-E029693AC29D}" ShortID="636794162">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="SpeakerWelcome" ID="{B6858126-333B-4F75-92CE-42910E1AB7B2}" ShortID="77927240">
 									<PropertyList>
@@ -509,6 +1244,13 @@
 							</ChildrenList>
 						</Folder>
 						<Folder Name="UI" ID="{F7078469-2CF2-451B-A69C-898F41E473E7}" ShortID="872395358">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ChildrenList>
 								<Sound Name="Navigation" ID="{7E7CF547-9673-4F3B-A3A3-D1CD1294459F}" ShortID="382797258">
 									<ReferenceList>

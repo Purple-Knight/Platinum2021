@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 62f9597facf65640bf460bce7fcd6097
     GuidInternal: 
-    m_lastTime: -8585685325309865052
+    m_lastTime: -8585686144342041774
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 2d6f24040ad22d429ad3984df56c0403
     GuidInternal: 
-    m_lastTime: -8585656540773174838
+    m_lastTime: -8585628092243902952
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d038ecf2d1335543bf943a8f453b7d5f
     GuidInternal: 
-    m_lastTime: -8585637727129649057
+    m_lastTime: -8585628092243762120
     List:
     - name: MusicBank
       guid: c950ed8ba691bb4196f94f83cbd3c44e
@@ -142,7 +142,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585627161598297529
+    m_lastTime: -8585626475327005277
     List:
     - name: Buh
       guid: 2f29778d8ca89e478ca548152a646be5
@@ -330,6 +330,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Musique
+      guid: 23740385de9b134aa90b2ef41413efe0
+      id: 69765534
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Musique
+        ObjectType: 4
+        guid: 23740385de9b134aa90b2ef41413efe0
+      Path: Events\Default Work Unit\Musique
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Navigation
       guid: 71444df21a8fe24db39caba4910dfc1b
       id: 1082482811
@@ -424,9 +441,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 303.38034
       minDuration: 303.38034
-    - name: PlayMMX3
-      guid: 6a2b3e427f3c134383cc3021c1970649
-      id: 1695793358
+    - name: PlayMainMusic
+      guid: 834ce93eae467b46abe54f40a6feddf9
+      id: 277487121
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -434,10 +451,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: efa568179358f34c82c7f51cf312fce7
-      - ElementName: PlayMMX3
+      - ElementName: Musique
+        ObjectType: 4
+        guid: 23740385de9b134aa90b2ef41413efe0
+      - ElementName: PlayMainMusic
         ObjectType: 3
-        guid: 6a2b3e427f3c134383cc3021c1970649
-      Path: Events\Default Work Unit\PlayMMX3
+        guid: 834ce93eae467b46abe54f40a6feddf9
+      Path: Events\Default Work Unit\Musique\PlayMainMusic
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -681,7 +701,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 9a51d9a503d3e347aba274c0c14197b8
     GuidInternal: 
-    m_lastTime: -8585650466010122439
+    m_lastTime: -8585628092243962794
     List:
     - name: PlayBackSpeed
       guid: 0981d9f3e7eefc4bb7a9270580ba71a3
@@ -774,7 +794,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: ef9b90617ee2324197d941e57478b9dc
     GuidInternal: 
-    m_lastTime: -8585627181326054144
+    m_lastTime: -8585686144342903679
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -788,7 +808,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e86c45daced42f46981c3472f2f3724e
     GuidInternal: 
-    m_lastTime: -8585627161597748017
+    m_lastTime: -8585626499694192229
     List:
     - name: Character
       guid: fe628db65d67094da26f22ae389ccece
@@ -938,6 +958,56 @@ MonoBehaviour:
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
+    - name: MusiqueBPM
+      guid: 971ac7f6d9649d41ac2c7a1002ba788c
+      id: 1549325189
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e86c45daced42f46981c3472f2f3724e
+      - ElementName: MusiqueBPM
+        ObjectType: 11
+        guid: 971ac7f6d9649d41ac2c7a1002ba788c
+      Path: Switches\Default Work Unit\MusiqueBPM
+      values:
+      - name: _115BPM
+        guid: fae8836316037441811414c7bc7435e0
+        id: 4009640558
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: MusiqueBPM
+          ObjectType: 11
+          guid: 971ac7f6d9649d41ac2c7a1002ba788c
+        - ElementName: _115BPM
+          ObjectType: 10
+          guid: fae8836316037441811414c7bc7435e0
+      - name: _150BPM
+        guid: f6ca5b9061c1604f9325beb00c178f33
+        id: 2541959145
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: MusiqueBPM
+          ObjectType: 11
+          guid: 971ac7f6d9649d41ac2c7a1002ba788c
+        - ElementName: _150BPM
+          ObjectType: 10
+          guid: f6ca5b9061c1604f9325beb00c178f33
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -950,7 +1020,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 3437ef2ec1abd24f9668567eaa6ed463
     GuidInternal: 
-    m_lastTime: -8585685325309865052
+    m_lastTime: -8585686144342744100
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 

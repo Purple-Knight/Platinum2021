@@ -5011,6 +5011,24 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9e4002dcdbf93d7439863d258f581309, type: 3}
   - {fileID: 21300000, guid: 443bf06847ecdd4479766d13b093939c, type: 3}
   notesParticle: {fileID: 3782395238828749955}
+  SwitchAlix:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4968c334c1e8835498188d54859aecda, type: 2}
+  SwitchK1000:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 14722134bd6ebfe4aad3aa505bf9d09c, type: 2}
+  SwitchSavya:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a2f1f5049960be049979db7899762689, type: 2}
 --- !u!114 &3883265989226838409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5170,6 +5188,77 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3898858308463032312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500653681256525961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  timeToDo: 0.2
+  changePos: 0
+  posNeed: []
+  changeScale: 1
+  scaleNeed:
+  - xPourcentScale: 80
+    yPourcentScale: 80
+  - xPourcentScale: 115
+    yPourcentScale: 115
+  changeColor: 0
+  colorNeed: []
+  evenOrOdd: 0
+--- !u!114 &6642323636812976676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500653681256525961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  timeToDo: 0.2
+  changePos: 1
+  posNeed:
+  - xPourcentScale: 0.3
+    yPourcentScale: 0
+  changeScale: 0
+  scaleNeed: []
+  changeColor: 0
+  colorNeed: []
+  evenOrOdd: 1
+--- !u!114 &7895861061406589115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500653681256525961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  timeToDo: 0.2
+  changePos: 1
+  posNeed:
+  - xPourcentScale: -0.3
+    yPourcentScale: 0
+  changeScale: 0
+  scaleNeed: []
+  changeColor: 0
+  colorNeed: []
+  evenOrOdd: 2
 --- !u!1 &5965693882611193182
 GameObject:
   m_ObjectHideFlags: 0

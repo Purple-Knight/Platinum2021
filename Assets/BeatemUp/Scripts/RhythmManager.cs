@@ -18,7 +18,6 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] AK.Wwise.Event pauseEvent;
     [SerializeField] AK.Wwise.Event unpauseEvent;
 
-
     [Header("Beat")]
     bool onceAtStart;
     public bool inMenu;
@@ -31,7 +30,6 @@ public class RhythmManager : MonoBehaviour
 
     public UnityEvent InstantiateBeat;
     public UnityEvent EndOfMusic;
-
 
     [Header("Beat Window")]
     private float perfectBufferTime;
@@ -46,8 +44,12 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] float mediumPercentage;
     [SerializeField] float easyPercentage;
 
-    [SerializeField] float BPM = 126;
-    
+    [SerializeField] float BPM = 115;
+
+    [HideInInspector]public AK.Wwise.Switch characterSwitch;
+    [SerializeField] private AK.Wwise.Event deathSound;
+    [SerializeField] private AK.Wwise.Event shotSound;
+
     private void Awake()
     {
         if (_instance != null)
@@ -99,7 +101,15 @@ public class RhythmManager : MonoBehaviour
         gameMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
     }
 
+    public void PlayDeathSound()
+    {
+        deathSound.Post(gameObject);
+    }
 
+    public void PlayShotSound()
+    {
+        shotSound.Post(gameObject);
+    }
 
     private void Update()
     {

@@ -73,6 +73,9 @@ public class Weapon : MonoBehaviour
     {
         if (bullets.Count <= 0) return;
 
+        playerManager.CurrentSwitch.SetValue(RhythmManager.Instance.gameObject);
+        RhythmManager.Instance.PlayShotSound();
+
         playerManager.playerAnimator.SetTrigger("Fire");
         foreach (BulletInfo info in bullets)
         {
