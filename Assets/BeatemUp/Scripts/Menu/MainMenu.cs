@@ -39,6 +39,7 @@ public class MainMenu : MonoBehaviour
     bool canInteract;
     [HideInInspector] public float timeToInteract;
     
+    
     int cursorPos;
     int cursorPosOption;
     public GameObject Cursor;
@@ -52,7 +53,7 @@ public class MainMenu : MonoBehaviour
     List<float> playerTimer = new List<float> { 0, 0, 0, 0};
     List<bool> boolTimer = new List<bool> { false, false, false, false};
     public float deadZone;
-    
+
     [Header("Map")]
     public int cursorPosMap;
     [SerializeField] List<Feel> buttonFeelMap = new List<Feel>();
@@ -315,6 +316,12 @@ public class MainMenu : MonoBehaviour
                             fadeGO.SetActive(true);
                             StartCoroutine(loadTime());
                             timeToInteract = 0.7f;
+                        }
+
+                        if (item.GetButtonDown("Cancel"))
+                        {
+                            toCharSelect();
+                            timeToInteract = 0.5f;
                         }
 
                         break;
