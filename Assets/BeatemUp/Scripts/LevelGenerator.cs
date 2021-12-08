@@ -42,7 +42,6 @@ public class LevelGenerator : MonoBehaviour
         foreach (Transform pos in manager.playerSpawnPoints)
         {
             playerSpawnPoints.Add(pos.position);
-            Debug.Log("<color=cyan>" +pos.position + "</color>");
         }
        return playerSpawnPoints;
 

@@ -86,11 +86,18 @@ public class PlayerManager : MonoBehaviour
         playerWeapon.SwapToBaseWeapon();
     }
 
-    public void BlockpPlayerInput()
+    public void BlockPlayerInput()
     {
         playerWeapon.enabled = false;
         playerHealth.enabled = false;
         playerMovement.enabled = false;
+    }
+    
+    public void FreePlayerInput()
+    {
+        playerWeapon.enabled = true;
+        playerHealth.enabled = true;
+        playerMovement.enabled = true;
     }
 
     public void ResetColor()
