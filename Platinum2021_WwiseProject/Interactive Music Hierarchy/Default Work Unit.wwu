@@ -6,6 +6,13 @@
 				<Folder Name="Musique" ID="{4F87A714-D9B7-48FF-9629-4ED59043C4F2}" ShortID="685199477">
 					<ChildrenList>
 						<MusicSegment Name="MenuMusic" ID="{AD5D322E-BC89-4BEB-A1F4-466C77339FF6}" ShortID="140487275">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -39,11 +46,6 @@
 								<MusicPlaylistContainer Name="MisucPlaylist" ID="{720608AE-A0E8-453A-9EAE-D2215E1163EF}" ShortID="755603937">
 									<PropertyList>
 										<Property Name="Tempo" Type="Real64" Value="115"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-5</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -70,6 +72,36 @@
 											</ReferenceList>
 											<ChildrenList>
 												<MusicTrack Name="Base rythmique  4 mesures 115BPM" ID="{0DBA2F44-4035-4A7D-9C51-3C9C7A4A996F}" ShortID="410968111">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{0CD5F9F8-E5B0-4F2B-80DA-0E9FB196C067}" ShortID="9418588">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Base_Volume" ID="{349BAD07-5B66-4990-8C9C-313A765BD734}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{F5F88942-87F0-41F8-A5E3-D2572D8176A7}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -120,6 +152,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Perso GTR 4 mesures 115 BPM" ID="{27047645-2B77-469F-887D-DF490DB84C89}" ShortID="891784060">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{6E808801-5807-4CD3-8D85-66CCD6E687B7}" ShortID="434879726">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_GTR_Volume" ID="{9CCF3EB0-8AAD-4C05-B330-508DAA31B0E4}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{E724FE01-9D08-48DA-96FA-128FB2935704}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -173,6 +235,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Perso Harpe 4 mesures 115 BPM" ID="{9AB6F3A3-2CB4-4D45-BEF2-03164E103AFD}" ShortID="145026666">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{7EA7C653-35B2-4E65-83D5-04F82C1DE733}" ShortID="542740466">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Harpe_Volume" ID="{CEB4073C-543E-4521-9821-8E1E95F822B6}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{1A40D674-EE9B-47DE-9347-2EE00BDCBB3B}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-200</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -226,6 +318,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Perso Synthé 4 mesures 115 BPM" ID="{8500CB6E-2694-4D53-9C8C-96C5C4E31CD4}" ShortID="653594345">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{5A39EB33-3791-4CB6-B562-065F2DBE1756}" ShortID="637931365">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Synthe_Volume" ID="{FCFD3B13-7153-48FD-9740-9984935EDBFC}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{93AFC508-3F5F-4603-BEE6-95875B56EBF8}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-200</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -331,6 +453,13 @@
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Level2" ID="{5796AEF9-B6FD-4772-A0EA-A8FE45982EA0}" ShortID="540726088">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ChildrenList>
 								<MusicSegment Name="MainMix2" ID="{26E768E3-70B6-49CA-929E-9610B056E89E}" ShortID="1073002562">
 									<ReferenceList>
@@ -480,6 +609,13 @@
 							</ChildrenList>
 						</Folder>
 						<MusicSegment Name="Victory" ID="{922CCC64-9DE8-4B7F-860E-BAE089A27C7D}" ShortID="628451243">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -509,6 +645,13 @@
 							</ObjectLists>
 						</MusicSegment>
 						<MusicSegment Name="Podium" ID="{0BB813D7-F60E-4B99-8774-FDA1CBBA7103}" ShortID="591652472">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -538,6 +681,13 @@
 							</ObjectLists>
 						</MusicSegment>
 						<MusicSegment Name="Credits" ID="{B3B06C4F-4264-4BAB-8C94-F43F35D2F2D4}" ShortID="692855409">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
