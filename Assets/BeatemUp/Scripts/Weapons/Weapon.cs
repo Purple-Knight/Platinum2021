@@ -109,11 +109,13 @@ public class Weapon : MonoBehaviour
     public void Upgarde()
     {
         playerWeapon.SwapWeaponStyle((weaponKey + 1).ToString());
+        playerManager.comboManager.WeaponSwapFeedback(true);
     }
 
     public void Downgrade()
     {
         playerWeapon.SwapWeaponStyle((weaponKey - 1).ToString());
+        playerManager.comboManager.WeaponSwapFeedback(false);
     }
 }
 
