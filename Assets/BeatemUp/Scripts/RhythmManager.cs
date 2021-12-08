@@ -59,6 +59,14 @@ public class RhythmManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+
+    }
+
+    private void Start()
+    {
+        if(inMenu)
+            menuMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+
     }
 
 

@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         endGameAnim.SetTrigger("StartGame");
     }
 
+
     public void SpawnPlayer()
     {
         playersAlive = new List<bool>();
@@ -54,16 +55,26 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             APlayerData data = playersData.allPlayerData[i];
-            Debug.Log(spawnPoints[i]);
             PlayerManager playerManager = Instantiate(playerPrefab, spawnPoints[i], Quaternion.identity).GetComponent<PlayerManager>();
             playerManager.InstantiatePlayer(data.playerControllerID, i , data.myColorID, data.myCharID);
             playersAlive.Add(true);
             players.Add(playerManager.GetComponent<PlayerManager>());
             players[i].playerHealth.PlayerDied.AddListener(CheckPlayerAlive);
+            players[i].playerMovement.pauseGame.AddListener(PauseGame);
         }
     }
 
-
+    public void PauseGame()
+    {
+        BlockAllPlayers();
+        //RTCP pause music
+        PauseMenu.Instance.OpenMenu();
+    }
+    public void UnpauseGame()
+    {
+        FreeAllPlayers();
+        //RTCP unpause music
+    }
 
     public void CheckPlayerAlive(int playerID )
     {
@@ -90,7 +101,7 @@ public class GameManager : MonoBehaviour
                 hasEvent = false;
                 eventManager.EndEvent();
             }
-            players[playerAlive].BlockpPlayerInput();
+            players[playerAlive].BlockPlayerInput();
             StartCoroutine(NextRound());
         }
 
@@ -209,7 +220,15 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
-            players[i].BlockpPlayerInput();
+            players[i].BlockPlayerInput();
+        }
+    }
+    
+    public void FreeAllPlayers()
+    {
+        for (int i = 0; i < numOfPlayerAlive; i++)
+        {
+            players[i].FreePlayerInput();
         }
     }
 
