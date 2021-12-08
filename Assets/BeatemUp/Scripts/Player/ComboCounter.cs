@@ -113,6 +113,7 @@ public class ComboCounter : MonoBehaviour
             Combo = currentWeapon.ComboToDowngrade;
         }
 
+        playerManager.playerAnimator.SetTrigger("BeatMissed");
         UpdateText();
     }
 
