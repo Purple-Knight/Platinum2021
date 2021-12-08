@@ -29,6 +29,8 @@ public class CharacterSelection : MonoBehaviour
     public GameObject buttonStart;
     bool canStart;
 
+    public List<GameObject> pressAMama = new List<GameObject>();
+    
     // Save Data -------------------------------------
     [SerializeField] PlayersData pd;
 
@@ -216,12 +218,14 @@ public class CharacterSelection : MonoBehaviour
             {
                 charPortrait[i].SetActive(true);
                 charPortraitTrue[i].gameObject.SetActive(true);
+                pressAMama[i].SetActive(false);
                 charPortrait[i].GetComponent<CharBox>().isAssigned = true;
             }
             else
             {
                 charPortrait[i].SetActive(false);
                 charPortraitTrue[i].gameObject.SetActive(false);
+                pressAMama[i].SetActive(true);
                 charPortrait[i].GetComponent<CharBox>().isAssigned = false;
             }
         }
