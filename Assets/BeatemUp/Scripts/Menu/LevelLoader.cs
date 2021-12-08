@@ -14,6 +14,8 @@ public class LevelLoader : MonoBehaviour
 
     //Ref ------------------------------------------
     public TextMeshProUGUI textLoad;
+
+    private bool isOk;
     
     private void Start()
     {
@@ -60,14 +62,29 @@ public class LevelLoader : MonoBehaviour
                 {
                     if (item.GetButtonDown("Confirm"))
                     {
-                        operation.allowSceneActivation = true;
+                        StartCoroutine((isOkSet()));
                     }
                 }
+            }
+
+            if (isOk)
+            {
+                operation.allowSceneActivation = true;
             }
 
             yield return null;
         }
         
         
+    }
+
+
+    IEnumerator isOkSet()
+    {
+        GetComponent<MainMenu>().fadeGO.SetActive(true);
+        //GetComponent<MainMenu>().fadeGO.GetComponent<Animator>().Play(("Fade Completed"));
+        Debug.LogError("hah");
+        yield return new WaitForSeconds(0.5f);
+        isOk = true;
     }
 }
