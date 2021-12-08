@@ -36,6 +36,9 @@ public class MainMenu : MonoBehaviour
 
     //Menu Var -------------------------------------------
     [Header("Var")]
+    bool canInteract;
+    [HideInInspector] public float timeToInteract;
+    
     int cursorPos;
     int cursorPosOption;
     public GameObject Cursor;
@@ -109,187 +112,211 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        foreach (var item in players)
+        timeWaitInteract();
+        
+        if (canInteract)
         {
-
-            switch (state)
+            foreach (var item in players)
             {
-                case MenuState.TITLE:
-                    if (item.GetButtonDown("Start"))
-                    {
-                        foreach (var item2 in doorSystem)
+
+                switch (state)
+                {
+                    case MenuState.TITLE:
+                        if (item.GetButtonDown("Start"))
                         {
-                            item2.launch = true;
+                            foreach (var item2 in doorSystem)
+                            {
+                                item2.launch = true;
+                            }
+
+                            pressStart.SetActive(false);
+                            state = MenuState.MENU;
+                            toMenu();
+                            timeToInteract = 0.5f;
                         }
 
-                        pressStart.SetActive(false);
-                        state = MenuState.MENU;
-                        toMenu();
-                    }
-                    break;
+                        break;
 
 
 
 
-                case MenuState.MENU:
+                    case MenuState.MENU:
 
-                    if(once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
-                    {
-                        if(cursorPos > 0) cursorPos--;
-                        once[(players.IndexOf(item))] = true;
-                        setCursor();
-                    }
-
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
-                    {
-                        if (cursorPos < cPosition.Count - 1) cursorPos++;
-                        once[(players.IndexOf(item))] = true;
-                        setCursor();
-
-                    } else if (item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone) {
-                        once[(players.IndexOf(item))] = false;
-                        setCursor();
-                    }
-
-
-
-                    if (item.GetButtonDown("Confirm"))
-                    {
-                        switch (cursorPos)
+                        if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                         {
-                            case 0:
-                                toCharSelect();
-                                break;
-                            case 1:
-                                toOption();
-                                break;
-                            case 2:
-                                toCredits();
-                                break;
-                            case 3:
-                                toQuit();
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-
-                    break;
-
-
-                case MenuState.CHARSELECT:
-                    break;
-
-                case MenuState.CREDITS:
-                    if (item.GetButtonDown("Cancel"))
-                    {
-                        toMenu();
-                    }
-                    break;
-
-
-                case MenuState.OPTION:
-
-                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
-                    {
-                        if (cursorPosOption > 0) cursorPosOption--;
-                        once[(players.IndexOf(item))] = true;
-                        setCursor();
-                    }
-
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
-                    {
-                        if (cursorPosOption < cPositionOption.Count - 1) cursorPosOption++;
-                        once[(players.IndexOf(item))] = true;
-                        setCursor();
-
-                    }
-
-                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
-                    {
-                        changeSliders(true);
-                        once[(players.IndexOf(item))] = true;
-                        if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
-                        else playerTimer[players.IndexOf(item)] = timer;
-                    }
-
-
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
-                    {
-                        changeSliders(false);
-                        once[(players.IndexOf(item))] = true;
-                        if(boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
-                        else playerTimer[players.IndexOf(item)] = timer;
-                    }
-
-
-                    else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone
-                        && item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone)
-                    {
-                        once[(players.IndexOf(item))] = false;
-                        boolTimer[(players.IndexOf(item))] = false;
-                        playerTimer[players.IndexOf(item)] = -2;
-                        setCursor();
-                    }
-
-
-
-                    if (item.GetButtonDown("Confirm"))
-                    {
-                        if(cursorPosOption == 3) toMenu();
-                    }
-
-                    if (item.GetButtonDown("Cancel"))
-                    {
-                        toMenu();
-                    }
-
-                    break;
-
-
-                case MenuState.MAPSELECT:
-                    
-                    if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
-                    {
-                        if (cursorPosMap > 0)
-                        {
-                            cursorPosMap--;
+                            if (cursorPos > 0) cursorPos--;
+                            once[(players.IndexOf(item))] = true;
                             setCursor();
                         }
-                        once[(players.IndexOf(item))] = true;
 
-                    }
-
-                    else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
-                    {
-                        if (cursorPosMap < buttonFeelMap.Count - 1)
+                        else if (once[(players.IndexOf(item))] == false &&
+                                 item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                         {
-                            cursorPosMap++;
+                            if (cursorPos < cPosition.Count - 1) cursorPos++;
+                            once[(players.IndexOf(item))] = true;
+                            setCursor();
+
+                        }
+                        else if (item.GetAxisRaw("MenuHorizontal") < deadZone &&
+                                 item.GetAxisRaw("MenuHorizontal") > -deadZone)
+                        {
+                            once[(players.IndexOf(item))] = false;
                             setCursor();
                         }
-                        once[(players.IndexOf(item))] = true;
 
-                    }
-                    else if (item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone)
-                    {
-                        once[(players.IndexOf(item))] = false;
-                    }
-                    
-                    if (item.GetButtonDown("Confirm"))
-                    {
-                        //SceneManager.LoadScene("TestLevelGen");
-                        fadeGO.SetActive(true);
-                        StartCoroutine(loadTime());
-                    }
 
-                    break;
-                
-                
 
-                default:
-                    break;
+                        if (item.GetButtonDown("Confirm"))
+                        {
+                            switch (cursorPos)
+                            {
+                                case 0:
+                                    toCharSelect();
+                                    timeToInteract = 0.3f;
+                                    break;
+                                case 1:
+                                    toOption();
+                                    timeToInteract = 0.3f;
+                                    break;
+                                case 2:
+                                    toCredits();
+                                    timeToInteract = 0.3f;
+                                    break;
+                                case 3:
+                                    toQuit();
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        break;
+
+
+                    case MenuState.CHARSELECT:
+                        break;
+
+                    case MenuState.CREDITS:
+                        if (item.GetButtonDown("Cancel"))
+                        {
+                            toMenu();
+                            timeToInteract = 0.3f;
+                        }
+
+                        break;
+
+
+                    case MenuState.OPTION:
+
+                        if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
+                        {
+                            if (cursorPosOption > 0) cursorPosOption--;
+                            once[(players.IndexOf(item))] = true;
+                            setCursor();
+                        }
+
+                        else if (once[(players.IndexOf(item))] == false &&
+                                 item.GetAxisRaw("MenuVertical") < 0 - deadZone)
+                        {
+                            if (cursorPosOption < cPositionOption.Count - 1) cursorPosOption++;
+                            once[(players.IndexOf(item))] = true;
+                            setCursor();
+
+                        }
+
+                        if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                        {
+                            changeSliders(true);
+                            once[(players.IndexOf(item))] = true;
+                            if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
+                            else playerTimer[players.IndexOf(item)] = timer;
+                        }
+
+
+                        else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
+                        {
+                            changeSliders(false);
+                            once[(players.IndexOf(item))] = true;
+                            if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
+                            else playerTimer[players.IndexOf(item)] = timer;
+                        }
+
+
+                        else if (item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") >
+                                                                            -deadZone && item.GetAxisRaw("MenuHorizontal") <
+                                                                            deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone)
+                        {
+                            once[(players.IndexOf(item))] = false;
+                            boolTimer[(players.IndexOf(item))] = false;
+                            playerTimer[players.IndexOf(item)] = -2;
+                            setCursor();
+                        }
+
+
+
+                        if (item.GetButtonDown("Confirm"))
+                        {
+                            if (cursorPosOption == 3) toMenu();
+                            timeToInteract = 0.3f;
+                        }
+
+                        if (item.GetButtonDown("Cancel"))
+                        {
+                            toMenu();
+                            timeToInteract = 0.3f;
+                        }
+
+                        break;
+
+
+                    case MenuState.MAPSELECT:
+
+                        if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
+                        {
+                            if (cursorPosMap > 0)
+                            {
+                                cursorPosMap--;
+                                setCursor();
+                            }
+
+                            once[(players.IndexOf(item))] = true;
+
+                        }
+
+                        else if (once[(players.IndexOf(item))] == false &&
+                                 item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
+                        {
+                            if (cursorPosMap < buttonFeelMap.Count - 1)
+                            {
+                                cursorPosMap++;
+                                setCursor();
+                            }
+
+                            once[(players.IndexOf(item))] = true;
+
+                        }
+                        else if (item.GetAxisRaw("MenuHorizontal") < deadZone &&
+                                 item.GetAxisRaw("MenuHorizontal") > -deadZone)
+                        {
+                            once[(players.IndexOf(item))] = false;
+                        }
+
+                        if (item.GetButtonDown("Confirm"))
+                        {
+                            //SceneManager.LoadScene("TestLevelGen");
+                            fadeGO.SetActive(true);
+                            StartCoroutine(loadTime());timeToInteract = 0.7f;
+                        }
+
+                        break;
+
+
+
+                    default:
+                        break;
+                }
+
             }
-
         }
 
         if (forChecking)
@@ -396,7 +423,19 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-
+    void timeWaitInteract()
+    {
+        if(timeToInteract > 0)
+        {
+            canInteract = false;
+            timeToInteract -= Time.deltaTime;
+        }
+        else
+        {
+            canInteract = true;
+        }
+    }
+    
     // Scene ---------------------------------------------------------------------
     #region Change Scene /
 
