@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
      bool tpToWall = false;
      [SerializeField] int numbOfSteps = 0;
+     public UnityEvent pauseGame;
 
     #endregion
 
@@ -105,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
     public void GetInput()
     {
         //Is there an Input 
-        bool inputHorizontal = player.GetAxis("Move Horizontal") !=0;
+        bool inputHorizontal = player.GetAxis("Move Horizontal") != 0;
         bool inputVertical = player.GetAxis("Move Vertical") != 0;
 
         /*bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
@@ -124,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(ResetFreeMovement());
             }
 
-            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL )
+            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL)
             {
                 mvtVertical = player.GetAxis("Move Vertical");
                 mvtHorizontal = player.GetAxis("Move Horizontal");
@@ -168,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
                 GotInput = true;
                 Move();
             }
-            else 
+            else
             {
                 buttonDown = true;
                 GotInput = true;
@@ -180,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        else if(!inputHorizontal && !inputVertical)
+        else if (!inputHorizontal && !inputVertical)
         {
             buttonDown = false;
             //playerDir = PlayerDir.NULL;
@@ -188,10 +189,12 @@ public class PlayerMovement : MonoBehaviour
             mvtVertical = 0;
         }
 
-/*        if (Input.GetKeyDown(KeyCode.W))
+
+        if (player.GetButtonDown("Start"))
         {
-            tpToWall = true;
-        }*/
+            Debug.Log("start");
+            pauseGame.Invoke();
+        }
     }
 
     IEnumerator ResetFreeMovement()

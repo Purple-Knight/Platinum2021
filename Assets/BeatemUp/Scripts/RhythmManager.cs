@@ -39,7 +39,7 @@ public class RhythmManager : MonoBehaviour
     private float timerInBetweenBeat = 0;
 
     [Header("Buffer Time")]
-    [SerializeField] Level level;
+    [SerializeField] public Level level;
     [SerializeField] float hardPercentage;
     [SerializeField] float mediumPercentage;
     [SerializeField] float easyPercentage;
@@ -59,6 +59,14 @@ public class RhythmManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+
+    }
+
+    private void Start()
+    {
+        if(inMenu)
+            menuMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+
     }
 
 

@@ -69,3 +69,4 @@ MonoBehaviour:
     lockIntoDirection: 0
     lockOnX: 0
     lockOnY: 0
+  comboTextColor: {r: 1, g: 0.67896783, b: 0.08018869, a: 1}

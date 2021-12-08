@@ -83,7 +83,6 @@ public class LevelLoader : MonoBehaviour
     {
         GetComponent<MainMenu>().fadeGO.SetActive(true);
         //GetComponent<MainMenu>().fadeGO.GetComponent<Animator>().Play(("Fade Completed"));
-        Debug.LogError("hah");
         yield return new WaitForSeconds(0.5f);
         isOk = true;
     }

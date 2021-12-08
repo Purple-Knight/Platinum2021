@@ -24,8 +24,10 @@ public class Weapon : MonoBehaviour
 
     [Header("---Bullets---")] // Bullets
     public GameObject bulletPrefab;
-
     public List<BulletInfo> bullets;
+
+    [Header("")]
+    public Color comboTextColor = new Color(1, 1, 1, 1);
 
     public Vector2 GetDirection { get => lastDirection; }
     public Vector2 PlayerPosistion { get => playerManager.transform.position; }

@@ -50,7 +50,7 @@ MonoBehaviour:
   gameMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 458ba52d63d9bc24eb99389a2034d334, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 0d39aa5e1b7dfeb48a8d9c6fb46fd7f6, type: 2}
   stopAllMusicEvent:
     idInternal: 0
     valueGuidInternal: 
