@@ -80,8 +80,6 @@ public class PauseMenu : MonoBehaviour
 
                 if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("Move Vertical") > 0 + deadZone)
                 {
-
-                    Debug.Log("up");
                     if (cursorPosOption > 0) cursorPosOption--;
                     once[(players.IndexOf(item))] = true;
                     setCursor();
@@ -89,8 +87,6 @@ public class PauseMenu : MonoBehaviour
 
                 else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("Move Vertical") < 0 - deadZone)
                 {
-                    Debug.Log("down");
-
                     if (cursorPosOption < cPositionOption.Count - 1) cursorPosOption++;
                     once[(players.IndexOf(item))] = true;
                     setCursor();
@@ -99,8 +95,6 @@ public class PauseMenu : MonoBehaviour
 
                 if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("Move Horizontal") > 0 + deadZone)
                 {
-                    Debug.Log("right");
-
                     changeSliders(true);
                     once[(players.IndexOf(item))] = true;
                     if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
@@ -110,8 +104,6 @@ public class PauseMenu : MonoBehaviour
 
                 else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("Move Horizontal") < 0 - deadZone)
                 {
-                    Debug.Log("left");
-
                     changeSliders(false);
                     once[(players.IndexOf(item))] = true;
                     if (boolTimer[players.IndexOf(item)]) playerTimer[players.IndexOf(item)] = timer2;
@@ -131,12 +123,27 @@ public class PauseMenu : MonoBehaviour
 
                 if (item.GetButtonDown("Confirm"))
                 {
-                    if (cursorPosOption == 3) ; // go to menu / return to game
+                    if (cursorPosOption == 3)
+                    {
+                        pauseMenu.SetActive(false);
+                        menuActive = false;
+                        GameManager.Instance.UnpauseGame();
+
+                    }
+                    if (cursorPosOption == 4)
+                    {
+                        GameManager.Instance.LoadScene("Menu");
+                        RhythmManager.Instance.UnpauseGame();
+                        RhythmManager.Instance.StopAllMusic();
+                        RhythmManager.Instance.StartMenu();
+                    }
                 }
 
                 if (item.GetButtonDown("Cancel"))
                 {
-                    // toMenu();
+                    pauseMenu.SetActive(false);
+                    menuActive = false;
+                    GameManager.Instance.UnpauseGame();
                 }
 
             }

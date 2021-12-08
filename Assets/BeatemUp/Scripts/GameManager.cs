@@ -66,14 +66,16 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        Time.timeScale = 0;
         BlockAllPlayers();
-        //RTCP pause music
+        RhythmManager.Instance.PauseGame();
         PauseMenu.Instance.OpenMenu();
     }
     public void UnpauseGame()
     {
+        Time.timeScale = 1;
         FreeAllPlayers();
-        //RTCP unpause music
+        RhythmManager.Instance.UnpauseGame();
     }
 
     public void CheckPlayerAlive(int playerID )
@@ -234,6 +236,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(string sceneToLoad)
     {
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(sceneToLoad);
     }
 }
