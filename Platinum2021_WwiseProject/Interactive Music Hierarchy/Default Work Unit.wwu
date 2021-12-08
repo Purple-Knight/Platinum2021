@@ -43,7 +43,7 @@
 						</MusicSegment>
 						<Folder Name="Level_115bpm" ID="{565D0893-7010-45A2-8549-486D1CE00088}" ShortID="641861242">
 							<ChildrenList>
-								<MusicPlaylistContainer Name="MisucPlaylist" ID="{720608AE-A0E8-453A-9EAE-D2215E1163EF}" ShortID="755603937">
+								<MusicPlaylistContainer Name="MusicPlaylist" ID="{720608AE-A0E8-453A-9EAE-D2215E1163EF}" ShortID="755603937">
 									<PropertyList>
 										<Property Name="Tempo" Type="Real64" Value="115"/>
 									</PropertyList>
@@ -251,12 +251,12 @@
 																		<PointList>
 																			<Point>
 																				<XPos>0</XPos>
-																				<YPos>-200</YPos>
+																				<YPos>-10</YPos>
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
 																				<XPos>100</XPos>
-																				<YPos>0</YPos>
+																				<YPos>10</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -334,12 +334,12 @@
 																		<PointList>
 																			<Point>
 																				<XPos>0</XPos>
-																				<YPos>-200</YPos>
+																				<YPos>-10</YPos>
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
 																				<XPos>100</XPos>
-																				<YPos>0</YPos>
+																				<YPos>10</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
