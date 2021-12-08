@@ -56,16 +56,17 @@ MonoBehaviour:
     lockOnX: 0
     lockOnY: 0
   - length: 2
-    positionOffset: {x: 0, y: 0.5}
+    positionOffset: {x: 0, y: 1}
     inputDirectionOffset: 0
     lockDirection: 0
     lockIntoDirection: 0
     lockOnX: 0
     lockOnY: 0
   - length: 2
-    positionOffset: {x: 0, y: -0.5}
+    positionOffset: {x: 0, y: -1}
     inputDirectionOffset: 0
     lockDirection: 0
     lockIntoDirection: 0
     lockOnX: 0
     lockOnY: 0
+  comboTextColor: {r: 0.06132078, g: 1, b: 0.41282642, a: 1}

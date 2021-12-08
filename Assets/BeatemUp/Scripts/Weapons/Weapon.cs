@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     // Inputs
     protected Player player;
     protected Timing playerTiming;
-    protected bool gotInput;
+    protected bool GotInput { get => playerManager.GotInputThisBeat; set => playerManager.GotInputThisBeat = value; }
     protected Vector2 lastDirection;
     protected float lastX = 1;
     protected float lastY = 1;
@@ -24,8 +24,10 @@ public class Weapon : MonoBehaviour
 
     [Header("---Bullets---")] // Bullets
     public GameObject bulletPrefab;
-
     public List<BulletInfo> bullets;
+
+    [Header("")]
+    public Color comboTextColor = new Color(1, 1, 1, 1);
 
     public Vector2 GetDirection { get => lastDirection; }
     public Vector2 PlayerPosistion { get => playerManager.transform.position; }

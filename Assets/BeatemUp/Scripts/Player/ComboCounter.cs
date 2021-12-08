@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using TMPro;
 
 public class ComboCounter : MonoBehaviour
 {
+    // ----- Player refs
     private PlayerManager playerManager;
     private Weapon currentWeapon;
+    public Transform TMP;
+    private TextMeshProUGUI comboText;
 
-    [HideInInspector] public UnityEvent onComboGoalReached;
-    private bool receivedInput = false;
+    // ----- Inputs
+    private bool GotInput = false;
 
+    // ----- Combo Values
     [SerializeField] private int _combo = 0;
     // Modifiers
     [Range(1,10)] public int multiplier = 1;
@@ -23,7 +27,6 @@ public class ComboCounter : MonoBehaviour
 
     public int maxLimit = 1000;
 
-
     #region Get / Set
     public int Combo {
         get { return _combo; }
@@ -34,41 +37,38 @@ public class ComboCounter : MonoBehaviour
     public void Init(PlayerManager _playerManager)
     {
         playerManager = _playerManager;
+        Combo = 0;
+
+        comboText = TMP.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void CurrentWeaponRef(in Weapon weaponRef)
     {
         currentWeapon = weaponRef;
+        UpdateText();
     }
 
     public void Keep()
     {
-        if (receivedInput) return;
-        else receivedInput = true;
+        if (GotInput) return;
+        else GotInput = true;
     }
 
+    // Modify Combo Values
     public void Up()
     {
-        if (receivedInput) return;
+        if (GotInput) return;
 
         Keep();
 
         Combo = ApplyModifier(Combo);
 
-        Color debugColor = playerManager.PlayerID switch
-        {
-            0 => new Color(232 / 255f, 53 / 255f, 161 / 255f),
-            1 => Color.cyan,
-            2 => new Color(53 / 255f, 232 / 255f, 107 / 255f),
-            3 => Color.yellow,
-            _ => Color.white,
-        };
-        Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}", (byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.PlayerID + 1, Combo));
-
         if(currentWeapon != null && Combo >= currentWeapon.ComboToUpgrade)
         {
             currentWeapon.Upgarde();
         }
+
+        UpdateText();
     }
 
     public void Down(int value)
@@ -91,15 +91,16 @@ public class ComboCounter : MonoBehaviour
         return Mathf.Clamp(comboValue, 0, maxLimit);
     }
 
+    // Resets
     public void ResetComboValues()
     {
-        if (Combo <= 0) return;
+        if (Combo <= 0 && !GotInput) return;
 
-        if (!receivedInput) ResetCombo();
-        receivedInput = false;
+        if (!GotInput) ResetCombo();
+        GotInput = false;
     }
 
-    public void ResetCombo()
+    private void ResetCombo()
     {
         if (zeroReset) // to 0
         {
@@ -110,6 +111,36 @@ public class ComboCounter : MonoBehaviour
         {
             currentWeapon.Downgrade();
             Combo = currentWeapon.ComboToDowngrade;
+        }
+
+        UpdateText();
+    }
+
+    // Feedback
+    private void UpdateText()
+    {
+        if
+            (Combo <= 0) comboText.color = new Color(1, 1, 1, 0);
+        else
+        {
+            if (comboText.color != currentWeapon.comboTextColor) comboText.color = currentWeapon.comboTextColor;
+            comboText.text = "x" + Combo;
+        }
+
+        //----
+        {
+            Color debugColor = playerManager.PlayerID switch
+            {
+                0 => new Color(232 / 255f, 53 / 255f, 161 / 255f),
+                1 => Color.cyan,
+                2 => new Color(53 / 255f, 232 / 255f, 107 / 255f),
+                3 => Color.yellow,
+                _ => Color.white,
+            };
+
+            Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}",
+                (byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.PlayerID + 1, Combo));
+            //----
         }
     }
 }

@@ -48,10 +48,11 @@ MonoBehaviour:
   weaponKey: 1
   bulletPrefab: {fileID: 857314862302640490, guid: fd72e8fd24956e649acfd161674162ef, type: 3}
   bullets:
-  - length: 4
+  - length: 3
     positionOffset: {x: 0, y: 0}
     inputDirectionOffset: 0
     lockDirection: 0
     lockIntoDirection: 0
     lockOnX: 0
     lockOnY: 0
+  comboTextColor: {r: 1, g: 0.83412087, b: 0.4481132, a: 1}

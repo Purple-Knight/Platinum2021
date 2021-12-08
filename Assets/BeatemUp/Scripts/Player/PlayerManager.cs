@@ -20,6 +20,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] List<Sprite> sprites;
     Color playerColor;
 
+    private bool gotInputThisBeat = true;
+    public bool GotInputThisBeat { get => gotInputThisBeat; set => gotInputThisBeat = value; }
+
     [SerializeField] ParticleSystem notesParticle;
 
     /*#region Debug
@@ -56,18 +59,21 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayerDied(int i)
     {
-        //notesParticle.Play();
+        notesParticle.Play();
         playerWeapon.enabled = false;
         playerHealth.enabled = false;
-        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
-        playerMovement.playerColor = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
+        playerMovement.enabled = false;
+        //spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
+        //playerMovement.playerColor = new Color(playerColor.r, playerColor.g, playerColor.g, .3f);
         gameObject.tag ="Ghost";
         gameObject.layer = 8;
         //movement.ResetPositions();
+        StartCoroutine(DeathWait());
     }
 
     public void ResetPlayer()
     {
+        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, 1);
         playerWeapon.enabled = true;
         playerHealth.enabled = true;
         playerMovement.enabled = true;
@@ -80,6 +86,26 @@ public class PlayerManager : MonoBehaviour
         playerWeapon.SwapToBaseWeapon();
     }
 
+    public void BlockPlayerInput()
+    {
+        playerWeapon.enabled = false;
+        playerHealth.enabled = false;
+        playerMovement.enabled = false;
+    }
+    
+    public void FreePlayerInput()
+    {
+        playerWeapon.enabled = true;
+        playerHealth.enabled = true;
+        playerMovement.enabled = true;
+    }
+
+    public void ResetColor()
+    {
+        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, 1);
+
+    }
+
     public void IgnoreTimelineForSec(float ignoreTime, int maxNumOfStepsPerSec)
     {
         playerMovement.StartFreeMovement(maxNumOfStepsPerSec);
@@ -90,6 +116,12 @@ public class PlayerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(freeTime);
         playerMovement.EndFreeMovement();
+    }
+
+    IEnumerator DeathWait()
+    {
+        yield return new WaitForSeconds(.5f);
+        spriteRenderer.color = new Color(playerColor.r, playerColor.g, playerColor.g, 0);
     }
 
     /*private void OnGUI()

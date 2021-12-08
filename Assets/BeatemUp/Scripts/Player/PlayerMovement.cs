@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public Color playerColor;
 
     float halfBeatTime; 
-    bool gotInputThisBeat = true; 
+    bool GotInput { get => playerManager.GotInputThisBeat; set => playerManager.GotInputThisBeat = value; } 
 
     float mvtHorizontal;
     float mvtVertical;
@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
      bool tpToWall = false;
      [SerializeField] int numbOfSteps = 0;
+     public UnityEvent pauseGame;
 
     #endregion
 
@@ -90,12 +91,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (beatPassed && beatPassedTimer >= halfBeatTime) //only one input per beat
         {
+            playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
+
             beatPassed = false;
-            gotInputThisBeat = false;
+            GotInput = false;
             beatPassedTimer = 0;
             hasMoved = false;
-
-            playerManager.comboManager.ResetComboValues(); // Call Combo Values Reset
         } 
 
         OtherPlayerOnNextTile();
@@ -105,14 +106,14 @@ public class PlayerMovement : MonoBehaviour
     public void GetInput()
     {
         //Is there an Input 
-        bool inputHorizontal = player.GetAxis("Move Horizontal") !=0;
+        bool inputHorizontal = player.GetAxis("Move Horizontal") != 0;
         bool inputVertical = player.GetAxis("Move Vertical") != 0;
 
         /*bool inputHorizontal = player.GetAxis("Move Horizontal") < -deadZoneController || player.GetAxis("Move Horizontal") > deadZoneController;
         bool inputVertical = player.GetAxis("Move Vertical") < -deadZoneController || player.GetAxis("Move Vertical") > deadZoneController;
         Debug.Log(player.GetAxis("Move Horizontal"));*/
 
-        if ((inputHorizontal || inputVertical) && !gotInputThisBeat && !buttonDown)
+        if ((inputHorizontal || inputVertical) && !GotInput && !buttonDown)
         {
             if (!freeMovement)
             {
@@ -124,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(ResetFreeMovement());
             }
 
-            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL )
+            if (playerTiming != Timing.MISS && playerTiming != Timing.NULL)
             {
                 mvtVertical = player.GetAxis("Move Vertical");
                 mvtHorizontal = player.GetAxis("Move Horizontal");
@@ -165,13 +166,13 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 buttonDown = true;
-                gotInputThisBeat = true;
+                GotInput = true;
                 Move();
             }
-            else 
+            else
             {
                 buttonDown = true;
-                gotInputThisBeat = true;
+                GotInput = true;
                 //playerDir = PlayerDir.NULL;
                 mvtHorizontal = 0;
                 mvtVertical = 0;
@@ -180,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        else if(!inputHorizontal && !inputVertical)
+        else if (!inputHorizontal && !inputVertical)
         {
             buttonDown = false;
             //playerDir = PlayerDir.NULL;
@@ -188,16 +189,18 @@ public class PlayerMovement : MonoBehaviour
             mvtVertical = 0;
         }
 
-/*        if (Input.GetKeyDown(KeyCode.W))
+
+        if (player.GetButtonDown("Start"))
         {
-            tpToWall = true;
-        }*/
+            Debug.Log("start");
+            pauseGame.Invoke();
+        }
     }
 
     IEnumerator ResetFreeMovement()
     {
         yield return new WaitForSeconds(.3f);
-        gotInputThisBeat = false;
+        GotInput = false;
         hasMoved = false;
     }
 

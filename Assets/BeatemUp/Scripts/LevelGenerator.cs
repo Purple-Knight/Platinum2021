@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    //public List<GameObject> map;
-    public List<Texture2D> map;
+    public List<GameObject> map;
+    //public List<Texture2D> map;
     int currentMap = 0;
 
     public ColorToPrefab[] colorMappings;
@@ -14,8 +14,8 @@ public class LevelGenerator : MonoBehaviour
     public float divideMultiplicator;
 
     public float spawnOffset;
-    //GameObject currentLevel;
-    List<GameObject> currentObjectInLevel;
+    GameObject currentLevel;
+    //List<GameObject> currentObjectInLevel;
 
     Vector2 gridSize = new Vector2(1, 0.5f);
 
@@ -23,24 +23,30 @@ public class LevelGenerator : MonoBehaviour
 
     private void Awake()
     {
-        //playerSpawnPoints = new List<Vector2>();
-        currentObjectInLevel = new List<GameObject>();
+        playerSpawnPoints = new List<Vector2>();
+        //currentObjectInLevel = new List<GameObject>();
     }
-/*
+
     public List<Vector2> SpawnNextMap()
     {
+        playerSpawnPoints.Clear();
+        if(currentLevel != null)
+        {
+            Destroy(currentLevel.gameObject);
+        }
         int i = Random.Range(0, map.Count);
         currentMap = i;
         currentLevel = Instantiate(map[i], transform);
-
-        foreach (Transform pos in currentLevel.GetComponent<MapManager>().playerSpawnPoints)
+        MapManager manager = currentLevel.GetComponent<MapManager>();
+        transform.position = new Vector3((-manager.mapSize.x * gridSize.x) / 2, (manager.mapSize.y * gridSize.y) / 2 ,0) ;
+        foreach (Transform pos in manager.playerSpawnPoints)
         {
             playerSpawnPoints.Add(pos.position);
         }
        return playerSpawnPoints;
 
-    }*/
-    public List<Vector2> SpawnNextMap()
+    }
+    /*public List<Vector2> SpawnNextMap()
     {
         int i=0;
         do
@@ -72,19 +78,19 @@ public class LevelGenerator : MonoBehaviour
         }
         return playerSpawnPoints;
     }
-
-    GameObject GenerateTile(int x, int y)
+*/
+   /* GameObject GenerateTile(int x, int y)
     {
         Color pixelColor = map[currentMap].GetPixel(x, y);
         //Debug.Log(pixelColor);
         if (pixelColor.a == 0)
         {
-            /*Vector2 position = new Vector2((transform.position.x + x / divideMultiplicator) * gridSize.x, (transform.position.y + y / divideMultiplicator) * gridSize.y);
+            *//*Vector2 position = new Vector2((transform.position.x + x / divideMultiplicator) * gridSize.x, (transform.position.y + y / divideMultiplicator) * gridSize.y);
             var block = Instantiate(colorMappings[2].prefab, transform.position, Quaternion.identity);
             block.transform.parent = transform;
             block.transform.position = position;
             block.name = colorMappings[2].name + " " + x + " " + y;
-            return block;*/
+            return block;*//*
             return null;
         }
 
@@ -92,11 +98,11 @@ public class LevelGenerator : MonoBehaviour
         {
             Vector2 position = new Vector2((transform.position.x + x / divideMultiplicator) * gridSize.x, (transform.position.y + y / divideMultiplicator) * gridSize.y);
             playerSpawnPoints.Add(position);
-            /*var block = Instantiate(colorMappings[2].prefab, transform.position, Quaternion.identity);
+            *//*var block = Instantiate(colorMappings[2].prefab, transform.position, Quaternion.identity);
             block.transform.parent = transform;
             block.transform.position = position;
             block.name = colorMappings[2].name + " " + x + " " + y;
-            return block;*/
+            return block;*//*
             return null;
         }
 
@@ -110,7 +116,7 @@ public class LevelGenerator : MonoBehaviour
                     i = Random.Range(1, groundPrefabs.Count);
                 }
                 Vector2 position = new Vector2((transform.position.x + x / divideMultiplicator) * gridSize.x, (transform.position.y + y / divideMultiplicator) * gridSize.y);
-                var block = Instantiate(/*colorMapping.prefab*/ groundPrefabs[i], transform.position, Quaternion.identity);
+                var block = Instantiate(*//*colorMapping.prefab*//* groundPrefabs[i], transform.position, Quaternion.identity);
                 block.transform.parent = transform;
                 block.transform.position = position;
                 block.name = colorMapping.name + " " + x + " " + y;
@@ -118,5 +124,5 @@ public class LevelGenerator : MonoBehaviour
             }
         }
         return null;
-    }
+    }*/
 }

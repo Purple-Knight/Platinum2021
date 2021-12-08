@@ -50,7 +50,7 @@ MonoBehaviour:
   gameMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: bc79c1591d16a6f408b1c9e0aa029245, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 0d39aa5e1b7dfeb48a8d9c6fb46fd7f6, type: 2}
   stopAllMusicEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -70,7 +70,7 @@ MonoBehaviour:
       m_Calls: []
   halfBeatTime: 0
   level: 0
-  hardPercentage: 1
-  mediumPercentage: 1
-  easyPercentage: 100
+  hardPercentage: 45
+  mediumPercentage: 60
+  easyPercentage: 75
   BPM: 126
