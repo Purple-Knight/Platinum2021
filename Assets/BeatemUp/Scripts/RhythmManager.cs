@@ -64,11 +64,15 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
-        if(inMenu)
-            menuMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        if (inMenu)
+            StartMenu();
 
     }
 
+    public void StartMenu() {
+        inMenu = true;
+        menuMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+    }
 
     public void StartGame()
     {

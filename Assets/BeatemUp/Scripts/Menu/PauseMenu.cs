@@ -131,7 +131,18 @@ public class PauseMenu : MonoBehaviour
 
                 if (item.GetButtonDown("Confirm"))
                 {
-                    if (cursorPosOption == 3) ; // go to menu / return to game
+                    if (cursorPosOption == 3)
+                    {
+                        pauseMenu.SetActive(false);
+                        menuActive = false;
+                        GameManager.Instance.UnpauseGame();
+                    }
+                    if (cursorPosOption == 4)
+                    {
+                        GameManager.Instance.LoadScene("Menu");
+                        RhythmManager.Instance.StopAllMusic();
+                        RhythmManager.Instance.StartMenu();
+                    }
                 }
 
                 if (item.GetButtonDown("Cancel"))
