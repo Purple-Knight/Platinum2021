@@ -69,6 +69,7 @@ public class PlayerManager : MonoBehaviour
         gameObject.layer = 8;
         //movement.ResetPositions();
         StartCoroutine(DeathWait());
+        comboManager.ResetComboValues(true);
     }
 
     public void ResetPlayer()
@@ -84,6 +85,7 @@ public class PlayerManager : MonoBehaviour
         playerMovement.ResetPositions();
         playerHealth.ResetPlayer();
         playerWeapon.SwapToBaseWeapon();
+        comboManager.ResetComboValues(true);
     }
 
     public void BlockPlayerInput()

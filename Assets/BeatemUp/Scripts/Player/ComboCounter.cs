@@ -98,11 +98,11 @@ public class ComboCounter : MonoBehaviour
     }
 
     // Resets
-    public void ResetComboValues()
+    public void ResetComboValues(bool forceReset = false)
     {
-        if (Combo <= 0 && !GotInput) return;
+        if ((Combo <= 0 && !GotInput) && !forceReset) return;
 
-        if (!GotInput) ResetCombo();
+        if (!GotInput || forceReset) ResetCombo();
         GotInput = false;
     }
 
