@@ -17,7 +17,6 @@ public class VictoryManager : MonoBehaviour
     [SerializeField] List<Sprite> characterSprites;
     private bool isVictoryScreenActive = false;
     private List<Player> players = new List<Player>();
-    [SerializeField] AK.Wwise.Event stopMusic;
     PlayersData playersData;
 
 
@@ -50,6 +49,7 @@ public class VictoryManager : MonoBehaviour
                 }
                 else if (player.GetButton("Back"))
                 {
+                    RhythmManager.Instance.StartMenu();
                     GameManager.Instance.LoadScene("Menu");
                 }
             }

@@ -265,8 +265,6 @@ public class CharacterSelection : MonoBehaviour
                 {
                     saveALL(item);
                     saveData();
-                    RhythmManager.Instance.StopAllMusic();
-                    RhythmManager.Instance.inMenu = false;
                     MainMenu.Instance.toMapSelect();
                 }
                 else

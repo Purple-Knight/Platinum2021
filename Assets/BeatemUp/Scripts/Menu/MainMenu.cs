@@ -347,6 +347,8 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator loadTime()
     {
+        RhythmManager.Instance.StopAllMusic();
+        RhythmManager.Instance.inMenu = false;
         yield return new WaitForSeconds(0.5f);
         loadingScreen.SetActive(true);
         yield return new WaitForSeconds(0.5f);
