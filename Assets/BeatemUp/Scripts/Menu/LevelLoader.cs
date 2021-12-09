@@ -52,7 +52,7 @@ public class LevelLoader : MonoBehaviour
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            textLoad.text = "LOADING : " + progress * 100 + "%";
+            textLoad.text = "LOADING : " + (int)(progress * 100) + "%";
             
             if (operation.progress >= 0.9f)
             {
