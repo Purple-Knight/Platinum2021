@@ -98,15 +98,15 @@ public class ComboCounter : MonoBehaviour
     }
 
     // Resets
-    public void ResetComboValues(bool forceReset = false)
+    public void ResetComboValues(bool forceReset = false, bool playAnim = true)
     {
         if ((Combo <= 0 && !GotInput) && !forceReset) return;
 
-        if (!GotInput || forceReset) ResetCombo();
+        if (!GotInput || forceReset) ResetCombo(playAnim);
         GotInput = false;
     }
 
-    private void ResetCombo()
+    private void ResetCombo(bool playAnim)
     {
         if (zeroReset) // to 0
         {
@@ -119,7 +119,8 @@ public class ComboCounter : MonoBehaviour
             Combo = currentWeapon.ComboToDowngrade;
         }
 
-        playerManager.playerAnimator.SetTrigger("BeatMissed");
+        if(playAnim)
+            playerManager.playerAnimator.SetTrigger("BeatMissed");
         UpdateText();
     }
 

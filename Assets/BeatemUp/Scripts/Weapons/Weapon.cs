@@ -77,6 +77,8 @@ public class Weapon : MonoBehaviour
         RhythmManager.Instance.PlayShotSound();
 
         playerManager.playerAnimator.SetTrigger("Fire");
+
+        playerManager.Vibrations(1, 10, .1f);
         foreach (BulletInfo info in bullets)
         {
             //Locked Directions

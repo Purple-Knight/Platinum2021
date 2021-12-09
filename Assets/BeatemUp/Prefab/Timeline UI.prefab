@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endTimeline: {fileID: 5070792890162394999}
   bar: {fileID: 5328507163107234460, guid: 86bb09106d9b1244291d4366ea126e75, type: 3}
-  echo: {fileID: 8321464503538729669, guid: afbf10ceb51e12144b69497d656aec4d, type: 3}
+  echo: {fileID: 5495397101163956049, guid: 74dbe9d4bdfc660469dc502d93635c53, type: 3}
   beatToReach: 5
   multiplicatorSpeed: 1
   guiDebug: 0

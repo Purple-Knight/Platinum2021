@@ -178,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
                 mvtVertical = 0;
                 BeatTiming();
                 playerAnimator.SetTrigger("BeatMissed");
+                playerManager.Vibrations(1, 10, .1f);
             }
 
         }
