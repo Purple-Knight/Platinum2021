@@ -146,7 +146,9 @@ GameObject:
   - component: {fileID: 1626902856876133289}
   - component: {fileID: 6814052783101597118}
   - component: {fileID: 2051060489825984985}
-  - component: {fileID: 8783185231694889680}
+  - component: {fileID: 3898858308463032312}
+  - component: {fileID: 6642323636812976676}
+  - component: {fileID: 7895861061406589115}
   m_Layer: 5
   m_Name: ComboCounterText
   m_TagString: Untagged
@@ -161,7 +163,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5000655878010095966}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.007, y: 0.007, z: 0.007}
   m_Children:
@@ -217,7 +219,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2051060489825984985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +237,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8783185231694889680
+--- !u!114 &3898858308463032312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,8 +246,65 @@ MonoBehaviour:
   m_GameObject: {fileID: 5000655878010095966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efb61ff830c5c84498278e431b1a91b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatText: {fileID: 2935190437976316369}
-  beatTextShowTime: 0.45
+  playOnAwake: 1
+  timeToDo: 0.2
+  changePos: 0
+  posNeed: []
+  changeScale: 1
+  scaleNeed:
+  - xPourcentScale: 80
+    yPourcentScale: 80
+  - xPourcentScale: 115
+    yPourcentScale: 115
+  changeColor: 0
+  colorNeed: []
+  evenOrOdd: 0
+--- !u!114 &6642323636812976676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5000655878010095966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  timeToDo: 0.2
+  changePos: 1
+  posNeed:
+  - xPourcentScale: 0.3
+    yPourcentScale: 0
+  changeScale: 0
+  scaleNeed: []
+  changeColor: 0
+  colorNeed: []
+  evenOrOdd: 1
+--- !u!114 &7895861061406589115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5000655878010095966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  timeToDo: 0.2
+  changePos: 1
+  posNeed:
+  - xPourcentScale: -0.3
+    yPourcentScale: 0
+  changeScale: 0
+  scaleNeed: []
+  changeColor: 0
+  colorNeed: []
+  evenOrOdd: 2

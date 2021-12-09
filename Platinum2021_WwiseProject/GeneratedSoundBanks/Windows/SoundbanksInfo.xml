@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1010553942">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1630032413">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -26,13 +26,89 @@
 			<ShortName>OSTBank</ShortName>
 			<Path>OSTBank.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="1338024708">
+		<SoundBank Id="3017428748" Language="SFX" Hash="2132958409">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="714721630" Name="Buh" ObjectPath="\Events\Default Work Unit\Stage\Crowd\Buh" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="715154991" Name="BuhApplause" ObjectPath="\Events\Default Work Unit\Stage\Crowd\BuhApplause" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3907778708" Name="BuhHola" ObjectPath="\Events\Default Work Unit\Stage\Crowd\BuhHola" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4048935073" Name="BuhSong" ObjectPath="\Events\Default Work Unit\Stage\Crowd\BuhSong" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4275771351" Name="Count1" ObjectPath="\Events\Default Work Unit\Stage\Count1" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4275771348" Name="Count2" ObjectPath="\Events\Default Work Unit\Stage\Count2" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1143320996" Name="EndOfMusic" ObjectPath="\Events\Default Work Unit\EndOfMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="859070589" Name="PlayCrypt" ObjectPath="\Events\Default Work Unit\PlayCrypt" DurationType="OneShot" DurationMin="124.133873" DurationMax="124.133873"/>
+				<Event Id="1082482811" Name="Navigation" ObjectPath="\Events\Default Work Unit\UI\Navigation" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="982796106" Name="Next" ObjectPath="\Events\Default Work Unit\UI\Next" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1589270263" Name="PauseGame" ObjectPath="\Events\Default Work Unit\PauseGame" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="859070589" Name="PlayCrypt" ObjectPath="\Events\Default Work Unit\PlayCrypt" DurationType="OneShot" DurationMin="124.133873" DurationMax="124.133873">
+					<IncludedMemoryFiles>
+						<File Id="111855593" Language="SFX">
+							<ShortName>Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4).wav</ShortName>
+							<Path>SFX\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2840201783" Name="PlayDeath" ObjectPath="\Events\Default Work Unit\Character\PlayDeath" DurationType="OneShot" DurationMin="1.650000" DurationMax="2.133333">
+					<IncludedMemoryFiles>
+						<File Id="106912977" Language="SFX">
+							<ShortName>K_1000_DEATH_05.wav</ShortName>
+							<Path>SFX\K_1000_DEATH_05_10C4C929.wem</Path>
+						</File>
+						<File Id="278564730" Language="SFX">
+							<ShortName>Alix_Death_02.wav</ShortName>
+							<Path>SFX\Alix_Death_02_10C4C929.wem</Path>
+						</File>
+						<File Id="305853774" Language="SFX">
+							<ShortName>Alix_Death_04.wav</ShortName>
+							<Path>SFX\Alix_Death_04_10C4C929.wem</Path>
+						</File>
+						<File Id="423576052" Language="SFX">
+							<ShortName>K_1000_DEATH_03.wav</ShortName>
+							<Path>SFX\K_1000_DEATH_03_10C4C929.wem</Path>
+						</File>
+						<File Id="566722943" Language="SFX">
+							<ShortName>Alix_Death_05.wav</ShortName>
+							<Path>SFX\Alix_Death_05_10C4C929.wem</Path>
+						</File>
+						<File Id="673532382" Language="SFX">
+							<ShortName>K_1000_DEATH_01.wav</ShortName>
+							<Path>SFX\K_1000_DEATH_01_10C4C929.wem</Path>
+						</File>
+						<File Id="737322455" Language="SFX">
+							<ShortName>Alix_Death_03.wav</ShortName>
+							<Path>SFX\Alix_Death_03_10C4C929.wem</Path>
+						</File>
+						<File Id="837278497" Language="SFX">
+							<ShortName>K_1000_DEATH_02.wav</ShortName>
+							<Path>SFX\K_1000_DEATH_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1037547258" Language="SFX">
+							<ShortName>K_1000_DEATH_04.wav</ShortName>
+							<Path>SFX\K_1000_DEATH_04_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{6503797A-9DEE-43F7-B445-E7B207B620DE}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}">
+							<Media>
+								<File Id="278564730"/>
+								<File Id="305853774"/>
+								<File Id="566722943"/>
+								<File Id="737322455"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{6503797A-9DEE-43F7-B445-E7B207B620DE}">
+							<Media>
+								<File Id="106912977"/>
+								<File Id="423576052"/>
+								<File Id="673532382"/>
+								<File Id="837278497"/>
+								<File Id="1037547258"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="3554160111" Name="PlayLady" ObjectPath="\Events\Default Work Unit\PlayLady" DurationType="OneShot" DurationMin="303.380341" DurationMax="303.380341">
 					<IncludedMemoryFiles>
 						<File Id="312401384" Language="SFX">
@@ -41,26 +117,293 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1295635745" Name="PlayTutel" ObjectPath="\Events\Default Work Unit\PlayTutel" DurationType="OneShot" DurationMin="196.031998" DurationMax="196.031998"/>
+				<Event Id="277487121" Name="PlayMainMusic" ObjectPath="\Events\Default Work Unit\Musique\PlayMainMusic" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="160550462" Language="SFX">
+							<ShortName>Perso GTR 4 mesures 115 BPM.wav</ShortName>
+							<Path>SFX\Perso GTR 4 mesures 115 BPM_D79FB2B7.wem</Path>
+						</File>
+						<File Id="228500161" Language="SFX">
+							<ShortName>Base rythmique  4 mesures 115BPM.wav</ShortName>
+							<Path>SFX\Base rythmique  4 mesures 115BPM_D79FB2B7.wem</Path>
+						</File>
+						<File Id="356100802" Language="SFX">
+							<ShortName>Perso Synthé 4 mesures 115 BPM.wav</ShortName>
+							<Path>SFX\Perso Synthé 4 mesures 115 BPM_D79FB2B7.wem</Path>
+						</File>
+						<File Id="405316960" Language="SFX">
+							<ShortName>Outro 4 mesures 115 BPM.wav</ShortName>
+							<Path>SFX\Outro 4 mesures 115 BPM_D79FB2B7.wem</Path>
+						</File>
+						<File Id="812710171" Language="SFX">
+							<ShortName>Perso Harpe 4 mesures 115 BPM.wav</ShortName>
+							<Path>SFX\Perso Harpe 4 mesures 115 BPM_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1729642804" Name="PlayMove" ObjectPath="\Events\Default Work Unit\Character\PlayMove" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2126442687" Name="PlaySelection" ObjectPath="\Events\Default Work Unit\Character\PlaySelection" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1489638472" Name="PlayShoot" ObjectPath="\Events\Default Work Unit\Character\PlayShoot" DurationType="OneShot" DurationMin="1.900000" DurationMax="3.500000">
+					<IncludedMemoryFiles>
+						<File Id="108546915" Language="SFX">
+							<ShortName>AlixSHot8.wav</ShortName>
+							<Path>SFX\AlixSHot8_10C4C929.wem</Path>
+						</File>
+						<File Id="297830839" Language="SFX">
+							<ShortName>K_1000_SHOT_03.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_03_10C4C929.wem</Path>
+						</File>
+						<File Id="335046646" Language="SFX">
+							<ShortName>AlixSHot5.wav</ShortName>
+							<Path>SFX\AlixSHot5_10C4C929.wem</Path>
+						</File>
+						<File Id="345391036" Language="SFX">
+							<ShortName>AlixSHot2.wav</ShortName>
+							<Path>SFX\AlixSHot2_10C4C929.wem</Path>
+						</File>
+						<File Id="384453966" Language="SFX">
+							<ShortName>AlixSHot6.wav</ShortName>
+							<Path>SFX\AlixSHot6_10C4C929.wem</Path>
+						</File>
+						<File Id="419372711" Language="SFX">
+							<ShortName>K_1000_SHOT_01.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_01_10C4C929.wem</Path>
+						</File>
+						<File Id="459676048" Language="SFX">
+							<ShortName>AlixSHot4.wav</ShortName>
+							<Path>SFX\AlixSHot4_10C4C929.wem</Path>
+						</File>
+						<File Id="609590300" Language="SFX">
+							<ShortName>K_1000_SHOT_05.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_05_10C4C929.wem</Path>
+						</File>
+						<File Id="621173241" Language="SFX">
+							<ShortName>K_1000_SHOT_07.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_07_10C4C929.wem</Path>
+						</File>
+						<File Id="701184528" Language="SFX">
+							<ShortName>K_1000_SHOT_06.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_06_10C4C929.wem</Path>
+						</File>
+						<File Id="866428292" Language="SFX">
+							<ShortName>AlixSHot3.wav</ShortName>
+							<Path>SFX\AlixSHot3_10C4C929.wem</Path>
+						</File>
+						<File Id="929642540" Language="SFX">
+							<ShortName>K_1000_SHOT_04.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_04_10C4C929.wem</Path>
+						</File>
+						<File Id="945936271" Language="SFX">
+							<ShortName>K_1000_SHOT_08.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_08_10C4C929.wem</Path>
+						</File>
+						<File Id="960711957" Language="SFX">
+							<ShortName>AlixSHot1.wav</ShortName>
+							<Path>SFX\AlixSHot1_10C4C929.wem</Path>
+						</File>
+						<File Id="988324216" Language="SFX">
+							<ShortName>K_1000_SHOT_02.wav</ShortName>
+							<Path>SFX\K_1000_SHOT_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1031276903" Language="SFX">
+							<ShortName>AlixSHot7.wav</ShortName>
+							<Path>SFX\AlixSHot7_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{6503797A-9DEE-43F7-B445-E7B207B620DE}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}">
+							<Media>
+								<File Id="108546915"/>
+								<File Id="335046646"/>
+								<File Id="345391036"/>
+								<File Id="384453966"/>
+								<File Id="459676048"/>
+								<File Id="866428292"/>
+								<File Id="960711957"/>
+								<File Id="1031276903"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{6503797A-9DEE-43F7-B445-E7B207B620DE}">
+							<Media>
+								<File Id="297830839"/>
+								<File Id="419372711"/>
+								<File Id="609590300"/>
+								<File Id="621173241"/>
+								<File Id="701184528"/>
+								<File Id="929642540"/>
+								<File Id="945936271"/>
+								<File Id="988324216"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="1295635745" Name="PlayTutel" ObjectPath="\Events\Default Work Unit\PlayTutel" DurationType="OneShot" DurationMin="196.031998" DurationMax="196.031998">
+					<IncludedMemoryFiles>
+						<File Id="245714757" Language="SFX">
+							<ShortName>Tutel.wav</ShortName>
+							<Path>SFX\Tutel_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3859834159" Name="Return" ObjectPath="\Events\Default Work Unit\UI\Return" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1973847113" Name="Selection" ObjectPath="\Events\Default Work Unit\UI\Selection" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2674882108" Name="SpkWelcom" ObjectPath="\Events\Default Work Unit\Stage\SpkWelcom" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4245097106" Name="SpkWinner" ObjectPath="\Events\Default Work Unit\Stage\SpkWinner" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2907867019" Name="StopAllMusic" ObjectPath="\Events\Default Work Unit\StopAllMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="376844784" Name="UnpauseGame" ObjectPath="\Events\Default Work Unit\UnpauseGame" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1719053472" Name="Validation" ObjectPath="\Events\Default Work Unit\UI\Validation" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="106912977" Language="SFX">
+					<ShortName>K_1000_DEATH_05.wav</ShortName>
+					<Path>SFX\K_1000_DEATH_05_10C4C929.wem</Path>
+				</File>
+				<File Id="108546915" Language="SFX">
+					<ShortName>AlixSHot8.wav</ShortName>
+					<Path>SFX\AlixSHot8_10C4C929.wem</Path>
+				</File>
 				<File Id="111855593" Language="SFX">
 					<ShortName>Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4).wav</ShortName>
 					<Path>SFX\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)_D79FB2B7.wem</Path>
+				</File>
+				<File Id="160550462" Language="SFX">
+					<ShortName>Perso GTR 4 mesures 115 BPM.wav</ShortName>
+					<Path>SFX\Perso GTR 4 mesures 115 BPM_D79FB2B7.wem</Path>
+				</File>
+				<File Id="228500161" Language="SFX">
+					<ShortName>Base rythmique  4 mesures 115BPM.wav</ShortName>
+					<Path>SFX\Base rythmique  4 mesures 115BPM_D79FB2B7.wem</Path>
 				</File>
 				<File Id="245714757" Language="SFX">
 					<ShortName>Tutel.wav</ShortName>
 					<Path>SFX\Tutel_D79FB2B7.wem</Path>
 				</File>
+				<File Id="278564730" Language="SFX">
+					<ShortName>Alix_Death_02.wav</ShortName>
+					<Path>SFX\Alix_Death_02_10C4C929.wem</Path>
+				</File>
+				<File Id="297830839" Language="SFX">
+					<ShortName>K_1000_SHOT_03.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_03_10C4C929.wem</Path>
+				</File>
+				<File Id="305853774" Language="SFX">
+					<ShortName>Alix_Death_04.wav</ShortName>
+					<Path>SFX\Alix_Death_04_10C4C929.wem</Path>
+				</File>
 				<File Id="312401384" Language="SFX">
 					<ShortName>Lady Hear Me Tonight.wav</ShortName>
 					<Path>SFX\Lady Hear Me Tonight_D79FB2B7.wem</Path>
 				</File>
+				<File Id="335046646" Language="SFX">
+					<ShortName>AlixSHot5.wav</ShortName>
+					<Path>SFX\AlixSHot5_10C4C929.wem</Path>
+				</File>
+				<File Id="345391036" Language="SFX">
+					<ShortName>AlixSHot2.wav</ShortName>
+					<Path>SFX\AlixSHot2_10C4C929.wem</Path>
+				</File>
+				<File Id="356100802" Language="SFX">
+					<ShortName>Perso Synthé 4 mesures 115 BPM.wav</ShortName>
+					<Path>SFX\Perso Synthé 4 mesures 115 BPM_D79FB2B7.wem</Path>
+				</File>
+				<File Id="384453966" Language="SFX">
+					<ShortName>AlixSHot6.wav</ShortName>
+					<Path>SFX\AlixSHot6_10C4C929.wem</Path>
+				</File>
+				<File Id="405316960" Language="SFX">
+					<ShortName>Outro 4 mesures 115 BPM.wav</ShortName>
+					<Path>SFX\Outro 4 mesures 115 BPM_D79FB2B7.wem</Path>
+				</File>
+				<File Id="419372711" Language="SFX">
+					<ShortName>K_1000_SHOT_01.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_01_10C4C929.wem</Path>
+				</File>
+				<File Id="423576052" Language="SFX">
+					<ShortName>K_1000_DEATH_03.wav</ShortName>
+					<Path>SFX\K_1000_DEATH_03_10C4C929.wem</Path>
+				</File>
+				<File Id="459676048" Language="SFX">
+					<ShortName>AlixSHot4.wav</ShortName>
+					<Path>SFX\AlixSHot4_10C4C929.wem</Path>
+				</File>
+				<File Id="566722943" Language="SFX">
+					<ShortName>Alix_Death_05.wav</ShortName>
+					<Path>SFX\Alix_Death_05_10C4C929.wem</Path>
+				</File>
+				<File Id="609590300" Language="SFX">
+					<ShortName>K_1000_SHOT_05.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_05_10C4C929.wem</Path>
+				</File>
+				<File Id="621173241" Language="SFX">
+					<ShortName>K_1000_SHOT_07.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_07_10C4C929.wem</Path>
+				</File>
+				<File Id="673532382" Language="SFX">
+					<ShortName>K_1000_DEATH_01.wav</ShortName>
+					<Path>SFX\K_1000_DEATH_01_10C4C929.wem</Path>
+				</File>
+				<File Id="701184528" Language="SFX">
+					<ShortName>K_1000_SHOT_06.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_06_10C4C929.wem</Path>
+				</File>
+				<File Id="737322455" Language="SFX">
+					<ShortName>Alix_Death_03.wav</ShortName>
+					<Path>SFX\Alix_Death_03_10C4C929.wem</Path>
+				</File>
+				<File Id="812710171" Language="SFX">
+					<ShortName>Perso Harpe 4 mesures 115 BPM.wav</ShortName>
+					<Path>SFX\Perso Harpe 4 mesures 115 BPM_D79FB2B7.wem</Path>
+				</File>
+				<File Id="837278497" Language="SFX">
+					<ShortName>K_1000_DEATH_02.wav</ShortName>
+					<Path>SFX\K_1000_DEATH_02_10C4C929.wem</Path>
+				</File>
+				<File Id="866428292" Language="SFX">
+					<ShortName>AlixSHot3.wav</ShortName>
+					<Path>SFX\AlixSHot3_10C4C929.wem</Path>
+				</File>
+				<File Id="929642540" Language="SFX">
+					<ShortName>K_1000_SHOT_04.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_04_10C4C929.wem</Path>
+				</File>
+				<File Id="945936271" Language="SFX">
+					<ShortName>K_1000_SHOT_08.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_08_10C4C929.wem</Path>
+				</File>
+				<File Id="960711957" Language="SFX">
+					<ShortName>AlixSHot1.wav</ShortName>
+					<Path>SFX\AlixSHot1_10C4C929.wem</Path>
+				</File>
+				<File Id="988324216" Language="SFX">
+					<ShortName>K_1000_SHOT_02.wav</ShortName>
+					<Path>SFX\K_1000_SHOT_02_10C4C929.wem</Path>
+				</File>
+				<File Id="1031276903" Language="SFX">
+					<ShortName>AlixSHot7.wav</ShortName>
+					<Path>SFX\AlixSHot7_10C4C929.wem</Path>
+				</File>
+				<File Id="1037547258" Language="SFX">
+					<ShortName>K_1000_DEATH_04.wav</ShortName>
+					<Path>SFX\K_1000_DEATH_04_10C4C929.wem</Path>
+				</File>
 			</IncludedMemoryFiles>
 			<GameParameters>
+				<GameParameter Id="216788283" Name="User_RTPC_Base_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\MainMusicRTPC\User_RTPC_Base_Volume"/>
+				<GameParameter Id="621928703" Name="User_RTPC_Synthe_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\MainMusicRTPC\User_RTPC_Synthe_Volume"/>
+				<GameParameter Id="1003105508" Name="User_RTPC_Harpe_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\MainMusicRTPC\User_RTPC_Harpe_Volume"/>
 				<GameParameter Id="1897326479" Name="PlayBackSpeed" ObjectPath="\Game Parameters\Default Work Unit\PlayBackSpeed"/>
+				<GameParameter Id="3666206667" Name="User_RTPC_GTR_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\MainMusicRTPC\User_RTPC_GTR_Volume"/>
 			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="436743010" Name="Character" ObjectPath="\Switches\Default Work Unit\Character" GUID="{B68D62FE-675D-4D09-A26F-22AE389CCECE}">
+					<Switches>
+						<Switch Id="775632447" Name="K1000" ObjectPath="\Switches\Default Work Unit\Character\K1000" GUID="{6503797A-9DEE-43F7-B445-E7B207B620DE}"/>
+						<Switch Id="3017403401" Name="Alix" ObjectPath="\Switches\Default Work Unit\Character\Alix" GUID="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}"/>
+						<Switch Id="2795866359" Name="Savya" ObjectPath="\Switches\Default Work Unit\Character\Savya" GUID="{47DDA0AD-015B-400E-A8BC-5D6929E15358}"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

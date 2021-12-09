@@ -8,6 +8,14 @@
 						<GameParameter Name="User_RTPC_Main_Volume" ID="{7FB037DA-DBCF-4726-9083-14CF2FCB063E}"/>
 						<GameParameter Name="User_RTPC_Music_Volume" ID="{7E19D6F7-91BA-4D17-B19E-D56A7447527B}"/>
 						<GameParameter Name="User_RTPC_SFX_Volume" ID="{E9DE5498-80B7-4640-BD17-1F8D8AA52951}"/>
+						<Folder Name="MainMusicRTPC" ID="{458FF0A9-7F24-4C7F-B68B-6636480D9AC7}" ShortID="168388496">
+							<ChildrenList>
+								<GameParameter Name="User_RTPC_Base_Volume" ID="{349BAD07-5B66-4990-8C9C-313A765BD734}"/>
+								<GameParameter Name="User_RTPC_GTR_Volume" ID="{9CCF3EB0-8AAD-4C05-B330-508DAA31B0E4}"/>
+								<GameParameter Name="User_RTPC_Harpe_Volume" ID="{CEB4073C-543E-4521-9821-8E1E95F822B6}"/>
+								<GameParameter Name="User_RTPC_Synthe_Volume" ID="{FCFD3B13-7153-48FD-9740-9984935EDBFC}"/>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<GameParameter Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}"/>
