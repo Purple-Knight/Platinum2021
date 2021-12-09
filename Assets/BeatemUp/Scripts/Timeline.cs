@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Timeline : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class Timeline : MonoBehaviour
         {
             var lastBar = Instantiate(bar, transform.position, transform.rotation);
 
+            lastBar.transform.parent = transform;
+
             var direction = endTimeline.transform.position - transform.position;
             var distance = Vector2.Distance(transform.position, endTimeline.transform.position);
 
@@ -79,14 +82,29 @@ public class Timeline : MonoBehaviour
     void createEcho()
     {
         var echoO = Instantiate(echo, transform.position, transform.rotation);
-        var colora = gameObject.GetComponent<SpriteRenderer>();
+        if (echoO.GetComponent<SpriteRenderer>())
+        {
+            var colora = gameObject.GetComponent<SpriteRenderer>();
 
-        echoO.GetComponent<SpriteRenderer>().color = new Color(colora.color.r, colora.color.g, colora.color.b, 0);
-        echoO.GetComponent<SpriteRenderer>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+            echoO.GetComponent<SpriteRenderer>().color = new Color(colora.color.r, colora.color.g, colora.color.b, 0);
+            echoO.GetComponent<SpriteRenderer>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
 
-        echoO.transform.localScale = transform.localScale * 2;
+            echoO.transform.localScale = transform.localScale * 2;
 
-        echoO.GetComponent<Echo>().scale = transform;
+            echoO.GetComponent<Echo>().scale = transform;
+        }
+        else
+        {
+            echoO.transform.parent = transform;
+            var colora = gameObject.GetComponent<Image>();
+
+            echoO.GetComponent<Image>().color = new Color(colora.color.r, colora.color.g, colora.color.b, 0);
+            echoO.GetComponent<Image>().sprite = gameObject.GetComponent<Image>().sprite;
+
+            echoO.transform.localScale = transform.localScale * 3;
+
+            echoO.GetComponent<Echo>().scaleR = GetComponent<RectTransform>();
+        }
     }
 
 
