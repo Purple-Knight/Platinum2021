@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         playersData = SaveData.Load();
         spawnPoints =  levelGen.SpawnNextMap();
         SpawnPlayer();
-        timeline.transform.position = new Vector2(timeline.transform.position.x, levelGen.transform.position.y +1.5f);
+        //timeline.transform.position = new Vector2(timeline.transform.position.x, levelGen.transform.position.y +1.5f);
         camera.SetStartPos(levelGen.transform.position);
         RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
         scoreManager.InstantiateScore();
@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(3);
         spawnPoints = levelGen.SpawnNextMap();
-        timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);// a modifier !!!
+        //timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);// a modifier !!!
         camera.SetStartPos(levelGen.transform.position);
         ResetPlayersBeforeEvent();
         camera.ResetCamera();
