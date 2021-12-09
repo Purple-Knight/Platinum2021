@@ -46,11 +46,11 @@ MonoBehaviour:
   menuMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: db1cd41d6b5b23a4fae0fade3ad8e65b, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
   gameMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: bc79c1591d16a6f408b1c9e0aa029245, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 4dadb5d05c05d394ba2ae70ff4154447, type: 2}
   stopAllMusicEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -58,15 +58,15 @@ MonoBehaviour:
   pauseEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3151c4a90f517304881f2513a2b5a426, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 6c414e5019ebf2d43baac9b8f09d997d, type: 2}
   unpauseEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 463f47d5e34e6864f85d3387f638b856, type: 2}
-  inMenu: 0
-  numberOfBeat: 0
+    WwiseObjectReference: {fileID: 11400000, guid: cbd6a1c9b0d17cc42a4f43b09b5a7946, type: 2}
+  inMenu: 1
+  numberOfBeat: 636.2761
   timeBeforeStart: 0.3
-  beatDuration: 0
+  beatDuration: 0.47620833
   duration:
   - songName: Lady
     duration: 303
@@ -76,9 +76,23 @@ MonoBehaviour:
   EndOfMusic:
     m_PersistentCalls:
       m_Calls: []
-  halfBeatTime: 0
+  halfBeatTime: 0.23810416
   level: 0
   hardPercentage: 45
   mediumPercentage: 60
   easyPercentage: 75
-  BPM: 126
+  BPM: 115
+  characterSwitch:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 14722134bd6ebfe4aad3aa505bf9d09c, type: 2}
+  deathSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d62c968e9c23e6f47b4e9b763c8aa6ce, type: 2}
+  shotSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d8988283ba71dc142878668273ce9670, type: 2}

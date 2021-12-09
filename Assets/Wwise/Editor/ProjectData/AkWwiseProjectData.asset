@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 62f9597facf65640bf460bce7fcd6097
     GuidInternal: 
-    m_lastTime: -8585685264563629188
+    m_lastTime: -8585685130077023001
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 2d6f24040ad22d429ad3984df56c0403
     GuidInternal: 
-    m_lastTime: -8585638638005933460
+    m_lastTime: -8585656540874584844
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d038ecf2d1335543bf943a8f453b7d5f
     GuidInternal: 
-    m_lastTime: -8585636860526597875
+    m_lastTime: -8585625676182851951
     List:
     - name: MusicBank
       guid: c950ed8ba691bb4196f94f83cbd3c44e
@@ -142,7 +142,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585627161598297529
+    m_lastTime: -8585625676187243381
     List:
     - name: Buh
       guid: 2f29778d8ca89e478ca548152a646be5
@@ -165,8 +165,8 @@ MonoBehaviour:
         guid: 2f29778d8ca89e478ca548152a646be5
       Path: Events\Default Work Unit\Stage\Crowd\Buh
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: BuhApplause
       guid: 6841af91829a3a4c82b2e648c5d1edbe
       id: 715154991
@@ -188,8 +188,8 @@ MonoBehaviour:
         guid: 6841af91829a3a4c82b2e648c5d1edbe
       Path: Events\Default Work Unit\Stage\Crowd\BuhApplause
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: BuhHola
       guid: 84a03284d0512c48ae1a4374ae41dbf7
       id: 3907778708
@@ -211,8 +211,8 @@ MonoBehaviour:
         guid: 84a03284d0512c48ae1a4374ae41dbf7
       Path: Events\Default Work Unit\Stage\Crowd\BuhHola
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: BuhSong
       guid: 4b833d6ef3e8e045bf3c0572c0764cc5
       id: 4048935073
@@ -234,8 +234,8 @@ MonoBehaviour:
         guid: 4b833d6ef3e8e045bf3c0572c0764cc5
       Path: Events\Default Work Unit\Stage\Crowd\BuhSong
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Character
       guid: c6e75a80bf44fb439347465f44fa668b
       id: 436743010
@@ -271,8 +271,8 @@ MonoBehaviour:
         guid: 84c5da9f89294745901b74b214685595
       Path: Events\Default Work Unit\Stage\Count1
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Count2
       guid: fba10092f8db7a4992812ef0a3e02676
       id: 4275771348
@@ -291,8 +291,8 @@ MonoBehaviour:
         guid: fba10092f8db7a4992812ef0a3e02676
       Path: Events\Default Work Unit\Stage\Count2
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Crowd
       guid: 76f263328df6bc44b2a800c291431708
       id: 2848349012
@@ -330,6 +330,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Musique
+      guid: 23740385de9b134aa90b2ef41413efe0
+      id: 69765534
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Musique
+        ObjectType: 4
+        guid: 23740385de9b134aa90b2ef41413efe0
+      Path: Events\Default Work Unit\Musique
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Navigation
       guid: 71444df21a8fe24db39caba4910dfc1b
       id: 1082482811
@@ -348,8 +365,8 @@ MonoBehaviour:
         guid: 71444df21a8fe24db39caba4910dfc1b
       Path: Events\Default Work Unit\UI\Navigation
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Next
       guid: b605a2e4866ce2428eaa106460f4dd93
       id: 982796106
@@ -368,8 +385,25 @@ MonoBehaviour:
         guid: b605a2e4866ce2428eaa106460f4dd93
       Path: Events\Default Work Unit\UI\Next
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
+    - name: PauseGame
+      guid: 1db1a090d719d5439abec704a5aeaabf
+      id: 1589270263
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: PauseGame
+        ObjectType: 3
+        guid: 1db1a090d719d5439abec704a5aeaabf
+      Path: Events\Default Work Unit\PauseGame
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: PlayCrypt
       guid: 32983bc18cc5a64abc6ad48d2e1c686e
       id: 859070589
@@ -405,8 +439,8 @@ MonoBehaviour:
         guid: 79b875ac3da7fa47834a538b0655a754
       Path: Events\Default Work Unit\Character\PlayDeath
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2.133333
+      minDuration: 1.65
     - name: PlayLady
       guid: 30077db708122647bf0c27656c56adc6
       id: 3554160111
@@ -424,9 +458,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 303.38034
       minDuration: 303.38034
-    - name: PlayMMX3
-      guid: 6a2b3e427f3c134383cc3021c1970649
-      id: 1695793358
+    - name: PlayMainMusic
+      guid: 834ce93eae467b46abe54f40a6feddf9
+      id: 277487121
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -434,10 +468,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: efa568179358f34c82c7f51cf312fce7
-      - ElementName: PlayMMX3
+      - ElementName: Musique
+        ObjectType: 4
+        guid: 23740385de9b134aa90b2ef41413efe0
+      - ElementName: PlayMainMusic
         ObjectType: 3
-        guid: 6a2b3e427f3c134383cc3021c1970649
-      Path: Events\Default Work Unit\PlayMMX3
+        guid: 834ce93eae467b46abe54f40a6feddf9
+      Path: Events\Default Work Unit\Musique\PlayMainMusic
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -459,8 +496,8 @@ MonoBehaviour:
         guid: 84b29d9eb320a243986f771d08515749
       Path: Events\Default Work Unit\Character\PlayMove
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: PlaySelection
       guid: 42ecac7eed4eb448974836734c8f7666
       id: 2126442687
@@ -479,8 +516,8 @@ MonoBehaviour:
         guid: 42ecac7eed4eb448974836734c8f7666
       Path: Events\Default Work Unit\Character\PlaySelection
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: PlayShoot
       guid: e587304c11003d468d2590af4a920d87
       id: 1489638472
@@ -499,8 +536,8 @@ MonoBehaviour:
         guid: e587304c11003d468d2590af4a920d87
       Path: Events\Default Work Unit\Character\PlayShoot
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 3.5
+      minDuration: 1.9
     - name: PlayTutel
       guid: 457bd1d1fdd49f459ce7ae1b34c2052f
       id: 1295635745
@@ -536,8 +573,8 @@ MonoBehaviour:
         guid: 7f44f7debca44c4cb939f3c809bcbab8
       Path: Events\Default Work Unit\UI\Return
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Selection
       guid: f773969f4b946840a1791099758a299f
       id: 1973847113
@@ -556,8 +593,8 @@ MonoBehaviour:
         guid: f773969f4b946840a1791099758a299f
       Path: Events\Default Work Unit\UI\Selection
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: SpkWelcom
       guid: e0dab48b15e6fd48a7fb375b5c4daed5
       id: 2674882108
@@ -576,8 +613,8 @@ MonoBehaviour:
         guid: e0dab48b15e6fd48a7fb375b5c4daed5
       Path: Events\Default Work Unit\Stage\SpkWelcom
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: SpkWinner
       guid: 53737e63ffc37445b8283c88b14d5fcc
       id: 4245097106
@@ -596,8 +633,8 @@ MonoBehaviour:
         guid: 53737e63ffc37445b8283c88b14d5fcc
       Path: Events\Default Work Unit\Stage\SpkWinner
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Stage
       guid: 31916addf4e1364eb46c932f5504fe22
       id: 1063701865
@@ -649,6 +686,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: UnpauseGame
+      guid: 17ca49cd066fb846b75084931ed28266
+      id: 376844784
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: UnpauseGame
+        ObjectType: 3
+        guid: 17ca49cd066fb846b75084931ed28266
+      Path: Events\Default Work Unit\UnpauseGame
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Validation
       guid: ae66244cfaccae40ad255b5c121c0dbd
       id: 1719053472
@@ -667,8 +721,8 @@ MonoBehaviour:
         guid: ae66244cfaccae40ad255b5c121c0dbd
       Path: Events\Default Work Unit\UI\Validation
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -681,8 +735,25 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 9a51d9a503d3e347aba274c0c14197b8
     GuidInternal: 
-    m_lastTime: -8585637728110462771
+    m_lastTime: -8585625676187233062
     List:
+    - name: MainMusicRTPC
+      guid: a9f08f45247f7f4cb68b6636480d9ac7
+      id: 818380234
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 9a51d9a503d3e347aba274c0c14197b8
+      - ElementName: User
+        ObjectType: 4
+        guid: a2ab7736f46b084e94c1b109f8ebcbcd
+      - ElementName: MainMusicRTPC
+        ObjectType: 4
+        guid: a9f08f45247f7f4cb68b6636480d9ac7
+      Path: Game Parameters\Default Work Unit\User\MainMusicRTPC
     - name: PlayBackSpeed
       guid: 0981d9f3e7eefc4bb7a9270580ba71a3
       id: 1897326479
@@ -711,6 +782,66 @@ MonoBehaviour:
         ObjectType: 4
         guid: a2ab7736f46b084e94c1b109f8ebcbcd
       Path: Game Parameters\Default Work Unit\User
+    - name: User_RTPC_Base_Volume
+      guid: 07ad9b34665b90498c9c313a765bd734
+      id: 216788283
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 9a51d9a503d3e347aba274c0c14197b8
+      - ElementName: User
+        ObjectType: 4
+        guid: a2ab7736f46b084e94c1b109f8ebcbcd
+      - ElementName: MainMusicRTPC
+        ObjectType: 4
+        guid: a9f08f45247f7f4cb68b6636480d9ac7
+      - ElementName: User_RTPC_Base_Volume
+        ObjectType: 13
+        guid: 07ad9b34665b90498c9c313a765bd734
+      Path: Game Parameters\Default Work Unit\User\MainMusicRTPC\User_RTPC_Base_Volume
+    - name: User_RTPC_GTR_Volume
+      guid: b03ecf9cad8a054cb330508daa31b0e4
+      id: 3666206667
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 9a51d9a503d3e347aba274c0c14197b8
+      - ElementName: User
+        ObjectType: 4
+        guid: a2ab7736f46b084e94c1b109f8ebcbcd
+      - ElementName: MainMusicRTPC
+        ObjectType: 4
+        guid: a9f08f45247f7f4cb68b6636480d9ac7
+      - ElementName: User_RTPC_GTR_Volume
+        ObjectType: 13
+        guid: b03ecf9cad8a054cb330508daa31b0e4
+      Path: Game Parameters\Default Work Unit\User\MainMusicRTPC\User_RTPC_GTR_Volume
+    - name: User_RTPC_Harpe_Volume
+      guid: 3c07b4ce3e54214598218e1e95f822b6
+      id: 1003105508
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 9a51d9a503d3e347aba274c0c14197b8
+      - ElementName: User
+        ObjectType: 4
+        guid: a2ab7736f46b084e94c1b109f8ebcbcd
+      - ElementName: MainMusicRTPC
+        ObjectType: 4
+        guid: a9f08f45247f7f4cb68b6636480d9ac7
+      - ElementName: User_RTPC_Harpe_Volume
+        ObjectType: 13
+        guid: 3c07b4ce3e54214598218e1e95f822b6
+      Path: Game Parameters\Default Work Unit\User\MainMusicRTPC\User_RTPC_Harpe_Volume
     - name: User_RTPC_Main_Volume
       guid: da37b07fcfdb2647908314cf2fcb063e
       id: 2403979167
@@ -762,6 +893,26 @@ MonoBehaviour:
         ObjectType: 13
         guid: 9854dee9b7804046bd171f8d8aa52951
       Path: Game Parameters\Default Work Unit\User\User_RTPC_SFX_Volume
+    - name: User_RTPC_Synthe_Volume
+      guid: 133bfdfc5371fd4897409984935edbfc
+      id: 621928703
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 9a51d9a503d3e347aba274c0c14197b8
+      - ElementName: User
+        ObjectType: 4
+        guid: a2ab7736f46b084e94c1b109f8ebcbcd
+      - ElementName: MainMusicRTPC
+        ObjectType: 4
+        guid: a9f08f45247f7f4cb68b6636480d9ac7
+      - ElementName: User_RTPC_Synthe_Volume
+        ObjectType: 13
+        guid: 133bfdfc5371fd4897409984935edbfc
+      Path: Game Parameters\Default Work Unit\User\MainMusicRTPC\User_RTPC_Synthe_Volume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -774,7 +925,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: ef9b90617ee2324197d941e57478b9dc
     GuidInternal: 
-    m_lastTime: -8585627181326054144
+    m_lastTime: -8585685130077042941
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -788,7 +939,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e86c45daced42f46981c3472f2f3724e
     GuidInternal: 
-    m_lastTime: -8585627161597748017
+    m_lastTime: -8585625676182841974
     List:
     - name: Character
       guid: fe628db65d67094da26f22ae389ccece
@@ -938,6 +1089,56 @@ MonoBehaviour:
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
+    - name: MusiqueBPM
+      guid: 971ac7f6d9649d41ac2c7a1002ba788c
+      id: 1549325189
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e86c45daced42f46981c3472f2f3724e
+      - ElementName: MusiqueBPM
+        ObjectType: 11
+        guid: 971ac7f6d9649d41ac2c7a1002ba788c
+      Path: Switches\Default Work Unit\MusiqueBPM
+      values:
+      - name: _115BPM
+        guid: fae8836316037441811414c7bc7435e0
+        id: 4009640558
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: MusiqueBPM
+          ObjectType: 11
+          guid: 971ac7f6d9649d41ac2c7a1002ba788c
+        - ElementName: _115BPM
+          ObjectType: 10
+          guid: fae8836316037441811414c7bc7435e0
+      - name: _150BPM
+        guid: f6ca5b9061c1604f9325beb00c178f33
+        id: 2541959145
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e86c45daced42f46981c3472f2f3724e
+        - ElementName: MusiqueBPM
+          ObjectType: 11
+          guid: 971ac7f6d9649d41ac2c7a1002ba788c
+        - ElementName: _150BPM
+          ObjectType: 10
+          guid: f6ca5b9061c1604f9325beb00c178f33
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -950,10 +1151,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 3437ef2ec1abd24f9668567eaa6ed463
     GuidInternal: 
-    m_lastTime: -8585660846511662473
+    m_lastTime: -8585685130077032975
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 050000000600000009000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

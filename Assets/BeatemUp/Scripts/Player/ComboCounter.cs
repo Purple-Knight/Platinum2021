@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class ComboCounter : MonoBehaviour
 {
     // ----- Player refs
     private PlayerManager playerManager;
     private Weapon currentWeapon;
-    public Transform TMP;
-    private TextMeshProUGUI comboText;
 
     // ----- Inputs
     private bool GotInput = false;
@@ -27,6 +26,11 @@ public class ComboCounter : MonoBehaviour
 
     public int maxLimit = 1000;
 
+    // ----- Feedbacks
+    public Transform TMP;
+    private TextMeshProUGUI comboText;
+    Vector3 initialScale;
+
     #region Get / Set
     public int Combo {
         get { return _combo; }
@@ -40,6 +44,8 @@ public class ComboCounter : MonoBehaviour
         Combo = 0;
 
         comboText = TMP.GetComponentInChildren<TextMeshProUGUI>();
+        initialScale = comboText.rectTransform.localScale;
+        Debug.Log(initialScale.x + " Scale");
     }
 
     public void CurrentWeaponRef(in Weapon weaponRef)
@@ -92,11 +98,11 @@ public class ComboCounter : MonoBehaviour
     }
 
     // Resets
-    public void ResetComboValues()
+    public void ResetComboValues(bool forceReset = false)
     {
-        if (Combo <= 0 && !GotInput) return;
+        if ((Combo <= 0 && !GotInput) && !forceReset) return;
 
-        if (!GotInput) ResetCombo();
+        if (!GotInput || forceReset) ResetCombo();
         GotInput = false;
     }
 
@@ -142,6 +148,22 @@ public class ComboCounter : MonoBehaviour
             Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}",
                 (byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.PlayerID + 1, Combo));
             //----
+        }
+    }
+
+    public void WeaponSwapFeedback(bool upgrade)
+    {
+        TMP.DOComplete();
+        Sequence bounceSeq = DOTween.Sequence();
+        if(upgrade)
+        {
+            bounceSeq.Append(comboText.transform.DOScale(initialScale * 2.2f,.07f));
+            bounceSeq.Append(comboText.transform.DOScale(initialScale, .13f));
+        }
+        else
+        {
+            bounceSeq.Append(comboText.transform.DOScale(initialScale * 0.6f, .04f));
+            bounceSeq.Append(comboText.transform.DOScale(initialScale, .16f));
         }
     }
 }
