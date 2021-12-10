@@ -60,6 +60,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] List<Feel> buttonFeelMap = new List<Feel>();
     List<int> playerChoice = new List<int> { 0, 0, 0, 0};
     public List<Sprite> numbers = new List<Sprite>();
+    public List<Sprite> numbersRed = new List<Sprite>();
     public Image leftImage;
     public Image rightImage;
 
@@ -492,10 +493,10 @@ public class MainMenu : MonoBehaviour
             }
         }
 
-        rightImage.sprite = numbers[right];
+        rightImage.sprite = numbersRed[right];
         leftImage.sprite = numbers[left];
 
-        if (zero <= CharacterSelection.Instance.playersActual.Count)
+        if (zero <= 4 - CharacterSelection.Instance.playersActual.Count)
         {
             state = MenuState.LOADING;
             
