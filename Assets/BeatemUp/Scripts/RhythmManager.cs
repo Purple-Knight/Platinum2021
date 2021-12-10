@@ -46,9 +46,13 @@ public class RhythmManager : MonoBehaviour
 
     [SerializeField] float BPM = 115;
 
+    //Wwise var
     [HideInInspector]public AK.Wwise.Switch characterSwitch;
     [SerializeField] private AK.Wwise.Event deathSound;
     [SerializeField] private AK.Wwise.Event shotSound;
+    [SerializeField] public AK.Wwise.RTPC gtrVolume;
+    [SerializeField] private AK.Wwise.RTPC harpeVolume;
+    [SerializeField] private AK.Wwise.RTPC syntheVolume;
 
     private void Awake()
     {
@@ -70,6 +74,12 @@ public class RhythmManager : MonoBehaviour
     {
         if (inMenu)
             StartMenu();
+        else
+        {
+            gtrVolume.SetGlobalValue(0);
+                harpeVolume.SetGlobalValue(0);
+                syntheVolume.SetGlobalValue(0);
+        }
 
     }
 
@@ -109,6 +119,27 @@ public class RhythmManager : MonoBehaviour
     public void PlayShotSound()
     {
         shotSound.Post(gameObject);
+    }
+
+    public void setTrackVolume(Track track, float volume)
+    {
+       volume =  Mathf.Clamp(volume, 0f, 100f);
+        switch (track)
+        {
+            case Track.GTR:
+                gtrVolume.SetGlobalValue(volume);
+        //Debug.Log(volume + " ----- " +gtrVolume.GetGlobalValue());
+                break;
+            case Track.HARPE:
+                harpeVolume.SetGlobalValue(volume);
+                break;
+            case Track.SYNTHE:
+                syntheVolume.SetGlobalValue(volume);
+                break;
+            default:
+                break;
+        }
+
     }
 
     private void Update()
@@ -234,13 +265,19 @@ public enum Timing
     BEFORE,
     AFTER,
     PERFECT,
-    MISS
+    MISS,
 }
 
 public enum Level
 {
     Easy,
     Medium,
-    Hard
+    Hard,
+}
 
+public enum Track
+{
+    GTR,
+    HARPE,
+    SYNTHE,
 }
