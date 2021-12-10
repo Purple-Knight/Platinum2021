@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class BarTL : MonoBehaviour
 {
@@ -26,16 +27,39 @@ public class BarTL : MonoBehaviour
     IEnumerator deletionNote()
     {
         var time = RhythmManager.Instance.beatDuration;
-        var mySprite = GetComponent<SpriteRenderer>();
-        Vector3 maScale = transform.localScale;
+        SpriteRenderer mySprite = null;
+        Image mySpriteR = null;
+        
+        if (GetComponent<SpriteRenderer>())
+        {
+            mySprite = GetComponent<SpriteRenderer>();
+            
+            Vector3 maScale = transform.localScale;
 
-        yield return new WaitForSeconds(deleteTime);
+            yield return new WaitForSeconds(deleteTime);
 
-        speed = 0;
-        direction = Vector2.zero;
+            speed = 0;
+            direction = Vector2.zero;
 
-        transform.DOScale(maScale * 3, time);
-        mySprite.DOFade(0, time);
+            transform.DOScale(maScale * 3, time);
+            mySprite.DOFade(0, time);
+        }
+        else
+        {
+            mySpriteR = GetComponent<Image>();
+            
+            Vector3 maScale = GetComponent<RectTransform>().localScale;
+
+            yield return new WaitForSeconds(deleteTime);
+
+            speed = 0;
+            direction = Vector2.zero;
+
+            GetComponent<RectTransform>().transform.DOScale(maScale * 3, time);
+            mySpriteR.DOFade(0, time);
+        }
+
+        
 
         yield return new WaitForSeconds(time);
 

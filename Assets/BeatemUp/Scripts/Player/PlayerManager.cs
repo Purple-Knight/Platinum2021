@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerManager : MonoBehaviour
 
     public Animator playerAnimator;
 
+    private Player playerController;
     [SerializeField] private Vector2 gridSize = new Vector2(1, 1);
 
     private int playerID = 0;
@@ -30,6 +32,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] AK.Wwise.Switch SwitchSavya;
     public AK.Wwise.Switch CurrentSwitch;
 
+    //[Header("virations brrrrrrrr")]
+    /*[SerializeField] int motorIndex;
+    [SerializeField] int vibrateLevel = 50;
+    [SerializeField]float vibrateDuration = .1f;*/
     /*#region Debug
     public bool debug = false;
     int maxSteps = 0;
@@ -42,10 +48,12 @@ public class PlayerManager : MonoBehaviour
     public int CharacterID { get => characterID; }
     public Vector2 GridSize { get => gridSize; }
 
+
     public void InstantiatePlayer(int controllerID, int playerNumberID, Color color, int spriteID) // Controller connexion Order, Player Order (P1, P2,...), sprite = Character Selected
     {
         //Debug.Log("Controller " + controllerID + " / Player " + playerNumberID + " / Character-Sprite " + spriteID);
         playerID = playerNumberID;
+        playerController = ReInput.players.GetPlayer(controllerID);
         characterID = spriteID;
         playerAnimator.SetFloat("CharacterID", spriteID);
         playerMovement.controllerID = controllerID;
@@ -79,6 +87,7 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayerDied(int i)
     {
+        Vibrations(0, 10, .3f);
         CurrentSwitch.SetValue(RhythmManager.Instance.gameObject);
         RhythmManager.Instance.PlayDeathSound();
         notesParticle.Play();
@@ -91,7 +100,7 @@ public class PlayerManager : MonoBehaviour
         gameObject.layer = 8;
         //movement.ResetPositions();
         StartCoroutine(DeathWait());
-        comboManager.ResetComboValues(true);
+        comboManager.ResetComboValues(true, false);
     }
 
     public void ResetPlayer()
@@ -107,7 +116,7 @@ public class PlayerManager : MonoBehaviour
         playerMovement.ResetPositions();
         playerHealth.ResetPlayer();
         playerWeapon.SwapToBaseWeapon();
-        comboManager.ResetComboValues(true);
+        comboManager.ResetComboValues(true, false);
     }
 
     public void BlockPlayerInput()
@@ -168,4 +177,10 @@ public class PlayerManager : MonoBehaviour
         }
         GUILayout.EndArea();
     }*/
+
+    public void Vibrations(int motorIndex, float vibrationLevel, float duration)
+    {
+        playerController.SetVibration(motorIndex, vibrationLevel, duration) ;
+        //playerController.SetVibration(1, vibrateLevel, vibrateDuration) ;
+    }
 }

@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 5070792888938623076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8475751, y: 1.8475751, z: 1.8475751}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5070792889428288635}
   m_RootOrder: 1
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.91125005, y: 0.84800005}
   m_AnchorMax: {x: 0.96750003, y: 0.95261884}
   m_AnchoredPosition: {x: -0.46069336, y: 2.4099426}
-  m_SizeDelta: {x: -22.927185, y: -24.9272}
+  m_SizeDelta: {x: 0.92134, y: 4.7839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5070792888938623000
 CanvasRenderer:
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endTimeline: {fileID: 5070792890162394999}
   bar: {fileID: 5328507163107234460, guid: 86bb09106d9b1244291d4366ea126e75, type: 3}
-  echo: {fileID: 8321464503538729669, guid: afbf10ceb51e12144b69497d656aec4d, type: 3}
+  echo: {fileID: 5495397101163956049, guid: 74dbe9d4bdfc660469dc502d93635c53, type: 3}
   beatToReach: 5
   multiplicatorSpeed: 1
   guiDebug: 0
@@ -164,7 +164,7 @@ RectTransform:
   m_GameObject: {fileID: 5070792890162394999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8475751, y: 1.8475751, z: 1.8475751}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5070792889428288635}
   m_RootOrder: 0
@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.035, y: 0.86800003}
   m_AnchorMax: {x: 0.08875001, y: 0.95261884}
   m_AnchoredPosition: {x: -0.5392456, y: -2.0900574}
-  m_SizeDelta: {x: -20.927185, y: -15.9272}
+  m_SizeDelta: {x: 1.0785, y: 4.1801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5070792890162394984
 CanvasRenderer:

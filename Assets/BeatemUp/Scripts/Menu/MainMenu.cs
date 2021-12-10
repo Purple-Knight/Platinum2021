@@ -54,10 +54,15 @@ public class MainMenu : MonoBehaviour
     List<bool> boolTimer = new List<bool> { false, false, false, false};
     public float deadZone;
 
+    //Map  -------------------------------------
     [Header("Map")]
     public int cursorPosMap;
     [SerializeField] List<Feel> buttonFeelMap = new List<Feel>();
-    
+    List<int> playerChoice = new List<int> { 0, 0, 0, 0};
+    public List<Sprite> numbers = new List<Sprite>();
+    public Image leftImage;
+    public Image rightImage;
+
     //Load level -------------------------------------
     [Header("Loader level")] 
     public GameObject fadeGO;
@@ -79,6 +84,7 @@ public class MainMenu : MonoBehaviour
         OPTION,
         CREDITS,
         MAPSELECT,
+        LOADING,
     }
 
     public void Awake()
@@ -274,26 +280,34 @@ public class MainMenu : MonoBehaviour
 
                         if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                         {
-                            if (cursorPosMap > 0)
+                            /*if (cursorPosMap > 0)
                             {
                                 cursorPosMap--;
                                 setCursor();
-                            }
+                            }*/
 
                             once[(players.IndexOf(item))] = true;
+
+                            playerChoice[(players.IndexOf(item))] = -1;
+                            showNumberMap();
+                            buttonFeelMap[0].launch = true;
 
                         }
 
                         else if (once[(players.IndexOf(item))] == false &&
                                  item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                         {
-                            if (cursorPosMap < buttonFeelMap.Count - 1)
+                            /*if (cursorPosMap < buttonFeelMap.Count - 1)
                             {
                                 cursorPosMap++;
                                 setCursor();
-                            }
+                            }*/
 
                             once[(players.IndexOf(item))] = true;
+                            
+                            playerChoice[(players.IndexOf(item))] = 1;
+                            showNumberMap();
+                            buttonFeelMap[1].launch = true;
 
                         }
                         else if (item.GetAxisRaw("MenuHorizontal") < deadZone &&
@@ -302,7 +316,7 @@ public class MainMenu : MonoBehaviour
                             once[(players.IndexOf(item))] = false;
                         }
 
-                        if (item.GetButtonDown("Confirm"))
+                        /*if (item.GetButtonDown("Confirm"))
                         {
                             //SceneManager.LoadScene("TestLevelGen");
                             if (cursorPosMap == 0)
@@ -316,12 +330,15 @@ public class MainMenu : MonoBehaviour
                             fadeGO.SetActive(true);
                             StartCoroutine(loadTime());
                             timeToInteract = 0.7f;
-                        }
+                        }*/
 
                         if (item.GetButtonDown("Cancel"))
                         {
                             toCharSelect();
                             timeToInteract = 0.5f;
+                            playerChoice.Clear();
+                            playerChoice = new List<int>() {0, 0, 0, 0};
+                            showNumberMap();
                         }
 
                         break;
@@ -347,11 +364,13 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator loadTime()
     {
+        RhythmManager.Instance.StopAllMusic();
+        RhythmManager.Instance.inMenu = false;
         yield return new WaitForSeconds(0.5f);
         loadingScreen.SetActive(true);
+        loader.LoadLevel("TestLevelGen");
         yield return new WaitForSeconds(0.5f);
         fadeGO.SetActive(false);
-        loader.LoadLevel("TestLevelGen");
     }
 
     void changeSliders(bool plus)
@@ -450,6 +469,56 @@ public class MainMenu : MonoBehaviour
         {
             canInteract = true;
         }
+    }
+
+    void showNumberMap()
+    {
+        var left = 0;
+        var right = 0;
+        var zero = 0;
+        
+        for (int i = 0; i < playerChoice.Count; i++)
+        {
+            switch (playerChoice[i])
+            {
+                case -1 :
+                    left++;
+                    break;
+                case 1:
+                    right++;
+                    break;
+                
+                case 0 :
+                    zero++;
+                    break;
+            }
+        }
+
+        rightImage.sprite = numbers[right];
+        leftImage.sprite = numbers[left];
+
+        if (zero <= CharacterSelection.Instance.playersActual.Count)
+        {
+            state = MenuState.LOADING;
+            
+            if (left > right)
+            {
+                RhythmManager.Instance.level = Level.Medium;
+            }
+            else if (left < right)
+            {
+                RhythmManager.Instance.level = Level.Hard;
+            }
+            else
+            {
+                if(Random.Range(0,2) == 0) RhythmManager.Instance.level = Level.Medium;
+                else RhythmManager.Instance.level = Level.Hard;
+            }
+            fadeGO.SetActive(true);
+            StartCoroutine(loadTime());
+            timeToInteract = 0.7f;
+        }
+        
     }
     
     // Scene ---------------------------------------------------------------------

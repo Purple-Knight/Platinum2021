@@ -98,15 +98,15 @@ public class ComboCounter : MonoBehaviour
     }
 
     // Resets
-    public void ResetComboValues(bool forceReset = false)
+    public void ResetComboValues(bool forceReset = false, bool playAnim = true)
     {
         if ((Combo <= 0 && !GotInput) && !forceReset) return;
 
-        if (!GotInput || forceReset) ResetCombo();
+        if (!GotInput || forceReset) ResetCombo(playAnim);
         GotInput = false;
     }
 
-    private void ResetCombo()
+    private void ResetCombo(bool playAnim)
     {
         if (zeroReset) // to 0
         {
@@ -119,7 +119,8 @@ public class ComboCounter : MonoBehaviour
             Combo = currentWeapon.ComboToDowngrade;
         }
 
-        playerManager.playerAnimator.SetTrigger("BeatMissed");
+        if(playAnim)
+            playerManager.playerAnimator.SetTrigger("BeatMissed");
         UpdateText();
     }
 
@@ -145,8 +146,8 @@ public class ComboCounter : MonoBehaviour
                 _ => Color.white,
             };
 
-            Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}",
-                (byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.PlayerID + 1, Combo));
+            //Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>J{3}</color>: Combo x{4}",
+                //(byte)(debugColor.r * 255f), (byte)(debugColor.g * 255f), (byte)(debugColor.b * 255f), playerManager.PlayerID + 1, Combo));
             //----
         }
     }
