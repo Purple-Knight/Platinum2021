@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gutter1
       objectReference: {fileID: 0}
+    - target: {fileID: 4518699010491959991, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4518699010491959993, guid: 712e4ebbfcaeef84bb09852c75477fac, type: 3}
       propertyPath: m_RootOrder
       value: 0
