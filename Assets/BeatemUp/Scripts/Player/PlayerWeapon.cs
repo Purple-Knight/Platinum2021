@@ -56,7 +56,7 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+/*        if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
             if (weapon != null)
                 weapon.Upgarde();
@@ -68,7 +68,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             if (weapon != null)
                 weapon.Downgrade();
-        }
+        }*/
     }
 
     public void SwapWeaponStyle(string key) // key = "ID" + "WeaponLvl" 
@@ -98,6 +98,24 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         playerManager.comboManager.CurrentWeaponRef(weapon); // Set weaponRef in ComboCounter
+
+        float volumeValue = weapon.weaponKey * 33;
+        //Debug.Log(RhythmManager.Instance.gtrVolume.GetGlobalValue() + "  --  " +volumeValue);
+
+        switch (playerManager.CharacterID)
+        {
+            case 0:
+                RhythmManager.Instance.setTrackVolume(Track.GTR, volumeValue);
+                break;
+            case 1:
+                RhythmManager.Instance.setTrackVolume(Track.SYNTHE, volumeValue);
+                break;
+            case 2:
+                RhythmManager.Instance.setTrackVolume(Track.HARPE, volumeValue);
+                break;
+            default:
+                break;
+        }
     }
 
     public void SwapToBaseWeapon()

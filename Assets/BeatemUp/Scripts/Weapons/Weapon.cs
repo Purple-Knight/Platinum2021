@@ -112,12 +112,45 @@ public class Weapon : MonoBehaviour
     {
         playerWeapon.SwapWeaponStyle((weaponKey + 1).ToString());
         playerManager.comboManager.WeaponSwapFeedback(true);
+        /*
+                Debug.Log("up  : " +weaponKey + " -- " +weaponKey * 33);
+                switch (playerManager.CharacterID)
+                {
+                    case 0:
+                        RhythmManager.Instance.setTrackVolume(Track.GTR, weaponKey * 33);
+                        break;
+                    case 1:
+                        RhythmManager.Instance.setTrackVolume(Track.SYNTHE, weaponKey * 33);
+                        break;
+                    case 2:
+                        RhythmManager.Instance.setTrackVolume(Track.HARPE, weaponKey * 33);
+                        break;
+                    default:
+                        break;
+                }*/
     }
 
     public void Downgrade()
     {
         playerWeapon.SwapWeaponStyle((weaponKey - 1).ToString());
         playerManager.comboManager.WeaponSwapFeedback(false);
+
+/*        Debug.Log("down  : " +weaponKey + " -- " + weaponKey * 33);
+
+        switch (playerManager.CharacterID)
+        {
+            case 0:
+                RhythmManager.Instance.setTrackVolume(Track.GTR, weaponKey * 33);
+                break;
+            case 1:
+                RhythmManager.Instance.setTrackVolume(Track.SYNTHE, weaponKey * 33);
+                break;
+            case 2:
+                RhythmManager.Instance.setTrackVolume(Track.HARPE, weaponKey * 33);
+                break;
+            default:
+                break;
+        }*/
     }
 }
 
