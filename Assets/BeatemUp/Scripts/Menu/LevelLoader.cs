@@ -15,6 +15,8 @@ public class LevelLoader : MonoBehaviour
     //Ref ------------------------------------------
     public TextMeshProUGUI textLoad;
 
+    public TextMeshProUGUI difficultyLevel;
+
     private bool isOk;
     
     private void Start()
@@ -40,6 +42,10 @@ public class LevelLoader : MonoBehaviour
     
     public void LoadLevel(string levelToLoad)
     {
+        if(RhythmManager.Instance.level == Level.Medium) difficultyLevel.text = "Medium";
+        else difficultyLevel.text = "Hard oh yeah !";
+        
+        
         StartCoroutine(LoadAsynchronously(levelToLoad));
     }
 
