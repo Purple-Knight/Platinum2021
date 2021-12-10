@@ -65,7 +65,7 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: cbd6a1c9b0d17cc42a4f43b09b5a7946, type: 2}
   inMenu: 1
   numberOfBeat: 636.2761
-  timeBeforeStart: 0.3
+  timeBeforeStart: 0.5
   beatDuration: 0.47620833
   duration:
   - songName: Lady
