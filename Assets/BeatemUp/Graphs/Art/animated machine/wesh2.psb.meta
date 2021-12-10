@@ -1,0 +1,386 @@
+fileFormatVersion: 2
+guid: 30277bbad0797034782708396de43643
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: wesh2 Copy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1065
+      y: 533
+      width: 432
+      height: 546
+    spriteID: ed3c33c74b7fecd4285ddea52bd2f12f
+    internalID: 0
+    spriteBone:
+    - name: bone_2
+      position: {x: 360.8252, y: 236.88489, z: 0}
+      rotation: {x: 0, y: 0, z: 0.9714034, w: 0.2374352}
+      length: 400.44727
+      parentId: -1
+    spriteOutline: []
+    vertices:
+    - position: {x: 0, y: 546}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 432, y: 546}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 432, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    spritePhysicsOutline: []
+    indices: 020000000300000000000000000000000100000002000000
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1065, y: -571}
+  - name: wesh2 Copy 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1065
+      y: 4
+      width: 768
+      height: 521
+    spriteID: 92ca839efb8c0ed47973b5bc8538c230
+    internalID: 0
+    spriteBone:
+    - name: bone_3
+      position: {x: 314.1183, y: 40.889526, z: 0}
+      rotation: {x: 0, y: 0, z: 0.337138, w: 0.94145525}
+      length: 354.39447
+      parentId: -1
+    spriteOutline: []
+    vertices:
+    - position: {x: 0, y: 521}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 768, y: 521}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 768, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    spritePhysicsOutline: []
+    indices: 020000000300000000000000000000000100000002000000
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 342, y: -1429}
+  - name: wesh2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1053
+      height: 1520
+    spriteID: c37f58240d620cd42a9275da4a316cd0
+    internalID: 0
+    spriteBone:
+    - name: bone_1
+      position: {x: 536.7033, y: 112.77851, z: 0}
+      rotation: {x: 0, y: 0, z: 0.71049803, w: 0.7036992}
+      length: 1379.6699
+      parentId: -1
+    spriteOutline: []
+    vertices:
+    - position: {x: 24.319946, y: 1506.7345}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 1053, y: 1520}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 1053, y: 6.632721}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    spritePhysicsOutline: []
+    indices: 020000000300000000000000000000000100000002000000
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -288, y: 4}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 2048
+  importedTextureHeight: 2048
+  documentSize: {x: 1491, y: 1954}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 2048
+  textureActualHeight: 2048
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: wesh2 Copy
+    spriteName: wesh2 Copy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ed3c33c74b7fecd4285ddea52bd2f12f
+    layerID: 0
+    mosaicPosition: {x: 1065, y: 533}
+  - name: wesh2 Copy 2
+    spriteName: wesh2 Copy 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 92ca839efb8c0ed47973b5bc8538c230
+    layerID: 1000712956
+    mosaicPosition: {x: 1065, y: 4}
+  - name: wesh2
+    spriteName: wesh2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c37f58240d620cd42a9275da4a316cd0
+    layerID: 1998190587
+    mosaicPosition: {x: 4, y: 4}
+  characterData:
+    bones:
+    - name: bone_1
+      position: {x: 828.7033, y: 112.77851, z: 0}
+      rotation: {x: 0, y: 0, z: 0.71049803, w: 0.7036992}
+      length: 1379.67
+      parentId: -1
+    - name: bone_2
+      position: {x: 1232.5482, y: 456.0483, z: 0}
+      rotation: {x: 0, y: 0, z: 0.5148785, w: 0.85726315}
+      length: 400.44733
+      parentId: 0
+    - name: bone_3
+      position: {x: 1359.0442, y: -221.49236, z: 0}
+      rotation: {x: 0, y: 0, z: -0.4316584, w: 0.9020372}
+      length: 354.39444
+      parentId: 0
+    parts:
+    - spritePosition:
+        x: 0
+        y: 1104
+        width: 432
+        height: 546
+      spriteId: ed3c33c74b7fecd4285ddea52bd2f12f
+      bones: 01000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 723
+        y: 1433
+        width: 768
+        height: 521
+      spriteId: 92ca839efb8c0ed47973b5bc8538c230
+      bones: 02000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 292
+        y: 0
+        width: 1053
+        height: 1520
+      spriteId: c37f58240d620cd42a9275da4a316cd0
+      bones: 00000000
+      parentGroup: 0
+      order: 0
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: wesh2 Texture
+  prefabAssetName: wesh2 Prefab
+  spriteLibAssetName: wesh2 Sprite Lib
+  secondarySpriteTextures: []
