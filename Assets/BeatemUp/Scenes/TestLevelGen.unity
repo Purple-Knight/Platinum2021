@@ -2016,6 +2016,7 @@ MonoBehaviour:
   - {fileID: 1725595850032086436, guid: cefd498161b17c84fb5624a0ad0bfe81, type: 3}
   - {fileID: 2636338185486253263, guid: 85a64db09e80d5c45a66cc63c273db3c, type: 3}
   - {fileID: 8731893969134894594, guid: 1570c02f7a5bdee4d8754955ea289e8d, type: 3}
+  - {fileID: 6087946143388388301, guid: 47b29d6ec9d3c614e9eb4fe0ed0dd79c, type: 3}
   colorMappings:
   - name: Player
     color: {r: 1, g: 0, b: 0, a: 1}
