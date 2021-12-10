@@ -16,7 +16,7 @@ public class CharacterSelection : MonoBehaviour
 
     //Rewired ----------------------------------------
     private List<Player> players = new List<Player>();
-    private List<Player> playersActual = new List<Player>();
+    public List<Player> playersActual = new List<Player>();
 
     
 
