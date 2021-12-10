@@ -99,12 +99,12 @@ MonoBehaviour:
   gtrVolume:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3ea6cb86b4cf32f43b16f69c884c0e88, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 9c7aa6fcb26e2c34db6762925e952724, type: 2}
   harpeVolume:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 6e90433da0ed7704cb3519d2c1aeb951, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: c6c5b9e91f57adb44b9f2420baa8eef2, type: 2}
   syntheVolume:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: a5a205a36ae26e94c9fd7004eb67a7c9, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: aa023abe9d118ef478719f3207ff7b98, type: 2}
