@@ -708,9 +708,12 @@ MonoBehaviour:
   - xPourcentScale: 0
     yPourcentScale: 25
   changeScale: 0
-  scaleNeed: []
+  scaleNeed:
+  - xPourcentScale: 0
+    yPourcentScale: 0
   changeColor: 0
-  colorNeed: []
+  colorNeed:
+  - {r: 0.8396226, g: 0.5825265, b: 0.011881431, a: 0}
   evenOrOdd: 1
 --- !u!1 &32256802
 GameObject:
@@ -3600,7 +3603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.123, y: 0.90700006}
   m_AnchorMax: {x: 0.123, y: 0.90700006}
-  m_AnchoredPosition: {x: 57.09, y: -48.199997}
+  m_AnchoredPosition: {x: 57.089996, y: -48.199997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &637766356
@@ -5612,7 +5615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.32837, y: 41.33728}
+  m_AnchoredPosition: {x: -361.32837, y: 41.3373}
   m_SizeDelta: {x: 515.2599, y: 326.29465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913188916
