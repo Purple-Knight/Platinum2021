@@ -541,7 +541,7 @@ MonoBehaviour:
   playBackSpeedRTPC:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 4b339967e1278a04b9fb3f7fd311ea6c, type: 2}
+    WwiseObjectReference: {fileID: 0}
   speed: 1
   text: {fileID: 849011886}
 --- !u!95 &404619626
@@ -1474,28 +1474,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: easyPercentage
-      value: 90
+      value: 38.3
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: hardPercentage
-      value: 39.9
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: mediumPercentage
-      value: 80
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gtrVolume.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 0302ddef39c2a0941a9a5ed1af9ea7a5, type: 2}
+      objectReference: {fileID: 11400000, guid: 7908cabc8f6f79f4399cebd32cb69fea, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: shotSound.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 387cc2c75806155479790e8f23832c2a, type: 2}
+      objectReference: {fileID: 11400000, guid: d8988283ba71dc142878668273ce9670, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: deathSound.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 04141d12a1eee114c815e73984f42838, type: 2}
+      objectReference: {fileID: 11400000, guid: d62c968e9c23e6f47b4e9b763c8aa6ce, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: duration.Array.data[0].duration
       value: 130
@@ -1507,27 +1507,27 @@ PrefabInstance:
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: pauseEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: fa5f27c03d3a091439df56c1721679b4, type: 2}
+      objectReference: {fileID: 11400000, guid: 6c414e5019ebf2d43baac9b8f09d997d, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: harpeVolume.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 72767488263248d4e9091b25d5b8538f, type: 2}
+      objectReference: {fileID: 11400000, guid: e819d3d26aaa60542ac08f40793fc497, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: syntheVolume.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 1e523ae2a8ec3ca40a2aeb693773ba70, type: 2}
+      objectReference: {fileID: 11400000, guid: bd258ee0a52b6274cb5866ce347f9193, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: unpauseEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: d1413f057d7438f479b72c1095c55cf2, type: 2}
+      objectReference: {fileID: 11400000, guid: cbd6a1c9b0d17cc42a4f43b09b5a7946, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gameMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 1fdf439c6ee8e24489ac5c9002fb5170, type: 2}
+      objectReference: {fileID: 11400000, guid: 4dadb5d05c05d394ba2ae70ff4154447, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: stopAllMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 56b8e7ab90b690c4db5ba9eca8c412ed, type: 2}
+      objectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2110,7 +2110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 678145813850342605, guid: b55310b0b495de0409dada19124b73d0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.5999756
+      value: -0.59999084
       objectReference: {fileID: 0}
     - target: {fileID: 678145814050713230, guid: b55310b0b495de0409dada19124b73d0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2128,6 +2128,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 404619622}
+    - target: {fileID: 678145814218333157, guid: b55310b0b495de0409dada19124b73d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.099975586
+      objectReference: {fileID: 0}
     - target: {fileID: 678145814252971062, guid: b55310b0b495de0409dada19124b73d0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

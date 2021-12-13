@@ -46,10 +46,10 @@ public class RhythmManagerEditor : Editor
         EditorGUI.DrawRect(new Rect(20 , 30 + inspectorOffset, (Screen.width - 95) * hardPercentage.floatValue/100, 30), Color.red);
 
         //seconds of each difficulties 
-        EditorGUI.LabelField(new Rect((Screen.width - 95) * hardPercentage.floatValue/100, 70 + inspectorOffset, 100, 10), (beatDuration * hardPercentage.floatValue /100 ).ToString() + "s");
-        EditorGUI.LabelField(new Rect((Screen.width - 95) * mediumPercentage.floatValue / 100, 70+ inspectorOffset, 100, 10), (beatDuration * mediumPercentage.floatValue / 100).ToString() + "s");
-        EditorGUI.LabelField(new Rect((Screen.width - 95) * easyPercentage.floatValue / 100, 70 + inspectorOffset, 100, 15), (beatDuration * easyPercentage.floatValue / 100).ToString() + "s");
-        EditorGUI.LabelField(new Rect((Screen.width - 100) , 70 + inspectorOffset, 100, 10),beatDuration.ToString() +"s");
+        EditorGUI.LabelField(new Rect((Screen.width - 95) * hardPercentage.floatValue/100, 70 + inspectorOffset, 100, 10), (beatDuration * hardPercentage.floatValue /100).ToString("F3") + "s");
+        EditorGUI.LabelField(new Rect((Screen.width - 95) * mediumPercentage.floatValue / 100, 70+ inspectorOffset, 100, 10), (beatDuration * mediumPercentage.floatValue / 100).ToString("F3") + "s");
+        EditorGUI.LabelField(new Rect((Screen.width - 95) * easyPercentage.floatValue / 100, 70 + inspectorOffset, 100, 15), (beatDuration * easyPercentage.floatValue / 100).ToString("F3") + "s");
+        EditorGUI.LabelField(new Rect((Screen.width - 100) , 70 + inspectorOffset, 100, 10),beatDuration.ToString("F3") +"s");
 
         EditorGUILayout.Space( 80 );
         EditorGUILayout.LabelField("Set your values here");

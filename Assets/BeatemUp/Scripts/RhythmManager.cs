@@ -11,16 +11,16 @@ public class RhythmManager : MonoBehaviour
     public delegate void OnMusicBeat();
     public OnMusicBeat onMusicBeatDelegate;
 
-    [Header("Music Selection")]
+    [Header("       Music Selection")]
     [SerializeField] AK.Wwise.Event menuMusicEvent;
     [SerializeField] AK.Wwise.Event gameMusicEvent;
     [SerializeField] AK.Wwise.Event stopAllMusicEvent;
     [SerializeField] AK.Wwise.Event pauseEvent;
     [SerializeField] AK.Wwise.Event unpauseEvent;
 
-    [Header("Beat")]
-    bool onceAtStart;
+    [Header("       Beat")]
     public bool inMenu;
+    bool onceAtStart;
 
     public float numberOfBeat;
     [SerializeField] private float timeBeforeStart;
@@ -31,15 +31,14 @@ public class RhythmManager : MonoBehaviour
     public UnityEvent InstantiateBeat;
     public UnityEvent EndOfMusic;
 
-    [Header("Beat Window")]
+    [Header("       Beat Window")]
+    public float halfBeatTime;
     private float perfectBufferTime;
     private float bufferTime;
-    public float halfBeatTime;
     
     private float timerInBetweenBeat = 0;
 
-    [Header("Buffer Time")]
-    [SerializeField] public Level level;
+    [Header("       Buffer Time")]
     [SerializeField] float hardPercentage;
     [SerializeField] float mediumPercentage;
     [SerializeField] float easyPercentage;
@@ -47,12 +46,16 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] float BPM = 115;
 
     //Wwise var
-    [HideInInspector]public AK.Wwise.Switch characterSwitch;
+    [Header("       Wwise settings")]
     [SerializeField] private AK.Wwise.Event deathSound;
     [SerializeField] private AK.Wwise.Event shotSound;
+    [HideInInspector]public AK.Wwise.Switch characterSwitch;
     [SerializeField] public AK.Wwise.RTPC gtrVolume;
     [SerializeField] private AK.Wwise.RTPC harpeVolume;
     [SerializeField] private AK.Wwise.RTPC syntheVolume;
+
+    [Header("       Buffer timer settings")]
+    public Level level;
 
     private void Awake()
     {
