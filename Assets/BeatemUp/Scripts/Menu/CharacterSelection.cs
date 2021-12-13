@@ -6,6 +6,7 @@ using Rewired;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -253,6 +254,7 @@ public class CharacterSelection : MonoBehaviour
             foreach (var item in playersActual)
             {
                 var correct = true;
+                List<GameObject> sameChar = new List<GameObject>();
 
                 foreach (var item2 in playersActual)
                 {
@@ -265,7 +267,16 @@ public class CharacterSelection : MonoBehaviour
                             charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().idColor == charPortrait[playersActual.IndexOf(item2)].GetComponent<CharBox>().idColor)
                         {
                             correct = false;
-                            Debug.Log(item.name + " " + item2.name);
+                            Debug.Log(item.name + " xxx " + item2.name);
+                            if (!sameChar.Contains(charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().OKGameObject))
+                            {
+                                sameChar.Add(charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().OKGameObject);
+                            }
+                            
+                            if (!sameChar.Contains(charPortrait[playersActual.IndexOf(item2)].GetComponent<CharBox>().OKGameObject))
+                            {
+                                sameChar.Add(charPortrait[playersActual.IndexOf(item2)].GetComponent<CharBox>().OKGameObject);
+                            }
                             break;
 
                         }
@@ -283,6 +294,16 @@ public class CharacterSelection : MonoBehaviour
                 else
                 {
                     Debug.Log("Error !!!");
+
+                    for (int i = 0; i < sameChar.Count; i++)
+                    {
+                        var theImage = sameChar[i].GetComponent<Image>();
+                        
+                        var sequence = DOTween.Sequence();
+
+                        sequence.Append(theImage.DOColor(Color.red, 0.1f));
+                        sequence.Append(theImage.DOColor(new Color(1,1,1), 0.1f));
+                    }
                     break;
                 }
             }
