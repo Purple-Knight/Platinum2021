@@ -202,7 +202,20 @@ public class CharacterSelection : MonoBehaviour
                 {
                     if (item.GetButtonDown("Cancel"))
                     {
-                        MainMenu.Instance.toMenu();
+                        bool testToQuit = false;
+                        
+                        for (int i = 0; i < 4; i++)
+                        {
+                            if (charPortrait[i].GetComponent<CharBox>().isAssigned)
+                            {
+                                testToQuit = true;
+                                break;
+                                
+                            }
+                        }
+
+                        if(!testToQuit)  MainMenu.Instance.toMenu();
+                        
                     }
                 }
             }

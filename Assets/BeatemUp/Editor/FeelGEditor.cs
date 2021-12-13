@@ -35,6 +35,7 @@ public class FeelGEditor : Editor
         EditorGUILayout.PropertyField(timeToDo);
 
         EditorGUILayout.PropertyField(lenum);
+        
 
         EditorGUILayout.PropertyField(changePos);
         if (changePos.boolValue)
