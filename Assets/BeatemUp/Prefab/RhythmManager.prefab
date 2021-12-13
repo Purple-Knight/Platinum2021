@@ -77,17 +77,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   halfBeatTime: 0.23810416
-  level: 0
   hardPercentage: 45
   mediumPercentage: 60
   easyPercentage: 75
   BPM: 115
-  characterSwitch:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 14722134bd6ebfe4aad3aa505bf9d09c, type: 2}
   deathSound:
     idInternal: 0
     valueGuidInternal: 
@@ -96,15 +89,22 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: d8988283ba71dc142878668273ce9670, type: 2}
+  characterSwitch:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 14722134bd6ebfe4aad3aa505bf9d09c, type: 2}
   gtrVolume:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 9c7aa6fcb26e2c34db6762925e952724, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: ec92908316a00b34cad8b41a0468ca6c, type: 2}
   harpeVolume:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c6c5b9e91f57adb44b9f2420baa8eef2, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: ca64e21a57a3b5c429be5a766d3338e2, type: 2}
   syntheVolume:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: aa023abe9d118ef478719f3207ff7b98, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 49f0aa7ece24d2b428229ec562fe80e6, type: 2}
+  level: 0
