@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
       propertyPath: buttonStyles.Array.data[6].ButtonTex
-      value: Road
+      value: RoadHorizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
       propertyPath: buttonStyles.Array.data[7].ButtonTex
@@ -226,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
       propertyPath: buttonStyles.Array.data[6].PreFabObject
       value: 
-      objectReference: {fileID: 417850467110991550, guid: 68a884d7f95ce824ba9bdd601472f500, type: 3}
+      objectReference: {fileID: 2153826590552704092, guid: d6677bd1f555e3a43b71f995394b9ce0, type: 3}
     - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
       propertyPath: buttonStyles.Array.data[7].PreFabObject
       value: 
