@@ -7,8 +7,8 @@ using System;
 public class GridLevelEditor : EditorWindow
 {
     //ceci est safe a changer :eyes:
-    float levelWidth = 25;
-    float levelHeight = 17;
+    float levelWidth = 18;
+    float levelHeight = 12;
 
     //don't touch >:( 
     #region Var
