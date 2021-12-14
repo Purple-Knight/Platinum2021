@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\IIM\Prog\A3\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,12 +21,7 @@
 				<GameParameter Id="2403979167" Name="User_RTPC_Main_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\User_RTPC_Main_Volume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2373808839" Language="SFX" Hash="1756160070">
-			<ObjectPath>\SoundBanks\Default Work Unit\OSTBank</ObjectPath>
-			<ShortName>OSTBank</ShortName>
-			<Path>OSTBank.bnk</Path>
-		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="2132958409">
+		<SoundBank Id="3017428748" Language="SFX" Hash="852705406">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
@@ -38,7 +33,14 @@
 				<Event Id="4275771351" Name="Count1" ObjectPath="\Events\Default Work Unit\Stage\Count1" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4275771348" Name="Count2" ObjectPath="\Events\Default Work Unit\Stage\Count2" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1143320996" Name="EndOfMusic" ObjectPath="\Events\Default Work Unit\EndOfMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1082482811" Name="Navigation" ObjectPath="\Events\Default Work Unit\UI\Navigation" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1082482811" Name="Navigation" ObjectPath="\Events\Default Work Unit\UI\Navigation" DurationType="OneShot" DurationMin="1.886965" DurationMax="2.118047">
+					<IncludedMemoryFiles>
+						<File Id="436504849" Language="SFX">
+							<ShortName>UI_Menu_Select.wav</ShortName>
+							<Path>SFX\UI_Menu_Select_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="982796106" Name="Next" ObjectPath="\Events\Default Work Unit\UI\Next" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1589270263" Name="PauseGame" ObjectPath="\Events\Default Work Unit\PauseGame" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="859070589" Name="PlayCrypt" ObjectPath="\Events\Default Work Unit\PlayCrypt" DurationType="OneShot" DurationMin="124.133873" DurationMax="124.133873">
@@ -107,6 +109,11 @@
 								<File Id="1037547258"/>
 							</Media>
 						</SwitchContainer>
+						<SwitchContainer SwitchValue="{47DDA0AD-015B-400E-A8BC-5D6929E15358}">
+							<Media>
+								<File Id="278564730"/>
+							</Media>
+						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="3554160111" Name="PlayLady" ObjectPath="\Events\Default Work Unit\PlayLady" DurationType="OneShot" DurationMin="303.380341" DurationMax="303.380341">
@@ -127,13 +134,17 @@
 							<ShortName>Base rythmique  4 mesures 115BPM.wav</ShortName>
 							<Path>SFX\Base rythmique  4 mesures 115BPM_D79FB2B7.wem</Path>
 						</File>
-						<File Id="356100802" Language="SFX">
-							<ShortName>Perso Synthé 4 mesures 115 BPM.wav</ShortName>
-							<Path>SFX\Perso Synthé 4 mesures 115 BPM_D79FB2B7.wem</Path>
-						</File>
 						<File Id="405316960" Language="SFX">
 							<ShortName>Outro 4 mesures 115 BPM.wav</ShortName>
 							<Path>SFX\Outro 4 mesures 115 BPM_D79FB2B7.wem</Path>
+						</File>
+						<File Id="552945596" Language="SFX">
+							<ShortName>Perso Synthé 4 mesures 115 BPM trim.wav</ShortName>
+							<Path>SFX\Perso Synthé 4 mesures 115 BPM trim_D79FB2B7.wem</Path>
+						</File>
+						<File Id="790813190" Language="SFX">
+							<ShortName>Intro rythmique  4 mesures 115BPM.wav</ShortName>
+							<Path>SFX\Intro rythmique  4 mesures 115BPM_D79FB2B7.wem</Path>
 						</File>
 						<File Id="812710171" Language="SFX">
 							<ShortName>Perso Harpe 4 mesures 115 BPM.wav</ShortName>
@@ -236,6 +247,11 @@
 								<File Id="988324216"/>
 							</Media>
 						</SwitchContainer>
+						<SwitchContainer SwitchValue="{47DDA0AD-015B-400E-A8BC-5D6929E15358}">
+							<Media>
+								<File Id="960711957"/>
+							</Media>
+						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="1295635745" Name="PlayTutel" ObjectPath="\Events\Default Work Unit\PlayTutel" DurationType="OneShot" DurationMin="196.031998" DurationMax="196.031998">
@@ -246,7 +262,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3859834159" Name="Return" ObjectPath="\Events\Default Work Unit\UI\Return" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3859834159" Name="Return" ObjectPath="\Events\Default Work Unit\UI\Return" DurationType="OneShot" DurationMin="3.056771" DurationMax="3.056771">
+					<IncludedMemoryFiles>
+						<File Id="929738042" Language="SFX">
+							<ShortName>UI_Menu_Cancel.wav</ShortName>
+							<Path>SFX\UI_Menu_Cancel_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1973847113" Name="Selection" ObjectPath="\Events\Default Work Unit\UI\Selection" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2674882108" Name="SpkWelcom" ObjectPath="\Events\Default Work Unit\Stage\SpkWelcom" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4245097106" Name="SpkWinner" ObjectPath="\Events\Default Work Unit\Stage\SpkWinner" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -303,10 +326,6 @@
 					<ShortName>AlixSHot2.wav</ShortName>
 					<Path>SFX\AlixSHot2_10C4C929.wem</Path>
 				</File>
-				<File Id="356100802" Language="SFX">
-					<ShortName>Perso Synthé 4 mesures 115 BPM.wav</ShortName>
-					<Path>SFX\Perso Synthé 4 mesures 115 BPM_D79FB2B7.wem</Path>
-				</File>
 				<File Id="384453966" Language="SFX">
 					<ShortName>AlixSHot6.wav</ShortName>
 					<Path>SFX\AlixSHot6_10C4C929.wem</Path>
@@ -323,9 +342,17 @@
 					<ShortName>K_1000_DEATH_03.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_03_10C4C929.wem</Path>
 				</File>
+				<File Id="436504849" Language="SFX">
+					<ShortName>UI_Menu_Select.wav</ShortName>
+					<Path>SFX\UI_Menu_Select_10C4C929.wem</Path>
+				</File>
 				<File Id="459676048" Language="SFX">
 					<ShortName>AlixSHot4.wav</ShortName>
 					<Path>SFX\AlixSHot4_10C4C929.wem</Path>
+				</File>
+				<File Id="552945596" Language="SFX">
+					<ShortName>Perso Synthé 4 mesures 115 BPM trim.wav</ShortName>
+					<Path>SFX\Perso Synthé 4 mesures 115 BPM trim_D79FB2B7.wem</Path>
 				</File>
 				<File Id="566722943" Language="SFX">
 					<ShortName>Alix_Death_05.wav</ShortName>
@@ -351,6 +378,10 @@
 					<ShortName>Alix_Death_03.wav</ShortName>
 					<Path>SFX\Alix_Death_03_10C4C929.wem</Path>
 				</File>
+				<File Id="790813190" Language="SFX">
+					<ShortName>Intro rythmique  4 mesures 115BPM.wav</ShortName>
+					<Path>SFX\Intro rythmique  4 mesures 115BPM_D79FB2B7.wem</Path>
+				</File>
 				<File Id="812710171" Language="SFX">
 					<ShortName>Perso Harpe 4 mesures 115 BPM.wav</ShortName>
 					<Path>SFX\Perso Harpe 4 mesures 115 BPM_D79FB2B7.wem</Path>
@@ -366,6 +397,10 @@
 				<File Id="929642540" Language="SFX">
 					<ShortName>K_1000_SHOT_04.wav</ShortName>
 					<Path>SFX\K_1000_SHOT_04_10C4C929.wem</Path>
+				</File>
+				<File Id="929738042" Language="SFX">
+					<ShortName>UI_Menu_Cancel.wav</ShortName>
+					<Path>SFX\UI_Menu_Cancel_10C4C929.wem</Path>
 				</File>
 				<File Id="945936271" Language="SFX">
 					<ShortName>K_1000_SHOT_08.wav</ShortName>
@@ -404,6 +439,11 @@
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3017475316" Language="SFX" Hash="3336126037">
+			<ObjectPath>\SoundBanks\Default Work Unit\SFXBank</ObjectPath>
+			<ShortName>SFXBank</ShortName>
+			<Path>SFXBank.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
