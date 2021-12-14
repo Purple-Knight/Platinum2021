@@ -138,6 +138,7 @@ public class MainMenu : MonoBehaviour
                                 item2.launch = true;
                             }
 
+                            AkSoundEngine.PostEvent("OpenDoor", gameObject);
                             pressStart.SetActive(false);
                             state = MenuState.MENU;
                             toMenu();
@@ -182,7 +183,7 @@ public class MainMenu : MonoBehaviour
                             switch (cursorPos)
                             {
                                 case 0:
-                                    toCharSelect();
+                                    StartCoroutine(toCharSelect());
                                     timeToInteract = 0.3f;
                                     break;
                                 case 1:
@@ -539,10 +540,11 @@ public class MainMenu : MonoBehaviour
         changeScreen(3, true);
     }
     
-    public void toCharSelect()
+    public IEnumerator toCharSelect()
     {
-        state = MenuState.CHARSELECT;
         changeScreen(4, false);
+        yield return new WaitForSeconds(0.4f);
+        state = MenuState.CHARSELECT;
         CharacterSelection.Instance.asignPlayers(players);
     }
 

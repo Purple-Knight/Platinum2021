@@ -25,7 +25,8 @@ public class CharacterSelection : MonoBehaviour
     [Header("Variables")]
     public List<GameObject> charPortrait = new List<GameObject>();
     public List<MapSelector> charPortraitTrue = new List<MapSelector>();
-    public List<TextMeshProUGUI> namesZone= new List<TextMeshProUGUI>();
+    public List<Image> namesZone = new List<Image>();
+    public List<Sprite> names = new List<Sprite>();
     public float deadZone;
     public GameObject buttonStart;
     bool canStart;
@@ -129,13 +130,15 @@ public class CharacterSelection : MonoBehaviour
                         {
                             if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].downValue();
                             n1.changeChar(true);
-                            namesZone[playersActual.IndexOf(item)].text = n1.characterList[n1.idChar].name;
+                            
+                            namesZone[playersActual.IndexOf(item)].sprite = names[charPortraitTrue[playersActual.IndexOf(item)].actualID];
                         }
                         else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                         {
                             if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].upValue();
                             n1.changeChar(false);
-                            namesZone[playersActual.IndexOf(item)].text = n1.characterList[n1.idChar].name;
+
+                            namesZone[playersActual.IndexOf(item)].sprite = names[charPortraitTrue[playersActual.IndexOf(item)].actualID];
                         }
 
 
@@ -308,7 +311,8 @@ public class CharacterSelection : MonoBehaviour
                         sequence.Append(theImage.DOColor(Color.red, 0.1f));
                         sequence.Append(theImage.DOColor(new Color(1,1,1), 0.1f));
                     }
-                    break;
+                    
+                    AkSoundEngine.PostEvent("Error", gameObject);
                 }
             }
         }
