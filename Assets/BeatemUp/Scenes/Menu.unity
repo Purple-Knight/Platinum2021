@@ -4743,10 +4743,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: menuMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -10885,6 +10881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088575134}
   - component: {fileID: 2088575133}
+  - component: {fileID: 2088575135}
   m_Layer: 0
   m_Name: AKSoundBank
   m_TagString: Untagged
@@ -10930,6 +10927,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088575135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088575132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63ac4d926ccf3f4099c3e26e001aa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 67845f1a36d7f3243ac054b39c88245e, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &2093487709
 GameObject:
   m_ObjectHideFlags: 0
@@ -11594,7 +11615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1769615763752225319, guid: 94de4595a37afa045b6cb15acf166e0b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 59.57269
+      value: 59.572693
       objectReference: {fileID: 0}
     - target: {fileID: 7021777535521031963, guid: 94de4595a37afa045b6cb15acf166e0b, type: 3}
       propertyPath: m_IsActive

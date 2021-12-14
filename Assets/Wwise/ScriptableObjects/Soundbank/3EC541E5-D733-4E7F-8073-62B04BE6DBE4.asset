@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717ab3ec6b2637840be5be66f61c66df, type: 3}
-  m_Name: D1D17B45-D4FD-459F-9CE7-AE1B34C2052F
+  m_Script: {fileID: 11500000, guid: baa4c1a885507ba42b5e7ee97905c3cd, type: 3}
+  m_Name: 3EC541E5-D733-4E7F-8073-62B04BE6DBE4
   m_EditorClassIdentifier: 
-  objectName: PlayTutel
-  id: 1295635745
-  guid: D1D17B45-D4FD-459F-9CE7-AE1B34C2052F
+  objectName: SFXBank
+  id: 3017475316
+  guid: 3EC541E5-D733-4E7F-8073-62B04BE6DBE4
