@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.98975, y: 49.083153}
+  m_AnchoredPosition: {x: -361.98975, y: 49.08316}
   m_SizeDelta: {x: 516.5823, y: 326.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10086874
@@ -4720,6 +4720,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: gtrVolume.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 7908cabc8f6f79f4399cebd32cb69fea, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: harpeVolume.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: e819d3d26aaa60542ac08f40793fc497, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: syntheVolume.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: bd258ee0a52b6274cb5866ce347f9193, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 6

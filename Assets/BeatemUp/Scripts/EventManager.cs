@@ -53,7 +53,7 @@ public class EventManager : MonoBehaviour
 
     public void StartEvent()
     {
-        if(Random.Range(0,2) == 0)
+        if(RhythmManager.Instance.level == Level.Medium)
         {
             speedUp = true;
             text.text = "Event : Speed Up!";

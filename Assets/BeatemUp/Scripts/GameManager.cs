@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject timeline;
 
     [SerializeField] Animator endGameAnim;
+    int currentRound = 0;
 
     void Start()
     {
@@ -153,7 +154,8 @@ public class GameManager : MonoBehaviour
         camera.SetStartPos(levelGen.transform.position);
         ResetPlayersBeforeEvent();
         camera.ResetCamera();
-        if (Random.Range(0, 5) >= 4)
+        currentRound++;
+        if (currentRound == 4)
         {
             hasEvent = true;
             endGameAnim.SetTrigger("StartEvent");

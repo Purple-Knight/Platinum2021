@@ -541,7 +541,7 @@ MonoBehaviour:
   playBackSpeedRTPC:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 7e5ce831d29f65b46a45fe9616fd39fe, type: 2}
   speed: 1
   text: {fileID: 849011886}
 --- !u!95 &404619626
