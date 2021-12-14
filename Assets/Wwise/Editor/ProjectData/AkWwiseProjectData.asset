@@ -142,7 +142,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585625637433624050
+    m_lastTime: -8585621200882807231
     List:
     - name: Buh
       guid: 2f29778d8ca89e478ca548152a646be5
@@ -365,8 +365,8 @@ MonoBehaviour:
         guid: 71444df21a8fe24db39caba4910dfc1b
       Path: Events\Default Work Unit\UI\Navigation
       maxAttenuation: 0
-      maxDuration: 2.118047
-      minDuration: 1.886965
+      maxDuration: 2.119271
+      minDuration: 2.000325
     - name: Next
       guid: b605a2e4866ce2428eaa106460f4dd93
       id: 982796106
@@ -385,8 +385,8 @@ MonoBehaviour:
         guid: b605a2e4866ce2428eaa106460f4dd93
       Path: Events\Default Work Unit\UI\Next
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.875
+      minDuration: 1.875
     - name: PauseGame
       guid: 1db1a090d719d5439abec704a5aeaabf
       id: 1589270263
@@ -439,7 +439,7 @@ MonoBehaviour:
         guid: 79b875ac3da7fa47834a538b0655a754
       Path: Events\Default Work Unit\Character\PlayDeath
       maxAttenuation: 0
-      maxDuration: 2.133333
+      maxDuration: 2.6
       minDuration: 1.65
     - name: PlayLady
       guid: 30077db708122647bf0c27656c56adc6
@@ -458,9 +458,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 303.38034
       minDuration: 303.38034
-    - name: PlayMainMusic
+    - name: PlayMainMusic_115bpm
       guid: 834ce93eae467b46abe54f40a6feddf9
-      id: 277487121
+      id: 327194170
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -471,13 +471,33 @@ MonoBehaviour:
       - ElementName: Musique
         ObjectType: 4
         guid: 23740385de9b134aa90b2ef41413efe0
-      - ElementName: PlayMainMusic
+      - ElementName: PlayMainMusic_115bpm
         ObjectType: 3
         guid: 834ce93eae467b46abe54f40a6feddf9
-      Path: Events\Default Work Unit\Musique\PlayMainMusic
+      Path: Events\Default Work Unit\Musique\PlayMainMusic_115bpm
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: PlayMainMusic_150bpm
+      guid: 5088c349a8b82642896fb50a1e5c61e1
+      id: 710931125
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Musique
+        ObjectType: 4
+        guid: 23740385de9b134aa90b2ef41413efe0
+      - ElementName: PlayMainMusic_150bpm
+        ObjectType: 3
+        guid: 5088c349a8b82642896fb50a1e5c61e1
+      Path: Events\Default Work Unit\Musique\PlayMainMusic_150bpm
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: PlayMove
       guid: 84b29d9eb320a243986f771d08515749
       id: 1729642804
@@ -537,7 +557,7 @@ MonoBehaviour:
       Path: Events\Default Work Unit\Character\PlayShoot
       maxAttenuation: 0
       maxDuration: 3.5
-      minDuration: 1.9
+      minDuration: 1.719
     - name: PlayTutel
       guid: 457bd1d1fdd49f459ce7ae1b34c2052f
       id: 1295635745
@@ -573,8 +593,8 @@ MonoBehaviour:
         guid: 7f44f7debca44c4cb939f3c809bcbab8
       Path: Events\Default Work Unit\UI\Return
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 3.056771
+      minDuration: 3.056771
     - name: Selection
       guid: f773969f4b946840a1791099758a299f
       id: 1973847113
@@ -1154,7 +1174,7 @@ MonoBehaviour:
     m_lastTime: -8585660846511662473
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000090000001400000015000000
+  ExpandedWaapiItemIds: 010000000500000006000000090000001400000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

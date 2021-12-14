@@ -911,7 +911,6 @@
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{F450ADF5-FACC-4E33-9AD7-ED540602CC03}" ShortID="1055047002">
 													<PropertyList>
-														<Property Name="LoopCount" Type="int16" Value="0"/>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<SegmentRef Name="Music_115bpm" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}"/>
@@ -940,6 +939,34 @@
 										<MusicSegment Name="Music_150bpm" ID="{2DC6D85D-7FAE-475D-AE1F-056648DBFFC9}" ShortID="116731395">
 											<PropertyList>
 												<Property Name="EndPosition" Type="Real64" Value="99552.3269285687"/>
+												<Property Name="PlaybackSpeed" Type="Real64">
+													<RTPCList>
+														<RTPC Name="" ID="{91DE06FA-6DFC-46FB-8435-826A6CFCDD6C}" ShortID="69421483">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{82D6CA10-C312-4545-AB40-57C27534C3DF}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0.75</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>1.25</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -951,6 +978,36 @@
 											</ReferenceList>
 											<ChildrenList>
 												<MusicTrack Name="Music_150Bpm_Base_Alix" ID="{3F8720DD-9571-43E7-BC07-2899C32795C2}" ShortID="889649128">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{626ECF55-2F4B-472A-9A6F-F91268233D80}" ShortID="234109733">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_GTR_Volume" ID="{9CCF3EB0-8AAD-4C05-B330-508DAA31B0E4}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{9019D312-3765-4B35-B86D-175D4B34DBCD}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1002,6 +1059,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_Base_K1000" ID="{A2043994-9A1F-4F86-A42D-CA15456151A3}" ShortID="941052888">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{80C20811-8544-4A5E-8BF6-377824EF458B}" ShortID="423244009">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Synthe_Volume" ID="{FCFD3B13-7153-48FD-9740-9984935EDBFC}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{B82AD048-B878-4846-B338-652C91635FEF}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1053,6 +1140,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_Base_Savya" ID="{420833C5-277C-44FE-A166-7FA81082CB80}" ShortID="184772075">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{37538E56-525D-4315-AF27-4A42E0DDB917}" ShortID="730110098">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Harpe_Volume" ID="{CEB4073C-543E-4521-9821-8E1E95F822B6}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{81666097-3BD4-4B2D-B79D-82F8A29CF183}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1105,6 +1222,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_StereoMix_Base_Music" ID="{9D75FC5B-D28B-49F5-AE1B-6A7C0983645E}" ShortID="231226490">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{FB36D17A-B4EF-4F6E-8B9F-2270B194CC85}" ShortID="558376264">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Base_Volume" ID="{349BAD07-5B66-4990-8C9C-313A765BD734}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{959748EE-6F42-49EE-BFB4-3BAD5FEB8ABB}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1196,6 +1343,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_StereoMix_Base_Music_Final" ID="{A4A08FD5-FA92-4C2D-B8C6-92985E586652}" ShortID="580862016">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{27661EEB-8C30-4DF1-BC91-A103FC586E65}" ShortID="997690834">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Base_Volume" ID="{349BAD07-5B66-4990-8C9C-313A765BD734}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{D14C0FD5-84B6-4D4A-ACA2-814A7B8D2278}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1247,6 +1424,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_StereoMix_Base_Music_Intro" ID="{136816CB-0272-4F1A-87DD-3C823DDC637E}" ShortID="56264170">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{EEC4618A-887E-4105-AEA7-52B704F5CF77}" ShortID="95139847">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Base_Volume" ID="{349BAD07-5B66-4990-8C9C-313A765BD734}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{3E7B836D-ABF3-4B64-9EBD-426D8989F663}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1333,7 +1540,16 @@
 									</TransitionList>
 									<ObjectLists/>
 									<Playlist>
-										<MusicPlaylistItem Name="" ID="{04668C4D-9FF7-420B-B1D4-2BCB547C6B1E}" ShortID="793723946"/>
+										<MusicPlaylistItem Name="" ID="{04668C4D-9FF7-420B-B1D4-2BCB547C6B1E}" ShortID="793723946">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{F4D30E1B-DB9C-4BEE-88F2-A699AABDE2C1}" ShortID="722853376">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Music_150bpm" ID="{2DC6D85D-7FAE-475D-AE1F-056648DBFFC9}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
 									</Playlist>
 								</MusicPlaylistContainer>
 							</ChildrenList>
@@ -1439,374 +1655,6 @@
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
 													<Property Name="TimeMs" Type="Real64" Value="1000"/>
-												</PropertyList>
-											</MusicCue>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
-						</MusicSegment>
-					</ChildrenList>
-				</Folder>
-				<Folder Name="Old" ID="{E832ACB2-3305-4987-A0EF-23CB04F90D63}" ShortID="188813416">
-					<ChildrenList>
-						<MusicSegment Name="Crypt of the Necrodancer Danganronpa OST" ID="{6F62C79A-2CF3-4B72-BD6F-C90EA05F32E8}" ShortID="191731233">
-							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="135562.448979591"/>
-								<Property Name="PlaybackSpeed" Type="Real64">
-									<RTPCList>
-										<RTPC Name="" ID="{B88DEFCC-8559-4C6B-9E94-4777AEF8EF77}" ShortID="554619339">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{8933379A-F8B8-4D9A-AB58-0E6F24097D66}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="1"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>0.25</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>50</XPos>
-														<YPos>1</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>100</XPos>
-														<YPos>2</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
-								</Property>
-								<Property Name="Tempo" Type="Real64" Value="126"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Music" ID="{A2DA3F8A-98B0-42CE-B346-C23A45E1FC95}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicTrack Name="Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)" ID="{293814B3-524B-473A-8D50-B814434E31F2}" ShortID="713605716">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)" ID="{647AD847-78A5-4413-9A2A-A67F99632341}">
-											<Language>SFX</Language>
-											<AudioFile>Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4).wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="111855593"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<TransitionList>
-										<MusicTransition Name="Root" ID="{881424BB-D1B4-44F4-93E1-0DFFF7A5C12B}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<ObjectLists>
-										<ObjectList Name="Sequences">
-											<Reference>
-												<Local>
-													<MusicTrackSequence Name="" ID="{20E03BCC-6CE3-4B87-9F08-50E1B0EDCD8B}">
-														<ObjectLists>
-															<ObjectList Name="Clips">
-																<Reference>
-																	<Local>
-																		<MusicClip Name="Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)" ID="{6EAFC43F-E1E5-4317-9F5E-954E0F18A4E0}">
-																			<PropertyList>
-																				<Property Name="EndTrimOffset" Type="Real64" Value="124133.87755102"/>
-																				<Property Name="FadeInMode" Type="int16" Value="0"/>
-																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																			</PropertyList>
-																			<AudioSourceRef Name="Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)" ID="{647AD847-78A5-4413-9A2A-A67F99632341}"/>
-																		</MusicClip>
-																	</Local>
-																</Reference>
-															</ObjectList>
-														</ObjectLists>
-													</MusicTrackSequence>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-								</MusicTrack>
-							</ChildrenList>
-							<ObjectLists>
-								<ObjectList Name="Cues">
-									<Reference>
-										<Local>
-											<MusicCue Name="Entry Cue" ID="{2046CB65-9590-4703-A91C-3C9D42A8D96A}"/>
-										</Local>
-									</Reference>
-									<Reference>
-										<Local>
-											<MusicCue Name="Exit Cue" ID="{9CFDE9BB-076B-4B55-AC89-6BA02368CD00}">
-												<PropertyList>
-													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="124133.87755102"/>
-												</PropertyList>
-											</MusicCue>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
-						</MusicSegment>
-						<MusicSegment Name="Tutel" ID="{A526841F-2AA1-4C3D-A438-0702E3F8AAE7}" ShortID="457587574">
-							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="196032"/>
-								<Property Name="PlaybackSpeed" Type="Real64">
-									<RTPCList>
-										<RTPC Name="" ID="{51736E9D-94B9-4521-A41E-3E7B6B9FEDAB}" ShortID="560218826">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{495118B6-661A-47CE-A040-36CEEF207150}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="1"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>0.25</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>50</XPos>
-														<YPos>1</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>100</XPos>
-														<YPos>2</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
-								</Property>
-								<Property Name="Tempo" Type="Real64" Value="90"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Music" ID="{A2DA3F8A-98B0-42CE-B346-C23A45E1FC95}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicTrack Name="Tutel" ID="{4289B11B-47E2-45A1-A02D-CC2DF0EA8DC4}" ShortID="336841146">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Tutel" ID="{A6BCDAAA-645B-41B2-993A-0638CA5F2495}">
-											<Language>SFX</Language>
-											<AudioFile>Tutel.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="245714757"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<TransitionList>
-										<MusicTransition Name="Root" ID="{C6EA327B-7748-45D2-803C-A607B6C3D790}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<ObjectLists>
-										<ObjectList Name="Sequences">
-											<Reference>
-												<Local>
-													<MusicTrackSequence Name="" ID="{C27C4604-0DD2-47B9-921D-F406A04FA411}">
-														<ObjectLists>
-															<ObjectList Name="Clips">
-																<Reference>
-																	<Local>
-																		<MusicClip Name="Tutel" ID="{726004BD-174E-4CCD-8601-507EC5E17BBD}">
-																			<PropertyList>
-																				<Property Name="EndTrimOffset" Type="Real64" Value="196032"/>
-																				<Property Name="FadeInMode" Type="int16" Value="0"/>
-																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																			</PropertyList>
-																			<AudioSourceRef Name="Tutel" ID="{A6BCDAAA-645B-41B2-993A-0638CA5F2495}"/>
-																		</MusicClip>
-																	</Local>
-																</Reference>
-															</ObjectList>
-														</ObjectLists>
-													</MusicTrackSequence>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-								</MusicTrack>
-							</ChildrenList>
-							<ObjectLists>
-								<ObjectList Name="Cues">
-									<Reference>
-										<Local>
-											<MusicCue Name="Entry Cue" ID="{C778E522-EA51-4D36-BC55-7FBBA12F570F}"/>
-										</Local>
-									</Reference>
-									<Reference>
-										<Local>
-											<MusicCue Name="Exit Cue" ID="{E1E20599-ADA1-4107-A5C3-57E892086005}">
-												<PropertyList>
-													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="196032"/>
-												</PropertyList>
-											</MusicCue>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
-						</MusicSegment>
-						<MusicSegment Name="Lady Hear Me Tonight" ID="{7D635622-B4CA-47AF-BBBA-C2CFF5B74077}" ShortID="751790578">
-							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="303380.333333333"/>
-								<Property Name="PlaybackSpeed" Type="Real64">
-									<RTPCList>
-										<RTPC Name="" ID="{DB5D2CE1-00F5-4C1B-9DA4-E9565DBB4594}" ShortID="312123538">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{B5619EFF-DB4F-4F77-8099-CDF2BBEE5ACF}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="1"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>0.75</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>50</XPos>
-														<YPos>1</YPos>
-														<Flags>0</Flags>
-													</Point>
-													<Point>
-														<XPos>100</XPos>
-														<YPos>1.25</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
-								</Property>
-								<Property Name="Tempo" Type="Real64" Value="126"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Music" ID="{A2DA3F8A-98B0-42CE-B346-C23A45E1FC95}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicTrack Name="Lady Hear Me Tonight" ID="{093A9761-33B4-4CFF-B433-6E2EB2378AD7}" ShortID="62384657">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Lady Hear Me Tonight" ID="{1A143854-0298-4BB4-8047-60CE89C33C13}">
-											<Language>SFX</Language>
-											<AudioFile>Lady Hear Me Tonight.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="312401384"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<TransitionList>
-										<MusicTransition Name="Root" ID="{16366F1B-0815-4C42-B5E4-D43181BCFDE1}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<ObjectLists>
-										<ObjectList Name="Sequences">
-											<Reference>
-												<Local>
-													<MusicTrackSequence Name="" ID="{43352D78-F262-4862-ADBC-F9962537A7B4}">
-														<ObjectLists>
-															<ObjectList Name="Clips">
-																<Reference>
-																	<Local>
-																		<MusicClip Name="Lady Hear Me Tonight" ID="{0CD2E4D2-ED77-497C-8B9D-21F76D1C92AE}">
-																			<PropertyList>
-																				<Property Name="EndTrimOffset" Type="Real64" Value="303380.333333333"/>
-																				<Property Name="FadeInMode" Type="int16" Value="0"/>
-																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																			</PropertyList>
-																			<AudioSourceRef Name="Lady Hear Me Tonight" ID="{1A143854-0298-4BB4-8047-60CE89C33C13}"/>
-																		</MusicClip>
-																	</Local>
-																</Reference>
-															</ObjectList>
-														</ObjectLists>
-													</MusicTrackSequence>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-								</MusicTrack>
-							</ChildrenList>
-							<ObjectLists>
-								<ObjectList Name="Cues">
-									<Reference>
-										<Local>
-											<MusicCue Name="Entry Cue" ID="{3F206926-FB16-4F58-ACEB-BFF60B3B68A5}"/>
-										</Local>
-									</Reference>
-									<Reference>
-										<Local>
-											<MusicCue Name="Exit Cue" ID="{8B894B6A-0E39-4D5F-A527-92C163B5A268}">
-												<PropertyList>
-													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="303380.333333333"/>
-												</PropertyList>
-											</MusicCue>
-										</Local>
-									</Reference>
-									<Reference>
-										<Local>
-											<MusicCue Name="MusicEnd" ID="{52D3D8C9-C3F7-4631-87B2-ACDAE5E7F03F}">
-												<PropertyList>
-													<Property Name="CueType" Type="int16" Value="2"/>
-													<Property Name="TimeMs" Type="Real64" Value="120415.073043919"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>
