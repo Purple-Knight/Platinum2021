@@ -156,6 +156,7 @@ public class MainMenu : MonoBehaviour
                             if (cursorPos > 0) cursorPos--;
                             once[(players.IndexOf(item))] = true;
                             setCursor();
+                            AkSoundEngine.PostEvent("Navigation", gameObject);
                         }
 
                         else if (once[(players.IndexOf(item))] == false &&
@@ -164,6 +165,7 @@ public class MainMenu : MonoBehaviour
                             if (cursorPos < cPosition.Count - 1) cursorPos++;
                             once[(players.IndexOf(item))] = true;
                             setCursor();
+                            AkSoundEngine.PostEvent("Navigation", gameObject);
 
                         }
                         else if (item.GetAxisRaw("MenuHorizontal") < deadZone &&
@@ -210,6 +212,7 @@ public class MainMenu : MonoBehaviour
                         {
                             toMenu();
                             timeToInteract = 0.3f;
+                            AkSoundEngine.PostEvent("Return", gameObject);
                         }
 
                         break;
@@ -222,6 +225,7 @@ public class MainMenu : MonoBehaviour
                             if (cursorPosOption > 0) cursorPosOption--;
                             once[(players.IndexOf(item))] = true;
                             setCursor();
+                            AkSoundEngine.PostEvent("Navigation", gameObject);
                         }
 
                         else if (once[(players.IndexOf(item))] == false &&
@@ -230,6 +234,7 @@ public class MainMenu : MonoBehaviour
                             if (cursorPosOption < cPositionOption.Count - 1) cursorPosOption++;
                             once[(players.IndexOf(item))] = true;
                             setCursor();
+                            AkSoundEngine.PostEvent("Navigation", gameObject);
 
                         }
 
@@ -272,6 +277,7 @@ public class MainMenu : MonoBehaviour
                         {
                             toMenu();
                             timeToInteract = 0.3f;
+                            AkSoundEngine.PostEvent("Return", gameObject);
                         }
 
                         break;
@@ -281,34 +287,27 @@ public class MainMenu : MonoBehaviour
 
                         if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                         {
-                            /*if (cursorPosMap > 0)
-                            {
-                                cursorPosMap--;
-                                setCursor();
-                            }*/
-
                             once[(players.IndexOf(item))] = true;
 
                             playerChoice[(players.IndexOf(item))] = -1;
                             showNumberMap();
                             buttonFeelMap[0].launch = true;
+                            
+                            AkSoundEngine.PostEvent("Navigation", gameObject);
 
                         }
 
                         else if (once[(players.IndexOf(item))] == false &&
                                  item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                         {
-                            /*if (cursorPosMap < buttonFeelMap.Count - 1)
-                            {
-                                cursorPosMap++;
-                                setCursor();
-                            }*/
 
                             once[(players.IndexOf(item))] = true;
                             
                             playerChoice[(players.IndexOf(item))] = 1;
                             showNumberMap();
                             buttonFeelMap[1].launch = true;
+                            
+                            AkSoundEngine.PostEvent("Navigation", gameObject);
 
                         }
                         else if (item.GetAxisRaw("MenuHorizontal") < deadZone &&
@@ -316,22 +315,7 @@ public class MainMenu : MonoBehaviour
                         {
                             once[(players.IndexOf(item))] = false;
                         }
-
-                        /*if (item.GetButtonDown("Confirm"))
-                        {
-                            //SceneManager.LoadScene("TestLevelGen");
-                            if (cursorPosMap == 0)
-                            {
-                                RhythmManager.Instance.level = Level.Medium;
-                            }
-                            else
-                            {
-                                RhythmManager.Instance.level = Level.Hard;
-                            }
-                            fadeGO.SetActive(true);
-                            StartCoroutine(loadTime());
-                            timeToInteract = 0.7f;
-                        }*/
+                        
 
                         if (item.GetButtonDown("Cancel"))
                         {
@@ -340,6 +324,7 @@ public class MainMenu : MonoBehaviour
                             playerChoice.Clear();
                             playerChoice = new List<int>() {0, 0, 0, 0};
                             showNumberMap();
+                            AkSoundEngine.PostEvent("Return", gameObject);
                         }
 
                         break;
@@ -384,6 +369,8 @@ public class MainMenu : MonoBehaviour
             SetVolumeGen();
             SetVolumeMusic();
             SetVolumeSFX();
+            
+            if (cursorPosOption == 2) AkSoundEngine.PostEvent("Navigation", gameObject);
         }
     }
 

@@ -1,15 +1,80 @@
 Event	ID	Name			Wwise Object Path	Notes
+	277487121	PlayMainMusic			\Default Work Unit\Musique\PlayMainMusic	
+	376844784	UnpauseGame			\Default Work Unit\UnpauseGame	
+	714721630	Buh			\Default Work Unit\Stage\Crowd\Buh	
+	715154991	BuhApplause			\Default Work Unit\Stage\Crowd\BuhApplause	
 	859070589	PlayCrypt			\Default Work Unit\PlayCrypt	
+	982796106	Next			\Default Work Unit\UI\Next	
+	1082482811	Navigation			\Default Work Unit\UI\Navigation	
 	1143320996	EndOfMusic			\Default Work Unit\EndOfMusic	
 	1295635745	PlayTutel			\Default Work Unit\PlayTutel	
+	1489638472	PlayShoot			\Default Work Unit\Character\PlayShoot	
+	1589270263	PauseGame			\Default Work Unit\PauseGame	
+	1719053472	Validation			\Default Work Unit\UI\Validation	
+	1729642804	PlayMove			\Default Work Unit\Character\PlayMove	
+	1973847113	Selection			\Default Work Unit\UI\Selection	
+	2126442687	PlaySelection			\Default Work Unit\Character\PlaySelection	
+	2674882108	SpkWelcom			\Default Work Unit\Stage\SpkWelcom	
+	2840201783	PlayDeath			\Default Work Unit\Character\PlayDeath	
 	2907867019	StopAllMusic			\Default Work Unit\StopAllMusic	
 	3554160111	PlayLady			\Default Work Unit\PlayLady	
+	3859834159	Return			\Default Work Unit\UI\Return	
+	3907778708	BuhHola			\Default Work Unit\Stage\Crowd\BuhHola	
+	4048935073	BuhSong			\Default Work Unit\Stage\Crowd\BuhSong	
+	4245097106	SpkWinner			\Default Work Unit\Stage\SpkWinner	
+	4275771348	Count2			\Default Work Unit\Stage\Count2	
+	4275771351	Count1			\Default Work Unit\Stage\Count1	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	436743010	Character			\Default Work Unit\Character	
+
+Switch	ID	Name	Switch Group			Notes
+	775632447	K1000	Character			
+	2795866359	Savya	Character			
+	3017403401	Alix	Character			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
+	216788283	User_RTPC_Base_Volume			\Default Work Unit\User\MainMusicRTPC\User_RTPC_Base_Volume	
+	621928703	User_RTPC_Synthe_Volume			\Default Work Unit\User\MainMusicRTPC\User_RTPC_Synthe_Volume	
+	1003105508	User_RTPC_Harpe_Volume			\Default Work Unit\User\MainMusicRTPC\User_RTPC_Harpe_Volume	
 	1897326479	PlayBackSpeed			\Default Work Unit\PlayBackSpeed	
+	3666206667	User_RTPC_GTR_Volume			\Default Work Unit\User\MainMusicRTPC\User_RTPC_GTR_Volume	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	106912977	K_1000_DEATH_05	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_DEATH_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\K1000Death\K_1000_DEATH_05		323344
+	108546915	AlixSHot8	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\AlixSHot8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\AlixSHot8		566576
 	111855593	Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Old\Crypt of the Necrodancer Danganronpa OST\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)		21897280
+	160550462	Perso GTR 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Perso GTR 4 mesures 115 BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist\Base\Perso GTR 4 mesures 115 BPM		1602848
+	228500161	Base rythmique  4 mesures 115BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Base rythmique  4 mesures 115BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist\Base\Base rythmique  4 mesures 115BPM		1602848
 	245714757	Tutel	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Tutel_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Old\Tutel\Tutel		37638208
+	278564730	Alix_Death_02	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Alix_Death_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\AlixDeath\Alix_Death_02		384144
+	297830839	K_1000_SHOT_03	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_SHOT_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\K1000Shoot\K_1000_SHOT_03		364944
+	305853774	Alix_Death_04	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Alix_Death_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\AlixDeath\Alix_Death_04		326544
 	312401384	Lady Hear Me Tonight	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Lady Hear Me Tonight_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Old\Lady Hear Me Tonight\Lady Hear Me Tonight		58249088
+	335046646	AlixSHot5	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\AlixSHot5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\AlixSHot5		505776
+	345391036	AlixSHot2	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\AlixSHot2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\AlixSHot2		672176
+	384453966	AlixSHot6	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\AlixSHot6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\AlixSHot6		576176
+	405316960	Outro	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Outro 4 mesures 115 BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist\Base\Outro		1803196
+	419372711	K_1000_SHOT_01	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_SHOT_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\K1000Shoot\K_1000_SHOT_01		489744
+	423576052	K_1000_DEATH_03	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_DEATH_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\K1000Death\K_1000_DEATH_03		323344
+	436504849	Navigation	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\UI_Menu_Select_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\Navigation		203594
+	459676048	AlixSHot4	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\AlixSHot4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\AlixSHot4		432176
+	552945596	Perso Synthé 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Perso Synthé 4 mesures 115 BPM trim_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist\Base\Perso Synthé 4 mesures 115 BPM		1602852
+	566722943	Alix_Death_05	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Alix_Death_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\AlixDeath\Alix_Death_05		316944
+	609590300	K_1000_SHOT_05	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_SHOT_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\K1000Shoot\K_1000_SHOT_05		475584
+	621173241	K_1000_SHOT_07	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_SHOT_07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\K1000Shoot\K_1000_SHOT_07		552944
+	673532382	K_1000_DEATH_01	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_DEATH_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\K1000Death\K_1000_DEATH_01		364944
+	701184528	K_1000_SHOT_06	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_SHOT_06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\K1000Shoot\K_1000_SHOT_06		506544
+	737322455	Alix_Death_03	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Alix_Death_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\AlixDeath\Alix_Death_03		326544
+	790813190	Outro	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Intro rythmique  4 mesures 115BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist\Base\Outro		1602848
+	812710171	Perso Harpe 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Perso Harpe 4 mesures 115 BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist\Base\Perso Harpe 4 mesures 115 BPM		1602848
+	837278497	K_1000_DEATH_02	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_DEATH_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\K1000Death\K_1000_DEATH_02		409744
+	866428292	AlixSHot3	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\AlixSHot3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\AlixSHot3		393776
+	929642540	K_1000_SHOT_04	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_SHOT_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\K1000Shoot\K_1000_SHOT_04		445984
+	929738042	Return	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\UI_Menu_Cancel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\Return		293514
+	945936271	K_1000_SHOT_08	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_SHOT_08_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\K1000Shoot\K_1000_SHOT_08		449184
+	960711957	AlixSHot1	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\AlixSHot1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\AlixSHot1		556976
+	988324216	K_1000_SHOT_02	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_SHOT_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\K1000Shoot\K_1000_SHOT_02		672144
+	1031276903	AlixSHot7	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\AlixSHot7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\AlixSHot7		595376
+	1037547258	K_1000_DEATH_04	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\K_1000_DEATH_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\K1000Death\K_1000_DEATH_04		323344
 
