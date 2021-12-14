@@ -75,16 +75,17 @@ public class FeelGood : MonoBehaviour
 
     void feelGood()
     {
-        var boolLa = true;
+        var boolLa = false;
         switch (evenOrOdd)
         {
             case rythmRythm.EVEN:
-                if (number % 2 != 0) boolLa = false;
+                if (number % 2 != 0) boolLa = true;
                 break;
             case rythmRythm.ODD:
-                if (number % 2 == 0) boolLa = false;
+                if (number % 2 == 0) boolLa = true;
                 break;
             case rythmRythm.BOTH:
+                boolLa = true;
                 break;
             default:
                 break;
