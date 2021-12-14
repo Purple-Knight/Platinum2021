@@ -34,7 +34,12 @@ public class LevelGenerator : MonoBehaviour
         {
             Destroy(currentLevel.gameObject);
         }
-        int i = Random.Range(0, map.Count);
+        int i = 0;
+        do
+        {
+            i = Random.Range(0, map.Count);
+
+        } while (currentMap == i);
         currentMap = i;
         currentLevel = Instantiate(map[i], transform);
         MapManager manager = currentLevel.GetComponent<MapManager>();

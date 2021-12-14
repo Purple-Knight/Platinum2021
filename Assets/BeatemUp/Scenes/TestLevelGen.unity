@@ -1364,6 +1364,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2777262184495269856, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.998291
+      objectReference: {fileID: 0}
     - target: {fileID: 4675536604758143040, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1415,10 +1419,14 @@ PrefabInstance:
     - target: {fileID: 4675536604758143041, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: stopMusic.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4675536604758143422, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_Name
       value: VictoryScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675536604842132000, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.9569702
       objectReference: {fileID: 0}
     - target: {fileID: 4675536604910628682, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_RootOrder
@@ -1427,6 +1435,14 @@ PrefabInstance:
     - target: {fileID: 4675536605211249648, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675536605211249648, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.4718018
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675536605675391179, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.76416206
       objectReference: {fileID: 0}
     - target: {fileID: 4675536606109750974, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_RootOrder
@@ -1446,11 +1462,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4746334084975055407, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5845586086853726992, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490251966875800000, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.70007324
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296698357917026012, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.300003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
@@ -1557,15 +1581,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: easyPercentage
-      value: 38.3
+      value: 77.7
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: hardPercentage
-      value: 4.7
+      value: 38.4
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: mediumPercentage
-      value: 19
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gtrVolume.WwiseObjectReference
@@ -2085,12 +2109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map:
-  - {fileID: 3142384182915930074, guid: 868cfa942ccd07c4ea2220b0e96f7427, type: 3}
-  - {fileID: 6166311154548490340, guid: 2e0b4fc9d644f754da3932d1e9ea69c1, type: 3}
-  - {fileID: 1725595850032086436, guid: cefd498161b17c84fb5624a0ad0bfe81, type: 3}
-  - {fileID: 2636338185486253263, guid: 85a64db09e80d5c45a66cc63c273db3c, type: 3}
-  - {fileID: 8731893969134894594, guid: 1570c02f7a5bdee4d8754955ea289e8d, type: 3}
-  - {fileID: 6087946143388388301, guid: 47b29d6ec9d3c614e9eb4fe0ed0dd79c, type: 3}
+  - {fileID: 4549307004106344475, guid: 3fb040b7e9c952f41ba782baa64cf029, type: 3}
+  - {fileID: 4549307004106344475, guid: 3fb040b7e9c952f41ba782baa64cf029, type: 3}
   colorMappings:
   - name: Player
     color: {r: 1, g: 0, b: 0, a: 1}
@@ -2211,6 +2231,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 404619622}
+    - target: {fileID: 678145814195769613, guid: b55310b0b495de0409dada19124b73d0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.21979904
+      objectReference: {fileID: 0}
     - target: {fileID: 678145814218333157, guid: b55310b0b495de0409dada19124b73d0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.099975586

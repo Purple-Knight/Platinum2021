@@ -11,9 +11,10 @@ public class VictoryManager : MonoBehaviour
     private static VictoryManager _instance;
 
     [SerializeField] GameObject victoryCanvas;
-    [SerializeField]TextMeshProUGUI playerNameText;
-    [SerializeField]TextMeshProUGUI playerNumberText;
+    [SerializeField]TextMeshProUGUI playerWinner;
+    [SerializeField]Image playerName;
     [SerializeField] List<Image> playerImage;
+    [SerializeField] List<Sprite> playerNames;
     [SerializeField] List<Sprite> characterSprites;
     private bool isVictoryScreenActive = false;
     private List<Player> players = new List<Player>();
@@ -79,7 +80,8 @@ public class VictoryManager : MonoBehaviour
         isVictoryScreenActive = true;
         RhythmManager.Instance.StopAllMusic();
         victoryCanvas.SetActive(true);
-        playerNameText.text = "Victory Player " + (winnerOrder[0] +1);
+        playerWinner.text = "Winner ";
+        playerName.sprite = playerNames[playersData.allPlayerData[winnerOrder[0]].myCharID];
         for (int i = 0; i < winnerOrder.Count; i++)
         {
             playerImage[i].sprite = characterSprites[playersData.allPlayerData[winnerOrder[i]].myCharID];

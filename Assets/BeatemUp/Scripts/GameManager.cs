@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         SpawnPlayer();
         //timeline.transform.position = new Vector2(timeline.transform.position.x, levelGen.transform.position.y +1.5f);
         camera.SetStartPos(levelGen.transform.position);
+        camera.ResetCamera();
         RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
         scoreManager.InstantiateScore();
         endGameAnim.SetTrigger("StartGame");
