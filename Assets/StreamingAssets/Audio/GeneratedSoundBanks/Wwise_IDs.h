@@ -21,6 +21,8 @@ namespace AK
         static const AkUniqueID PLAYDEATH = 2840201783U;
         static const AkUniqueID PLAYMAINMUSIC_115BPM = 327194170U;
         static const AkUniqueID PLAYMAINMUSIC_150BPM = 710931125U;
+        static const AkUniqueID PLAYMOVE = 1729642804U;
+        static const AkUniqueID PLAYSELECTION = 2126442687U;
         static const AkUniqueID PLAYSHOOT = 1489638472U;
         static const AkUniqueID RETURN = 3859834159U;
         static const AkUniqueID STOPALLMUSIC = 2907867019U;
