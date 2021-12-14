@@ -8,6 +8,7 @@ using UnityEditor;
 public class Feel : MonoBehaviour
 {
     public bool launch;
+    public bool stopFGAfterUse = false;
     public bool onOff = true;
     public float timeToDo;
 
@@ -73,6 +74,24 @@ public class Feel : MonoBehaviour
     {
         if (onOff)
         {
+            if (stopFGAfterUse)
+            {
+                transform.DOComplete();
+            
+                FeelGood[] fgList = { };
+
+                fgList = GetComponents<FeelGood>();
+
+                for (int i = 0; i < fgList.Length; i++)
+                {
+                    fgList[i].playOnAwake = false;
+                    
+                }
+
+            }
+            
+            
+            
             if (changePos)
             {
                 var timeForAction = posNeed.Count;
@@ -133,12 +152,30 @@ public class Feel : MonoBehaviour
 
 
         onOff = !onOff;
+        
     }
 
     void feelRectT()
     {
         if (onOff)
         {
+            
+            if (stopFGAfterUse)
+            {
+                transform.DOComplete();
+
+                FeelGood[] fgList = { };
+
+                fgList = GetComponents<FeelGood>();
+
+                for (int i = 0; i < fgList.Length; i++)
+                {
+                    fgList[i].playOnAwake = false;
+                }
+            
+            }
+            
+            
             //Debug.Log("On");
             var timeForAction = scaleNeed.Count + 1;
             if (changePos)
@@ -202,6 +239,8 @@ public class Feel : MonoBehaviour
         }
 
         onOff = !onOff;
+        
+        
     }
 
 }

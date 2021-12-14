@@ -311,7 +311,8 @@ public class CharacterSelection : MonoBehaviour
                         sequence.Append(theImage.DOColor(Color.red, 0.1f));
                         sequence.Append(theImage.DOColor(new Color(1,1,1), 0.1f));
                     }
-                    break;
+                    
+                    AkSoundEngine.PostEvent("Error", gameObject);
                 }
             }
         }
