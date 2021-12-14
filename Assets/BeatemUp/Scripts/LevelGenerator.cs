@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public List<GameObject> map;
+    public List<GameObject> mapZone1;
+    public List<GameObject> mapZone2;
     //public List<Texture2D> map;
     int currentMap = 0;
 
@@ -37,11 +38,11 @@ public class LevelGenerator : MonoBehaviour
         int i = 0;
         do
         {
-            i = Random.Range(0, map.Count);
+            i = Random.Range(0, mapZone1.Count);
 
         } while (currentMap == i);
         currentMap = i;
-        currentLevel = Instantiate(map[i], transform);
+        currentLevel = Instantiate(mapZone1[i], transform);
         MapManager manager = currentLevel.GetComponent<MapManager>();
         transform.position = new Vector3((-manager.mapSize.x * gridSize.x) / 2, (manager.mapSize.y * gridSize.y) / 2 ,0) ;
         foreach (Transform pos in manager.playerSpawnPoints)

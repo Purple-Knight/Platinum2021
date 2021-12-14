@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
@@ -12,7 +12,8 @@ public class EventManager : MonoBehaviour
     bool resetSpeed = false;
     int previousValue;
     [SerializeField] float speed;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] Image eventImage;
+    [SerializeField] List<Sprite> images;
 
     private void Start()
     {
@@ -56,12 +57,12 @@ public class EventManager : MonoBehaviour
         if(RhythmManager.Instance.level == Level.Medium)
         {
             speedUp = true;
-            text.text = "Event : Speed Up!";
+            eventImage.sprite = images[0];
         }
         else
         {
             slowDown = true;
-            text.text = "Event : Slow Down...";
+            eventImage.sprite = images[1];
 
         }
     }

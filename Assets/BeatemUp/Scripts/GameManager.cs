@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -25,7 +26,8 @@ public class GameManager : MonoBehaviour
     public ScoreManager scoreManager;
     EventManager eventManager;
     bool hasEvent = false;
-    [SerializeField] GameObject timeline;
+    [SerializeField] Image winnerImage;
+    [SerializeField] List<Sprite> victoryImages;
 
     [SerializeField] Animator endGameAnim;
     int currentRound = 0;
@@ -39,7 +41,6 @@ public class GameManager : MonoBehaviour
         playersData = SaveData.Load();
         spawnPoints =  levelGen.SpawnNextMap();
         SpawnPlayer();
-        //timeline.transform.position = new Vector2(timeline.transform.position.x, levelGen.transform.position.y +1.5f);
         camera.SetStartPos(levelGen.transform.position);
         camera.ResetCamera();
         RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
@@ -106,6 +107,8 @@ public class GameManager : MonoBehaviour
                 eventManager.EndEvent();
             }
             players[playerAlive].BlockPlayerInput();
+            winnerImage.sprite = victoryImages[playersData.allPlayerData[playerAlive].myCharID];
+            winnerImage.gameObject.SetActive(true);
             StartCoroutine(NextRound());
         }
 
@@ -150,8 +153,8 @@ public class GameManager : MonoBehaviour
     IEnumerator NextRound()
     {
         yield return new WaitForSecondsRealtime(3);
+        winnerImage.gameObject.SetActive(false);
         spawnPoints = levelGen.SpawnNextMap();
-        //timeline.transform.position = new Vector2(timeline.transform.position.x, -levelGen.transform.position.y);// a modifier !!!
         camera.SetStartPos(levelGen.transform.position);
         ResetPlayersBeforeEvent();
         camera.ResetCamera();
@@ -212,7 +215,6 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            Debug.Log(victoryText);
         }
         else
         {
