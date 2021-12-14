@@ -43,7 +43,7 @@
 						</MusicSegment>
 						<Folder Name="Level_115bpm" ID="{565D0893-7010-45A2-8549-486D1CE00088}" ShortID="641861242">
 							<ChildrenList>
-								<MusicPlaylistContainer Name="MusicPlaylist" ID="{720608AE-A0E8-453A-9EAE-D2215E1163EF}" ShortID="755603937">
+								<MusicPlaylistContainer Name="MusicPlaylist_115bpm" ID="{720608AE-A0E8-453A-9EAE-D2215E1163EF}" ShortID="755603937">
 									<PropertyList>
 										<Property Name="Tempo" Type="Real64" Value="115"/>
 									</PropertyList>
@@ -56,7 +56,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicSegment Name="Base" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}" ShortID="241229835">
+										<MusicSegment Name="Music_115bpm" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}" ShortID="241229835">
 											<PropertyList>
 												<Property Name="EndPosition" Type="Real64" Value="140452.61319053"/>
 												<Property Name="GridOffsetPreset" Type="int16" Value="53"/>
@@ -914,7 +914,7 @@
 														<Property Name="LoopCount" Type="int16" Value="0"/>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
-													<SegmentRef Name="Base" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}"/>
+													<SegmentRef Name="Music_115bpm" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}"/>
 												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
