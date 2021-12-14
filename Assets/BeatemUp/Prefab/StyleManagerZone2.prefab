@@ -1,0 +1,351 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5306874583667905692
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447832, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[0].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 40bb178f48bfa084384bf45c0b7df6bf, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[1].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 3bad3fbf375f9344fbfdb375b58b417b, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[2].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: ee556ca62c50198428678777e281b9ee, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[3].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 68f980c8fcf7ced42b9b18884169f803, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[4].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 6ea2a5261d42b2549a96e001c36a60a9, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[5].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: ffc1fdb4e67871443acb69b687ea386a, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[6].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: dbb7ed43ae2c17944b51ca22fb1eb824, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[7].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 811d62bb919495b4c8b083175c0c1c72, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[8].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: b75ab1bf66cbd434085e287e782eb16c, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[9].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: a6c6c9bb0bf75f744a5eaa2dae943ed6, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[10].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: e874572c795b2ac41946603323949eef, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[11].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 0ec9de60b2d05964083f40b31ae06366, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[12].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 79e1eb4bc81189b45955c944f4478e06, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[13].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: f98ea066a4b57aa41aaacae67639efe7, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[14].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 7725c1aa681b8614ea70faffdae05cbc, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[15].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: b0983aaa5f72e9a4486fd31a2c0e4e00, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[16].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 663199a7b0f28b049a15aba450a931fc, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[17].Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 663199a7b0f28b049a15aba450a931fc, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[0].ButtonTex
+      value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[1].ButtonTex
+      value: Mur Invisible
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[2].ButtonTex
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[3].ButtonTex
+      value: Tile2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[4].ButtonTex
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[5].ButtonTex
+      value: Tile3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[6].ButtonTex
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[7].ButtonTex
+      value: RoadCross
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[8].ButtonTex
+      value: RoadCross2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[9].ButtonTex
+      value: RoadLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[10].ButtonTex
+      value: RoadLeftRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[11].ButtonTex
+      value: RoadRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[12].ButtonTex
+      value: RoadTurnLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[13].ButtonTex
+      value: RoadTurnRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[14].ButtonTex
+      value: RoadUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[15].ButtonTex
+      value: RoadUpLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[16].ButtonTex
+      value: RoadUpRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[17].ButtonTex
+      value: RoadUpRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[0].PreFabObject
+      value: 
+      objectReference: {fileID: 3871042553821494918, guid: ca73cfdcddba78b4b96790750f79467e, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[1].PreFabObject
+      value: 
+      objectReference: {fileID: 4518699010491959988, guid: c91e0dc042b0f4047aa2f015320bb8e2, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[2].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: cd986ee72c82eba479904b0ef610e36f, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[3].PreFabObject
+      value: 
+      objectReference: {fileID: 8795826457591152477, guid: 4214070a32b59db43a5cb05d5ac16d29, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[4].PreFabObject
+      value: 
+      objectReference: {fileID: 417850467110991550, guid: 68a884d7f95ce824ba9bdd601472f500, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[5].PreFabObject
+      value: 
+      objectReference: {fileID: 8517667101659228865, guid: f2a2e7d3cdbef0941910cbf662e3bd0e, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[6].PreFabObject
+      value: 
+      objectReference: {fileID: 417850467110991550, guid: 68a884d7f95ce824ba9bdd601472f500, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[7].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: b049455c411007743a5417238b800784, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[8].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: e71bf2c61e686c047b5631aa99697da3, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[9].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: d6402bb85bcca154e835fed1e03eea35, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[10].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: b57ea986f7ecd2448bddd537838fb5ee, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[11].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: 44d08971b72054e45a556b5ba91e4365, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[12].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: 13a0c8561c687d14f9ae2d41adebe096, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[13].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: 804f25a2aaf596a43b89959ad57e6a8c, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[14].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: 277548d25d6732e4ca777e8e3719a96c, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[15].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: 37c2ddd8c2501544f8d2d61b4317f50e, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[16].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: df76955d001b1f64c8f287ad92153a31, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[17].PreFabObject
+      value: 
+      objectReference: {fileID: 5748412698591654751, guid: df76955d001b1f64c8f287ad92153a31, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[0].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 40bb178f48bfa084384bf45c0b7df6bf, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[1].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 3bad3fbf375f9344fbfdb375b58b417b, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[2].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: ee556ca62c50198428678777e281b9ee, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[3].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 68f980c8fcf7ced42b9b18884169f803, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[4].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 663199a7b0f28b049a15aba450a931fc, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[5].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: ffc1fdb4e67871443acb69b687ea386a, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[6].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: dbb7ed43ae2c17944b51ca22fb1eb824, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[7].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 811d62bb919495b4c8b083175c0c1c72, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[8].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: b75ab1bf66cbd434085e287e782eb16c, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[9].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: a6c6c9bb0bf75f744a5eaa2dae943ed6, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[10].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: e874572c795b2ac41946603323949eef, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[11].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 0ec9de60b2d05964083f40b31ae06366, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[12].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 79e1eb4bc81189b45955c944f4478e06, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[13].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: f98ea066a4b57aa41aaacae67639efe7, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[14].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 7725c1aa681b8614ea70faffdae05cbc, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[15].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: b0983aaa5f72e9a4486fd31a2c0e4e00, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[16].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 663199a7b0f28b049a15aba450a931fc, type: 3}
+    - target: {fileID: 1787870172222447833, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: buttonStyles.Array.data[17].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 663199a7b0f28b049a15aba450a931fc, type: 3}
+    - target: {fileID: 1787870172222447838, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
+      propertyPath: m_Name
+      value: StyleManagerZone2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8149f25a78c18db428f3b3661e516649, type: 3}
