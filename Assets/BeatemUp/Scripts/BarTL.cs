@@ -8,10 +8,8 @@ public class BarTL : MonoBehaviour
 {
     public Vector3 direction;
     public float speed;
-     public float deleteTime;
-
-
-    
+    public float deleteTime;
+    public Sprite endSprite;
 
     void Start()
     {
@@ -37,11 +35,12 @@ public class BarTL : MonoBehaviour
             Vector3 maScale = transform.localScale;
 
             yield return new WaitForSeconds(deleteTime);
+            mySprite.sprite = endSprite;
 
             speed = 0;
             direction = Vector2.zero;
 
-            transform.DOScale(maScale * 3, time);
+            transform.DOScale(maScale * 2, time);
             mySprite.DOFade(0, time);
         }
         else
@@ -51,11 +50,12 @@ public class BarTL : MonoBehaviour
             Vector3 maScale = GetComponent<RectTransform>().localScale;
 
             yield return new WaitForSeconds(deleteTime);
+            mySpriteR.sprite = endSprite;
 
             speed = 0;
             direction = Vector2.zero;
 
-            GetComponent<RectTransform>().transform.DOScale(maScale * 3, time);
+            GetComponent<RectTransform>().transform.DOScale(maScale * 2, time);
             mySpriteR.DOFade(0, time);
         }
 

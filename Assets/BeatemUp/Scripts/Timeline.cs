@@ -89,7 +89,7 @@ public class Timeline : MonoBehaviour
             echoO.GetComponent<SpriteRenderer>().color = new Color(colora.color.r, colora.color.g, colora.color.b, 0);
             echoO.GetComponent<SpriteRenderer>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
 
-            echoO.transform.localScale = transform.localScale * 2;
+            echoO.transform.localScale = transform.localScale * .7f;
 
             echoO.GetComponent<Echo>().scale = transform;
         }
@@ -101,7 +101,7 @@ public class Timeline : MonoBehaviour
             echoO.GetComponent<Image>().color = new Color(colora.color.r, colora.color.g, colora.color.b, 0);
             echoO.GetComponent<Image>().sprite = gameObject.GetComponent<Image>().sprite;
 
-            echoO.transform.localScale = transform.localScale * 3;
+            echoO.transform.localScale = transform.localScale * .7f;
 
             echoO.GetComponent<Echo>().scaleR = GetComponent<RectTransform>();
         }
