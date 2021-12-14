@@ -11,9 +11,9 @@ Event	ID	Name			Wwise Object Path	Notes
 	1295635745	PlayTutel			\Default Work Unit\PlayTutel	
 	1489638472	PlayShoot			\Default Work Unit\Character\PlayShoot	
 	1589270263	PauseGame			\Default Work Unit\PauseGame	
-	1719053472	Validation			\Default Work Unit\UI\Validation	
 	1729642804	PlayMove			\Default Work Unit\Character\PlayMove	
 	1880695829	Error			\Default Work Unit\UI\Error	
+	2122995345	OpenDoor			\Default Work Unit\UI\OpenDoor	
 	2126442687	PlaySelection			\Default Work Unit\Character\PlaySelection	
 	2674882108	SpkWelcom			\Default Work Unit\Stage\SpkWelcom	
 	2840201783	PlayDeath			\Default Work Unit\Character\PlayDeath	
@@ -73,7 +73,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	487104567	UI_Menu_Deny	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\UI_Menu_Deny_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\UI_Menu_Deny		299594
 	502363541	Alix_ShotV2_02	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Alix_ShotV2_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\AlixShoot\Alix_ShotV2_02		403264
 	514293643	Savya_Shot03	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Savya_Shot03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerShoot\SavyaShoot\Savya_Shot03		432176
-	548564477	UI_Menu_Close	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\UI_Menu_Close_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\UI_Menu_Close		148144
+	548564477	UI_Menu_Close	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\UI_Menu_Close_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\UI_Menu_Close		103494
 	552945596	Perso Synthé 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Perso Synthé 4 mesures 115 BPM trim_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist_115bpm\Music_115bpm\Perso Synthé 4 mesures 115 BPM		1602852
 	561893740	Savya_Death02	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Savya_Death02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\SavyaDeath\Savya_Death02		384144
 	566722943	Alix_Death_05	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Mac\SFX\Alix_Death_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Characters\PlayerDeath\AlixDeath\Alix_Death_05		316944

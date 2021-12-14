@@ -138,6 +138,7 @@ public class MainMenu : MonoBehaviour
                                 item2.launch = true;
                             }
 
+                            AkSoundEngine.PostEvent("OpenDoor", gameObject);
                             pressStart.SetActive(false);
                             state = MenuState.MENU;
                             toMenu();

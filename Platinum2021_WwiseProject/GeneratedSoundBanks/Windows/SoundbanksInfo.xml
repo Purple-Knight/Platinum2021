@@ -21,7 +21,7 @@
 				<GameParameter Id="2403979167" Name="User_RTPC_Main_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\User_RTPC_Main_Volume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="3890095646">
+		<SoundBank Id="3017428748" Language="SFX" Hash="3342330948">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
@@ -54,6 +54,14 @@
 						<File Id="29878892" Language="SFX">
 							<ShortName>UI_Menu_Open.wav</ShortName>
 							<Path>SFX\UI_Menu_Open_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2122995345" Name="OpenDoor" ObjectPath="\Events\Default Work Unit\UI\OpenDoor" DurationType="OneShot" DurationMin="1.077396" DurationMax="1.077396">
+					<IncludedMemoryFiles>
+						<File Id="548564477" Language="SFX">
+							<ShortName>UI_Menu_Close.wav</ShortName>
+							<Path>SFX\UI_Menu_Close_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -385,7 +393,6 @@
 				<Event Id="4245097106" Name="SpkWinner" ObjectPath="\Events\Default Work Unit\Stage\SpkWinner" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2907867019" Name="StopAllMusic" ObjectPath="\Events\Default Work Unit\StopAllMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="376844784" Name="UnpauseGame" ObjectPath="\Events\Default Work Unit\UnpauseGame" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1719053472" Name="Validation" ObjectPath="\Events\Default Work Unit\UI\Validation" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="13384735" Language="SFX">
