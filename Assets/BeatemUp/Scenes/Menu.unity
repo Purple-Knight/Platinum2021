@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.98975, y: 49.083145}
+  m_AnchoredPosition: {x: -361.98975, y: 49.08314}
   m_SizeDelta: {x: 516.5823, y: 326.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10086874
@@ -1784,6 +1784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 0
   onOff: 0
   timeToDo: 0.2
   changePos: 0
@@ -1961,6 +1962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 0
   onOff: 1
   timeToDo: 0.1
   changePos: 1
@@ -3385,6 +3387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 1
   onOff: 1
   timeToDo: 0.2
   changePos: 1
@@ -3393,7 +3396,7 @@ MonoBehaviour:
     yPourcentScale: 0
   - xPourcentScale: 1000
     yPourcentScale: 0
-  - xPourcentScale: 10000
+  - xPourcentScale: 100000
     yPourcentScale: 0
   posNeedBack: []
   changeScale: 0
@@ -4042,6 +4045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 0
   onOff: 1
   timeToDo: 0.1
   changePos: 1
@@ -5401,6 +5405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 0
   onOff: 0
   timeToDo: 0.2
   changePos: 0
@@ -6110,6 +6115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 0
   onOff: 1
   timeToDo: 0.2
   changePos: 1
@@ -7570,6 +7576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 1
   onOff: 1
   timeToDo: 0.2
   changePos: 1
@@ -7578,7 +7585,7 @@ MonoBehaviour:
     yPourcentScale: 0
   - xPourcentScale: -1000
     yPourcentScale: 0
-  - xPourcentScale: -10000
+  - xPourcentScale: -100000
     yPourcentScale: 0
   posNeedBack: []
   changeScale: 0
@@ -8840,6 +8847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 0
   onOff: 1
   timeToDo: 0.2
   changePos: 1
@@ -9940,6 +9948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 0
   onOff: 1
   timeToDo: 0.1
   changePos: 1
@@ -11167,6 +11176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stopFGAfterUse: 0
   onOff: 1
   timeToDo: 0.1
   changePos: 1

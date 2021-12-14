@@ -21,7 +21,7 @@
 				<GameParameter Id="2403979167" Name="User_RTPC_Main_Volume" ObjectPath="\Game Parameters\Default Work Unit\User\User_RTPC_Main_Volume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3017428748" Language="SFX" Hash="852705406">
+		<SoundBank Id="3017428748" Language="SFX" Hash="3890095646">
 			<ObjectPath>\SoundBanks\Default Work Unit\MusicBank</ObjectPath>
 			<ShortName>MusicBank</ShortName>
 			<Path>MusicBank.bnk</Path>
@@ -33,15 +33,30 @@
 				<Event Id="4275771351" Name="Count1" ObjectPath="\Events\Default Work Unit\Stage\Count1" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4275771348" Name="Count2" ObjectPath="\Events\Default Work Unit\Stage\Count2" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1143320996" Name="EndOfMusic" ObjectPath="\Events\Default Work Unit\EndOfMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1082482811" Name="Navigation" ObjectPath="\Events\Default Work Unit\UI\Navigation" DurationType="OneShot" DurationMin="1.886965" DurationMax="2.118047">
+				<Event Id="1880695829" Name="Error" ObjectPath="\Events\Default Work Unit\UI\Error" DurationType="OneShot" DurationMin="3.119271" DurationMax="3.119271">
 					<IncludedMemoryFiles>
-						<File Id="436504849" Language="SFX">
+						<File Id="487104567" Language="SFX">
+							<ShortName>UI_Menu_Deny.wav</ShortName>
+							<Path>SFX\UI_Menu_Deny_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1082482811" Name="Navigation" ObjectPath="\Events\Default Work Unit\UI\Navigation" DurationType="OneShot" DurationMin="2.000325" DurationMax="2.119271">
+					<IncludedMemoryFiles>
+						<File Id="877160266" Language="SFX">
 							<ShortName>UI_Menu_Select.wav</ShortName>
 							<Path>SFX\UI_Menu_Select_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="982796106" Name="Next" ObjectPath="\Events\Default Work Unit\UI\Next" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="982796106" Name="Next" ObjectPath="\Events\Default Work Unit\UI\Next" DurationType="OneShot" DurationMin="1.875000" DurationMax="1.875000">
+					<IncludedMemoryFiles>
+						<File Id="29878892" Language="SFX">
+							<ShortName>UI_Menu_Open.wav</ShortName>
+							<Path>SFX\UI_Menu_Open_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1589270263" Name="PauseGame" ObjectPath="\Events\Default Work Unit\PauseGame" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="859070589" Name="PlayCrypt" ObjectPath="\Events\Default Work Unit\PlayCrypt" DurationType="OneShot" DurationMin="124.133873" DurationMax="124.133873">
 					<IncludedMemoryFiles>
@@ -51,11 +66,19 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2840201783" Name="PlayDeath" ObjectPath="\Events\Default Work Unit\Character\PlayDeath" DurationType="OneShot" DurationMin="1.650000" DurationMax="2.133333">
+				<Event Id="2840201783" Name="PlayDeath" ObjectPath="\Events\Default Work Unit\Character\PlayDeath" DurationType="OneShot" DurationMin="1.650000" DurationMax="2.600000">
 					<IncludedMemoryFiles>
+						<File Id="13384735" Language="SFX">
+							<ShortName>Savya_Death01.wav</ShortName>
+							<Path>SFX\Savya_Death01_10C4C929.wem</Path>
+						</File>
 						<File Id="106912977" Language="SFX">
 							<ShortName>K_1000_DEATH_05.wav</ShortName>
 							<Path>SFX\K_1000_DEATH_05_10C4C929.wem</Path>
+						</File>
+						<File Id="201400332" Language="SFX">
+							<ShortName>Alix_Death_01.wav</ShortName>
+							<Path>SFX\Alix_Death_01_10C4C929.wem</Path>
 						</File>
 						<File Id="278564730" Language="SFX">
 							<ShortName>Alix_Death_02.wav</ShortName>
@@ -69,6 +92,18 @@
 							<ShortName>K_1000_DEATH_03.wav</ShortName>
 							<Path>SFX\K_1000_DEATH_03_10C4C929.wem</Path>
 						</File>
+						<File Id="446272882" Language="SFX">
+							<ShortName>Savya_Death04.wav</ShortName>
+							<Path>SFX\Savya_Death04_10C4C929.wem</Path>
+						</File>
+						<File Id="447103657" Language="SFX">
+							<ShortName>Savya_Death05.wav</ShortName>
+							<Path>SFX\Savya_Death05_10C4C929.wem</Path>
+						</File>
+						<File Id="561893740" Language="SFX">
+							<ShortName>Savya_Death02.wav</ShortName>
+							<Path>SFX\Savya_Death02_10C4C929.wem</Path>
+						</File>
 						<File Id="566722943" Language="SFX">
 							<ShortName>Alix_Death_05.wav</ShortName>
 							<Path>SFX\Alix_Death_05_10C4C929.wem</Path>
@@ -76,6 +111,10 @@
 						<File Id="673532382" Language="SFX">
 							<ShortName>K_1000_DEATH_01.wav</ShortName>
 							<Path>SFX\K_1000_DEATH_01_10C4C929.wem</Path>
+						</File>
+						<File Id="675149518" Language="SFX">
+							<ShortName>Savya_Death03.wav</ShortName>
+							<Path>SFX\Savya_Death03_10C4C929.wem</Path>
 						</File>
 						<File Id="737322455" Language="SFX">
 							<ShortName>Alix_Death_03.wav</ShortName>
@@ -94,6 +133,7 @@
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}">
 							<Media>
+								<File Id="201400332"/>
 								<File Id="278564730"/>
 								<File Id="305853774"/>
 								<File Id="566722943"/>
@@ -111,7 +151,11 @@
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{47DDA0AD-015B-400E-A8BC-5D6929E15358}">
 							<Media>
-								<File Id="278564730"/>
+								<File Id="13384735"/>
+								<File Id="446272882"/>
+								<File Id="447103657"/>
+								<File Id="561893740"/>
+								<File Id="675149518"/>
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -124,7 +168,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="277487121" Name="PlayMainMusic" ObjectPath="\Events\Default Work Unit\Musique\PlayMainMusic" DurationType="Infinite">
+				<Event Id="327194170" Name="PlayMainMusic_115bpm" ObjectPath="\Events\Default Work Unit\Musique\PlayMainMusic_115bpm" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="160550462" Language="SFX">
 							<ShortName>Perso GTR 4 mesures 115 BPM.wav</ShortName>
@@ -152,37 +196,81 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="710931125" Name="PlayMainMusic_150bpm" ObjectPath="\Events\Default Work Unit\Musique\PlayMainMusic_150bpm" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<IncludedMemoryFiles>
+						<File Id="456611378" Language="SFX">
+							<ShortName>Music_150Bpm_Base_Alix.wav</ShortName>
+							<Path>SFX\Music_150Bpm_Base_Alix_D79FB2B7.wem</Path>
+						</File>
+						<File Id="469732759" Language="SFX">
+							<ShortName>Music_150Bpm_Base_K1000.wav</ShortName>
+							<Path>SFX\Music_150Bpm_Base_K1000_D79FB2B7.wem</Path>
+						</File>
+						<File Id="701185874" Language="SFX">
+							<ShortName>Music_150Bpm_StereoMix_Base_Music_Intro.wav</ShortName>
+							<Path>SFX\Music_150Bpm_StereoMix_Base_Music_Intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="716726263" Language="SFX">
+							<ShortName>Music_150Bpm_StereoMix_Base_Music_Final.wav</ShortName>
+							<Path>SFX\Music_150Bpm_StereoMix_Base_Music_Final_D79FB2B7.wem</Path>
+						</File>
+						<File Id="743566664" Language="SFX">
+							<ShortName>Music_150Bpm_Base_Savya.wav</ShortName>
+							<Path>SFX\Music_150Bpm_Base_Savya_D79FB2B7.wem</Path>
+						</File>
+						<File Id="925010836" Language="SFX">
+							<ShortName>Music_150Bpm_StereoMix_Base_Music.wav</ShortName>
+							<Path>SFX\Music_150Bpm_StereoMix_Base_Music_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1729642804" Name="PlayMove" ObjectPath="\Events\Default Work Unit\Character\PlayMove" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2126442687" Name="PlaySelection" ObjectPath="\Events\Default Work Unit\Character\PlaySelection" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1489638472" Name="PlayShoot" ObjectPath="\Events\Default Work Unit\Character\PlayShoot" DurationType="OneShot" DurationMin="1.900000" DurationMax="3.500000">
+				<Event Id="1489638472" Name="PlayShoot" ObjectPath="\Events\Default Work Unit\Character\PlayShoot" DurationType="OneShot" DurationMin="1.719000" DurationMax="3.500000">
 					<IncludedMemoryFiles>
-						<File Id="108546915" Language="SFX">
-							<ShortName>AlixSHot8.wav</ShortName>
-							<Path>SFX\AlixSHot8_10C4C929.wem</Path>
+						<File Id="113817124" Language="SFX">
+							<ShortName>Savya_Shot05.wav</ShortName>
+							<Path>SFX\Savya_Shot05_10C4C929.wem</Path>
+						</File>
+						<File Id="122210982" Language="SFX">
+							<ShortName>Savya_Shot06.wav</ShortName>
+							<Path>SFX\Savya_Shot06_10C4C929.wem</Path>
+						</File>
+						<File Id="130975094" Language="SFX">
+							<ShortName>Alix_ShotV2_01.wav</ShortName>
+							<Path>SFX\Alix_ShotV2_01_10C4C929.wem</Path>
+						</File>
+						<File Id="196912625" Language="SFX">
+							<ShortName>Savya_Shot08.wav</ShortName>
+							<Path>SFX\Savya_Shot08_10C4C929.wem</Path>
+						</File>
+						<File Id="257713276" Language="SFX">
+							<ShortName>Alix_ShotV2_06.wav</ShortName>
+							<Path>SFX\Alix_ShotV2_06_10C4C929.wem</Path>
 						</File>
 						<File Id="297830839" Language="SFX">
 							<ShortName>K_1000_SHOT_03.wav</ShortName>
 							<Path>SFX\K_1000_SHOT_03_10C4C929.wem</Path>
 						</File>
-						<File Id="335046646" Language="SFX">
-							<ShortName>AlixSHot5.wav</ShortName>
-							<Path>SFX\AlixSHot5_10C4C929.wem</Path>
+						<File Id="368333125" Language="SFX">
+							<ShortName>Alix_ShotV2_05.wav</ShortName>
+							<Path>SFX\Alix_ShotV2_05_10C4C929.wem</Path>
 						</File>
-						<File Id="345391036" Language="SFX">
-							<ShortName>AlixSHot2.wav</ShortName>
-							<Path>SFX\AlixSHot2_10C4C929.wem</Path>
-						</File>
-						<File Id="384453966" Language="SFX">
-							<ShortName>AlixSHot6.wav</ShortName>
-							<Path>SFX\AlixSHot6_10C4C929.wem</Path>
+						<File Id="400682864" Language="SFX">
+							<ShortName>Savya_Shot02.wav</ShortName>
+							<Path>SFX\Savya_Shot02_10C4C929.wem</Path>
 						</File>
 						<File Id="419372711" Language="SFX">
 							<ShortName>K_1000_SHOT_01.wav</ShortName>
 							<Path>SFX\K_1000_SHOT_01_10C4C929.wem</Path>
 						</File>
-						<File Id="459676048" Language="SFX">
-							<ShortName>AlixSHot4.wav</ShortName>
-							<Path>SFX\AlixSHot4_10C4C929.wem</Path>
+						<File Id="502363541" Language="SFX">
+							<ShortName>Alix_ShotV2_02.wav</ShortName>
+							<Path>SFX\Alix_ShotV2_02_10C4C929.wem</Path>
+						</File>
+						<File Id="514293643" Language="SFX">
+							<ShortName>Savya_Shot03.wav</ShortName>
+							<Path>SFX\Savya_Shot03_10C4C929.wem</Path>
 						</File>
 						<File Id="609590300" Language="SFX">
 							<ShortName>K_1000_SHOT_05.wav</ShortName>
@@ -192,13 +280,29 @@
 							<ShortName>K_1000_SHOT_07.wav</ShortName>
 							<Path>SFX\K_1000_SHOT_07_10C4C929.wem</Path>
 						</File>
+						<File Id="628024963" Language="SFX">
+							<ShortName>Savya_Shot04.wav</ShortName>
+							<Path>SFX\Savya_Shot04_10C4C929.wem</Path>
+						</File>
 						<File Id="701184528" Language="SFX">
 							<ShortName>K_1000_SHOT_06.wav</ShortName>
 							<Path>SFX\K_1000_SHOT_06_10C4C929.wem</Path>
 						</File>
-						<File Id="866428292" Language="SFX">
-							<ShortName>AlixSHot3.wav</ShortName>
-							<Path>SFX\AlixSHot3_10C4C929.wem</Path>
+						<File Id="794574688" Language="SFX">
+							<ShortName>Alix_ShotV2_03.wav</ShortName>
+							<Path>SFX\Alix_ShotV2_03_10C4C929.wem</Path>
+						</File>
+						<File Id="855174435" Language="SFX">
+							<ShortName>Alix_ShotV2_08.wav</ShortName>
+							<Path>SFX\Alix_ShotV2_08_10C4C929.wem</Path>
+						</File>
+						<File Id="919685758" Language="SFX">
+							<ShortName>Savya_Shot07.wav</ShortName>
+							<Path>SFX\Savya_Shot07_10C4C929.wem</Path>
+						</File>
+						<File Id="927195843" Language="SFX">
+							<ShortName>Alix_ShotV2_04.wav</ShortName>
+							<Path>SFX\Alix_ShotV2_04_10C4C929.wem</Path>
 						</File>
 						<File Id="929642540" Language="SFX">
 							<ShortName>K_1000_SHOT_04.wav</ShortName>
@@ -208,31 +312,31 @@
 							<ShortName>K_1000_SHOT_08.wav</ShortName>
 							<Path>SFX\K_1000_SHOT_08_10C4C929.wem</Path>
 						</File>
-						<File Id="960711957" Language="SFX">
-							<ShortName>AlixSHot1.wav</ShortName>
-							<Path>SFX\AlixSHot1_10C4C929.wem</Path>
+						<File Id="951020711" Language="SFX">
+							<ShortName>Alix_ShotV2_07.wav</ShortName>
+							<Path>SFX\Alix_ShotV2_07_10C4C929.wem</Path>
 						</File>
 						<File Id="988324216" Language="SFX">
 							<ShortName>K_1000_SHOT_02.wav</ShortName>
 							<Path>SFX\K_1000_SHOT_02_10C4C929.wem</Path>
 						</File>
-						<File Id="1031276903" Language="SFX">
-							<ShortName>AlixSHot7.wav</ShortName>
-							<Path>SFX\AlixSHot7_10C4C929.wem</Path>
+						<File Id="1061031543" Language="SFX">
+							<ShortName>Savya_Shot01.wav</ShortName>
+							<Path>SFX\Savya_Shot01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<DefaultSwitchValue>{6503797A-9DEE-43F7-B445-E7B207B620DE}</DefaultSwitchValue>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{7272D84E-A22E-4C7C-BAF8-65BA6EE713FF}">
 							<Media>
-								<File Id="108546915"/>
-								<File Id="335046646"/>
-								<File Id="345391036"/>
-								<File Id="384453966"/>
-								<File Id="459676048"/>
-								<File Id="866428292"/>
-								<File Id="960711957"/>
-								<File Id="1031276903"/>
+								<File Id="130975094"/>
+								<File Id="257713276"/>
+								<File Id="368333125"/>
+								<File Id="502363541"/>
+								<File Id="794574688"/>
+								<File Id="855174435"/>
+								<File Id="927195843"/>
+								<File Id="951020711"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{6503797A-9DEE-43F7-B445-E7B207B620DE}">
@@ -249,7 +353,14 @@
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{47DDA0AD-015B-400E-A8BC-5D6929E15358}">
 							<Media>
-								<File Id="960711957"/>
+								<File Id="113817124"/>
+								<File Id="122210982"/>
+								<File Id="196912625"/>
+								<File Id="400682864"/>
+								<File Id="514293643"/>
+								<File Id="628024963"/>
+								<File Id="919685758"/>
+								<File Id="1061031543"/>
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -264,35 +375,58 @@
 				</Event>
 				<Event Id="3859834159" Name="Return" ObjectPath="\Events\Default Work Unit\UI\Return" DurationType="OneShot" DurationMin="3.056771" DurationMax="3.056771">
 					<IncludedMemoryFiles>
-						<File Id="929738042" Language="SFX">
+						<File Id="434053612" Language="SFX">
 							<ShortName>UI_Menu_Cancel.wav</ShortName>
 							<Path>SFX\UI_Menu_Cancel_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1973847113" Name="Selection" ObjectPath="\Events\Default Work Unit\UI\Selection" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2674882108" Name="SpkWelcom" ObjectPath="\Events\Default Work Unit\Stage\SpkWelcom" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4245097106" Name="SpkWinner" ObjectPath="\Events\Default Work Unit\Stage\SpkWinner" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2907867019" Name="StopAllMusic" ObjectPath="\Events\Default Work Unit\StopAllMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="376844784" Name="UnpauseGame" ObjectPath="\Events\Default Work Unit\UnpauseGame" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1719053472" Name="Validation" ObjectPath="\Events\Default Work Unit\UI\Validation" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1719053472" Name="Validation" ObjectPath="\Events\Default Work Unit\UI\Validation" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="13384735" Language="SFX">
+					<ShortName>Savya_Death01.wav</ShortName>
+					<Path>SFX\Savya_Death01_10C4C929.wem</Path>
+				</File>
+				<File Id="29878892" Language="SFX">
+					<ShortName>UI_Menu_Open.wav</ShortName>
+					<Path>SFX\UI_Menu_Open_10C4C929.wem</Path>
+				</File>
 				<File Id="106912977" Language="SFX">
 					<ShortName>K_1000_DEATH_05.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_05_10C4C929.wem</Path>
-				</File>
-				<File Id="108546915" Language="SFX">
-					<ShortName>AlixSHot8.wav</ShortName>
-					<Path>SFX\AlixSHot8_10C4C929.wem</Path>
 				</File>
 				<File Id="111855593" Language="SFX">
 					<ShortName>Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4).wav</ShortName>
 					<Path>SFX\Crypt of the Necrodancer Danganronpa OST - Trial Underground (Boss 4)_D79FB2B7.wem</Path>
 				</File>
+				<File Id="113817124" Language="SFX">
+					<ShortName>Savya_Shot05.wav</ShortName>
+					<Path>SFX\Savya_Shot05_10C4C929.wem</Path>
+				</File>
+				<File Id="122210982" Language="SFX">
+					<ShortName>Savya_Shot06.wav</ShortName>
+					<Path>SFX\Savya_Shot06_10C4C929.wem</Path>
+				</File>
+				<File Id="130975094" Language="SFX">
+					<ShortName>Alix_ShotV2_01.wav</ShortName>
+					<Path>SFX\Alix_ShotV2_01_10C4C929.wem</Path>
+				</File>
 				<File Id="160550462" Language="SFX">
 					<ShortName>Perso GTR 4 mesures 115 BPM.wav</ShortName>
 					<Path>SFX\Perso GTR 4 mesures 115 BPM_D79FB2B7.wem</Path>
+				</File>
+				<File Id="196912625" Language="SFX">
+					<ShortName>Savya_Shot08.wav</ShortName>
+					<Path>SFX\Savya_Shot08_10C4C929.wem</Path>
+				</File>
+				<File Id="201400332" Language="SFX">
+					<ShortName>Alix_Death_01.wav</ShortName>
+					<Path>SFX\Alix_Death_01_10C4C929.wem</Path>
 				</File>
 				<File Id="228500161" Language="SFX">
 					<ShortName>Base rythmique  4 mesures 115BPM.wav</ShortName>
@@ -302,9 +436,17 @@
 					<ShortName>Tutel.wav</ShortName>
 					<Path>SFX\Tutel_D79FB2B7.wem</Path>
 				</File>
+				<File Id="257713276" Language="SFX">
+					<ShortName>Alix_ShotV2_06.wav</ShortName>
+					<Path>SFX\Alix_ShotV2_06_10C4C929.wem</Path>
+				</File>
 				<File Id="278564730" Language="SFX">
 					<ShortName>Alix_Death_02.wav</ShortName>
 					<Path>SFX\Alix_Death_02_10C4C929.wem</Path>
+				</File>
+				<File Id="294213831" Language="SFX">
+					<ShortName>UI_Menu_Hold_LP.wav</ShortName>
+					<Path>SFX\UI_Menu_Hold_LP_10C4C929.wem</Path>
 				</File>
 				<File Id="297830839" Language="SFX">
 					<ShortName>K_1000_SHOT_03.wav</ShortName>
@@ -318,17 +460,13 @@
 					<ShortName>Lady Hear Me Tonight.wav</ShortName>
 					<Path>SFX\Lady Hear Me Tonight_D79FB2B7.wem</Path>
 				</File>
-				<File Id="335046646" Language="SFX">
-					<ShortName>AlixSHot5.wav</ShortName>
-					<Path>SFX\AlixSHot5_10C4C929.wem</Path>
+				<File Id="368333125" Language="SFX">
+					<ShortName>Alix_ShotV2_05.wav</ShortName>
+					<Path>SFX\Alix_ShotV2_05_10C4C929.wem</Path>
 				</File>
-				<File Id="345391036" Language="SFX">
-					<ShortName>AlixSHot2.wav</ShortName>
-					<Path>SFX\AlixSHot2_10C4C929.wem</Path>
-				</File>
-				<File Id="384453966" Language="SFX">
-					<ShortName>AlixSHot6.wav</ShortName>
-					<Path>SFX\AlixSHot6_10C4C929.wem</Path>
+				<File Id="400682864" Language="SFX">
+					<ShortName>Savya_Shot02.wav</ShortName>
+					<Path>SFX\Savya_Shot02_10C4C929.wem</Path>
 				</File>
 				<File Id="405316960" Language="SFX">
 					<ShortName>Outro 4 mesures 115 BPM.wav</ShortName>
@@ -342,17 +480,49 @@
 					<ShortName>K_1000_DEATH_03.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_03_10C4C929.wem</Path>
 				</File>
-				<File Id="436504849" Language="SFX">
-					<ShortName>UI_Menu_Select.wav</ShortName>
-					<Path>SFX\UI_Menu_Select_10C4C929.wem</Path>
+				<File Id="434053612" Language="SFX">
+					<ShortName>UI_Menu_Cancel.wav</ShortName>
+					<Path>SFX\UI_Menu_Cancel_10C4C929.wem</Path>
 				</File>
-				<File Id="459676048" Language="SFX">
-					<ShortName>AlixSHot4.wav</ShortName>
-					<Path>SFX\AlixSHot4_10C4C929.wem</Path>
+				<File Id="446272882" Language="SFX">
+					<ShortName>Savya_Death04.wav</ShortName>
+					<Path>SFX\Savya_Death04_10C4C929.wem</Path>
+				</File>
+				<File Id="447103657" Language="SFX">
+					<ShortName>Savya_Death05.wav</ShortName>
+					<Path>SFX\Savya_Death05_10C4C929.wem</Path>
+				</File>
+				<File Id="456611378" Language="SFX">
+					<ShortName>Music_150Bpm_Base_Alix.wav</ShortName>
+					<Path>SFX\Music_150Bpm_Base_Alix_D79FB2B7.wem</Path>
+				</File>
+				<File Id="469732759" Language="SFX">
+					<ShortName>Music_150Bpm_Base_K1000.wav</ShortName>
+					<Path>SFX\Music_150Bpm_Base_K1000_D79FB2B7.wem</Path>
+				</File>
+				<File Id="487104567" Language="SFX">
+					<ShortName>UI_Menu_Deny.wav</ShortName>
+					<Path>SFX\UI_Menu_Deny_10C4C929.wem</Path>
+				</File>
+				<File Id="502363541" Language="SFX">
+					<ShortName>Alix_ShotV2_02.wav</ShortName>
+					<Path>SFX\Alix_ShotV2_02_10C4C929.wem</Path>
+				</File>
+				<File Id="514293643" Language="SFX">
+					<ShortName>Savya_Shot03.wav</ShortName>
+					<Path>SFX\Savya_Shot03_10C4C929.wem</Path>
+				</File>
+				<File Id="548564477" Language="SFX">
+					<ShortName>UI_Menu_Close.wav</ShortName>
+					<Path>SFX\UI_Menu_Close_10C4C929.wem</Path>
 				</File>
 				<File Id="552945596" Language="SFX">
 					<ShortName>Perso Synthé 4 mesures 115 BPM trim.wav</ShortName>
 					<Path>SFX\Perso Synthé 4 mesures 115 BPM trim_D79FB2B7.wem</Path>
+				</File>
+				<File Id="561893740" Language="SFX">
+					<ShortName>Savya_Death02.wav</ShortName>
+					<Path>SFX\Savya_Death02_10C4C929.wem</Path>
 				</File>
 				<File Id="566722943" Language="SFX">
 					<ShortName>Alix_Death_05.wav</ShortName>
@@ -366,21 +536,45 @@
 					<ShortName>K_1000_SHOT_07.wav</ShortName>
 					<Path>SFX\K_1000_SHOT_07_10C4C929.wem</Path>
 				</File>
+				<File Id="628024963" Language="SFX">
+					<ShortName>Savya_Shot04.wav</ShortName>
+					<Path>SFX\Savya_Shot04_10C4C929.wem</Path>
+				</File>
 				<File Id="673532382" Language="SFX">
 					<ShortName>K_1000_DEATH_01.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_01_10C4C929.wem</Path>
+				</File>
+				<File Id="675149518" Language="SFX">
+					<ShortName>Savya_Death03.wav</ShortName>
+					<Path>SFX\Savya_Death03_10C4C929.wem</Path>
 				</File>
 				<File Id="701184528" Language="SFX">
 					<ShortName>K_1000_SHOT_06.wav</ShortName>
 					<Path>SFX\K_1000_SHOT_06_10C4C929.wem</Path>
 				</File>
+				<File Id="701185874" Language="SFX">
+					<ShortName>Music_150Bpm_StereoMix_Base_Music_Intro.wav</ShortName>
+					<Path>SFX\Music_150Bpm_StereoMix_Base_Music_Intro_D79FB2B7.wem</Path>
+				</File>
+				<File Id="716726263" Language="SFX">
+					<ShortName>Music_150Bpm_StereoMix_Base_Music_Final.wav</ShortName>
+					<Path>SFX\Music_150Bpm_StereoMix_Base_Music_Final_D79FB2B7.wem</Path>
+				</File>
 				<File Id="737322455" Language="SFX">
 					<ShortName>Alix_Death_03.wav</ShortName>
 					<Path>SFX\Alix_Death_03_10C4C929.wem</Path>
 				</File>
+				<File Id="743566664" Language="SFX">
+					<ShortName>Music_150Bpm_Base_Savya.wav</ShortName>
+					<Path>SFX\Music_150Bpm_Base_Savya_D79FB2B7.wem</Path>
+				</File>
 				<File Id="790813190" Language="SFX">
 					<ShortName>Intro rythmique  4 mesures 115BPM.wav</ShortName>
 					<Path>SFX\Intro rythmique  4 mesures 115BPM_D79FB2B7.wem</Path>
+				</File>
+				<File Id="794574688" Language="SFX">
+					<ShortName>Alix_ShotV2_03.wav</ShortName>
+					<Path>SFX\Alix_ShotV2_03_10C4C929.wem</Path>
 				</File>
 				<File Id="812710171" Language="SFX">
 					<ShortName>Perso Harpe 4 mesures 115 BPM.wav</ShortName>
@@ -390,37 +584,49 @@
 					<ShortName>K_1000_DEATH_02.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_02_10C4C929.wem</Path>
 				</File>
-				<File Id="866428292" Language="SFX">
-					<ShortName>AlixSHot3.wav</ShortName>
-					<Path>SFX\AlixSHot3_10C4C929.wem</Path>
+				<File Id="855174435" Language="SFX">
+					<ShortName>Alix_ShotV2_08.wav</ShortName>
+					<Path>SFX\Alix_ShotV2_08_10C4C929.wem</Path>
+				</File>
+				<File Id="877160266" Language="SFX">
+					<ShortName>UI_Menu_Select.wav</ShortName>
+					<Path>SFX\UI_Menu_Select_10C4C929.wem</Path>
+				</File>
+				<File Id="919685758" Language="SFX">
+					<ShortName>Savya_Shot07.wav</ShortName>
+					<Path>SFX\Savya_Shot07_10C4C929.wem</Path>
+				</File>
+				<File Id="925010836" Language="SFX">
+					<ShortName>Music_150Bpm_StereoMix_Base_Music.wav</ShortName>
+					<Path>SFX\Music_150Bpm_StereoMix_Base_Music_D79FB2B7.wem</Path>
+				</File>
+				<File Id="927195843" Language="SFX">
+					<ShortName>Alix_ShotV2_04.wav</ShortName>
+					<Path>SFX\Alix_ShotV2_04_10C4C929.wem</Path>
 				</File>
 				<File Id="929642540" Language="SFX">
 					<ShortName>K_1000_SHOT_04.wav</ShortName>
 					<Path>SFX\K_1000_SHOT_04_10C4C929.wem</Path>
 				</File>
-				<File Id="929738042" Language="SFX">
-					<ShortName>UI_Menu_Cancel.wav</ShortName>
-					<Path>SFX\UI_Menu_Cancel_10C4C929.wem</Path>
-				</File>
 				<File Id="945936271" Language="SFX">
 					<ShortName>K_1000_SHOT_08.wav</ShortName>
 					<Path>SFX\K_1000_SHOT_08_10C4C929.wem</Path>
 				</File>
-				<File Id="960711957" Language="SFX">
-					<ShortName>AlixSHot1.wav</ShortName>
-					<Path>SFX\AlixSHot1_10C4C929.wem</Path>
+				<File Id="951020711" Language="SFX">
+					<ShortName>Alix_ShotV2_07.wav</ShortName>
+					<Path>SFX\Alix_ShotV2_07_10C4C929.wem</Path>
 				</File>
 				<File Id="988324216" Language="SFX">
 					<ShortName>K_1000_SHOT_02.wav</ShortName>
 					<Path>SFX\K_1000_SHOT_02_10C4C929.wem</Path>
 				</File>
-				<File Id="1031276903" Language="SFX">
-					<ShortName>AlixSHot7.wav</ShortName>
-					<Path>SFX\AlixSHot7_10C4C929.wem</Path>
-				</File>
 				<File Id="1037547258" Language="SFX">
 					<ShortName>K_1000_DEATH_04.wav</ShortName>
 					<Path>SFX\K_1000_DEATH_04_10C4C929.wem</Path>
+				</File>
+				<File Id="1061031543" Language="SFX">
+					<ShortName>Savya_Shot01.wav</ShortName>
+					<Path>SFX\Savya_Shot01_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 			<GameParameters>

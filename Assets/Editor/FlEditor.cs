@@ -14,6 +14,7 @@ public class FlGEditor : Editor
         #region FIND PROPERTIES 
 
         SerializedProperty toActivate = serializedObject.FindProperty("launch");
+        SerializedProperty stopFeel = serializedObject.FindProperty("stopFGAfterUse");
         SerializedProperty timeToDo = serializedObject.FindProperty("timeToDo");
 
         SerializedProperty changePos = serializedObject.FindProperty("changePos");
@@ -27,6 +28,7 @@ public class FlGEditor : Editor
         #endregion
 
         EditorGUILayout.PropertyField(toActivate);
+        EditorGUILayout.PropertyField(stopFeel);
         EditorGUILayout.PropertyField(timeToDo);
 
         EditorGUILayout.PropertyField(changePos);
