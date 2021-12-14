@@ -6,6 +6,7 @@ public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> mapZone1;
     public List<GameObject> mapZone2;
+    public List<GameObject> maps;
     //public List<Texture2D> map;
     int currentMap = 0;
 
@@ -20,12 +21,33 @@ public class LevelGenerator : MonoBehaviour
 
     Vector2 gridSize = new Vector2(1, 0.5f);
 
-    [SerializeField] List<GameObject> groundPrefabs;
+    //[SerializeField] List<GameObject> groundPrefabs;
 
     private void Awake()
     {
         playerSpawnPoints = new List<Vector2>();
         //currentObjectInLevel = new List<GameObject>();
+        maps = new List<GameObject>();
+        if (RhythmManager.Instance.level == Level.Medium)
+        {
+            for (int i = 0; i < mapZone1.Count; i++)
+            {
+                maps.Add(mapZone1[i]);
+            }
+
+        }
+        else
+        {
+            for (int i = 0; i < mapZone2.Count; i++)
+            {
+                maps.Add(mapZone2[i]);
+            }
+        }
+    }
+
+    private void Start()
+    {
+        
     }
 
     public List<Vector2> SpawnNextMap()
@@ -38,11 +60,11 @@ public class LevelGenerator : MonoBehaviour
         int i = 0;
         do
         {
-            i = Random.Range(0, mapZone1.Count);
+            i = Random.Range(0, maps.Count);
 
-        } while (currentMap == i);
+         } while (currentMap == i);
         currentMap = i;
-        currentLevel = Instantiate(mapZone1[i], transform);
+        currentLevel = Instantiate(maps[i], transform);
         MapManager manager = currentLevel.GetComponent<MapManager>();
         transform.position = new Vector3((-manager.mapSize.x * gridSize.x) / 2, (manager.mapSize.y * gridSize.y) / 2 ,0) ;
         foreach (Transform pos in manager.playerSpawnPoints)

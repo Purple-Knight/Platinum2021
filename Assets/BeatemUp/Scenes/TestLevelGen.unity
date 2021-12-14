@@ -1929,6 +1929,7 @@ MonoBehaviour:
   mapZone2:
   - {fileID: 4549307004106344475, guid: 3fb040b7e9c952f41ba782baa64cf029, type: 3}
   - {fileID: 4549307004106344475, guid: 3fb040b7e9c952f41ba782baa64cf029, type: 3}
+  maps: []
   colorMappings:
   - name: Player
     color: {r: 1, g: 0, b: 0, a: 1}
@@ -1942,12 +1943,6 @@ MonoBehaviour:
   playerSpawnPoints: []
   divideMultiplicator: 1
   spawnOffset: 0.5
-  groundPrefabs:
-  - {fileID: 6458827554674868219, guid: 58c411e5e2abe03418af730058f4442c, type: 3}
-  - {fileID: 8676564703739656076, guid: 9cb403a6dda6195479874e88aa429766, type: 3}
-  - {fileID: 832732989474334088, guid: e0a4b5f39ed6ad449b804839aa7e8293, type: 3}
-  - {fileID: 5198100595226972157, guid: ff01999127d388d40adfa5a36b132ed5, type: 3}
-  - {fileID: 1513527170783373629, guid: 72e91e431fb3fa341b3c42d448c80ad9, type: 3}
 --- !u!4 &2054580098
 Transform:
   m_ObjectHideFlags: 0
