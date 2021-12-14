@@ -939,6 +939,34 @@
 										<MusicSegment Name="Music_150bpm" ID="{2DC6D85D-7FAE-475D-AE1F-056648DBFFC9}" ShortID="116731395">
 											<PropertyList>
 												<Property Name="EndPosition" Type="Real64" Value="99552.3269285687"/>
+												<Property Name="PlaybackSpeed" Type="Real64">
+													<RTPCList>
+														<RTPC Name="" ID="{91DE06FA-6DFC-46FB-8435-826A6CFCDD6C}" ShortID="69421483">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="PlayBackSpeed" ID="{F3D98109-EEE7-4BFC-B7A9-270580BA71A3}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{82D6CA10-C312-4545-AB40-57C27534C3DF}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0.75</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>1.25</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -950,6 +978,36 @@
 											</ReferenceList>
 											<ChildrenList>
 												<MusicTrack Name="Music_150Bpm_Base_Alix" ID="{3F8720DD-9571-43E7-BC07-2899C32795C2}" ShortID="889649128">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{626ECF55-2F4B-472A-9A6F-F91268233D80}" ShortID="234109733">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_GTR_Volume" ID="{9CCF3EB0-8AAD-4C05-B330-508DAA31B0E4}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{9019D312-3765-4B35-B86D-175D4B34DBCD}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1001,6 +1059,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_Base_K1000" ID="{A2043994-9A1F-4F86-A42D-CA15456151A3}" ShortID="941052888">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{80C20811-8544-4A5E-8BF6-377824EF458B}" ShortID="423244009">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Synthe_Volume" ID="{FCFD3B13-7153-48FD-9740-9984935EDBFC}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{B82AD048-B878-4846-B338-652C91635FEF}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1052,6 +1140,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_Base_Savya" ID="{420833C5-277C-44FE-A166-7FA81082CB80}" ShortID="184772075">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{37538E56-525D-4315-AF27-4A42E0DDB917}" ShortID="730110098">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Harpe_Volume" ID="{CEB4073C-543E-4521-9821-8E1E95F822B6}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{81666097-3BD4-4B2D-B79D-82F8A29CF183}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1104,6 +1222,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_StereoMix_Base_Music" ID="{9D75FC5B-D28B-49F5-AE1B-6A7C0983645E}" ShortID="231226490">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{FB36D17A-B4EF-4F6E-8B9F-2270B194CC85}" ShortID="558376264">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Base_Volume" ID="{349BAD07-5B66-4990-8C9C-313A765BD734}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{959748EE-6F42-49EE-BFB4-3BAD5FEB8ABB}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1195,6 +1343,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_StereoMix_Base_Music_Final" ID="{A4A08FD5-FA92-4C2D-B8C6-92985E586652}" ShortID="580862016">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{27661EEB-8C30-4DF1-BC91-A103FC586E65}" ShortID="997690834">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Base_Volume" ID="{349BAD07-5B66-4990-8C9C-313A765BD734}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{D14C0FD5-84B6-4D4A-ACA2-814A7B8D2278}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
@@ -1246,6 +1424,36 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Music_150Bpm_StereoMix_Base_Music_Intro" ID="{136816CB-0272-4F1A-87DD-3C823DDC637E}" ShortID="56264170">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{EEC4618A-887E-4105-AEA7-52B704F5CF77}" ShortID="95139847">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="User_RTPC_Base_Volume" ID="{349BAD07-5B66-4990-8C9C-313A765BD734}" WorkUnitID="{A5D9519A-D303-47E3-ABA2-74C0C14197B8}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{3E7B836D-ABF3-4B64-9EBD-426D8989F663}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-10</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>10</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{04246F2D-D20A-422D-9AD3-984DF56C0403}"/>
