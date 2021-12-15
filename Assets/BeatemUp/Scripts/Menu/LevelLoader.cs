@@ -42,7 +42,7 @@ public class LevelLoader : MonoBehaviour
     
     public void LoadLevel(string levelToLoad)
     {
-        if(RhythmManager.Instance.level == Level.Medium) difficultyLevel.text = "Medium";
+        if(RhythmManager.Instance.bpm == BPM.BPM115) difficultyLevel.text = "Medium";
         else difficultyLevel.text = "Hard oh yeah !";
         
         
