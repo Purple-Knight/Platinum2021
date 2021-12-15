@@ -46,7 +46,7 @@ MonoBehaviour:
   menuMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d252c6e7e7c69b841afd1bf138b397ba, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: fd7d375a85f8afc4c980e4c489d69e22, type: 2}
   slowMusicEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -54,7 +54,7 @@ MonoBehaviour:
   fastMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 24532685a813f2740a4278feb47c8b5e, type: 2}
   stopAllMusicEvent:
     idInternal: 0
     valueGuidInternal: 

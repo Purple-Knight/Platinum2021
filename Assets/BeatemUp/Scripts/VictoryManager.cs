@@ -59,6 +59,8 @@ public class VictoryManager : MonoBehaviour
     {
         List<int> winnerOrder = new List<int>();
         List<int> allPlayers = new List<int>();
+        winnerOrder.Clear();
+        allPlayers.Clear();
         for (int i = 0; i < winners.Length; i++)
         {
             allPlayers.Add(i);

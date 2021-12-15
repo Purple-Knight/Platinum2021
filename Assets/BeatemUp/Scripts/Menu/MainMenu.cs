@@ -283,7 +283,7 @@ public class MainMenu : MonoBehaviour
 
                         if (item.GetButtonDown("Confirm"))
                         {
-                            if (cursorPosOption == 3)
+                            if (cursorPosOption == 4)
                             {
                                 checkController();
                                 AkSoundEngine.PostEvent("Next", gameObject);
