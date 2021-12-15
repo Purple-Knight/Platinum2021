@@ -28,7 +28,7 @@ public class LevelGenerator : MonoBehaviour
         playerSpawnPoints = new List<Vector2>();
         //currentObjectInLevel = new List<GameObject>();
         maps = new List<GameObject>();
-        if (RhythmManager.Instance.level == Level.Medium)
+        if (RhythmManager.Instance.bpm == BPM.BPM115)
         {
             for (int i = 0; i < mapZone1.Count; i++)
             {

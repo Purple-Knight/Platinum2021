@@ -3917,7 +3917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749391611344507160, guid: 123adcff38d80ad40a7cc518893e80c8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -409.42953
+      value: -409.4295
       objectReference: {fileID: 0}
     - target: {fileID: 4749391611344507160, guid: 123adcff38d80ad40a7cc518893e80c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4695,7 +4695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749391611344507160, guid: 123adcff38d80ad40a7cc518893e80c8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -409.42953
+      value: -409.4295
       objectReference: {fileID: 0}
     - target: {fileID: 4749391611344507160, guid: 123adcff38d80ad40a7cc518893e80c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4921,19 +4921,7 @@ PrefabInstance:
       value: RhythmManager
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: pauseEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: db764ea0785a62f40ae96b60d921ba2d, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: unpauseEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: f6b53440231bfb34f8903ac086a5d31b, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gameMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: menuMusicEvent.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: 553e48ce12ddede4290f5b587d3457a7, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
@@ -8853,7 +8841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749391611344507160, guid: 123adcff38d80ad40a7cc518893e80c8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -409.42953
+      value: -409.4295
       objectReference: {fileID: 0}
     - target: {fileID: 4749391611344507160, guid: 123adcff38d80ad40a7cc518893e80c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10222,7 +10210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749391611344507160, guid: 123adcff38d80ad40a7cc518893e80c8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -409.42953
+      value: -409.4295
       objectReference: {fileID: 0}
     - target: {fileID: 4749391611344507160, guid: 123adcff38d80ad40a7cc518893e80c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11472,7 +11460,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 67845f1a36d7f3243ac054b39c88245e, type: 2}
+    WwiseObjectReference: {fileID: 0}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
