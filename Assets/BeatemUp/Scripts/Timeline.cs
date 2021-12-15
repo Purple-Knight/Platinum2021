@@ -63,9 +63,7 @@ public class Timeline : MonoBehaviour
             var speed = (distance / time) * multiplicatorSpeed;
 
             var barScript = lastBar.GetComponent<BarTL>();
-            barScript.direction = direction.normalized;
-            barScript.speed = speed;
-            barScript.deleteTime = time;
+            barScript.Init(endTimeline.transform.position, direction.normalized, speed, time);
 
             actualBeat++;
 
