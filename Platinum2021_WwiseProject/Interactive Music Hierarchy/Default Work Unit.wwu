@@ -1211,7 +1211,7 @@
 											</Reference>
 											<Reference>
 												<Local>
-													<MusicCue Name="End Cue" ID="{EFD9B25C-1453-484B-A6B7-1399A5A94043}">
+													<MusicCue Name="EndEvent" ID="{EFD9B25C-1453-484B-A6B7-1399A5A94043}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="2"/>
 															<Property Name="TimeMs" Type="Real64" Value="82243.3318144451"/>
