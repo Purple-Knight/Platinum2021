@@ -65,7 +65,11 @@ public class MainMenu : MonoBehaviour
     public List<Sprite> numbersRed = new List<Sprite>();
     public Image leftImage;
     public Image rightImage;
+    
+    //Option map on sais pas
     public MapSelector difficultySelect;
+    public Feel leftArrow;
+    public Feel rightArrow;
 
 
     //Load level -------------------------------------
@@ -97,6 +101,8 @@ public class MainMenu : MonoBehaviour
         _instance = this;
 
         checkController();
+
+        difficultySelect.actualID = PlayerPrefs.GetInt("Difficulty");
 
     }
 
@@ -387,8 +393,18 @@ public class MainMenu : MonoBehaviour
         }else if (cursorPosOption == Sliders.Count)
         {
 
-            if(plus) difficultySelect.upValue();
-            else difficultySelect.downValue();   
+            if (!plus)
+            {
+                difficultySelect.upValue();
+                leftArrow.launch = true;
+            }
+            else
+            {
+                difficultySelect.downValue();
+                rightArrow.launch = true;
+            }
+
+            PlayerPrefs.SetInt("Difficulty", difficultySelect.actualID);
             AkSoundEngine.PostEvent("Navigation", gameObject);
         }
     }
