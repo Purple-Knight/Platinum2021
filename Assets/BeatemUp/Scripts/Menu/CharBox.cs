@@ -16,7 +16,7 @@ public class CharBox : MonoBehaviour
     [HideInInspector] public int idChar;
     [HideInInspector] public bool once;
     [HideInInspector] public bool ok;
-    public bool isAssigned;
+    public bool isAssigned = false;
     public GameObject OKGameObject;
 
     public void Start()

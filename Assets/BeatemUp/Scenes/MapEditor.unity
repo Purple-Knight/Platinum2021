@@ -238,6 +238,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5866506016946320453, guid: bb01a0cb7f5d3c348baa282d35f74c86, type: 3}
+      propertyPath: buttonStyles.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866506016946320453, guid: bb01a0cb7f5d3c348baa282d35f74c86, type: 3}
+      propertyPath: buttonStyles.Array.data[4].NodeStyle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 6ea2a5261d42b2549a96e001c36a60a9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb01a0cb7f5d3c348baa282d35f74c86, type: 3}
 --- !u!1 &616443839
