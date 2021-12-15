@@ -44,7 +44,10 @@ public class CharacterSelection : MonoBehaviour
 
     private void Start()
     {
-        
+        for (int i = 0; i < 4; i++)
+        {
+            charPortrait[i].GetComponent<CharBox>().isAssigned = false;
+        }
     }
 
     public void asignPlayers(List<Player> pList)
@@ -378,6 +381,7 @@ public class CharacterSelection : MonoBehaviour
     public void checkIfEveryoneIsReady()
     {
         bool letsGo = true;
+        int numbersss = 0;
 
         if (playersActual.Count >= 1)//-------------------------------------------------------------------------------------------------------------------------------------------
         {
@@ -387,8 +391,14 @@ public class CharacterSelection : MonoBehaviour
                 {
                     if (!charPortrait[i].GetComponent<CharBox>().ok) letsGo = false;
                 }
+                else
+                {
+                    numbersss++;
+                }
             }
 
+            if (numbersss == 4) letsGo = false;
+            
             if (letsGo)
             {
                 buttonStart.SetActive(true);
