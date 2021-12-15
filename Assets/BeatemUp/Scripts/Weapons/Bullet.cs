@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour     // Script on bullet GameObject, instanti
         startPos = new Vector2(transform.position.x + (_playerManager.GridSize.x * tilePositionOffset) * direction.x, transform.position.y + (_playerManager.GridSize.y * tilePositionOffset) * direction.y);
         //Vector2 endPos;
         float grid = direction.x == 0 ? _playerManager.GridSize.y : _playerManager.GridSize.x;
-        RaycastHit2D hit = Physics2D.Raycast(startPos, direction, length * grid, hitLayer);
+        RaycastHit2D hit = Physics2D.Raycast(startPos, direction, (length - tilePositionOffset) * grid, hitLayer);
         if (hit.collider != null)
         {
             endPos = hit.point;
