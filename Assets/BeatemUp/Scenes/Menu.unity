@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.98975, y: 49.083145}
+  m_AnchoredPosition: {x: -361.98975, y: 49.083134}
   m_SizeDelta: {x: 516.5823, y: 326.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10086874
@@ -1690,7 +1690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.016497515, y: 0.25730875}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -18.999878, y: -33}
+  m_AnchoredPosition: {x: -19, y: -33}
   m_SizeDelta: {x: -770.86, y: -59.29001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &306978511
@@ -4744,9 +4744,13 @@ PrefabInstance:
       value: RhythmManager
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: gameMusicEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: menuMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 428561e2167b61e46a8d8d8fd4112eca, type: 2}
+      objectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5606,7 +5610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1917.9999, y: -1080.3838}
+  m_AnchoredPosition: {x: -1918, y: -1080.3838}
   m_SizeDelta: {x: 1819.3184, y: 980.3839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &908685201
@@ -10885,6 +10889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088575134}
   - component: {fileID: 2088575133}
+  - component: {fileID: 2088575135}
   m_Layer: 0
   m_Name: AKSoundBank
   m_TagString: Untagged
@@ -10930,6 +10935,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088575135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088575132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63ac4d926ccf3f4099c3e26e001aa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2e4611193b741ef4e898bc8755939657, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &2093487709
 GameObject:
   m_ObjectHideFlags: 0
