@@ -18,7 +18,9 @@
 				</SoundBank>
 				<SoundBank Name="SFXBank" ID="{3EC541E5-D733-4E7F-8073-62B04BE6DBE4}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Character" ID="{805AE7C6-44BF-43FB-9347-465F44FA668B}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFX" ID="{2D867300-BB61-4826-A566-898545D25228}" WorkUnitID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UI" ID="{AC98B4D5-577B-4B5E-869B-8382B76D8B0C}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
