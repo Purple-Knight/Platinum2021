@@ -499,11 +499,11 @@ public class MainMenu : MonoBehaviour
             
             if (left > right)
             {
-                RhythmManager.Instance.level = Level.Medium;
+                RhythmManager.Instance.bpm = BPM.BPM115;
             }
             else if (left < right)
             {
-                RhythmManager.Instance.level = Level.Hard;
+                RhythmManager.Instance.bpm = BPM.BPM150;
             }
             else
             {

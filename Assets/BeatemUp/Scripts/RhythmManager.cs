@@ -56,6 +56,7 @@ public class RhythmManager : MonoBehaviour
 
     [Header("       Buffer timer settings")]
     public Level level;
+    public BPM bpm;
 
     private void Awake()
     {
@@ -277,6 +278,13 @@ public enum Level
     Medium,
     Hard,
 }
+
+public enum BPM
+{
+    BPM115,
+    BPM150,
+}
+
 
 public enum Track
 {
