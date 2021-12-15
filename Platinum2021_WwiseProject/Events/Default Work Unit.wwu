@@ -181,7 +181,7 @@
 								<Action Name="" ID="{3127FCBA-7B74-4FE5-9E10-8F6868D9A439}" ShortID="132854731">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="MenuMusic" ID="{372D4B0D-2963-4EAF-88AD-1CE02811272F}" WorkUnitID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}"/>
+											<ObjectRef Name="MenuPlaylist" ID="{3BCBB3A8-C346-45D5-A16F-AD11CE309A8C}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

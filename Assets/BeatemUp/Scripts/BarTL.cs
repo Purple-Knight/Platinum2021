@@ -10,9 +10,14 @@ public class BarTL : MonoBehaviour
     public float speed;
     public float deleteTime;
     public Sprite endSprite;
+    Vector3 endPosition;
 
-    void Start()
+    public void Init(Vector3 endPos, Vector3 _direction, float _speed, float _deleteTime)
     {
+        endPosition = endPos;
+        direction = _direction;
+        speed = _speed;
+        deleteTime = _deleteTime;
         StartCoroutine(deletionNote());
     }
 
@@ -31,12 +36,11 @@ public class BarTL : MonoBehaviour
         if (GetComponent<SpriteRenderer>())
         {
             mySprite = GetComponent<SpriteRenderer>();
-            
             Vector3 maScale = transform.localScale;
 
             yield return new WaitForSeconds(deleteTime);
-            mySprite.sprite = endSprite;
 
+            mySprite.sprite = endSprite;
             speed = 0;
             direction = Vector2.zero;
 
@@ -46,12 +50,11 @@ public class BarTL : MonoBehaviour
         else
         {
             mySpriteR = GetComponent<Image>();
-            
             Vector3 maScale = GetComponent<RectTransform>().localScale;
 
             yield return new WaitForSeconds(deleteTime);
-            mySpriteR.sprite = endSprite;
 
+            mySpriteR.sprite = endSprite;
             speed = 0;
             direction = Vector2.zero;
 
@@ -59,7 +62,7 @@ public class BarTL : MonoBehaviour
             mySpriteR.DOFade(0, time);
         }
 
-        
+        transform.position = endPosition;
 
         yield return new WaitForSeconds(time);
 
