@@ -39,6 +39,11 @@
 											</RTPCList>
 										</Property>
 										<Property Name="Tempo" Type="Real64" Value="115"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -779,7 +784,7 @@
 										<Property Name="Tempo" Type="Real64" Value="150"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>2</Value>
+												<Value>8</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1247,6 +1252,11 @@
 										<MusicSegment Name="MusicMenu" ID="{F2B1432E-41E1-4F0A-AF1F-62CAB6F3F136}" ShortID="637961856">
 											<PropertyList>
 												<Property Name="EndPosition" Type="Real64" Value="109807.407407407"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>8</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
