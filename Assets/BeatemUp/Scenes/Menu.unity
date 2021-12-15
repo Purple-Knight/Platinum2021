@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.98975, y: 49.083134}
+  m_AnchoredPosition: {x: -361.98975, y: 49.083145}
   m_SizeDelta: {x: 516.5823, y: 326.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10086874
@@ -1690,7 +1690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.016497515, y: 0.25730875}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -19, y: -33}
+  m_AnchoredPosition: {x: -18.999878, y: -33}
   m_SizeDelta: {x: -770.86, y: -59.29001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &306978511
@@ -4744,13 +4744,21 @@ PrefabInstance:
       value: RhythmManager
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: pauseEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: db764ea0785a62f40ae96b60d921ba2d, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: unpauseEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: f6b53440231bfb34f8903ac086a5d31b, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gameMusicEvent.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: menuMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
+      objectReference: {fileID: 11400000, guid: 553e48ce12ddede4290f5b587d3457a7, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5610,7 +5618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1918, y: -1080.3838}
+  m_AnchoredPosition: {x: -1917.9999, y: -1080.3838}
   m_SizeDelta: {x: 1819.3184, y: 980.3839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &908685201
@@ -10952,7 +10960,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 2e4611193b741ef4e898bc8755939657, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 67845f1a36d7f3243ac054b39c88245e, type: 2}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0

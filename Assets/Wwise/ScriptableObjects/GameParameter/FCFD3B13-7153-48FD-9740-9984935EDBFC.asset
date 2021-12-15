@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717ab3ec6b2637840be5be66f61c66df, type: 3}
-  m_Name: C13B9832-C58C-4AA6-BC6A-D48D2E1C686E
+  m_Script: {fileID: 11500000, guid: d8ed9d55f6647bc42ad63d9a32acbba3, type: 3}
+  m_Name: FCFD3B13-7153-48FD-9740-9984935EDBFC
   m_EditorClassIdentifier: 
-  objectName: PlayCrypt
-  id: 859070589
-  guid: C13B9832-C58C-4AA6-BC6A-D48D2E1C686E
+  objectName: User_RTPC_Synthe_Volume
+  id: 621928703
+  guid: FCFD3B13-7153-48FD-9740-9984935EDBFC

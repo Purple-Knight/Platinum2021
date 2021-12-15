@@ -200,6 +200,8 @@ public class MainMenu : MonoBehaviour
                                 default:
                                     break;
                             }
+                            
+                            AkSoundEngine.PostEvent("Next", gameObject);
                         }
 
                         break;
@@ -271,7 +273,12 @@ public class MainMenu : MonoBehaviour
 
                         if (item.GetButtonDown("Confirm"))
                         {
-                            if (cursorPosOption == 3) checkController();
+                            if (cursorPosOption == 3)
+                            {
+                                checkController();
+                                AkSoundEngine.PostEvent("Next", gameObject);
+                            }
+                            
                         }
 
                         if (item.GetButtonDown("Cancel"))
@@ -492,17 +499,18 @@ public class MainMenu : MonoBehaviour
             
             if (left > right)
             {
-                RhythmManager.Instance.level = Level.Medium;
+                RhythmManager.Instance.bpm = BPM.BPM115;
             }
             else if (left < right)
             {
-                RhythmManager.Instance.level = Level.Hard;
+                RhythmManager.Instance.bpm = BPM.BPM150;
             }
             else
             {
                 if(Random.Range(0,2) == 0) RhythmManager.Instance.level = Level.Medium;
                 else RhythmManager.Instance.level = Level.Hard;
             }
+            AkSoundEngine.PostEvent("Next", gameObject);
             fadeGO.SetActive(true);
             StartCoroutine(loadTime());
             timeToInteract = 0.7f;
