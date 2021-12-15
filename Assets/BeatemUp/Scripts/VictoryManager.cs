@@ -77,7 +77,7 @@ public class VictoryManager : MonoBehaviour
             allPlayers.RemoveAt(highestPlayer);
         }
         isVictoryScreenActive = true;
-        RhythmManager.Instance.StopAllMusic();
+        //RhythmManager.Instance.StopAllMusic();
         victoryCanvas.SetActive(true);
         playerName.sprite = playerNames[playersData.allPlayerData[winnerOrder[0]].myCharID];
         for (int i = 0; i < winnerOrder.Count; i++)
