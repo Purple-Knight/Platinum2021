@@ -9,6 +9,7 @@
 						<ObjectRef Name="PauseGame" ID="{90A0B11D-19D7-43D5-9ABE-C704A5AEAABF}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UnpauseGame" ID="{CD49CA17-6F06-46B8-B750-84931ED28266}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Music" ID="{4F87A714-D9B7-48FF-9629-4ED59043C4F2}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayMenuMusic" ID="{3D68D952-F280-4BB3-A7F5-F3821778B952}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="EndOfMusic" ID="{56ADF9AF-FA5D-4EA9-ACB1-5556C941BCF1}" WorkUnitID="{1768A5EF-5893-4CF3-82C7-F51CF312FCE7}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
