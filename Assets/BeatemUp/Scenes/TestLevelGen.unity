@@ -1193,18 +1193,6 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: gtrVolume.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: fb7e4f50729de0246b6329cfecd71ddc, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: shotSound.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: d8988283ba71dc142878668273ce9670, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: deathSound.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: d62c968e9c23e6f47b4e9b763c8aa6ce, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: duration.Array.data[0].duration
       value: 130
       objectReference: {fileID: 0}
@@ -1212,34 +1200,6 @@ PrefabInstance:
       propertyPath: duration.Array.data[0].songName
       value: 115bpm
       objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: pauseEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 6c414e5019ebf2d43baac9b8f09d997d, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: harpeVolume.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 704552e16efbecc4b96d3c4e21bb0aa4, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: syntheVolume.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: abbd0f700fe442a43b3efb69dc1585b3, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: unpauseEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: cbd6a1c9b0d17cc42a4f43b09b5a7946, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: gameMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 4dadb5d05c05d394ba2ae70ff4154447, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: menuMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 4dadb5d05c05d394ba2ae70ff4154447, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: stopAllMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: c21361958929d6d4faf9a91e8051a0e0, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 11

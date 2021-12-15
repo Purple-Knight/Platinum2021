@@ -31006,14 +31006,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnAwake: 0
-  timeToDo: 0
+  playOnAwake: 1
+  timeToDo: 0.2
   changePos: 0
   posNeed: []
   changeScale: 1
   scaleNeed:
-  - xPourcentScale: 102
-    yPourcentScale: 98
+  - xPourcentScale: 110
+    yPourcentScale: 90
   changeColor: 0
   colorNeed: []
   evenOrOdd: 1
@@ -33503,14 +33503,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0029c0588d2014d99220c9d98d31c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnAwake: 0
-  timeToDo: 0
+  playOnAwake: 1
+  timeToDo: 0.2
   changePos: 0
   posNeed: []
   changeScale: 1
   scaleNeed:
-  - xPourcentScale: 102
-    yPourcentScale: 98
+  - xPourcentScale: 110
+    yPourcentScale: 90
   changeColor: 0
   colorNeed: []
   evenOrOdd: 2
