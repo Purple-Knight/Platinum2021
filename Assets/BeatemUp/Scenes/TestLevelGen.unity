@@ -1689,6 +1689,7 @@ GameObject:
   - component: {fileID: 1767053802}
   - component: {fileID: 1767053801}
   - component: {fileID: 1767053803}
+  - component: {fileID: 1767053804}
   m_Layer: 0
   m_Name: AKSoundBank
   m_TagString: Untagged
@@ -1756,6 +1757,30 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &1767053804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767053800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63ac4d926ccf3f4099c3e26e001aa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 67845f1a36d7f3243ac054b39c88245e, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &2054580096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +1941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 678145814218333157, guid: b55310b0b495de0409dada19124b73d0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.09994507
+      value: -0.099975586
       objectReference: {fileID: 0}
     - target: {fileID: 678145814252971062, guid: b55310b0b495de0409dada19124b73d0, type: 3}
       propertyPath: m_AnchorMax.y

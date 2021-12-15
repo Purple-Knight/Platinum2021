@@ -28,11 +28,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8651883172394239719, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.033992767
+      value: -0.033993006
       objectReference: {fileID: 0}
     - target: {fileID: -8651883172394239719, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.5367031
+      value: 2.1932976
       objectReference: {fileID: 0}
     - target: {fileID: -8651883172394239719, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_Bounds.m_Extent.x
@@ -44,7 +44,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8114998697272094284, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0
+      value: 0.020000458
       objectReference: {fileID: 0}
     - target: {fileID: -8114998697272094284, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_Bounds.m_Center.y
@@ -69,6 +69,10 @@ PrefabInstance:
     - target: {fileID: -3458711031998411248, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3458711031998411248, guid: 30277bbad0797034782708396de43643, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2486707710044639737, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_LocalRotation.w
@@ -164,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265225316467197784, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.09947586
+      value: 2.7044747
       objectReference: {fileID: 0}
     - target: {fileID: 6265225316467197784, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_Bounds.m_Extent.x
@@ -172,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265225316467197784, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 3.3787224
+      value: 3.3787227
       objectReference: {fileID: 0}
     - target: {fileID: 7202664675253512350, guid: 30277bbad0797034782708396de43643, type: 3}
       propertyPath: m_LocalScale.x

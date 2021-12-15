@@ -114,10 +114,10 @@ public class RhythmManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBeforeStart);
         if (bpm == global::BPM.BPM115) {
-            slowMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction); }
+            slowMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat + (uint)AkCallbackType.AK_MusicSyncUserCue, CallbackFunction); }
         else
         {
-            fastMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+            fastMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat + (uint)AkCallbackType.AK_MusicSyncUserCue, CallbackFunction);
         }
     }
 
@@ -256,11 +256,11 @@ public class RhythmManager : MonoBehaviour
 
             if (bpm == global::BPM.BPM115)
             {
-                slowMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+                slowMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat  + (uint)AkCallbackType.AK_MusicSyncUserCue , CallbackFunction);
             }
             else
             {
-                fastMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+                fastMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat + (uint)AkCallbackType.AK_MusicSyncUserCue, CallbackFunction);
             }
         }
         else
