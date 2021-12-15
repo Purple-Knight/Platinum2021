@@ -1762,6 +1762,11 @@
 								<Sound Name="Music_150Bpm_Base_Alix" ID="{0BF88881-F6FF-4DD6-835A-2135A3EA9DF0}" ShortID="17889667">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1788,6 +1793,11 @@
 								<Sound Name="Music_150Bpm_Base_K1000" ID="{881FBA64-0784-4160-8277-148A05386FD7}" ShortID="198286097">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1814,6 +1824,11 @@
 								<Sound Name="Music_150Bpm_Base_Savya" ID="{7DF02C6B-0523-416D-93A8-1F0C2B262AE0}" ShortID="27106437">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1840,6 +1855,11 @@
 								<Sound Name="Music_150Bpm_StereoMix_Base_Music" ID="{34610AAF-475A-44A1-9C7C-1EDB5A61E34F}" ShortID="741102957">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1928,6 +1948,11 @@
 								<Sound Name="MUSIC_Rythmic_Base_115BPM" ID="{50056EE9-14B8-4274-AD59-051411E607A7}" ShortID="457219342">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1954,6 +1979,11 @@
 								<Sound Name="MUSIC_Synth_115BPM" ID="{67B2B8E2-02EC-4C28-8FE0-C5C0B859AC04}" ShortID="115828764">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
