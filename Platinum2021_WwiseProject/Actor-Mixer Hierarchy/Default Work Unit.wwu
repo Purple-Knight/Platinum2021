@@ -8,6 +8,13 @@
 						<Folder Name="Characters" ID="{81397FE3-B82D-4E81-9DFB-1346A86AACCC}" ShortID="728230805">
 							<ChildrenList>
 								<SwitchContainer Name="PlayerDeath" ID="{8BD83343-E9D5-488F-A57B-864D35C33EA8}" ShortID="421704057">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
@@ -793,6 +800,13 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<SwitchContainer Name="PlayerShoot" ID="{1AB5DB17-22E4-4B89-BDD6-44FB7C18FD16}" ShortID="100990743">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05B8EC02-B8D9-4306-B5AC-89E416568EC4}"/>
