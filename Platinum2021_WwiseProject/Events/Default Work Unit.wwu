@@ -147,7 +147,7 @@
 								<Action Name="" ID="{6D98EC0D-F809-4A20-9C4C-1D71D248EC4D}" ShortID="462271873">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="MusicPlaylist_115bpm" ID="{720608AE-A0E8-453A-9EAE-D2215E1163EF}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+											<ObjectRef Name="Music_115bpm" ID="{DFFE50C3-88BC-45EA-9ABA-9C3394AA206E}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -164,7 +164,24 @@
 								<Action Name="" ID="{B30B59B8-FD19-44DF-B7DB-1C7D2FAC92B0}" ShortID="798824543">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="MusicPlaylist_150bpm" ID="{338631C1-3605-4CBC-BBEB-6F17B0A3CF01}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+											<ObjectRef Name="Music_150bpm" ID="{2DC6D85D-7FAE-475D-AE1F-056648DBFFC9}" WorkUnitID="{2E987DC8-F4A6-40A8-92A6-130A91DB2A07}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="PlayMenuMusic" ID="{3D68D952-F280-4BB3-A7F5-F3821778B952}">
+							<ChildrenList>
+								<Action Name="" ID="{61E5AE65-0DAF-4571-8B2D-2635BDFD170E}" ShortID="86755008">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+									</PropertyList>
+									<ReferenceList/>
+								</Action>
+								<Action Name="" ID="{3127FCBA-7B74-4FE5-9E10-8F6868D9A439}" ShortID="132854731">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuMusic" ID="{372D4B0D-2963-4EAF-88AD-1CE02811272F}" WorkUnitID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
