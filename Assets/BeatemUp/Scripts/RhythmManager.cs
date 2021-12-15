@@ -13,7 +13,8 @@ public class RhythmManager : MonoBehaviour
 
     [Header("       Music Selection")]
     [SerializeField] AK.Wwise.Event menuMusicEvent;
-    [SerializeField] AK.Wwise.Event gameMusicEvent;
+    [SerializeField] AK.Wwise.Event slowMusicEvent;
+    [SerializeField] AK.Wwise.Event fastMusicEvent;
     [SerializeField] AK.Wwise.Event stopAllMusicEvent;
     [SerializeField] AK.Wwise.Event pauseEvent;
     [SerializeField] AK.Wwise.Event unpauseEvent;
@@ -112,7 +113,12 @@ public class RhythmManager : MonoBehaviour
     IEnumerator delayStart()
     {
         yield return new WaitForSeconds(timeBeforeStart);
-        gameMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        if (bpm == global::BPM.BPM115) {
+            slowMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat + (uint)AkCallbackType.AK_MusicSyncUserCue, CallbackFunction); }
+        else
+        {
+            fastMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat + (uint)AkCallbackType.AK_MusicSyncUserCue, CallbackFunction);
+        }
     }
 
     public void PlayDeathSound()
@@ -247,8 +253,17 @@ public class RhythmManager : MonoBehaviour
                 InstantiateBeat?.Invoke();
                 yield return new WaitForSeconds(beatDuration);
             }
-            gameMusicEvent.Post(gameObject, (uint)0x2100, CallbackFunction);
-        }else
+
+            if (bpm == global::BPM.BPM115)
+            {
+                slowMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat  + (uint)AkCallbackType.AK_MusicSyncUserCue , CallbackFunction);
+            }
+            else
+            {
+                fastMusicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat + (uint)AkCallbackType.AK_MusicSyncUserCue, CallbackFunction);
+            }
+        }
+        else
         {
             menuMusicEvent.Post(gameObject, (uint)0x2100, CallbackFunction);
 

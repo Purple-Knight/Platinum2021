@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         camera.ResetCamera();
         RhythmManager.Instance.EndOfMusic.AddListener(EndGame);
         scoreManager.InstantiateScore();
+        BlockAllPlayers();
         endGameAnim.SetTrigger("StartGame");
     }
 

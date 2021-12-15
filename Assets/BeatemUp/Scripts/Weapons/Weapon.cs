@@ -48,10 +48,13 @@ public class Weapon : MonoBehaviour
 
     public void GetAxisInput()
     {
-        if (player.GetAxisRaw("Aim Horizontal") != 0 || player.GetAxisRaw("Aim Vertical") != 0) // Last Aim Direction
+        float x = (player.GetAxisRaw("Move Horizontal") != 0) ? player.GetAxis("Move Horizontal") : player.GetAxis("Aim Horizontal");
+        float y = (player.GetAxisRaw("Move Vertical") != 0) ? player.GetAxis("Move Vertical") : player.GetAxis("Aim Vertical");
+
+        if (x != 0 || y != 0) // Last Aim Direction
         {
-            float x = player.GetAxis("Aim Horizontal");
-            float y = player.GetAxis("Aim Vertical");
+            //x = player.GetAxis("Aim Horizontal");
+            //y = player.GetAxis("Aim Vertical");
 
             if (Mathf.Abs(x) >= Mathf.Abs(y))
                 y = 0;

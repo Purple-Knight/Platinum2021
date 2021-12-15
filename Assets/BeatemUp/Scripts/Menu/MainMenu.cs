@@ -53,6 +53,8 @@ public class MainMenu : MonoBehaviour
     List<float> playerTimer = new List<float> { 0, 0, 0, 0};
     List<bool> boolTimer = new List<bool> { false, false, false, false};
     public float deadZone;
+    
+    
 
     //Map  -------------------------------------
     [Header("Map")]
@@ -63,6 +65,12 @@ public class MainMenu : MonoBehaviour
     public List<Sprite> numbersRed = new List<Sprite>();
     public Image leftImage;
     public Image rightImage;
+    
+    //Option map on sais pas
+    public MapSelector difficultySelect;
+    public Feel leftArrow;
+    public Feel rightArrow;
+
 
     //Load level -------------------------------------
     [Header("Loader level")] 
@@ -93,6 +101,8 @@ public class MainMenu : MonoBehaviour
         _instance = this;
 
         checkController();
+
+        difficultySelect.actualID = PlayerPrefs.GetInt("Difficulty");
 
     }
 
@@ -273,7 +283,7 @@ public class MainMenu : MonoBehaviour
 
                         if (item.GetButtonDown("Confirm"))
                         {
-                            if (cursorPosOption == 3)
+                            if (cursorPosOption == 4)
                             {
                                 checkController();
                                 AkSoundEngine.PostEvent("Next", gameObject);
@@ -318,8 +328,9 @@ public class MainMenu : MonoBehaviour
                             AkSoundEngine.PostEvent("Navigation", gameObject);
 
                         }
-                        else if (item.GetAxisRaw("MenuHorizontal") < deadZone &&
-                                 item.GetAxisRaw("MenuHorizontal") > -deadZone)
+                        
+                        else if (item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone
+                                && item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone)
                         {
                             once[(players.IndexOf(item))] = false;
                         }
@@ -327,7 +338,7 @@ public class MainMenu : MonoBehaviour
 
                         if (item.GetButtonDown("Cancel"))
                         {
-                            toCharSelect();
+                            StartCoroutine(toCharSelect());
                             timeToInteract = 0.5f;
                             playerChoice.Clear();
                             playerChoice = new List<int>() {0, 0, 0, 0};
@@ -379,6 +390,22 @@ public class MainMenu : MonoBehaviour
             SetVolumeSFX();
             
             if (cursorPosOption == 2) AkSoundEngine.PostEvent("Navigation", gameObject);
+        }else if (cursorPosOption == Sliders.Count)
+        {
+
+            if (!plus)
+            {
+                difficultySelect.upValue();
+                leftArrow.launch = true;
+            }
+            else
+            {
+                difficultySelect.downValue();
+                rightArrow.launch = true;
+            }
+
+            PlayerPrefs.SetInt("Difficulty", difficultySelect.actualID);
+            AkSoundEngine.PostEvent("Navigation", gameObject);
         }
     }
 
@@ -507,9 +534,12 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                if(Random.Range(0,2) == 0) RhythmManager.Instance.level = Level.Medium;
-                else RhythmManager.Instance.level = Level.Hard;
+                if(Random.Range(0,2) == 0) RhythmManager.Instance.bpm = BPM.BPM115;
+                else RhythmManager.Instance.bpm = BPM.BPM150;
             }
+
+            RhythmManager.Instance.level = (Level)difficultySelect.actualID;
+            
             AkSoundEngine.PostEvent("Next", gameObject);
             fadeGO.SetActive(true);
             StartCoroutine(loadTime());

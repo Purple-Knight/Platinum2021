@@ -5275,7 +5275,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &6321625309397512651
 GameObject:
   m_ObjectHideFlags: 0
@@ -10149,6 +10149,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3883265989226838410}
     m_Modifications:
+    - target: {fileID: 2935190437976316369, guid: 40c7b15f9d5913942b6b7d95126c2600, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5000655878010095966, guid: 40c7b15f9d5913942b6b7d95126c2600, type: 3}
       propertyPath: m_Name
       value: ComboCounterText

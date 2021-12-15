@@ -11,7 +11,6 @@ public class VictoryManager : MonoBehaviour
     private static VictoryManager _instance;
 
     [SerializeField] GameObject victoryCanvas;
-    [SerializeField]TextMeshProUGUI playerWinner;
     [SerializeField]Image playerName;
     [SerializeField] List<Image> playerImage;
     [SerializeField] List<Sprite> playerNames;
@@ -60,6 +59,8 @@ public class VictoryManager : MonoBehaviour
     {
         List<int> winnerOrder = new List<int>();
         List<int> allPlayers = new List<int>();
+        winnerOrder.Clear();
+        allPlayers.Clear();
         for (int i = 0; i < winners.Length; i++)
         {
             allPlayers.Add(i);
@@ -78,9 +79,8 @@ public class VictoryManager : MonoBehaviour
             allPlayers.RemoveAt(highestPlayer);
         }
         isVictoryScreenActive = true;
-        RhythmManager.Instance.StopAllMusic();
+        //RhythmManager.Instance.StopAllMusic();
         victoryCanvas.SetActive(true);
-        playerWinner.text = "Winner ";
         playerName.sprite = playerNames[playersData.allPlayerData[winnerOrder[0]].myCharID];
         for (int i = 0; i < winnerOrder.Count; i++)
         {

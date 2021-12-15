@@ -12,6 +12,7 @@ public class PlayerPref : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", Sliders[2].value);
 
         PlayerPrefs.SetInt("FirstTime", 0);
+        PlayerPrefs.SetInt("Difficulty", 0)
 
     */
 }

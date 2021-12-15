@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
+    public static EventManager Instance { get { return _instance; } }
+    private static EventManager _instance;
+
     public AK.Wwise.RTPC playBackSpeedRTPC;
     float timer = 0;
     bool speedUp = false;
@@ -17,6 +20,7 @@ public class EventManager : MonoBehaviour
 
     private void Start()
     {
+        _instance = this;
     }
 
     private void Update()
