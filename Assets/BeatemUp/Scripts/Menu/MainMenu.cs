@@ -323,26 +323,6 @@ public class MainMenu : MonoBehaviour
 
                         }
                         
-                        else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") < 0 - deadZone)
-                        {
-                            once[(players.IndexOf(item))] = true;
-
-                            difficultySelect.upValue();
-                            
-                            AkSoundEngine.PostEvent("Navigation", gameObject);
-
-                        }
-
-                        else if (once[(players.IndexOf(item))] == false && item.GetAxisRaw("MenuVertical") > 0 + deadZone)
-                        {
-
-                            once[(players.IndexOf(item))] = true;
-                            
-                            difficultySelect.downValue();
-                            
-                            AkSoundEngine.PostEvent("Navigation", gameObject);
-
-                        }
                         else if (item.GetAxisRaw("MenuHorizontal") < deadZone && item.GetAxisRaw("MenuHorizontal") > -deadZone
                                 && item.GetAxisRaw("MenuVertical") < deadZone && item.GetAxisRaw("MenuVertical") > -deadZone)
                         {
@@ -404,6 +384,12 @@ public class MainMenu : MonoBehaviour
             SetVolumeSFX();
             
             if (cursorPosOption == 2) AkSoundEngine.PostEvent("Navigation", gameObject);
+        }else if (cursorPosOption == Sliders.Count)
+        {
+
+            if(plus) difficultySelect.upValue();
+            else difficultySelect.downValue();   
+            AkSoundEngine.PostEvent("Navigation", gameObject);
         }
     }
 
