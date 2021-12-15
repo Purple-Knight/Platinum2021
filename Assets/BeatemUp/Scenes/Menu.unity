@@ -806,13 +806,8 @@ MonoBehaviour:
   colorList:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.83137256, g: 0.32549018, b: 0.3702989, a: 1}
-  - {r: 0.83137256, g: 0.5073077, b: 0.32549018, a: 1}
-  - {r: 0.79606915, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.3480534, g: 0.83137256, b: 0.32549018, a: 1}
-  - {r: 0.32549018, g: 0.8173735, b: 0.83137256, a: 1}
   - {r: 0.3250267, g: 0.38389438, b: 0.8301887, a: 1}
-  - {r: 0.59199756, g: 0.32549018, b: 0.83137256, a: 1}
-  - {r: 0.83137256, g: 0.32549018, b: 0.6678148, a: 1}
   characterList:
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
@@ -4925,6 +4920,18 @@ PrefabInstance:
       value: RhythmManager
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: easyPercentage
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: hardPercentage
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: mediumPercentage
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: shotSound.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: f8f08adf0d3ba98438d14430faea4bd0, type: 2}
@@ -4951,7 +4958,7 @@ PrefabInstance:
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: menuMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 6902301e0c4b8454d969410cde9cd6d8, type: 2}
+      objectReference: {fileID: 11400000, guid: 99efbd9ead798af4886afdc57ee35fa7, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: slowMusicEvent.WwiseObjectReference
       value: 
@@ -7076,13 +7083,8 @@ MonoBehaviour:
   colorList:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.83137256, g: 0.32549018, b: 0.3702989, a: 1}
-  - {r: 0.83137256, g: 0.5073077, b: 0.32549018, a: 1}
-  - {r: 0.79606915, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.3480534, g: 0.83137256, b: 0.32549018, a: 1}
-  - {r: 0.32549018, g: 0.8173735, b: 0.83137256, a: 1}
   - {r: 0.3250267, g: 0.38389438, b: 0.8301887, a: 1}
-  - {r: 0.59199756, g: 0.32549018, b: 0.83137256, a: 1}
-  - {r: 0.83137256, g: 0.32549018, b: 0.6678148, a: 1}
   characterList:
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
@@ -9792,13 +9794,8 @@ MonoBehaviour:
   colorList:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.83137256, g: 0.32549018, b: 0.3702989, a: 1}
-  - {r: 0.83137256, g: 0.5073077, b: 0.32549018, a: 1}
-  - {r: 0.79606915, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.3480534, g: 0.83137256, b: 0.32549018, a: 1}
-  - {r: 0.32549018, g: 0.8173735, b: 0.83137256, a: 1}
   - {r: 0.3250267, g: 0.38389438, b: 0.8301887, a: 1}
-  - {r: 0.59199756, g: 0.32549018, b: 0.83137256, a: 1}
-  - {r: 0.83137256, g: 0.32549018, b: 0.6678148, a: 1}
   characterList:
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
@@ -10726,13 +10723,8 @@ MonoBehaviour:
   colorList:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.83137256, g: 0.32549018, b: 0.3702989, a: 1}
-  - {r: 0.83137256, g: 0.5073077, b: 0.32549018, a: 1}
-  - {r: 0.79606915, g: 0.83137256, b: 0.32549018, a: 1}
   - {r: 0.3480534, g: 0.83137256, b: 0.32549018, a: 1}
-  - {r: 0.32549018, g: 0.8173735, b: 0.83137256, a: 1}
   - {r: 0.3250267, g: 0.38389438, b: 0.8301887, a: 1}
-  - {r: 0.59199756, g: 0.32549018, b: 0.83137256, a: 1}
-  - {r: 0.83137256, g: 0.32549018, b: 0.6678148, a: 1}
   characterList:
   - {fileID: 21300000, guid: a294a60368ac83e41b696733dfd16809, type: 3}
   - {fileID: 21300000, guid: 80a4ae9f79294a341bbcaecdc835757d, type: 3}
@@ -11747,7 +11739,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 67845f1a36d7f3243ac054b39c88245e, type: 2}
+    WwiseObjectReference: {fileID: 0}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0

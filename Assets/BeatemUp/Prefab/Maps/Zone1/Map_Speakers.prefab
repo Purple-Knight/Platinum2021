@@ -1763,7 +1763,7 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: aaeb05b1e1d1e694b906d37f8106bd42, type: 3}
     - target: {fileID: 3342664832796841427, guid: 35ba10ae13fa09048b41bfcf38013822, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3342664832796841437, guid: 35ba10ae13fa09048b41bfcf38013822, type: 3}
       propertyPath: m_RootOrder
@@ -8824,6 +8824,10 @@ PrefabInstance:
       propertyPath: style.m_Normal.m_Background
       value: 
       objectReference: {fileID: 2800000, guid: ce56d93b38e29b54f82edc9f81caa1fd, type: 3}
+    - target: {fileID: 3342664832796841427, guid: 66b0d0c4fdea3274a807804a1a0c2bff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3342664832796841437, guid: 66b0d0c4fdea3274a807804a1a0c2bff, type: 3}
       propertyPath: m_RootOrder
       value: 131
@@ -11476,6 +11480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gutter1
       objectReference: {fileID: 0}
+    - target: {fileID: 3342664832796841427, guid: 66b0d0c4fdea3274a807804a1a0c2bff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3342664832796841437, guid: 66b0d0c4fdea3274a807804a1a0c2bff, type: 3}
       propertyPath: m_RootOrder
       value: 130
@@ -13177,6 +13185,10 @@ PrefabInstance:
       propertyPath: style.m_Normal.m_Background
       value: 
       objectReference: {fileID: 2800000, guid: ce56d93b38e29b54f82edc9f81caa1fd, type: 3}
+    - target: {fileID: 3342664832796841427, guid: 66b0d0c4fdea3274a807804a1a0c2bff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3342664832796841437, guid: 66b0d0c4fdea3274a807804a1a0c2bff, type: 3}
       propertyPath: m_RootOrder
       value: 129

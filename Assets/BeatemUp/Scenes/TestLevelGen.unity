@@ -1195,7 +1195,7 @@ PrefabInstance:
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gtrVolume.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: fb7e4f50729de0246b6329cfecd71ddc, type: 2}
+      objectReference: {fileID: 11400000, guid: f207f4d930cc0d1499767d784f7587b7, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: shotSound.WwiseObjectReference
       value: 
@@ -1219,15 +1219,19 @@ PrefabInstance:
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: harpeVolume.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 704552e16efbecc4b96d3c4e21bb0aa4, type: 2}
+      objectReference: {fileID: 11400000, guid: 521a4e11b622fdc4384300ee46e2b462, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: syntheVolume.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: abbd0f700fe442a43b3efb69dc1585b3, type: 2}
+      objectReference: {fileID: 11400000, guid: 3e75a0ed134de8f41ab93a66b053b2a9, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: unpauseEvent.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: f6b53440231bfb34f8903ac086a5d31b, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: fastMusicEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gameMusicEvent.WwiseObjectReference
       value: 
@@ -1235,7 +1239,11 @@ PrefabInstance:
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: menuMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 4dadb5d05c05d394ba2ae70ff4154447, type: 2}
+      objectReference: {fileID: 11400000, guid: 99efbd9ead798af4886afdc57ee35fa7, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: slowMusicEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 553e48ce12ddede4290f5b587d3457a7, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: stopAllMusicEvent.WwiseObjectReference
       value: 
@@ -1774,7 +1782,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 67845f1a36d7f3243ac054b39c88245e, type: 2}
+    WwiseObjectReference: {fileID: 0}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
@@ -1818,7 +1826,8 @@ MonoBehaviour:
   - {fileID: 2636338185486253263, guid: 85a64db09e80d5c45a66cc63c273db3c, type: 3}
   - {fileID: 8731893969134894594, guid: 1570c02f7a5bdee4d8754955ea289e8d, type: 3}
   mapZone2:
-  - {fileID: 4829331669417882287, guid: 3c90416aa9d0bf045b03541d5b653753, type: 3}
+  - {fileID: 3350713656679172341, guid: 4391e07591660b546bd25540935d80c4, type: 3}
+  - {fileID: 6708629574950962594, guid: 0fb031ad27fa2d941a528a51c19bb3a5, type: 3}
   - {fileID: 4270006373074943833, guid: 51d3cf11e165a7940be791605d446fa8, type: 3}
   maps: []
   colorMappings:
