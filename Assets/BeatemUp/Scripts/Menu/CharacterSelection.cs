@@ -70,6 +70,8 @@ public class CharacterSelection : MonoBehaviour
                             Debug.Log(item1_5);
 
                         }
+                        
+                        AkSoundEngine.PostEvent("Navigation", gameObject);
 
                         if (playersActual.Count != 0)
                         {
@@ -102,6 +104,7 @@ public class CharacterSelection : MonoBehaviour
                     }
                     else
                     {
+                        AkSoundEngine.PostEvent("Next", gameObject);
                         var n1 = charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>();
                         var n2 = charPortraitTrue[playersActual.IndexOf(item)].GetComponent<Image>();
 
@@ -128,16 +131,24 @@ public class CharacterSelection : MonoBehaviour
 
                         if (item.GetAxisRaw("MenuHorizontal") > 0 + deadZone)
                         {
-                            if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].downValue();
+                            if (!n1.once)
+                            {
+                                AkSoundEngine.PostEvent("Navigation", gameObject);
+                                charPortraitTrue[playersActual.IndexOf(item)].downValue();
+                            }
                             n1.changeChar(true);
                             
                             namesZone[playersActual.IndexOf(item)].sprite = names[charPortraitTrue[playersActual.IndexOf(item)].actualID];
                         }
                         else if (item.GetAxisRaw("MenuHorizontal") < 0 - deadZone)
                         {
-                            if (!n1.once) charPortraitTrue[playersActual.IndexOf(item)].upValue();
+                            if (!n1.once)
+                            {
+                                AkSoundEngine.PostEvent("Navigation", gameObject);
+                                charPortraitTrue[playersActual.IndexOf(item)].upValue();
+                            }
                             n1.changeChar(false);
-
+                            
                             namesZone[playersActual.IndexOf(item)].sprite = names[charPortraitTrue[playersActual.IndexOf(item)].actualID];
                         }
 
@@ -152,7 +163,7 @@ public class CharacterSelection : MonoBehaviour
                                     n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
 
                                 }
-
+                                AkSoundEngine.PostEvent("Navigation", gameObject);
                                 n2.gameObject.GetComponent<MapSelector>().moveToGO();
                             }
                         }
@@ -166,6 +177,7 @@ public class CharacterSelection : MonoBehaviour
                                     n2.gameObject.GetComponent<MapSelector>().GoList[i].GetComponent<Image>().color = n1.colorList[n1.idColor];
 
                                 }
+                                AkSoundEngine.PostEvent("Navigation", gameObject);
                                 n2.gameObject.GetComponent<MapSelector>().moveToGO();
                             }
                         }
@@ -191,12 +203,14 @@ public class CharacterSelection : MonoBehaviour
                         if (charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().ok == true)
                         {
                             charPortrait[playersActual.IndexOf(item)].GetComponent<CharBox>().changeOK(false);
+                            AkSoundEngine.PostEvent("Return", gameObject);
                         }
                         else
                         {
                             Debug.Log("etape 1");
                             playersActual[playersActual.IndexOf(item)] = null;
                             showPlayerSelect();
+                            AkSoundEngine.PostEvent("Return", gameObject);
                         }
 
                         checkIfEveryoneIsReady();
@@ -297,6 +311,7 @@ public class CharacterSelection : MonoBehaviour
                     saveALL(item);
                     saveData();
                     MainMenu.Instance.toMapSelect();
+                    AkSoundEngine.PostEvent("Next", gameObject);
                 }
                 else
                 {

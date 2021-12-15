@@ -17,16 +17,11 @@ namespace AK
         static const AkUniqueID NAVIGATION = 1082482811U;
         static const AkUniqueID NEXT = 982796106U;
         static const AkUniqueID OPENDOOR = 2122995345U;
-        static const AkUniqueID PAUSEGAME = 1589270263U;
         static const AkUniqueID PLAYDEATH = 2840201783U;
         static const AkUniqueID PLAYMAINMUSIC_115BPM = 327194170U;
         static const AkUniqueID PLAYMAINMUSIC_150BPM = 710931125U;
-        static const AkUniqueID PLAYMOVE = 1729642804U;
-        static const AkUniqueID PLAYSELECTION = 2126442687U;
         static const AkUniqueID PLAYSHOOT = 1489638472U;
         static const AkUniqueID RETURN = 3859834159U;
-        static const AkUniqueID STOPALLMUSIC = 2907867019U;
-        static const AkUniqueID UNPAUSEGAME = 376844784U;
     } // namespace EVENTS
 
     namespace SWITCHES
