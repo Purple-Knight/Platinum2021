@@ -1,6 +1,11 @@
 Event	ID	Name			Wwise Object Path	Notes
 	327194170	PlayMainMusic_115bpm			\Default Work Unit\Musique\PlayMainMusic_115bpm	
+	376844784	UnpauseGame			\Default Work Unit\UnpauseGame	
+	413545259	PlayMenuMusic			\Default Work Unit\Musique\PlayMenuMusic	
 	710931125	PlayMainMusic_150bpm			\Default Work Unit\Musique\PlayMainMusic_150bpm	
+	1143320996	EndOfMusic			\Default Work Unit\EndOfMusic	
+	1589270263	PauseGame			\Default Work Unit\PauseGame	
+	2907867019	StopAllMusic			\Default Work Unit\StopAllMusic	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	216788283	User_RTPC_Base_Volume			\Default Work Unit\User\MainMusicRTPC\User_RTPC_Base_Volume	
@@ -10,16 +15,15 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	3666206667	User_RTPC_GTR_Volume			\Default Work Unit\User\MainMusicRTPC\User_RTPC_GTR_Volume	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	160550462	Perso GTR 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Perso GTR 4 mesures 115 BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist_115bpm\Music_115bpm\Perso GTR 4 mesures 115 BPM		1602848
-	228500161	Base rythmique  4 mesures 115BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Base rythmique  4 mesures 115BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist_115bpm\Music_115bpm\Base rythmique  4 mesures 115BPM		1602848
-	405316960	Outro	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Outro 4 mesures 115 BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist_115bpm\Music_115bpm\Outro		1803196
-	456611378	Music_150Bpm_Base_Alix	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_Base_Alix_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_150bpm\MusicPlaylist_150bpm\Music_150bpm\Music_150Bpm_Base_Alix		14745744
-	469732759	Music_150Bpm_Base_K1000	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_Base_K1000_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_150bpm\MusicPlaylist_150bpm\Music_150bpm\Music_150Bpm_Base_K1000		14745744
-	552945596	Perso Synthé 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Perso Synthé 4 mesures 115 BPM trim_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist_115bpm\Music_115bpm\Perso Synthé 4 mesures 115 BPM		1602852
-	701185874	Music_150Bpm_StereoMix_Base_Music_Intro	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_StereoMix_Base_Music_Intro_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_150bpm\MusicPlaylist_150bpm\Music_150bpm\Music_150Bpm_StereoMix_Base_Music_Intro		1536144
-	716726263	Music_150Bpm_StereoMix_Base_Music_Final	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_StereoMix_Base_Music_Final_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_150bpm\MusicPlaylist_150bpm\Music_150bpm\Music_150Bpm_StereoMix_Base_Music_Final		921744
-	743566664	Music_150Bpm_Base_Savya	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_Base_Savya_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_150bpm\MusicPlaylist_150bpm\Music_150bpm\Music_150Bpm_Base_Savya		14745744
-	790813190	Outro	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Intro rythmique  4 mesures 115BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist_115bpm\Music_115bpm\Outro		1602848
-	812710171	Perso Harpe 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Perso Harpe 4 mesures 115 BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_115bpm\MusicPlaylist_115bpm\Music_115bpm\Perso Harpe 4 mesures 115 BPM		1602848
-	925010836	Music_150Bpm_StereoMix_Base_Music	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_StereoMix_Base_Music_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musique\Level_150bpm\MusicPlaylist_150bpm\Music_150bpm\Music_150Bpm_StereoMix_Base_Music		14745744
+	107303426	Perso Harpe 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\MUSIC_Harp_115BPM_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_115bpm\Music_115bpm\Perso Harpe 4 mesures 115 BPM		1602848
+	259702741	MUSIC_Rythmic_Base_115BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\MUSIC_Rythmic_Base_115BPM_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MenuMusic\MUSIC_Rythmic_Base_115BPM		3205632
+	456611378	Music_150Bpm_Base_Alix	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_Base_Alix_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MenuMusic\Music_150Bpm_Base_Alix		14745744
+	469732759	Music_150Bpm_Base_K1000	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_Base_K1000_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MenuMusic\Music_150Bpm_Base_K1000		14745744
+	618054727	Base rythmique  4 mesures 115BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\MUSIC_Outro_115BPMwav_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_115bpm\Music_115bpm\Base rythmique  4 mesures 115BPM		3661188
+	663027672	MUSIC_Synth_115BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\MUSIC_Synth_115BPM_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MenuMusic\MUSIC_Synth_115BPM		1602848
+	701185874	Music_150Bpm_StereoMix_Base_Music	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_StereoMix_Base_Music_Intro_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_150bpm\Music_150bpm\Music_150Bpm_StereoMix_Base_Music		1536144
+	716726263	Music_150Bpm_StereoMix_Base_Music	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_StereoMix_Base_Music_Final_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_150bpm\Music_150bpm\Music_150Bpm_StereoMix_Base_Music		921744
+	743566664	Music_150Bpm_Base_Savya	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_Base_Savya_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MenuMusic\Music_150Bpm_Base_Savya		14745744
+	798306091	Perso GTR 4 mesures 115 BPM	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\MUSIC_ Guitar_115BPM  _D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_115bpm\Music_115bpm\Perso GTR 4 mesures 115 BPM		1602848
+	925010836	Music_150Bpm_StereoMix_Base_Music	C:\Users\Luca\Documents\GitHub\Projets\Platinum2021\Platinum2021_WwiseProject\.cache\Windows\SFX\Music_150Bpm_StereoMix_Base_Music_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MenuMusic\Music_150Bpm_StereoMix_Base_Music		14745744
 

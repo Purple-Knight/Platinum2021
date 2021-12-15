@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d038ecf2d1335543bf943a8f453b7d5f
     GuidInternal: 
-    m_lastTime: -8585620509735591026
+    m_lastTime: -8585620388395108223
     List:
     - name: MusicBank
       guid: c950ed8ba691bb4196f94f83cbd3c44e
@@ -142,7 +142,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: efa568179358f34c82c7f51cf312fce7
     GuidInternal: 
-    m_lastTime: -8585620509736602215
+    m_lastTime: -8585620388397122268
     List:
     - name: Character
       guid: c6e75a80bf44fb439347465f44fa668b
@@ -330,8 +330,8 @@ MonoBehaviour:
         guid: 834ce93eae467b46abe54f40a6feddf9
       Path: Events\Default Work Unit\Musique\PlayMainMusic_115bpm
       maxAttenuation: 0
-      maxDuration: 127.680305
-      minDuration: 127.680305
+      maxDuration: 133.85098
+      minDuration: 133.85098
     - name: PlayMainMusic_150bpm
       guid: 5088c349a8b82642896fb50a1e5c61e1
       id: 710931125
@@ -350,8 +350,28 @@ MonoBehaviour:
         guid: 5088c349a8b82642896fb50a1e5c61e1
       Path: Events\Default Work Unit\Musique\PlayMainMusic_150bpm
       maxAttenuation: 0
-      maxDuration: 89.55883
-      minDuration: 89.55883
+      maxDuration: 89.6
+      minDuration: 89.6
+    - name: PlayMenuMusic
+      guid: 52d9683d80f2b34ba7f5f3821778b952
+      id: 413545259
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: efa568179358f34c82c7f51cf312fce7
+      - ElementName: Musique
+        ObjectType: 4
+        guid: 23740385de9b134aa90b2ef41413efe0
+      - ElementName: PlayMenuMusic
+        ObjectType: 3
+        guid: 52d9683d80f2b34ba7f5f3821778b952
+      Path: Events\Default Work Unit\Musique\PlayMenuMusic
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PlayMove
       guid: 84b29d9eb320a243986f771d08515749
       id: 1729642804

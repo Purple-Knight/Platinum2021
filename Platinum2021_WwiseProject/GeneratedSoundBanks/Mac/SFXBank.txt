@@ -2,8 +2,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	982796106	Next			\Default Work Unit\UI\Next	
 	1082482811	Navigation			\Default Work Unit\UI\Navigation	
 	1489638472	PlayShoot			\Default Work Unit\Character\PlayShoot	
+	1729642804	PlayMove			\Default Work Unit\Character\PlayMove	
 	1880695829	Error			\Default Work Unit\UI\Error	
 	2122995345	OpenDoor			\Default Work Unit\UI\OpenDoor	
+	2126442687	PlaySelection			\Default Work Unit\Character\PlaySelection	
 	2840201783	PlayDeath			\Default Work Unit\Character\PlayDeath	
 	3859834159	Return			\Default Work Unit\UI\Return	
 
