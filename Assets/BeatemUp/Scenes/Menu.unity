@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.98975, y: 49.08314}
+  m_AnchoredPosition: {x: -361.98975, y: 49.083145}
   m_SizeDelta: {x: 516.5823, y: 326.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10086874
@@ -4925,13 +4925,37 @@ PrefabInstance:
       value: RhythmManager
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: shotSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: f8f08adf0d3ba98438d14430faea4bd0, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: deathSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: cdff100136c4f1243a890d501ad4edc2, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: pauseEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: db764ea0785a62f40ae96b60d921ba2d, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: unpauseEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: f6b53440231bfb34f8903ac086a5d31b, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: fastMusicEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gameMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 553e48ce12ddede4290f5b587d3457a7, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: menuMusicEvent.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: 6902301e0c4b8454d969410cde9cd6d8, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: slowMusicEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 553e48ce12ddede4290f5b587d3457a7, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -11012,7 +11036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2160.7676}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 1819.3184, y: 980.3839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1947967380
@@ -11762,7 +11786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2161}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2094059825
