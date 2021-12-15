@@ -34,6 +34,9 @@ public class MapSelector : MonoBehaviour
     [SerializeField] List<Vector3> sizeSelected = new List<Vector3>();
     [SerializeField] private Vector3 sizeBack;
 
+    public bool useAlpha;
+    public float alpha = 1;
+
     //Float
     float distance = 0;
     float refDistance = 0;
@@ -69,6 +72,12 @@ public class MapSelector : MonoBehaviour
         setGameObject();
 
         actualID = copyValue;
+
+        if (useAlpha)
+        {
+            upValue();
+            downValue();
+        }
     }
 
     void copyWValue()
@@ -288,7 +297,9 @@ public class MapSelector : MonoBehaviour
 
             if (id == mainPoint)
             {
+                
                 item.GetComponent<Image>().color = Color.HSVToRGB(m_Hue, m_Saturation, 1);
+
                 var sequence = DOTween.Sequence();
 
                 for (int i = 0; i < sizeSelected.Count; i++)
@@ -300,7 +311,8 @@ public class MapSelector : MonoBehaviour
             }
             else
             {
-                item.GetComponent<Image>().color = Color.HSVToRGB(m_Hue, m_Saturation, 0.5f);
+                if(useAlpha) item.GetComponent<Image>().color = new Color(colorProv.r, colorProv.g, colorProv.b, alpha);
+                else item.GetComponent<Image>().color = Color.HSVToRGB(m_Hue, m_Saturation, 0.5f);
                 item.transform.DOScale(new Vector3(1f, 1f, 1f), animTime);
             }
         }
