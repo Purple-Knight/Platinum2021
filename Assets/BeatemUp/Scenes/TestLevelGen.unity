@@ -1370,6 +1370,18 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: applause.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: c6a9142d6869a8e4d8f4e3d3c1953671, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: finish115.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 4cce560d9bce647438c69c9d1b05a326, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: finish150.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 9cf60817614baf84789cc7cb54f507a7, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: gtrVolume.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: f207f4d930cc0d1499767d784f7587b7, type: 2}
@@ -1394,6 +1406,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: db764ea0785a62f40ae96b60d921ba2d, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: victory115.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 6366407c91cc97740863ba63eb500cbb, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
+      propertyPath: victory150.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: c24258af2cd058d48ac94946d60fa2e5, type: 2}
+    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: harpeVolume.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: 521a4e11b622fdc4384300ee46e2b462, type: 2}
@@ -1416,7 +1436,7 @@ PrefabInstance:
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: menuMusicEvent.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 99efbd9ead798af4886afdc57ee35fa7, type: 2}
+      objectReference: {fileID: 11400000, guid: 2e328597826287846ae96febaa7f79e1, type: 2}
     - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: slowMusicEvent.WwiseObjectReference
       value: 
