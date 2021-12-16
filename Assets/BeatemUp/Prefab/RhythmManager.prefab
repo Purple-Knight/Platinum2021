@@ -70,23 +70,23 @@ MonoBehaviour:
   applause:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: e4ecff6bf9bab1841bc0ac27e9d83dbf, type: 2}
   victory115:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 5dad3282ea51e684592fa6cd2309809e, type: 2}
   victory150:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 5d244f709dd54a343825531798725028, type: 2}
   finish115:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: dcec64eafd35bdd48bc1449fd45e0670, type: 2}
   finish150:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: a5bc0f860b756dc458829a8cde12e611, type: 2}
   inMenu: 1
   numberOfBeat: 636.2761
   timeBeforeStart: 0.5

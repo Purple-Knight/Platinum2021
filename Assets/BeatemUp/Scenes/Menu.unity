@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.98975, y: 49.083145}
+  m_AnchoredPosition: {x: -361.98975, y: 49.08315}
   m_SizeDelta: {x: 516.5823, y: 326.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10086874
@@ -606,6 +606,8 @@ MonoBehaviour:
     yPourcentScale: 95
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!114 &30237555
 MonoBehaviour:
@@ -629,6 +631,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!114 &30237556
 MonoBehaviour:
@@ -655,6 +659,8 @@ MonoBehaviour:
   changeColor: 0
   colorNeed:
   - {r: 0.8396226, g: 0.5825265, b: 0.011881431, a: 0}
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!1 &32256802
 GameObject:
@@ -1733,7 +1739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.016497515, y: 0.25730875}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -18.999817, y: -33}
+  m_AnchoredPosition: {x: -18.999817, y: -32.999996}
   m_SizeDelta: {x: -770.86, y: -59.29001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &306978511
@@ -2048,6 +2054,8 @@ MonoBehaviour:
     yPourcentScale: 103
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!114 &314657471
 MonoBehaviour:
@@ -2071,6 +2079,8 @@ MonoBehaviour:
     yPourcentScale: 117
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!1 &377004002
 GameObject:
@@ -2641,6 +2651,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!114 &477765304
 MonoBehaviour:
@@ -2664,6 +2676,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!114 &477765305
 MonoBehaviour:
@@ -2687,6 +2701,8 @@ MonoBehaviour:
     yPourcentScale: 95
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!1 &483905823
 GameObject:
@@ -3076,6 +3092,8 @@ MonoBehaviour:
     yPourcentScale: 95
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!114 &527590134
 MonoBehaviour:
@@ -3099,6 +3117,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!114 &527590135
 MonoBehaviour:
@@ -3122,6 +3142,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!1 &543072724
 GameObject:
@@ -3227,6 +3249,8 @@ MonoBehaviour:
     yPourcentScale: 90
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!1 &550884168
 GameObject:
@@ -3295,6 +3319,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!114 &550884171
 MonoBehaviour:
@@ -4048,6 +4074,8 @@ MonoBehaviour:
     yPourcentScale: 103
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!114 &673011987
 MonoBehaviour:
@@ -4071,6 +4099,8 @@ MonoBehaviour:
     yPourcentScale: 117
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!1 &679226909
 GameObject:
@@ -4246,6 +4276,8 @@ MonoBehaviour:
     yPourcentScale: 95
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!114 &686633873
 MonoBehaviour:
@@ -4269,6 +4301,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!114 &686633874
 MonoBehaviour:
@@ -4292,6 +4326,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!1 &704884086
 GameObject:
@@ -4683,70 +4719,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: easyPercentage
-      value: 85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: hardPercentage
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: mediumPercentage
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: applause.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 9c63d703c6e05ad4d817cdb8c023e897, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: finish115.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: a28c034e4ff5da645b6df06616a74061, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: finish150.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: c20c131b6e0e90a4480b6aebe956c084, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: shotSound.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: f8f08adf0d3ba98438d14430faea4bd0, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: deathSound.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: cdff100136c4f1243a890d501ad4edc2, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: pauseEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: db764ea0785a62f40ae96b60d921ba2d, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: victory115.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 84d82cb741cef99419aaeb6d18d5b5a2, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: victory150.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 8db811cc0e188664f9ad08efdd1023fd, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: unpauseEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: f6b53440231bfb34f8903ac086a5d31b, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: fastMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 24532685a813f2740a4278feb47c8b5e, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: gameMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: menuMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 4660c70367555814a8926c5163cb5835, type: 2}
-    - target: {fileID: 4116768261202742273, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
-      propertyPath: slowMusicEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 553e48ce12ddede4290f5b587d3457a7, type: 2}
     - target: {fileID: 4116768261202742274, guid: 9f3bab42b1396ac4aab8ef0e0ee3be02, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5120,6 +5092,8 @@ MonoBehaviour:
   - {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0.5882353}
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5882353}
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!1 &797961496
 GameObject:
@@ -5317,6 +5291,8 @@ MonoBehaviour:
     yPourcentScale: 100.5
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!1 &864978158
 GameObject:
@@ -5660,7 +5636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6665952}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -361.32837, y: 41.337303}
+  m_AnchoredPosition: {x: -361.32837, y: 41.337307}
   m_SizeDelta: {x: 515.2599, y: 326.29465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913188916
@@ -7776,6 +7752,8 @@ MonoBehaviour:
     yPourcentScale: 90
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!114 &1416348219
 MonoBehaviour:
@@ -8157,6 +8135,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!1 &1513400110
 GameObject:
@@ -9293,6 +9273,8 @@ MonoBehaviour:
     yPourcentScale: 90
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!1 &1694801596
 GameObject:
@@ -10064,6 +10046,8 @@ MonoBehaviour:
     yPourcentScale: 90
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!1 &1801440307
 GameObject:
@@ -10484,6 +10468,8 @@ MonoBehaviour:
     yPourcentScale: 103
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!114 &1848810896
 MonoBehaviour:
@@ -10507,6 +10493,8 @@ MonoBehaviour:
     yPourcentScale: 117
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!1 &1857308726
 GameObject:
@@ -11920,6 +11908,8 @@ MonoBehaviour:
     yPourcentScale: 103
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!114 &2110001744
 MonoBehaviour:
@@ -11943,6 +11933,8 @@ MonoBehaviour:
     yPourcentScale: 117
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
 --- !u!1 &2124869473
 GameObject:

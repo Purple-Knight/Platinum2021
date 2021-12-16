@@ -5603,8 +5603,8 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 10
-    angle: 14.34
+    type: 4
+    angle: 41.62
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -5690,7 +5690,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.38
+      value: 0.4
       mode: 0
       spread: 0
       speed:
@@ -15141,6 +15141,8 @@ MonoBehaviour:
     yPourcentScale: 115
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 0
 --- !u!114 &6642323636812976676
 MonoBehaviour:
@@ -15164,6 +15166,8 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 1
 --- !u!114 &7895861061406589115
 MonoBehaviour:
@@ -15187,4 +15191,6 @@ MonoBehaviour:
   scaleNeed: []
   changeColor: 0
   colorNeed: []
+  changeSprite: 0
+  spriteNeed: []
   evenOrOdd: 2
