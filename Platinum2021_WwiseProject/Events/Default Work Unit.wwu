@@ -209,6 +209,65 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Victory" ID="{29A6A83A-922D-4746-878C-6295FCBE9252}" ShortID="288925255">
+					<ChildrenList>
+						<Event Name="Finish_115" ID="{DFED3AC9-279C-4F8F-B5FE-87306BD2C4E1}">
+							<ChildrenList>
+								<Action Name="" ID="{8660E423-C1A0-4014-AC7E-D57A668D99BC}" ShortID="698184874">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Finish_115" ID="{22E7E67C-DBB9-4A9D-BB8C-A26A6A4860F1}" WorkUnitID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Finish_150" ID="{F46ED341-7009-4A8E-8B04-6317548D93D7}">
+							<ChildrenList>
+								<Action Name="" ID="{7A261954-EF9A-4227-867B-CD3297DA744D}" ShortID="113044912">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Finish_150" ID="{B4C001C3-6BFA-4581-909A-5AC991AAAA31}" WorkUnitID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Aplause" ID="{A4F2CD4A-6ADD-4D54-B5E3-7FBF274A1647}">
+							<ChildrenList>
+								<Action Name="" ID="{04155E94-5A22-4AE8-A224-31373CB6994B}" ShortID="688557241">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Podium_Applause" ID="{C1E8E9B8-C401-4213-AD2F-00677564592A}" WorkUnitID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Victory_115" ID="{97E6F74F-6C83-4514-8B35-233E359290A7}">
+							<ChildrenList>
+								<Action Name="" ID="{BA63F6E4-3E5A-4243-8A79-289DAEEAC3D7}" ShortID="464748958">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Victory_115" ID="{961483F6-F91F-4424-9D11-F03699E04478}" WorkUnitID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Victory_150" ID="{36FE8BB5-0E76-4DDB-AE36-F14714907EC2}">
+							<ChildrenList>
+								<Action Name="" ID="{1DB24F49-AF98-4DF5-8AE1-DDA751AC9CF4}" ShortID="560185247">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Victory_150" ID="{A06AF747-B674-4FFC-BBC1-4921AAEC2C81}" WorkUnitID="{BAE440A7-07BA-48CC-9B7A-A437496E85E8}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
