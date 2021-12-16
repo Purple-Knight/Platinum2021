@@ -58,7 +58,7 @@ public class LevelGenerator : MonoBehaviour
         {
             Destroy(currentLevel.gameObject);
         }
-        int i = 0;
+        int i = Random.Range(0, maps.Count);
         do
         {
             i = Random.Range(0, maps.Count);
