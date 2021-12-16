@@ -27,6 +27,9 @@ public class FeelGEditor : Editor
         SerializedProperty colorChange = serializedObject.FindProperty("changeColor");
         SerializedProperty colorPourcent = serializedObject.FindProperty("colorNeed");
 
+        SerializedProperty spriteChange = serializedObject.FindProperty("changeSprite");
+        SerializedProperty spriteList = serializedObject.FindProperty("spriteNeed");
+
         #endregion
 
 
@@ -53,6 +56,12 @@ public class FeelGEditor : Editor
         if (colorChange.boolValue)
         {
             EditorGUILayout.PropertyField(colorPourcent);
+        }
+
+        EditorGUILayout.PropertyField(spriteChange);
+        if (spriteChange.boolValue)
+        {
+            EditorGUILayout.PropertyField(spriteList);
         }
 
         serializedObject.ApplyModifiedProperties();

@@ -22,6 +22,11 @@ public class FeelGood : MonoBehaviour
     public bool changeColor;
     public List<Color> colorNeed = new List<Color>();
 
+    //Sprites
+    public bool changeSprite;
+    public List<Sprite> spriteNeed = new List<Sprite>();
+    int spriteIndex = 0;
+
 
     public rythmRythm evenOrOdd;
     int number;
@@ -148,6 +153,14 @@ public class FeelGood : MonoBehaviour
                 sequence.Append(sr.DOColor(refsr.color, timeToDo / timeForAction));
                 sequence.Play();
             }
+
+            if(changeSprite)
+            {
+                spriteIndex++;
+                if (spriteIndex >= spriteNeed.Count) spriteIndex = 0;
+
+                sr.sprite = spriteNeed[spriteIndex];
+            }
         }
     }
     
@@ -199,9 +212,15 @@ public class FeelGood : MonoBehaviour
                 sequence.Append(im.DOColor(refim.color, timeToDo / timeForAction));
                 sequence.Play();
             }
+
+            if (changeSprite)
+            {
+                spriteIndex++;
+                if (spriteIndex >= spriteNeed.Count) spriteIndex = 0;
+
+                im.sprite = spriteNeed[spriteIndex];
+            }
         }
-
-
     }
 
 
