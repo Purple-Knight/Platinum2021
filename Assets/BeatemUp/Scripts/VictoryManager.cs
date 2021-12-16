@@ -88,7 +88,7 @@ public class VictoryManager : MonoBehaviour
             playerImage[i].sprite = characterSprites[playersData.allPlayerData[winnerOrder[i]].myCharID];
 
         }
-        for (int i = winnerOrder.Count; i < 3; i++)
+        for (int i = winnerOrder.Count; i < 4; i++)
         {
             playerImage[i].gameObject.SetActive(false);
         }

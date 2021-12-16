@@ -30,6 +30,7 @@ public class ComboCounter : MonoBehaviour
     public Transform TMP;
     private TextMeshProUGUI comboText;
     Vector3 initialScale;
+    public ParticleSystem comboParticles;
 
     #region Get / Set
     public int Combo {
@@ -72,6 +73,12 @@ public class ComboCounter : MonoBehaviour
         if(currentWeapon != null && Combo >= currentWeapon.ComboToUpgrade)
         {
             currentWeapon.Upgarde();
+
+            if(comboParticles != null)
+            {
+                comboParticles.startColor = currentWeapon.comboTextColor;
+                comboParticles.Play();
+            }
         }
 
         UpdateText();
