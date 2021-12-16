@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Rewired;
 using TMPro;
+using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -15,10 +16,13 @@ public class LevelLoader : MonoBehaviour
     //Ref ------------------------------------------
     public TextMeshProUGUI textLoad;
 
-    public TextMeshProUGUI difficultyLevel;
+    public Image difficultyLevel;
+    public GameObject pressA;
 
     private bool isOk;
-    
+
+    public List<Sprite> txtList = new List<Sprite>();
+
     private void Start()
     {
         checkController();
@@ -42,10 +46,9 @@ public class LevelLoader : MonoBehaviour
     
     public void LoadLevel(string levelToLoad)
     {
-        if(RhythmManager.Instance.bpm == BPM.BPM115) difficultyLevel.text = "Medium";
-        else difficultyLevel.text = "Hard oh yeah !";
-        
-        
+        if(RhythmManager.Instance.bpm == BPM.BPM115) difficultyLevel.sprite = txtList[0];
+        else difficultyLevel.sprite = txtList[1];
+
         StartCoroutine(LoadAsynchronously(levelToLoad));
     }
 
@@ -58,11 +61,12 @@ public class LevelLoader : MonoBehaviour
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            textLoad.text = "LOADING : " + (int)(progress * 100) + "%";
+            textLoad.text = "";//"LOADING : " + (int)(progress * 100) + "%";
             
             if (operation.progress >= 0.9f)
             {
-                textLoad.text = "PRESS A TO CONTINUE";
+                pressA.SetActive(true);
+                //textLoad.text = "PRESS A TO CONTINUE";
                 
                 foreach (var item in players)
                 {
