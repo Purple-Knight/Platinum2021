@@ -229,7 +229,7 @@ MonoBehaviour:
   - {fileID: 4341772016186868826}
   - {fileID: 1303335352592195472}
   - {fileID: 7996877755357090662}
-  mapSize: {x: 16, y: 9}
+  mapSize: {x: 15, y: 9}
 --- !u!1001 &211597641030207555
 PrefabInstance:
   m_ObjectHideFlags: 0

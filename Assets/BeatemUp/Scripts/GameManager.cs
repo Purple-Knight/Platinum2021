@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     EventManager eventManager;
     bool hasEvent = false;
     [SerializeField] Image winnerImage;
+    [SerializeField] Animator winnerAnim;
     [SerializeField] List<Sprite> victoryImages;
 
     [SerializeField] Animator endGameAnim;
@@ -109,7 +110,8 @@ public class GameManager : MonoBehaviour
             }
             players[playerAlive].BlockPlayerInput();
             winnerImage.sprite = victoryImages[playersData.allPlayerData[playerAlive].myCharID];
-            winnerImage.gameObject.SetActive(true);
+            winnerAnim.SetTrigger("Win");
+            RhythmManager.Instance.Victory();
             StartCoroutine(NextRound());
         }
 
@@ -154,7 +156,7 @@ public class GameManager : MonoBehaviour
     IEnumerator NextRound()
     {
         yield return new WaitForSecondsRealtime(3);
-        winnerImage.gameObject.SetActive(false);
+        winnerAnim.SetTrigger("End");
         spawnPoints = levelGen.SpawnNextMap();
         camera.SetStartPos(levelGen.transform.position);
         ResetPlayersBeforeEvent();

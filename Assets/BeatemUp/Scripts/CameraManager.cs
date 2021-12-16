@@ -28,7 +28,7 @@ public class CameraManager : MonoBehaviour
 
     public void SetStartPos(Vector2 borders)
     {
-        originalCameraSize = ((Mathf.Abs(borders.x)+1) * 2.5f / 9) *2;
+        originalCameraSize = (Mathf.Abs(borders.x) * 2.5f / 9f) *2f;
     }
 
     public void CameraShake()

@@ -24245,7 +24245,7 @@ MonoBehaviour:
   - {fileID: 7873643181860450086}
   - {fileID: 4833416822223828204}
   - {fileID: 4611478862729279514}
-  mapSize: {x: 18, y: 9}
+  mapSize: {x: 16, y: 9}
 --- !u!1 &6158471322800199191
 GameObject:
   m_ObjectHideFlags: 0

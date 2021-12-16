@@ -7,6 +7,7 @@ public class LevelGenerator : MonoBehaviour
     public List<GameObject> mapZone1;
     public List<GameObject> mapZone2;
     public List<GameObject> maps;
+    [SerializeField] float positionOffset = -1;
     //public List<Texture2D> map;
     int currentMap = 0;
 
@@ -66,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
         currentMap = i;
         currentLevel = Instantiate(maps[i], transform);
         MapManager manager = currentLevel.GetComponent<MapManager>();
-        transform.position = new Vector3((-manager.mapSize.x * gridSize.x) / 2, (manager.mapSize.y * gridSize.y) / 2 ,0) ;
+        transform.position = new Vector3((-manager.mapSize.x * gridSize.x) / 2f + positionOffset, (manager.mapSize.y * gridSize.y) / 2f  +positionOffset,0) ;
         foreach (Transform pos in manager.playerSpawnPoints)
         {
             playerSpawnPoints.Add(pos.position);

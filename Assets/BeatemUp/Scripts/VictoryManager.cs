@@ -80,6 +80,7 @@ public class VictoryManager : MonoBehaviour
         }
         isVictoryScreenActive = true;
         //RhythmManager.Instance.StopAllMusic();
+
         victoryCanvas.SetActive(true);
         playerName.sprite = playerNames[playersData.allPlayerData[winnerOrder[0]].myCharID];
         for (int i = 0; i < winnerOrder.Count; i++)
@@ -92,6 +93,7 @@ public class VictoryManager : MonoBehaviour
             playerImage[i].gameObject.SetActive(false);
         }
 
+        RhythmManager.Instance.Finish();
         /*playerNumberText.text = "Player " + playerNumber;
         playerImage.color = playerColor;*/
     }

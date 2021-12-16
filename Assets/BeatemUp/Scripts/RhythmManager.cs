@@ -18,6 +18,11 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] AK.Wwise.Event stopAllMusicEvent;
     [SerializeField] AK.Wwise.Event pauseEvent;
     [SerializeField] AK.Wwise.Event unpauseEvent;
+    [SerializeField] AK.Wwise.Event applause;
+    [SerializeField] AK.Wwise.Event victory115;
+    [SerializeField] AK.Wwise.Event victory150;
+    [SerializeField] AK.Wwise.Event finish115;
+    [SerializeField] AK.Wwise.Event finish150;
 
     [Header("       Beat")]
     public bool inMenu;
@@ -275,6 +280,36 @@ public class RhythmManager : MonoBehaviour
     {
         stopAllMusicEvent.Post(gameObject);
     }
+
+    public void Victory()
+    {
+        if(bpm == global::BPM.BPM115)
+        {
+            victory115.Post(this.gameObject);
+        }
+        else
+        {
+            victory150.Post(this.gameObject);
+        }
+    }
+
+    public void Finish()
+    {
+        if (bpm == global::BPM.BPM115)
+        {
+            finish115.Post(this.gameObject);
+        }
+        else
+        {
+            finish150.Post(this.gameObject);
+        }
+    }
+
+    public void Applause()
+    {
+        applause.Post(gameObject);
+    }
+
 
 }
 

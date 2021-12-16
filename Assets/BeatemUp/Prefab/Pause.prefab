@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnAwake: 0
-  timeToDo: 0.3
+  timeToDo: 0
   changePos: 1
   posNeed:
   - xPourcentScale: 0
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnAwake: 0
-  timeToDo: 0.3
+  timeToDo: 0
   changePos: 0
   posNeed:
   - xPourcentScale: 0
@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnAwake: 0
-  timeToDo: 0.3
+  timeToDo: 0
   changePos: 1
   posNeed:
   - xPourcentScale: 0
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnAwake: 0
-  timeToDo: 0.3
+  timeToDo: 0
   changePos: 0
   posNeed:
   - xPourcentScale: 0
@@ -2336,7 +2336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnAwake: 0
-  timeToDo: 0.3
+  timeToDo: 0
   changePos: 0
   posNeed:
   - xPourcentScale: 0
