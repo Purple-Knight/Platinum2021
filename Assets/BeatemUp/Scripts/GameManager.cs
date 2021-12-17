@@ -55,8 +55,11 @@ public class GameManager : MonoBehaviour
     {
         playersAlive = new List<bool>();
         players = new List<PlayerManager>();
-        numOfPlayerAlive = playersData.numberOfPlayer; 
+        numOfPlayerAlive = playersData.numberOfPlayer;
+        //Debug.Log(" before" + playerWins.Length);
         playerWins = new int[numOfPlayerAlive];
+        Debug.Log(playerWins.Length);
+
         for (int i = 0; i < numOfPlayerAlive; i++)
         {
             APlayerData data = playersData.allPlayerData[i];
@@ -178,6 +181,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         endGameAnim.SetTrigger("Countdown");
+        StartCoroutine(VictoryScreenSafty());
     }
 
     public void VictoryScreen()
@@ -187,6 +191,7 @@ public class GameManager : MonoBehaviour
         eventManager.PlaybackSpeedOriginal();
         //List<int> winners = CheckWinner();
         //APlayerData data = playersData.allPlayerData[winners[0]];
+        //
         VictoryManager.Instance.InstantiateVictoryScene(playerWins);
     }
 
@@ -194,6 +199,7 @@ public class GameManager : MonoBehaviour
     {
         int winner = 0;
         List<int> winners = new List<int>();
+        winners.Clear();
         bool multipleWinner = false;
         for (int i = 1; i < playerWins.Length; i++)
         {
@@ -247,5 +253,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         SceneManager.LoadScene(sceneToLoad);
+    }
+
+    IEnumerator VictoryScreenSafty()
+    {
+        yield return new WaitForSeconds(7);
+        VictoryManager.Instance.IsVictoryActive(playerWins);
     }
 }

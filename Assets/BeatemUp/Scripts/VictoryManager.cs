@@ -97,4 +97,12 @@ public class VictoryManager : MonoBehaviour
         /*playerNumberText.text = "Player " + playerNumber;
         playerImage.color = playerColor;*/
     }
+
+    public void IsVictoryActive(int[] winners)
+    {
+        if (!isVictoryScreenActive)
+        {
+            InstantiateVictoryScene(winners);
+        }
+    }
 }

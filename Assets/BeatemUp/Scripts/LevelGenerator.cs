@@ -59,11 +59,11 @@ public class LevelGenerator : MonoBehaviour
             Destroy(currentLevel.gameObject);
         }
         int i = Random.Range(0, maps.Count);
-        do
+        while (currentMap == i && maps.Count > 1)
         {
             i = Random.Range(0, maps.Count);
 
-         } while (currentMap == i);
+        } 
         currentMap = i;
         currentLevel = Instantiate(maps[i], transform);
         MapManager manager = currentLevel.GetComponent<MapManager>();
