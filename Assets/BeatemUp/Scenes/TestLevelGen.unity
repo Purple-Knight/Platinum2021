@@ -1108,7 +1108,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 80966823879105725, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 693046433660492606, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1175,6 +1175,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4675536604758143041, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1092274546}
+    - target: {fileID: 4675536604758143041, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: playerImage.Array.data[3]
       value: 
       objectReference: {fileID: 1370023382}
@@ -1228,7 +1232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4933950081181563036, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5845586086853726992, guid: 4f3f7650eabe35e4eab38fb81761a94b, type: 3}
       propertyPath: m_RootOrder

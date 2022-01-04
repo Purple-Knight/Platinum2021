@@ -18,6 +18,7 @@ public class VictoryManager : MonoBehaviour
     private bool isVictoryScreenActive = false;
     private List<Player> players = new List<Player>();
     PlayersData playersData;
+    [SerializeField] Animator anim;
 
 
     private void Awake()
@@ -82,6 +83,7 @@ public class VictoryManager : MonoBehaviour
         //RhythmManager.Instance.StopAllMusic();
 
         victoryCanvas.SetActive(true);
+        anim.SetTrigger("Victory");
         playerName.sprite = playerNames[playersData.allPlayerData[winnerOrder[0]].myCharID];
         for (int i = 0; i < winnerOrder.Count; i++)
         {

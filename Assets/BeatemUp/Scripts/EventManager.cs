@@ -58,7 +58,7 @@ public class EventManager : MonoBehaviour
 
     public void StartEvent()
     {
-        if(RhythmManager.Instance.level == Level.Medium)
+        if(Random.Range(0 , 2) < 1)
         {
             speedUp = true;
             eventImage.sprite = images[0];

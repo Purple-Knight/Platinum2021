@@ -46,7 +46,7 @@ MonoBehaviour:
   menuMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d252c6e7e7c69b841afd1bf138b397ba, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 2b2d6f3afac75464b8f37b2cd031279f, type: 2}
   slowMusicEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -54,7 +54,7 @@ MonoBehaviour:
   fastMusicEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1a9bc06d68979bc4d9c913c17c609d6d, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 9ca65d0bcc1297948b389b321b7579ad, type: 2}
   stopAllMusicEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -70,23 +70,23 @@ MonoBehaviour:
   applause:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: e4ecff6bf9bab1841bc0ac27e9d83dbf, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: cfdc15f9ee8d9a8458e767117af497fd, type: 2}
   victory115:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 5dad3282ea51e684592fa6cd2309809e, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 775a68bd61bed7345b4ce89ea4cf3c87, type: 2}
   victory150:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 5d244f709dd54a343825531798725028, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: b08eb2f3f65c0254182e4f514aad0033, type: 2}
   finish115:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: dcec64eafd35bdd48bc1449fd45e0670, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: bfeca9c31dd63614fb33e7af29ae3408, type: 2}
   finish150:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: a5bc0f860b756dc458829a8cde12e611, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: f40fbaa3896684d4fb0327d7b144085f, type: 2}
   inMenu: 1
   numberOfBeat: 636.2761
   timeBeforeStart: 0.5

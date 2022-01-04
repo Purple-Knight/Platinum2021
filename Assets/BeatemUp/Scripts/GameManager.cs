@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
         ResetPlayersBeforeEvent();
         camera.ResetCamera();
         currentRound++;
-        if (currentRound == 4)
+        if (Random.Range(0, 5) < 1 && currentRound != 0)
         {
             hasEvent = true;
             endGameAnim.SetTrigger("StartEvent");
@@ -173,13 +173,16 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-        endGameAnim.SetTrigger("StartRound");
+            endGameAnim.SetTrigger("StartRound");
         }
     }
 
 
     public void EndGame()
     {
+        endGameAnim.ResetTrigger("StartRound");
+        endGameAnim.ResetTrigger("StartEvent");
+
         endGameAnim.SetTrigger("Countdown");
         StartCoroutine(VictoryScreenSafty());
     }
